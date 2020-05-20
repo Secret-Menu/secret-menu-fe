@@ -4,7 +4,7 @@ const sampleState = {
     firstName: 'Josh',
     lastName: 'Ford',
     email: 'thisisjoshford@gmail.com',
-    role: 'foodie',
+    role: 'user',
     website: '',
     address: {
       street: '',
