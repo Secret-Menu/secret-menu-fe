@@ -82,3 +82,15 @@ export const useLogIn = () => {
     handleLogIn
   };
 };
+
+export const useCurrentUser = () => {
+  const user = useSelector(getAuthUser);
+
+  useEffect(() => {
+    if(!user) {
+      
+    }
+  }, [user]);
+
+  return user
+}
