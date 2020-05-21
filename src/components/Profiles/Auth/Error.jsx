@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default Error = ({ error }) => (
+const Error = ({ error }) => (
   <>
-    {errpr && <p>{error}</p>}
+    {error && <p>{error}</p>}
   </>
 );
 
 Error.propTypes = {
   error: PropTypes.string
 };
+
+export default Error;
