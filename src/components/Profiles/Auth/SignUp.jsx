@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { postSignUp } from '../../../services/auth-api';
 import { useDispatch } from 'react-redux';
 import { signup } from '../../../actions/authActions';
+import { getAuthError } from '../../../selectors/authSelectors';
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ export default function SignUp() {
   return (
     <div>
       <h2>Sign Up</h2>
+      {error && <p>{error}</p>}
       <form onSubmit={handleSignUp}>
         <input type="text" value={firstName} onChange={({ target }) => setFirstName(target.value)} placeholder="First name" />
         <input type="text" value={lastName} onChange={({ target }) => setLastName(target.value)} placeholder="Last name" />
