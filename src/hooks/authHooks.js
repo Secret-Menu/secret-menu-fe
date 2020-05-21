@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { signup, login } from '../actions/authActions';
+import { signup, login, verify } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 
 export const useSignUp = () => {
@@ -84,11 +84,12 @@ export const useLogIn = () => {
 };
 
 export const useCurrentUser = () => {
+  const dispatch = useDispatch();
   const user = useSelector(getAuthUser);
 
   useEffect(() => {
     if(!user) {
-      
+      dispatch(verify());
     }
   }, [user]);
 

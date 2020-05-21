@@ -1,4 +1,4 @@
-import { postSignUp, postLogIn } from "../services/auth-api";
+import { postSignUp, postLogIn, getVerify } from "../services/auth-api";
 
 export const SET_USER = 'SET_USER';
 export const SET_USER_ERROR = 'SET_USER_ERROR';
