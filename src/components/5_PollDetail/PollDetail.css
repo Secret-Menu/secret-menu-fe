@@ -1,0 +1,39 @@
+.PollDetail {
+  button {
+    display: none;
+  }
+}
+
+.PollModalDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    margin: 10px;
+  }
+}
+
+.PollBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px; 
+  width: 300px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.Orderings {
+  display: flex;
+  margin: 10px;
+}
+
+.Offering {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}

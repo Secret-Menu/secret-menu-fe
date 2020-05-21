@@ -8,6 +8,7 @@ import SignUp from '../Profiles/Auth/SignUp';
 import LogIn from '../Profiles/Auth/LogIn';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 import PrivateRoute from '../Profiles/Auth/PrivateRoute';
+import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <PrivateRoute exact path="/" component={CrowdPleaser} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
+          <Route path="/restaurant" component={RestaurantDetail} />
         </Switch>
       </Router>
     </div>
