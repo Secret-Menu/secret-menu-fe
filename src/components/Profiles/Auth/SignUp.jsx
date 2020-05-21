@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
+import Error from './Error';
 
 export default function SignUp() {
   const {
@@ -17,7 +18,7 @@ export default function SignUp() {
   return (
     <div>
       <h2>Sign Up</h2>
-      {error && <p>{error}</p>}
+      <Error error={error} />
       <form onSubmit={handleSignUp}>
         <input type="text" value={firstName} name="firstName" onChange={handleChange} placeholder="First name" />
         <input type="text" value={lastName} name="lastName" onChange={handleChange} placeholder="Last name" />
