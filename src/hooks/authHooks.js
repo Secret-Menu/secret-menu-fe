@@ -30,9 +30,17 @@ export const useSignUp = () => {
     if(target.name === 'role') setRole(target.value);
   }
 
+  const newUser = {
+    firstName,
+    lastName,
+    email,
+    password,
+    role
+  };
+
   const handleSignUp = event => {
     event.preventDefault();
-    dispatch(signup(firstName, lastName, email, password, role))
+    dispatch(signup(newUser))
   };
 
   return {

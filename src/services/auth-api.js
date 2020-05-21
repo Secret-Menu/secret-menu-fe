@@ -1,15 +1,15 @@
-export const postSignUp = (firstName, lastName, email, password, role) => {
+export const postSignUp = (newUser) => {
   return fetch(`${process.env.API_URL}/api/v1/auth/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      firstName,
-      lastName,
-      email,
-      password,
-      role
+      firstName: newUser.firstName,
+      lastName: newUser.lastName,
+      email: newUser.email,
+      password: newUser.password,
+      role: newUser.role
     }),
     credentials: 'include'
   })
