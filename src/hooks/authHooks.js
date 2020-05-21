@@ -28,7 +28,7 @@ export const useSignUp = () => {
     if(target.name === 'email') setEmail(target.value);
     if(target.name === 'password') setPassword(target.value);
     if(target.name === 'role') setRole(target.value);
-  }
+  };
 
   const newUser = {
     firstName,
@@ -40,7 +40,7 @@ export const useSignUp = () => {
 
   const handleSignUp = event => {
     event.preventDefault();
-    dispatch(signup(newUser))
+    dispatch(signup(newUser));
   };
 
   return {
@@ -74,11 +74,11 @@ export const useLogIn = () => {
   const handleChange = ({ target }) => {
     if(target.name === 'email') setEmail(target.value);
     if(target.name === 'password') setPassword(target.value);
-  }
+  };
 
   const handleLogIn = event => {
     event.preventDefault();
-    dispatch(login(email, password))
+    dispatch(login(email, password));
   };
 
   return {
@@ -101,5 +101,5 @@ export const useCurrentUser = () => {
     }
   }, [user]);
 
-  return user
-}
+  return user;
+};

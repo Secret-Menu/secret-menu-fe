@@ -13,7 +13,7 @@ export default function reducer(state = initialState, action) {
     case SET_USER_ERROR:
       return { ...state, error: action.payload, loading: false };
     case SET_USER_LOADING:
-      return { ...state, loading: true }
+      return { ...state, loading: true };
     default:
       return state;
   }
