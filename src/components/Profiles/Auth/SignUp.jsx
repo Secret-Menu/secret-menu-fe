@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import request from 'superagent';
+import { postSignUp } from '../../../services/auth-api';
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState('');
@@ -10,7 +10,7 @@ export default function SignUp() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // signup function goes here
+    postSignUp(firstName, lastName, email, password, role);
   };
 
   return (
@@ -22,9 +22,9 @@ export default function SignUp() {
         <input type="text" value={email} onChange={({ target }) => setEmail(target.value)} placeholder="Email address" />
         <input type="password" value={password} onChange={({ target }) => setPassword(target.value)} placeholder="Create password" />
         <label htmlFor="user">User</label>
-        <input type="radio" value="User" name="role" id="user" checked={role === 'User'}/>
+        <input type="radio" value="User" name="role" id="user" onChange={({ target }) => setRole(target.value)} checked={role === 'User'}/>
         <label htmlFor="restaurant">Restaurant Owner</label>
-        <input type="radio" value="Restaurant" name="role" id="restaurant" checked={role === 'Restaurant'} />
+        <input type="radio" value="Restaurant" name="role" id="restaurant" onChange={({ target }) => setRole(target.value)} checked={role === 'Restaurant'} />
         <button>Sign Up</button>
       </form>
     </div>
