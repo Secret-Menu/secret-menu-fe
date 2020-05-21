@@ -1,7 +1,6 @@
 import { useState } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { signup } from '../actions/authActions';
+import { signup, login } from '../actions/authActions';
 import { getAuthError, getAuthLoading } from '../selectors/authSelectors';
 
 export const useSignUp = () => {
@@ -35,7 +34,36 @@ export const useSignUp = () => {
     lastName,
     email,
     password,
+    role,
     handleChange,
     handleSignUp
+  };
+};
+
+export const useLogIn = () => {
+  const dispatch = useDispatch();
+  const error = useSelector(getAuthError);
+  const loading = useSelector(getAuthLoading);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = ({ target }) => {
+    if(target.name === 'email') setEmail(target.value);
+    if(target.name === 'password') setPassword(target.value);
+  }
+
+  const handleLogIn = event => {
+    event.preventDefault();
+    dispatch(login(email, password))
+  };
+
+  return {
+    error,
+    loading,
+    email,
+    password,
+    handleChange,
+    handleLogIn
   };
 };
