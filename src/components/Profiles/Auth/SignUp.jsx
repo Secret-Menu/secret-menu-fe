@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../actions/authActions';
-import { getAuthError } from '../../../selectors/authSelectors';
+import { getAuthError, getAuthLoading } from '../../../selectors/authSelectors';
 
 export default function SignUp() {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
-  
+  const loading = useSelector(getAuthLoading);
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ export default function SignUp() {
         <input type="radio" value="User" name="role" id="user" onChange={({ target }) => setRole(target.value)} checked={role === 'User'}/>
         <label htmlFor="restaurant">Restaurant Owner</label>
         <input type="radio" value="Restaurant" name="role" id="restaurant" onChange={({ target }) => setRole(target.value)} checked={role === 'Restaurant'} />
-        <button>Sign Up</button>
+        <button disabled={loading}>Sign Up</button>
       </form>
     </div>
   );

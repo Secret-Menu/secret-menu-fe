@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../actions/authActions';
-import { getAuthError } from '../../../selectors/authSelectors';
+import { getAuthError, getAuthLoading } from '../../../selectors/authSelectors';
 
 export default function LogIn() {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
+  const loading = useSelector(getAuthLoading);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +23,7 @@ export default function LogIn() {
       <form onSubmit={handleLogIn}>
         <input type="text" value={email} onChange={({ target }) => setEmail(target.value)} placeholder="Email address" />
         <input type="password" value={password} onChange={({ target }) => setPassword(target.value)} placeholder="Password" />
-        <button>Log In</button>
+        <button disabled={loading}>Log In</button>
       </form>
     </div>
   );
