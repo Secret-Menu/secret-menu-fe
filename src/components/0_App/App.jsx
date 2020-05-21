@@ -5,7 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import SignUp from '../Profiles/Auth/SignUp';
-import LogIn from '../Profiles/Auth/Login';
+import LogIn from '../Profiles/Auth/LogIn';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 import PrivateRoute from '../Profiles/Auth/PrivateRoute';
 
