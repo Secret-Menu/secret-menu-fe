@@ -36,3 +36,14 @@ export const postLogIn = (email, password) => {
     return json;
   })
 };
+
+export const getVerify = () => {
+  return fetch(`${process.env.API_URL}/api/v1/auth/login`, {
+    method: 'GET'
+  })
+  .then(res => Promise.all([res.ok, res.json()]))
+  .then(([ok, json]) => {
+    if(!ok) throw json;
+    return json;
+  })
+}
