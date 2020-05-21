@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../actions/authActions';
+import { getAuthError } from '../../../selectors/authSelectors';
 
 export default function LogIn() {
   const dispatch = useDispatch();
+  const error = useSelector(getAuthError);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,6 +18,7 @@ export default function LogIn() {
   return (
     <div>
       <h2>Log In</h2>
+      {error && <p>{error}</p>}
       <form onSubmit={handleLogIn}>
         <input type="text" value={email} onChange={({ target }) => setEmail(target.value)} placeholder="Email address" />
         <input type="password" value={password} onChange={({ target }) => setPassword(target.value)} placeholder="Password" />
