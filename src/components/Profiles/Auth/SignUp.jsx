@@ -8,7 +8,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('User');
 
-  const handleSubmit = event => {
+  const handleSignUp = event => {
     event.preventDefault();
     postSignUp(firstName, lastName, email, password, role);
   };
@@ -16,7 +16,7 @@ export default function SignUp() {
   return (
     <div>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSignUp}>
         <input type="text" value={firstName} onChange={({ target }) => setFirstName(target.value)} placeholder="First name" />
         <input type="text" value={lastName} onChange={({ target }) => setLastName(target.value)} placeholder="Last name" />
         <input type="text" value={email} onChange={({ target }) => setEmail(target.value)} placeholder="Email address" />
