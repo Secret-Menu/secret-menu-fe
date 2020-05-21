@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../../actions/authActions';
 import { getAuthError } from '../../../selectors/authSelectors';
 
 export default function SignUp() {
   const dispatch = useDispatch();
+  const error = useSelector(getAuthError);
+  
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');

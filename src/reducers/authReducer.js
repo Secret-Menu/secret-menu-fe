@@ -2,7 +2,8 @@ import { SET_USER, SET_USER_ERROR } from '../actions/authActions';
 
 const initialState = {
   user: null,
-  error: null
+  error: null,
+  loading: false
 };
 
 export default function reducer(state = initialState, action) {
