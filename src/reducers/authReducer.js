@@ -1,4 +1,4 @@
-import { SIGNUP } from '../actions/authActions';
+import { SET_USER } from '../actions/authActions';
 
 const initialState = {
   user: null
@@ -6,9 +6,8 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
-    case SIGNUP:
+    case SET_USER:
       return {...state, user: action.payload };
-
     default:
       return state;
   }

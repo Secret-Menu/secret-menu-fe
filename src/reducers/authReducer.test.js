@@ -14,6 +14,7 @@ describe('auth reducer', () => {
         firstName: 'Jenna',
         lastName: 'Goldman',
         email: 'jenna@test.com',
+        role: 'User'
       }
     };
 
@@ -24,7 +25,8 @@ describe('auth reducer', () => {
         _id: '12345',
         firstName: 'Jenna',
         lastName: 'Goldman',
-        email: 'jenna@test.com'
+        email: 'jenna@test.com',
+        role: 'User'
       }
     });
   });

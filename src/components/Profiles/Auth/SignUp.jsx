@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { postSignUp } from '../../../services/auth-api';
+import { useDispatch } from 'react-redux';
+import { signup } from '../../../actions/authActions';
 
 export default function SignUp() {
+  const dispatch = useDispatch();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -10,7 +13,7 @@ export default function SignUp() {
 
   const handleSignUp = event => {
     event.preventDefault();
-    postSignUp(firstName, lastName, email, password, role);
+    dispatch(signup(firstName, lastName, email, password, role))
   };
 
   return (

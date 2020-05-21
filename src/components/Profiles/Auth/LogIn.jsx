@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { postLogIn } from '../../../services/auth-api';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../actions/authActions';
 
 export default function LogIn() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogIn = event => {
     event.preventDefault();
-    postLogIn(email, password);
+    dispatch(login(email, password))
   };
+
   return (
     <div>
       <h2>Log In</h2>
