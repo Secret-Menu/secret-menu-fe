@@ -2,6 +2,15 @@
 
 exports[`App component renders App 1`] = `
 <div>
-  <SignUp />
+  <BrowserRouter>
+    <Route
+      component={[Function]}
+      path="/signup"
+    />
+    <Route
+      component={[Function]}
+      path="/login"
+    />
+  </BrowserRouter>
 </div>
 `;

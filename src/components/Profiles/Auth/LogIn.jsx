@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { postLogin } from '../../../services/auth-api';
 
 export default function LogIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogIn = event => {
+    event.preventDefault();
+    postLogin(email, password);
+  };
   return (
     <div>
       <h2>Log In</h2>
