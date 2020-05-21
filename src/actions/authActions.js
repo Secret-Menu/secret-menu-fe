@@ -10,7 +10,6 @@ export const authActionCreatorCreator = authFn => (email, password) => dispatch 
   
   authFn(email, password)
     .then(user => {
-      // then dispatch another action to our reducer
       dispatch({
         type: SET_USER,
         payload: user
@@ -25,7 +24,7 @@ export const authActionCreatorCreator = authFn => (email, password) => dispatch 
 };
 
 export const logout = () => dispatch => {
-  getLogout()
+  getLogOut()
     .then(() => {
       dispatch({
         type: SET_USER,
@@ -34,6 +33,6 @@ export const logout = () => dispatch => {
     });
 };
 
-export const signup = authActionCreatorCreator(postSignup);
-export const login = authActionCreatorCreator(postLogin);
+export const signup = authActionCreatorCreator(postSignUp);
+export const login = authActionCreatorCreator(postLogIn);
 export const verify = authActionCreatorCreator(getVerify);

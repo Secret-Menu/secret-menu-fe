@@ -1,5 +1,5 @@
 export const postSignUp = (firstName, lastName, email, password, role) => {
-  return fetch('http://localhost:7890/api/v1/auth/signup', {
+  return fetch(`${process.env.API_URL}/api/v1/auth/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -11,7 +11,12 @@ export const postSignUp = (firstName, lastName, email, password, role) => {
       password,
       role
     })
-  });
+  })
+  .then(res => Promise.all([res.ok, res.json()]))
+  .then(([ok, json]) => {
+    if(!ok) throw json;
+    return json;
+  })
 }
 
 export const postLogIn = (email, password) => {
