@@ -37,3 +37,20 @@ export const login = (email, password) => dispatch => {
       });
     });
 };
+
+export const verify = (email, password) => dispatch => {
+  dispatch({type: SET_USER_LOADING});
+  getVerify(email, password)
+    .then(user => {
+      dispatch({
+        type: SET_USER,
+        payload: user
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: SET_USER_ERROR,
+        payload: err.message
+      });
+    });
+};
