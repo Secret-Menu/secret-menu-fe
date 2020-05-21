@@ -38,7 +38,7 @@ export const postLogIn = (email, password) => {
 };
 
 export const getVerify = () => {
-  return fetch(`${process.env.API_URL}/api/v1/auth/login`, {
+  return fetch(`${process.env.API_URL}/api/v1/auth/verify`, {
     method: 'GET'
   })
   .then(res => Promise.all([res.ok, res.json()]))
