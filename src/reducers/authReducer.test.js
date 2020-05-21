@@ -1,4 +1,4 @@
-import { SIGNUP } from "../actions/authActions";
+import { SET_USER } from "../actions/authActions";
 import reducer from './authReducer';
 
 describe('auth reducer', () => {
@@ -8,7 +8,7 @@ describe('auth reducer', () => {
     }
 
     const action = {
-      type: SIGNUP,
+      type: SET_USER,
       payload: {
         _id: '12345',
         firstName: 'Jenna',
@@ -21,6 +21,7 @@ describe('auth reducer', () => {
     const newState = reducer(state, action);
 
     expect(newState).toEqual({
+      loading: false,
       user: {
         _id: '12345',
         firstName: 'Jenna',

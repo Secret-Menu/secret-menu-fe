@@ -3,7 +3,7 @@ import { SET_USER, SET_USER_ERROR, SET_USER_LOADING } from '../actions/authActio
 const initialState = {
   user: null,
   error: null,
-  loading: false
+  loading: true
 };
 
 export default function reducer(state = initialState, action) {

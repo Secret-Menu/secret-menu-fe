@@ -10,7 +10,8 @@ export const postSignUp = (firstName, lastName, email, password, role) => {
       email,
       password,
       role
-    })
+    }),
+    credentials: 'include'
   })
   .then(res => Promise.all([res.ok, res.json()]))
   .then(([ok, json]) => {
@@ -28,7 +29,8 @@ export const postLogIn = (email, password) => {
     body: JSON.stringify({
       email,
       password
-    })
+    }),
+    credentials: 'include'
   })
   .then(res => Promise.all([res.ok, res.json()]))
   .then(([ok, json]) => {
@@ -39,7 +41,8 @@ export const postLogIn = (email, password) => {
 
 export const getVerify = () => {
   return fetch(`${process.env.API_URL}/api/v1/auth/verify`, {
-    method: 'GET'
+    method: 'GET',
+    credentials: 'include'
   })
   .then(res => Promise.all([res.ok, res.json()]))
   .then(([ok, json]) => {

@@ -3,14 +3,21 @@
 exports[`App component renders App 1`] = `
 <div>
   <BrowserRouter>
-    <Route
-      component={[Function]}
-      path="/signup"
-    />
-    <Route
-      component={[Function]}
-      path="/login"
-    />
+    <Switch>
+      <PrivateRoute
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/signup"
+      />
+      <Route
+        component={[Function]}
+        path="/login"
+      />
+    </Switch>
   </BrowserRouter>
 </div>
 `;

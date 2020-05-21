@@ -8,7 +8,7 @@ export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
   const loading = useSelector(getAuthLoading);
-  const user = useSelector(getAuthUser);
+  const user = useCurrentUser();
 
   const history = useHistory();
 
@@ -52,7 +52,7 @@ export const useLogIn = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
   const loading = useSelector(getAuthLoading);
-  const user = useSelector(getAuthUser);
+  const user = useCurrentUser();
 
   const history = useHistory();
 
