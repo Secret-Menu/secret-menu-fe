@@ -1,14 +1,10 @@
 import React from 'react';
-
-export default function App() {
-  return <h1>Hello World</h1>;
-};
-import React from 'react';
-
+import AreaMap from '../2_AreasMap/AreasMap';
 export default function App() {
   return (
-    <div>
-      
-    </div>
-  )
+    <>
+      <h1>App.js</h1>
+      <AreaMap />
+    </>
+  );
 }
