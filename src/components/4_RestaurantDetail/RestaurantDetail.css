@@ -1,19 +1,31 @@
 .RestaurantDetail {
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    list-style-type: none;
-    margin: 50px;
-  }
-  
   .RestaurantTop {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+
+    img {
+      height: 200px;
+      width: 300px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
   .RestaurantMain {
     text-align: center;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      list-style-type: none;
+      margin: 50px;
+    }
   }
 
   .Polls {

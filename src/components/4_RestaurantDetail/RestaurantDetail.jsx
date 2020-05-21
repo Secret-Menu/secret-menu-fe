@@ -6,20 +6,22 @@ import PollCarousel from '../5_PollDetail/PollCarousel';
 export default function RestaurantDetail() {
   const restaurant = {
     address: {
-      'streetAddress': '456 Main St.',
-      'city': 'Portland',
-      'state': 'OR',
-      'zipcode': 97218
+      streetAddress: '789 Main St.',
+      city: 'Portland',
+      state: 'OR',
+      zipcode: 97218
     },
-    _id: '5ec6d024caec760377a4e2a6',
-    restaurantName: 'Chris\' Bamboo Grove',
-    phoneNumber: '503-555-6666',
-    category: 'Other',
-    quadrant: 'Southwest',
-    description: 'Bamboo Grove description goes here',
-    imageUrl: 'https://www.hawaiimagazine.com/sites/default/files/sites/default/files/Hawaiian-food-ThinkstockPhotos-488006550.jpg',
-    websiteUrl: 'https://chrisbamboogrove.com',
-    email: 'chris@bamboogrove.com'
+    _id: '5ec70ee38354c34afaa9bc2b',
+    restaurantName: 'Josh\'s Vegan Palace',
+    phoneNumber: '503-555-7777',
+    category: 'American',
+    quadrant: 'Northeast',
+    lat: 45.5446,
+    lng: -122.664385,
+    description: 'Josh\'s Vegan Palace description goes here',
+    imageUrl: 'https://images.immediate.co.uk/production/volatile/sites/2/2017/04/carot-falafel_charlie-richards.cropped.jpg?quality=45&resize=768,574',
+    websiteUrl: 'https://joshsveganpalace.com',
+    email: 'hello@joshsveganpalace.com'
   };
   const offerings = [
     {
@@ -125,8 +127,30 @@ export default function RestaurantDetail() {
   });
 
   return (
-    <div className={styles.RestaurantDetail}>
-      <h1>Restaurant Info</h1> 
+    <article className={styles.RestaurantDetail}>
+      <section className={styles.RestaurantTop}>
+        <div>
+          <a href="/">{restaurant.quadrant}</a>
+          <h3>{restaurant.restaurantName}</h3>
+          <img src={restaurant.imageUrl} />
+          <ul>
+            <li>{restaurant.address.streetAddress}</li>
+            <li>{restaurant.address.city}</li>
+            <li>{restaurant.address.state}</li>
+            <li>{restaurant.address.zipcode}</li>
+          </ul>
+          <p>{restaurant.description}</p>
+        </div>
+        <div>
+          <h3>{restaurant.phoneNumber}</h3>
+          <h3>{restaurant.category}</h3>
+        </div>
+        <div>
+          MAP
+        </div>
+
+
+      </section>
       <section className={styles.RestaurantMain}>
         <h2>Live Votes</h2>
         <div className={styles.Polls}>
@@ -139,6 +163,6 @@ export default function RestaurantDetail() {
           {offeringNodes}
         </ul>
       </section>
-    </div>
+    </article>
   );
 }
