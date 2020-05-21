@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { postLogin } from '../../../services/auth-api';
+import { postLogIn } from '../../../services/auth-api';
 
 export default function LogIn() {
   const [email, setEmail] = useState('');
@@ -7,7 +7,7 @@ export default function LogIn() {
 
   const handleLogIn = event => {
     event.preventDefault();
-    postLogin(email, password);
+    postLogIn(email, password);
   };
   return (
     <div>

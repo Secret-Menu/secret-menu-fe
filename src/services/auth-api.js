@@ -14,7 +14,7 @@ export const postSignUp = (firstName, lastName, email, password, role) => {
   });
 }
 
-export const postLogin = (email, password) => {
+export const postLogIn = (email, password) => {
   return fetch('http://localhost:7890/api/v1/auth/login', {
     method: 'POST',
     headers: {
@@ -25,4 +25,16 @@ export const postLogin = (email, password) => {
       password
     })
   });
+}
+
+export const getLogOut = () => {
+  return fetch('http://localhost:7890/api/v1/auth/logout', {
+    method: 'GET'
+  })
+}
+
+export const getVerify = () => {
+  return fetch('http://localhost:7890/api/v1/auth/verify', {
+    method: 'GET'
+  })
 }
