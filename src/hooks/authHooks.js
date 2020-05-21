@@ -1,18 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { signup, login } from '../actions/authActions';
-import { getAuthError, getAuthLoading } from '../selectors/authSelectors';
+import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 
 export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
   const loading = useSelector(getAuthLoading);
+  const user = useSelector(getAuthUser);
+
+  const history = useHistory();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('User');
+
+  useEffect(() => {
+    if(user) history.push('/');
+  }, [user]);
 
   const handleChange = ({ target }) => {
     if(target.name === 'firstName') setFirstName(target.value);
@@ -44,9 +52,16 @@ export const useLogIn = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
   const loading = useSelector(getAuthLoading);
+  const user = useSelector(getAuthUser);
+
+  const history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if(user) history.push('/');
+  }, [user]);
 
   const handleChange = ({ target }) => {
     if(target.name === 'email') setEmail(target.value);
