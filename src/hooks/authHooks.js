@@ -19,7 +19,8 @@ export const useSignUp = () => {
   const [role, setRole] = useState('User');
 
   useEffect(() => {
-    if(user) history.push('/');
+    if(user && user.role === 'User') history.push('/');
+    if(user && user.role === 'Restaurant') history.push('/restaurantregister');
   }, [user]);
 
   const handleChange = ({ target }) => {
