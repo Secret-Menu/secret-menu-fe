@@ -1,1 +1,1 @@
-export const getAreaState = state => state.areaRestaurants;
+export const getAreaSelector = state => state.areaRestaurants;

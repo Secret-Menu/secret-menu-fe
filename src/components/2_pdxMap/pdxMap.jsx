@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import { Link } from 'react-router-dom';
 
 export default function PDXMap() {
   const center = {
@@ -23,6 +24,7 @@ export default function PDXMap() {
             text="My Marker"
           /> */}
         </GoogleMapReact>
+        <Link to={'/portland/Northwest'}>NW</Link>
       </div>
     </div>
   );
