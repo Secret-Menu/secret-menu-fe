@@ -1,18 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const LogInSignUp = () => {
 
   return (
   <>
-    <Link to="/login">
-      <Button>Log In</Button>
-    </Link>
-    <Link to="/signup">
-      <Button>SignUp</Button>
-    </Link>
+  
+  <Link to="/login"> <button type="button">Log In</button> </Link>
+  <Link to="/signup"> <button>SignUp</button> </Link>
+
+    
   </>
   )
 };
 
 export default LogInSignUp;
+
+
+
