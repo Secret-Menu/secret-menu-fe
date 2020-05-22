@@ -16,7 +16,7 @@ export default function App() {
     <div>
       <Router>
         <Switch>
-          <Route exact path="/portland/:area" component={Quadrant} />
+          <Route exact path="/portland/:area/" component={Quadrant} />
           <Route exact path="/portland" component={PDXMap} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />

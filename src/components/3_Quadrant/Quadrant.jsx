@@ -9,6 +9,7 @@ export default function Quadrant(){
   const dispatch = useDispatch();
   const { area } = useParams();
   const restaurants = useSelector(getAreaSelector);
+  
   useEffect(() => {
     dispatch(getAreaAction(area));
   }, []);

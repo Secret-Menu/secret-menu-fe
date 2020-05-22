@@ -17,7 +17,7 @@ export default function PDXMap() {
           defaultCenter={center}
           defaultZoom={zoom}
         >
-          <div lat={45.52} lng={-122.66}>🍔</div>
+          <div lat={45.52} lng={-122.66}>🍔 My Burger Place</div>
           {/* <AnyReactComponent
             lat={59.955413}
             lng={30.337844}
