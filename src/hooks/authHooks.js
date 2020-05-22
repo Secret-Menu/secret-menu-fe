@@ -20,7 +20,7 @@ export const useSignUp = () => {
 
   useEffect(() => {
     if(user && user.role === 'User') history.push('/');
-    if(user && user.role === 'Restaurant') history.push('/restaurantregister');
+    if(user && user.role === 'Restaurant') history.push('/restaurant-reg');
   }, [user]);
 
   const handleChange = ({ target }) => {

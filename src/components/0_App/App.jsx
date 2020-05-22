@@ -15,10 +15,10 @@ export default function App() {
     <div>
       <Router>
         <Switch>
-          <PrivateRoute exact path="/" component={CrowdPleaser} />
+          <Route exact path="/" component={CrowdPleaser} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
-          <Route path="/restaurantregister" component={RestaurantSignUp} />
+          <Route path="/restaurant-reg" component={RestaurantSignUp} />
         </Switch>
       </Router>
     </div>

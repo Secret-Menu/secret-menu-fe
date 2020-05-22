@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useCurrentUser } from '../../../hooks/authHooks';
+import { signUpRestaurant } from '../../../actions/authActions';
 import { useHistory } from 'react-router-dom';
 
 export default function RestaurantSignUp() {
+  const dispatch = useDispatch();
+  const user = useCurrentUser();
+  const history = useHistory();
 
   const [restaurantName, setRestaurantName] = useState('');
   const [streetAddress, setStreetAddress] = useState('');
@@ -9,14 +15,12 @@ export default function RestaurantSignUp() {
   const [addressState, setAddressState] = useState('OR');
   const [zipcode, setZipcode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [website, setWebsite] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
+  const [websiteUrl, setWebsiteUrl] = useState('');
+  const [email, setEmail] = useState('');
   const [description, setDescription] = useState('');
-  const [neighborhood, setNeighborhood] = useState('');
+  const [quadrant, setQuadrant] = useState('');
   const [category, setCategory] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-
-  const history = useHistory();
 
   const handleChange = ({ target }) => {
     if(target.name === 'restaurantName') setRestaurantName(target.value);
@@ -25,23 +29,48 @@ export default function RestaurantSignUp() {
     if(target.name === 'addressState') setAddressState(target.value);
     if(target.name === 'zipcode') setZipcode(target.value);
     if(target.name === 'phoneNumber') setPhoneNumber(target.value);
-    if(target.name === 'website') setWebsite(target.value);
-    if(target.name === 'contactEmail') setContactEmail(target.value);
+    if(target.name === 'websiteUrl') setWebsiteUrl(target.value);
+    if(target.name === 'email') setEmail(target.value);
     if(target.name === 'description') setDescription(target.value);
-    if(target.name === 'neighborhood') setNeighborhood(target.value);
+    if(target.name === 'quadrant') setQuadrant(target.value);
     if(target.name === 'category') setCategory(target.value);
     if(target.name === 'imageUrl') setImageUrl(target.value);
   };
 
-  const handleRestaurantRegistration = event => {
-    event.preventDefault();
-    // dispatch an action to create restaurant in db and add to state
+  const restaurant = {
+    owner: user._id,
+    restaurantName,
+    address: {
+      streetAddress,
+      city,
+      state: addressState,
+      zipcode
+    },
+    phoneNumber,
+    email,
+    description,
+    category,
+    lat: 1,
+    lng: 2,
+    quadrant,
+    websiteUrl,
+    imageUrl
   };
+  
+
+  const handleRestaurantReg = event => {
+    event.preventDefault();
+    dispatch(signUpRestaurant(restaurant));
+  };
+
+  useEffect(() => {
+    if(user.restaurant) history.push('/');
+  }, [user]);
 
   return (
     <div>
       <h2>Restaurant Registration</h2>
-      <form>
+      <form onSubmit={handleRestaurantReg}>
         <input type="text" value={restaurantName} name="restaurantName" onChange={handleChange} placeholder="Restaurant name" />
         <input type="text" value={streetAddress} name="streetAddress" onChange={handleChange} placeholder="Street address" />
         <input type="text" value={city} name="city" onChange={handleChange} placeholder="City" />
@@ -99,12 +128,12 @@ export default function RestaurantSignUp() {
           <option value="WY">Wyoming</option>
         </select>
         <input type="text" value={zipcode} name="zipcode" onChange={handleChange} placeholder="Zipcode" />
-        <input type="tel" value={phoneNumber} name="phone" onChange={handleChange} pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone number" />
-        <input type="text" value={website} name="website" onChange={handleChange} placeholder="http://www.yourwebsite.com" />
-        <input type="email" value={contactEmail} name="contactEmail" onChange={handleChange} placeholder="Contact email address" />
+        <input type="tel" value={phoneNumber} name="phoneNumber" onChange={handleChange} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone number" />
+        <input type="text" value={websiteUrl} name="websiteUrl" onChange={handleChange} placeholder="http://www.yourwebsite.com" />
+        <input type="email" value={email} name="email" onChange={handleChange} placeholder="Contact email address" />
         <input type="text" value={imageUrl} name="imageUrl" onChange={handleChange} placeholder="Image URL" />
         <textarea value={description} name="description" onChange={handleChange} placeholder="Restaurant description"></textarea>
-        <select value={neighborhood} name="neighborhood" onChange={handleChange}>
+        <select value={quadrant} name="quadrant" onChange={handleChange}>
           <option value="North">North</option>
           <option value="Northeast">Northeast</option>
           <option value="Northwest">Northwest</option>
@@ -112,7 +141,7 @@ export default function RestaurantSignUp() {
           <option value="Southeast">Southeast</option>
           <option value="Southwest">Southwest</option>
         </select>
-        <select value={category} name="Category" onChange={handleChange}>
+        <select value={category} name="category" onChange={handleChange}>
           <option value="American">American</option>
           <option value="Bakery">Bakery</option>
           <option value="Breakfast">Breakfast</option>

@@ -5,7 +5,8 @@ export default function CrowdPleaser() {
   const user = useCurrentUser();
   return (
     <div>
-      <h1>Hi, {user.firstName}! Welcome to Secret Menu...</h1>
+      {user && <h2>Hi, {user.firstName}!</h2>}
+      <h1>Welcome to Secret Menu...</h1>
     </div>
   );
 }
