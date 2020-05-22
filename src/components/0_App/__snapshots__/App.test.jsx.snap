@@ -17,6 +17,10 @@ exports[`App component renders App 1`] = `
         component={[Function]}
         path="/login"
       />
+      <Route
+        component={[Function]}
+        path="/restaurant/:id"
+      />
     </Switch>
   </BrowserRouter>
 </div>

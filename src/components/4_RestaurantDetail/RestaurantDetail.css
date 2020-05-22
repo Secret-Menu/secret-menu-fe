@@ -1,4 +1,6 @@
 .RestaurantDetail {
+  display: flex;
+  flex-direction: column;
 
   .RestaurantTop {
     display: flex;
@@ -9,12 +11,22 @@
       width: 300px;
     }
 
-    div {
+    .Contents {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      border: 1px solid black;
+    }
+
+    .Map {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 40%;
+      border: 1px solid black;
     }
   }
+
 
   .RestaurantMain {
     text-align: center;

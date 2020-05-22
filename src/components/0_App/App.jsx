@@ -18,7 +18,7 @@ export default function App() {
           <PrivateRoute exact path="/" component={CrowdPleaser} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
-          <Route path="/restaurant" component={RestaurantDetail} />
+          <Route path="/restaurant/:id" component={RestaurantDetail} />
         </Switch>
       </Router>
     </div>

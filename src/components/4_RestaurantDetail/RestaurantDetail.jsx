@@ -2,27 +2,30 @@ import React from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
 import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
+import { useRestaurant } from '../../hooks/restaurantHooks';
 
 export default function RestaurantDetail() {
-  const restaurant = {
-    address: {
-      streetAddress: '789 Main St.',
-      city: 'Portland',
-      state: 'OR',
-      zipcode: 97218
-    },
-    _id: '5ec70ee38354c34afaa9bc2b',
-    restaurantName: 'Josh\'s Vegan Palace',
-    phoneNumber: '503-555-7777',
-    category: 'American',
-    quadrant: 'Northeast',
-    lat: 45.5446,
-    lng: -122.664385,
-    description: 'Josh\'s Vegan Palace description goes here',
-    imageUrl: 'https://images.immediate.co.uk/production/volatile/sites/2/2017/04/carot-falafel_charlie-richards.cropped.jpg?quality=45&resize=768,574',
-    websiteUrl: 'https://joshsveganpalace.com',
-    email: 'hello@joshsveganpalace.com'
-  };
+  const { restaurant } = useRestaurant();
+
+  // const restaurant = {
+  //   address: {
+  //     streetAddress: '789 Main St.',
+  //     city: 'Portland',
+  //     state: 'OR',
+  //     zipcode: 97218
+  //   },
+  //   _id: '5ec70ee38354c34afaa9bc2b',
+  //   restaurantName: 'Josh\'s Vegan Palace',
+  //   phoneNumber: '503-555-7777',
+  //   category: 'American',
+  //   quadrant: 'Northeast',
+  //   lat: 45.5446,
+  //   lng: -122.664385,
+  //   description: 'Josh\'s Vegan Palace description goes here',
+  //   imageUrl: 'https://images.immediate.co.uk/production/volatile/sites/2/2017/04/carot-falafel_charlie-richards.cropped.jpg?quality=45&resize=768,574',
+  //   websiteUrl: 'https://joshsveganpalace.com',
+  //   email: 'hello@joshsveganpalace.com'
+  // };
   const offerings = [
     {
       dietaryRestriction: [
@@ -128,41 +131,40 @@ export default function RestaurantDetail() {
 
   return (
     <article className={styles.RestaurantDetail}>
-      <section className={styles.RestaurantTop}>
-        <div>
+      <div className={styles.RestaurantTop}>
+        <div className={styles.Contents}>
           <a href="/">{restaurant.quadrant}</a>
           <h3>{restaurant.restaurantName}</h3>
           <img src={restaurant.imageUrl} />
           <ul>
-            <li>{restaurant.address.streetAddress}</li>
-            <li>{restaurant.address.city}</li>
-            <li>{restaurant.address.state}</li>
-            <li>{restaurant.address.zipcode}</li>
+            <li>{restaurant.address ? restaurant.address.streetAddress : ''}</li>
+            <li>{restaurant.address ? restaurant.address.city : ''}</li>
+            <li>{restaurant.address ? restaurant.address.state : ''}</li>
+            <li>{restaurant.address ? restaurant.address.zipcode : ''}</li>
           </ul>
           <p>{restaurant.description}</p>
         </div>
-        <div>
-          <h3>{restaurant.phoneNumber}</h3>
+        <div className={styles.Contents}>
+          <h3><a href="/">{restaurant.phoneNumber}</a></h3>
           <h3>{restaurant.category}</h3>
         </div>
-        <div>
+        <div className={styles.Map}>
           MAP
         </div>
+      </div>
 
-
-      </section>
-      <section className={styles.RestaurantMain}>
+      <div className={styles.RestaurantMain}>
         <h2>Live Votes</h2>
         <div className={styles.Polls}>
           <PollCarousel polls={polls}/>
         </div> 
-      </section>
-      <section className={styles.RestaurantMain}>
+      </div>
+      <div className={styles.RestaurantMain}>
         <h2>Current Offerings</h2>
         <ul>
           {offeringNodes}
         </ul>
-      </section>
+      </div>
     </article>
   );
 }

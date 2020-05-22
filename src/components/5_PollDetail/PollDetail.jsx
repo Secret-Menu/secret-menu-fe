@@ -14,7 +14,7 @@ const customStyles = {
   }
 };
  
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 const PollDetail = ({ poll }) => {
   let subtitle;
