@@ -7,7 +7,7 @@ import {
 import SignUp from '../Profiles/Auth/SignUp';
 import LogIn from '../Profiles/Auth/LogIn';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
-import PrivateRoute from '../Profiles/Auth/PrivateRoute';
+// import PrivateRoute from '../Profiles/Auth/PrivateRoute';
 import PDXMap from '../2_PDXMap/PDXMap';
 import AreaDetail from '../3_AreaDetail/AreaDetail';
 
@@ -20,7 +20,7 @@ export default function App() {
           <Route exact path="/portland" component={PDXMap} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
-          <PrivateRoute exact path="/" component={CrowdPleaser} />
+          <Route exact path="/" component={CrowdPleaser} />
         </Switch>
       </Router>
     </div>
