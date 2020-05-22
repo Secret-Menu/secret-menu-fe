@@ -1,9 +1,9 @@
 import React from 'react';
 import { useCurrentUser } from '../../hooks/authHooks';
-import { logOut } from '../Profiles/LogOut';
+
 import LogInSignUp from './LogInSignUp';
 import { useDispatch } from 'react-redux';
-//import logout action
+import { logout } from '../../actions/authActions';
 
 
 
@@ -13,8 +13,8 @@ const Header = () => {
   const user = useCurrentUser();
   
   const handleLogOut = () => {
-    
-  }
+    dispatch(logout());
+  };
   
   return (
     <div>
@@ -24,7 +24,7 @@ const Header = () => {
       {/* not sure what our all restaurant route is */}
       <Link to="/portland"> <button>Restaurants</button> </Link>
       <h1>Crowd Pleaser</h1>
-      { user && <Link to="/"> <button onClick={logOut}>Log Out</button> </Link>}
+      { user && <Link to="/"> <button onClick={handleLogOut}>Log Out</button> </Link>}
       { !user && <LogInSignUp />}
       
     </div>

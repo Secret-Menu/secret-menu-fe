@@ -50,3 +50,8 @@ export const getVerify = () => {
       return json;
     });
 };
+
+export const getLogOut = () => {
+  return fetch(`${process.env.API_URL}/api/v1/auth/logout`)
+  .then(res => res.json())
+};
