@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
 import Error from './Error';
-import AreaDetail from '../../3_AreaDetail/AreaDetail';
+import AreaDetail from '../../3_Quadrant/Quadrant';
 
 export default function SignUp() {
   const {

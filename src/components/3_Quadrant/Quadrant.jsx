@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAreaAction } from '../../actions/restaurantActions';
 import { getAreaState } from '../../selectors/restaurantSelectors';
 
-export default function AreaDetail(){
+export default function Quadrant(){
   const dispatch = useDispatch();
   dispatch(getAreaAction('northwest'));
 

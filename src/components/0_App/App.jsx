@@ -9,14 +9,14 @@ import LogIn from '../Profiles/Auth/LogIn';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 // import PrivateRoute from '../Profiles/Auth/PrivateRoute';
 import PDXMap from '../2_PDXMap/PDXMap';
-import AreaDetail from '../3_AreaDetail/AreaDetail';
+import Quadrant from '../3_Quadrant/Quadrant';
 
 export default function App() {
   return (
     <div>
       <Router>
         <Switch>
-          <Route exact path="/portland/:area" component={AreaDetail} />
+          <Route exact path="/portland/:area" component={Quadrant} />
           <Route exact path="/portland" component={PDXMap} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
