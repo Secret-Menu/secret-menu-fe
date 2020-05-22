@@ -6,8 +6,17 @@ exports[`App component renders App 1`] = `
     <Switch>
       <Route
         component={[Function]}
+        path="/restaurant/:id"
+      />
+      <Route
+        component={[Function]}
         exact={true}
-        path="/"
+        path="/portland/:area/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/portland"
       />
       <Route
         component={[Function]}
@@ -15,15 +24,16 @@ exports[`App component renders App 1`] = `
       />
       <Route
         component={[Function]}
-        path="/login"
-      />
-      <Route
-        component={[Function]}
         path="/restaurant-reg"
       />
       <Route
         component={[Function]}
-        path="/restaurant/:id"
+        path="/login"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
       />
     </Switch>
   </BrowserRouter>
