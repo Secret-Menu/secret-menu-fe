@@ -11,13 +11,21 @@ const PollCarousel = ({ polls }) => {
     setCurrent(current + change);
   };
 
-  return (
-    <div className={styles.PollCarousel}>
-      <button onClick={() => handleCarousel(-1)} disabled={current === 0}>&larr;</button>
-      <PollDetail poll={polls[current]} key={polls[current]._id}/>
-      <button onClick={() => handleCarousel(+1)} disabled={current === carouselMax}>&rarr;</button>
-    </div>
-  );
+  if(polls.length > 0) { 
+    return (
+      <div className={styles.PollCarousel}>
+        <button onClick={() => handleCarousel(-1)} disabled={current === 0}>&larr;</button>
+        <PollDetail poll={polls[current]} key={polls[current]._id}/>
+        <button onClick={() => handleCarousel(+1)} disabled={current === carouselMax}>&rarr;</button>
+      </div>
+    ); 
+  } else { 
+    return (
+      <div className={styles.PollCarousel}>
+        <h1>No current polls...</h1>
+      </div>
+    ); 
+  }
 };
 
 PollCarousel.propTypes = {
