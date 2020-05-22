@@ -3,6 +3,7 @@ import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
 import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
+import { Link } from 'react-router-dom';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls } = useRestaurant();
@@ -15,7 +16,7 @@ export default function RestaurantDetail() {
     <article className={styles.RestaurantDetail}>
       <div className={styles.RestaurantTop}>
         <div className={styles.Contents}>
-          <a href="/">{restaurant.quadrant}</a>
+          <Link to={`/portland/${restaurant.quadrant}`}>{restaurant.quadrant}</Link>
           <h3>{restaurant.restaurantName}</h3>
           <img src={restaurant.imageUrl} />
           <ul>
@@ -27,7 +28,7 @@ export default function RestaurantDetail() {
           <p>{restaurant.description}</p>
         </div>
         <div className={styles.Contents}>
-          <h3><a href="/">{restaurant.phoneNumber}</a></h3>
+          <h3><a href={`tel:+${restaurant.phoneNumber}`}>{restaurant.phoneNumber}</a></h3>
           <h3>{restaurant.category}</h3>
         </div>
         <div className={styles.Map}>

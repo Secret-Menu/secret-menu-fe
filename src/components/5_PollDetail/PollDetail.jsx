@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import styles from './PollDetail.css';
@@ -17,10 +17,17 @@ const customStyles = {
 Modal.setAppElement('body');
 
 const PollDetail = ({ poll }) => {
+  const [count, setCount] = useState('');
+
+  useEffect(() => {
+    dateConversion(poll);
+  }, []);
+
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
+    setInterval(dateConversion(poll), 1000);
   }
  
   function afterOpenModal() {
@@ -30,6 +37,21 @@ const PollDetail = ({ poll }) => {
   function closeModal(){
     setIsOpen(false);
   }
+
+  const dateConversion = (poll) => {
+    const convertedDate = new Date(poll.end);
+    const today = new Date();
+    const diff = convertedDate - today;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    const timeRemaining = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds remaining`;
+    setCount(timeRemaining);
+    setTimeout(() => dateConversion(poll), 1000);
+  };
  
   return (
     <div className={styles.PollDetail}>
@@ -60,6 +82,7 @@ const PollDetail = ({ poll }) => {
           </div>
           <button onClick={closeModal}>Vote</button>
           <button onClick={closeModal}>Close</button>
+          <h1>{count}</h1>
         </div>
       </Modal>
     </div>

@@ -17,7 +17,15 @@ export const useRestaurant = () => {
 
   useEffect(() => {
     if(restaurant.offerings) setOfferings(restaurant.offerings);
-    if(restaurant.polls) setPolls(restaurant.polls);
+    if(restaurant.polls) {   
+      const pollFilter = restaurant.polls.filter(poll => { 
+        const endDate = new Date(poll.end);
+        const today = new Date();
+        if(endDate > today) return poll;
+        else return null;
+      });
+      setPolls(pollFilter);
+    }
   }, [restaurant]);
 
   return {
