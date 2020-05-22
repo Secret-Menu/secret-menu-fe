@@ -10,16 +10,18 @@ import RestaurantSignUp from '../Profiles/Auth/RestaurantSignUp';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 // import PrivateRoute from '../Profiles/Auth/PrivateRoute';
 import PDXMap from '../2_PDXMap/PDXMap';
-import Quadrant from '../3_Quadrant/Quadrant';
+// import Quadrant from '../3_Quadrant/Quadrant';
 import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
+import Header from '../Header/Header';
 
 export default function App() {
   return (
     <div>
+      <Header />
       <Router>
         <Switch>
           <Route path="/restaurant/:id" component={RestaurantDetail} />
-          <Route exact path="/portland/:area/" component={Quadrant} />
+          {/* <Route exact path="/portland/:area/" component={Quadrant} /> */}
           <Route exact path="/portland" component={PDXMap} />
           <Route path="/signup" component={SignUp} />
           <Route path="/restaurant-reg" component={RestaurantSignUp} />
