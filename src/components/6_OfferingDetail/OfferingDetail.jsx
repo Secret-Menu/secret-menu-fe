@@ -14,7 +14,7 @@ const customStyles = {
   }
 };
  
-// Modal.setAppElement('#root');
+Modal.setAppElement('body');
 
 const OfferingDetail = ({ offering }) => {
   let subtitle;
