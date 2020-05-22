@@ -1,10 +1,4 @@
-// import React from 'react';
-
-
-// export default function LogOut() {
-  
-
-//   return (
-
-//   );
-// }
+export default function logOut() {
+    localStorage.clear();
+    this.props.history.push('/');
+};
