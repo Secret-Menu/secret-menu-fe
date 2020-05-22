@@ -1,12 +1,14 @@
-import { SET_RESTAURANT } from '../actions/restaurantActions';
+import { SET_RESTAURANT, GET_AREA } from '../actions/restaurantActions';
 
 const initialState = {
-  restaurants: [],
+  areaRestaurants: [],
   restaurant: {}
 };
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
+    case GET_AREA:
+      return { ...state, areaRestaurants: action.payload };
     case SET_RESTAURANT:
       return { ...state, restaurant: action.payload };
     default:
