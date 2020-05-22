@@ -24,5 +24,5 @@ export const createRestaurant = restaurant => {
   .then(([ok, json]) => {
     if(!ok) throw json;
     return json;
-  })
-}
+  });
+};
