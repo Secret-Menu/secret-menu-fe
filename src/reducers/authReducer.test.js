@@ -1,4 +1,4 @@
-import { SET_USER } from "../actions/authActions";
+import { SET_USER } from '../actions/authActions';
 import reducer from './authReducer';
 
 describe('auth reducer', () => {

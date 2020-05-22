@@ -13,11 +13,11 @@ export const postSignUp = (newUser) => {
     }),
     credentials: 'include'
   })
-  .then(res => Promise.all([res.ok, res.json()]))
-  .then(([ok, json]) => {
-    if(!ok) throw json;
-    return json;
-  })
+    .then(res => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw json;
+      return json;
+    });
 };
 
 export const postLogIn = (email, password) => {
@@ -32,11 +32,11 @@ export const postLogIn = (email, password) => {
     }),
     credentials: 'include'
   })
-  .then(res => Promise.all([res.ok, res.json()]))
-  .then(([ok, json]) => {
-    if(!ok) throw json;
-    return json;
-  })
+    .then(res => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw json;
+      return json;
+    });
 };
 
 export const getVerify = () => {
@@ -44,9 +44,9 @@ export const getVerify = () => {
     method: 'GET',
     credentials: 'include'
   })
-  .then(res => Promise.all([res.ok, res.json()]))
-  .then(([ok, json]) => {
-    if(!ok) throw json;
-    return json;
-  })
-}
+    .then(res => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw json;
+      return json;
+    });
+};

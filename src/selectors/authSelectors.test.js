@@ -4,14 +4,14 @@ describe('auth selectors', () => {
   it('selects auth state', () => {
     const state = {
       auth: {
-        user: {name: 'Jenna'},
+        user: { name: 'Jenna' },
       }
     };
 
     const authState = getAuth(state);
 
     expect(authState).toEqual({
-      user: {name: 'Jenna'},
+      user: { name: 'Jenna' },
     });
   });
 
