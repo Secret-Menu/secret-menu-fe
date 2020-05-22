@@ -21,7 +21,6 @@ describe('auth reducer', () => {
     const newState = reducer(state, action);
 
     expect(newState).toEqual({
-      loading: false,
       user: {
         _id: '12345',
         firstName: 'Jenna',
