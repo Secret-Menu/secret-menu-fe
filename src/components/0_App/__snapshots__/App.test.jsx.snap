@@ -4,7 +4,7 @@ exports[`App component renders App 1`] = `
 <div>
   <BrowserRouter>
     <Switch>
-      <PrivateRoute
+      <Route
         component={[Function]}
         exact={true}
         path="/"
@@ -16,6 +16,10 @@ exports[`App component renders App 1`] = `
       <Route
         component={[Function]}
         path="/login"
+      />
+      <Route
+        component={[Function]}
+        path="/restaurant-reg"
       />
     </Switch>
   </BrowserRouter>
