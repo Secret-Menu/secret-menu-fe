@@ -58,14 +58,11 @@ export default function CheckoutForm() {
   };
 
   return (
-    <div>
-      <h2>Order Checkout</h2>
       <section className={styles.stripeForm}>
         <form onSubmit={handleSubmit}>
           <CardElement onChange={handleCardChange} />
           <button type="submit" disabled={!stripe}>Submit Payment</button>
         </form>
       </section>
-    </div>
   );
 }

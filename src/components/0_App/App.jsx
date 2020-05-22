@@ -15,7 +15,7 @@ import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 import PDXMap from '../2_PDXMap/PDXMap';
 import Quadrant from '../3_Quadrant/Quadrant';
 import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
-import CheckoutForm from '../Order/CheckoutForm';
+import Order from '../Order/Order';
 
 const stripePromise = loadStripe('pk_test_g2fn46r3rOOIkTjhO3DumXp8009j4hJrSB');
 
@@ -31,7 +31,7 @@ export default function App() {
             <Route path="/signup" component={SignUp} />
             <Route path="/restaurant-reg" component={RestaurantSignUp} />
             <Route path="/login" component={LogIn} />
-            <Route path="/checkout" component={CheckoutForm} />
+            <Route path="/checkout" component={Order} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>
         </Router>
