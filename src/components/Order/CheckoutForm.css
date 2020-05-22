@@ -1,0 +1,14 @@
+.stripeForm {
+  width: 30rem;
+  margin: 0 auto;
+  border: 3px solid blue;
+  padding: 3rem;
+}
+
+.stripeForm span {
+  border: 1px solid blue;
+}
+
+.stripeForm button {
+  margin: 2rem;
+}

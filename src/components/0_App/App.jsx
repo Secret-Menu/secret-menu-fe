@@ -4,6 +4,9 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
+import 'babel-polyfill';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import SignUp from '../Profiles/Auth/SignUp';
 import LogIn from '../Profiles/Auth/LogIn';
 import RestaurantSignUp from '../Profiles/Auth/RestaurantSignUp';
@@ -12,21 +15,27 @@ import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 import PDXMap from '../2_PDXMap/PDXMap';
 import Quadrant from '../3_Quadrant/Quadrant';
 import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
+import CheckoutForm from '../Order/CheckoutForm';
+
+const stripePromise = loadStripe('pk_test_g2fn46r3rOOIkTjhO3DumXp8009j4hJrSB');
 
 export default function App() {
   return (
-    <div>
-      <Router>
-        <Switch>
-          <Route path="/restaurant/:id" component={RestaurantDetail} />
-          <Route exact path="/portland/:area/" component={Quadrant} />
-          <Route exact path="/portland" component={PDXMap} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/restaurant-reg" component={RestaurantSignUp} />
-          <Route path="/login" component={LogIn} />
-          <Route exact path="/" component={CrowdPleaser} />
-        </Switch>
-      </Router>
-    </div>
+    <Elements stripe={stripePromise}>
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/restaurant/:id" component={RestaurantDetail} />
+            <Route exact path="/portland/:area/" component={Quadrant} />
+            <Route exact path="/portland" component={PDXMap} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/restaurant-reg" component={RestaurantSignUp} />
+            <Route path="/login" component={LogIn} />
+            <Route path="/checkout" component={CheckoutForm} />
+            <Route exact path="/" component={CrowdPleaser} />
+          </Switch>
+        </Router>
+      </div>
+    </Elements>
   );
 }
