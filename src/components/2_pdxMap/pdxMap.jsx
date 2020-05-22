@@ -1,7 +1,7 @@
-import React from './node_modules/react';
-import GoogleMapReact from './node_modules/google-map-react';
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
 
-export default function AreaMap() {
+export default function PDXMap() {
   const center = {
     lat: 45.52, 
     lng: -122.67,
