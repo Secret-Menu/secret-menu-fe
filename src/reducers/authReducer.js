@@ -1,9 +1,9 @@
-import { SET_USER, SET_USER_ERROR, SET_USER_LOADING } from '../actions/authActions';
+import { SET_USER, SET_USER_ERROR, SET_USER_LOADING, SET_BUSINESS } from '../actions/authActions';
 
 const initialState = {
   user: null,
   error: null,
-  loading: true
+  loading: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -14,6 +14,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, error: action.payload, loading: false };
     case SET_USER_LOADING:
       return { ...state, loading: true };
+    case SET_BUSINESS:
+      return { ...state, user: { ...state.user, restaurant: [action.payload] } };
     default:
       return state;
   }
