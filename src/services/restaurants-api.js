@@ -20,9 +20,19 @@ export const createRestaurant = restaurant => {
       imageUrl: restaurant. imageUrl
     })
   })
-  .then(res => Promise.all([res.ok, res.json()]))
-  .then(([ok, json]) => {
-    if(!ok) throw json;
-    return json;
-  });
+    .then(res => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw json;
+      return json;
+    });
+};
+
+export const fetchAreaRestaurants = (quadrant) => {
+  return fetch(`https://crowd-pleaser-staging.herokuapp.com/api/v1/restaurants?quadrant=${quadrant}`)
+    .then(res => res.json());
+};
+
+export const fetchRestaurantById = (id) => {
+  return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
+    .then(res => res.json());
 };
