@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
     case SET_USER_LOADING:
       return { ...state, loading: true };
     case SET_BUSINESS:
-      return { ...state, user: { ...state.user, restaurant: action.payload } };
+      return { ...state, user: { ...state.user, restaurant: [action.payload] } };
     default:
       return state;
   }
