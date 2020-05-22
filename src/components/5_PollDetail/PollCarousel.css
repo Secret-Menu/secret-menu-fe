@@ -1,0 +1,11 @@
+.PollCarousel {
+  display: flex;
+  align-items: center;
+
+  button {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border-radius: 50%;
+  }
+}
