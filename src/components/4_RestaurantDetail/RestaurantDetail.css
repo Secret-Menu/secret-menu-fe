@@ -1,0 +1,48 @@
+.RestaurantDetail {
+  display: flex;
+  flex-direction: column;
+
+  .RestaurantTop {
+    display: flex;
+    justify-content: space-around;
+
+    img {
+      height: 200px;
+      width: 300px;
+    }
+
+    .Contents {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid black;
+    }
+
+    .Map {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 40%;
+      border: 1px solid black;
+    }
+  }
+
+
+  .RestaurantMain {
+    text-align: center;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      list-style-type: none;
+      margin: 50px;
+    }
+  }
+
+  .Polls {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }
+}
