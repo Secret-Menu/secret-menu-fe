@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
 import Error from './Error';
+import AreaDetail from '../../3_AreaDetail/AreaDetail';
 
 export default function SignUp() {
   const {
@@ -30,6 +31,7 @@ export default function SignUp() {
         <input type="radio" value="Restaurant" name="role" id="restaurant" onChange={handleChange} checked={role === 'Restaurant'} />
         <button disabled={loading}>Sign Up</button>
       </form>
+      <AreaDetail />
     </div>
   );
 }
