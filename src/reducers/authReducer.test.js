@@ -5,7 +5,7 @@ describe('auth reducer', () => {
   it('handles the SIGNUP action', () => {
     const state = {
       user: null
-    }
+    };
 
     const action = {
       type: SET_USER,
