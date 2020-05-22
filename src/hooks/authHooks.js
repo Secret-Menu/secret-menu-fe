@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { signup, login, verify } from '../actions/authActions';
+import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 
 export const useSignUp = () => {
@@ -55,6 +55,86 @@ export const useSignUp = () => {
     handleChange,
     handleSignUp
   };
+};
+
+export const useRestaurantSignUp = () => {
+  const dispatch = useDispatch();
+  const user = useCurrentUser();
+  const history = useHistory();
+
+  const [restaurantName, setRestaurantName] = useState('');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [addressState, setAddressState] = useState('OR');
+  const [zipcode, setZipcode] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [websiteUrl, setWebsiteUrl] = useState('');
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+  const [quadrant, setQuadrant] = useState('');
+  const [category, setCategory] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
+  const handleChange = ({ target }) => {
+    if(target.name === 'restaurantName') setRestaurantName(target.value);
+    if(target.name === 'streetAddress') setStreetAddress(target.value);
+    if(target.name === 'city') setCity(target.value);
+    if(target.name === 'addressState') setAddressState(target.value);
+    if(target.name === 'zipcode') setZipcode(target.value);
+    if(target.name === 'phoneNumber') setPhoneNumber(target.value);
+    if(target.name === 'websiteUrl') setWebsiteUrl(target.value);
+    if(target.name === 'email') setEmail(target.value);
+    if(target.name === 'description') setDescription(target.value);
+    if(target.name === 'quadrant') setQuadrant(target.value);
+    if(target.name === 'category') setCategory(target.value);
+    if(target.name === 'imageUrl') setImageUrl(target.value);
+  };
+
+  const restaurant = {
+    owner: user._id,
+    restaurantName,
+    address: {
+      streetAddress,
+      city,
+      state: addressState,
+      zipcode
+    },
+    phoneNumber,
+    email,
+    description,
+    category,
+    lat: 1, // need to set real lat
+    lng: 2, // need to set real lng
+    quadrant,
+    websiteUrl,
+    imageUrl
+  };
+  
+  const handleRestaurantReg = event => {
+    event.preventDefault();
+    dispatch(signUpRestaurant(restaurant));
+  };
+
+  useEffect(() => {
+    if(user.restaurant) history.push('/');
+  }, [user]);
+
+  return {
+    restaurantName,
+    streetAddress,
+    city,
+    addressState,
+    zipcode,
+    phoneNumber,
+    websiteUrl,
+    email,
+    imageUrl,
+    description,
+    quadrant,
+    handleChange,
+    handleRestaurantReg,
+    category
+  }
 };
 
 export const useLogIn = () => {

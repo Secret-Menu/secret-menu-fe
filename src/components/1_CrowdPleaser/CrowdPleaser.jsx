@@ -6,6 +6,7 @@ export default function CrowdPleaser() {
   return (
     <div>
       {user && <h2>Hi, {user.firstName}!</h2>}
+      {user && user.restaurant && <h2>Your Restaurant: {user.restaurant[0].restaurantName}</h2>}
       <h1>Welcome to Secret Menu...</h1>
     </div>
   );
