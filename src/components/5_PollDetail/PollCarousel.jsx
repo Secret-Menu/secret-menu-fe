@@ -22,7 +22,7 @@ const PollCarousel = ({ polls }) => {
   } else { 
     return (
       <div className={styles.PollCarousel}>
-        <h1>No current polls...</h1>
+        <h3>No current polls...</h3>
       </div>
     ); 
   }
