@@ -5,8 +5,8 @@ export const addToCart = lineItem => ({
 });
 
 export const UPDATE_CART_ITEM = 'UPDATE_CART';
-export const updateCart = (index, lineItem) => ({
-  type: UPDATE_CART,
+export const updateCartItem = (index, lineItem) => ({
+  type: UPDATE_CART_ITEM,
   payload: {
     index,
     lineItem
