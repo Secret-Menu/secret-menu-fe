@@ -16,7 +16,7 @@ export default function RestaurantDetail() {
     return (<OfferingDetail offering={offering} key={offering._id}/>);
   });
 
-  const mapTest = () => {
+  const conditionalMap = () => {
     if(lat) {
       const center = {
         lat: lat,
@@ -56,7 +56,7 @@ export default function RestaurantDetail() {
           <h3>{restaurant.category}</h3>
         </div>
         <div className={styles.Map}>
-          {mapTest()}
+          {conditionalMap()}
         </div>
       </div>
       <div className={styles.RestaurantMain}>  

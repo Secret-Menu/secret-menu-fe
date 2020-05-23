@@ -44,7 +44,7 @@ const PollDetail = ({ poll }) => {
   };
 
   const vote = () => {
-    fetchVote(poll._id, choice.toString(), poll[choice] + 1);
+    fetchVote(poll._id, choice.toString(), 1);
     setVoteCast(true);
   };
 
