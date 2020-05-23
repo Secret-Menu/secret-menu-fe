@@ -102,12 +102,12 @@ const PollDetail = ({ poll }) => {
             <div className={styles.Offering}>
               <img src={poll.offering1ImageUrl} alt={poll.offering1ImageUrl} height="200" width="300"/>
               <label htmlFor={poll.offering1Name}>{poll.offering1Name}</label>
-              <input type="radio" value={poll.offering1Name} name="vote" id={poll.offering1Name} onChange={() => setChoice('offering1Votes')}/>
+              <input type="radio" value={poll.offering1Name} name="vote" id={poll.offering1Name} onChange={() => setChoice('offering1Votes')} hidden={!user || voteCast}/>
             </div>
             <div className={styles.Offering}>
               <img src={poll.offering2ImageUrl} alt={poll.offering2ImageUrl} height="200" width="300"/>
               <label htmlFor={poll.offering2Name}>{poll.offering2Name}</label>
-              <input type="radio" value={poll.offering2Name} name="vote" id={poll.offering2Name} onChange={() => setChoice('offering2Votes')}/>
+              <input type="radio" value={poll.offering2Name} name="vote" id={poll.offering2Name} onChange={() => setChoice('offering2Votes')} hidden={!user || voteCast}/>
             </div>
           </div>
           {isLogged()}

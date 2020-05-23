@@ -12,6 +12,7 @@ export const useRestaurant = () => {
   const [polls, setPolls] = useState([]);
   const lat = useSelector(getRestaurantLat);
   const lng = useSelector(getRestaurantLng);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(setRestaurant(id));
@@ -28,6 +29,7 @@ export const useRestaurant = () => {
       });
       setPolls(pollFilter);
     }
+    if(restaurant.offerings && restaurant.polls)setLoading(false);
   }, [restaurant]);
 
   return {
@@ -36,6 +38,7 @@ export const useRestaurant = () => {
     offerings,
     polls,
     lat,
-    lng
+    lng,
+    loading
   };
 };
