@@ -14,3 +14,10 @@ export const updateCart = lineItem => {
     payload: lineItem
   });
 };
+
+export const removeFromCart = lineItem => {
+  dispatch({
+    type: REMOVE_FROM_CART,
+    payload: lineItem
+  })
+}

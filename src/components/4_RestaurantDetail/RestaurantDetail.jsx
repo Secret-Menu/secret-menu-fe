@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
 import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
@@ -8,7 +8,7 @@ import { useCurrentUser } from '../../hooks/authHooks';
 import Map from '../Map/Map';
 
 export default function RestaurantDetail() {
-  const { restaurant, offerings, polls, lat, lng } = useRestaurant();
+  const { restaurant, offerings, polls, lat, lng, loading } = useRestaurant();
   const user = useCurrentUser();
   console.log(user);
 
@@ -30,6 +30,33 @@ export default function RestaurantDetail() {
     } else {
       return (
         'loading'
+      );
+    }
+  };
+
+  const isLoading = () => {
+    if(loading) {
+      return (
+        <div className={styles.RestaurantMain}>  
+          <h2>Loading...</h2>      
+        </div>
+      );
+    } else {
+      return (
+        <>
+          <div className={styles.RestaurantMain}>  
+            <h2>Live Votes</h2>      
+            <div className={styles.Items}>
+              <PollCarousel polls={polls}/>
+            </div> 
+          </div>
+          <div className={styles.RestaurantMain}>
+            <h2>Current Offerings</h2>
+            <div className={styles.Items}>
+              {offeringNodes.length > 0 ? <ul>{offeringNodes}</ul> : <h3>No current offerings...</h3>}
+            </div>
+          </div>
+        </>
       );
     }
   };
@@ -59,18 +86,7 @@ export default function RestaurantDetail() {
           {conditionalMap()}
         </div>
       </div>
-      <div className={styles.RestaurantMain}>  
-        <h2>Live Votes</h2>      
-        <div className={styles.Items}>
-          <PollCarousel polls={polls}/>
-        </div> 
-      </div>
-      <div className={styles.RestaurantMain}>
-        <h2>Current Offerings</h2>
-        <div className={styles.Items}>
-          {offeringNodes.length > 0 ? <ul>{offeringNodes}</ul> : <h3>No current offerings...</h3>}
-        </div>
-      </div>
+      {isLoading()}
     </article>
   );
 }
