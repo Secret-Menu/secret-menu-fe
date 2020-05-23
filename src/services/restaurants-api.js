@@ -28,7 +28,7 @@ export const createRestaurant = restaurant => {
 };
 
 export const fetchAreaRestaurants = (quadrant) => {
-  return fetch(`https://crowd-pleaser-staging.herokuapp.com/api/v1/restaurants?quadrant=${quadrant}`)
+  return fetch(`${process.env.API_URL}/api/v1/restaurants?quadrant=${quadrant}`)
     .then(res => res.json());
 };
 
@@ -38,6 +38,6 @@ export const fetchAllRestaurants = () => {
 };
 
 export const fetchRestaurantById = (id) => {
-  return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
+  return fetch(`https://crowd-pleaser-staging.herokuapp.com/api/v1/restaurants/${id}`)
     .then(res => res.json());
 };
