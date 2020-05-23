@@ -24,7 +24,7 @@ export default function Quadrant(){
   return (
     <div>
       <h2>Quadrant Page</h2>
-      <div style={{ height: '60vh', width: '50%' }}>
+      <div style={{ height: '60vh', width: '33%' }}>
         <Map center={center} zoom={zoom} markers={restaurants} />
       </div>
     </div>

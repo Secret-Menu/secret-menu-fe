@@ -12,9 +12,9 @@ export default function PDXMap() {
   
   return (
     <div>
-      <img style={{ height: '100px'}}src={logo}></img>
+      <img style={{ height: '100px' }}src={logo}></img>
       <div style={{ height: '60vh', width: '50%' }}>
-        <Map center={center} zoom={zoom} />
+        <Map center={center} zoom={zoom} markers={[]}/>
         <Link to={'/portland/Northwest'}>NW</Link>
       </div>
     </div>
