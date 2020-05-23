@@ -1,7 +1,18 @@
-import { fetchAreaRestaurants, fetchRestaurantById } from '../services/restaurants-api';
+import { fetchAllRestaurants, fetchAreaRestaurants, fetchRestaurantById } from '../services/restaurants-api';
+
+export const GET_ALL = 'GET_ALL';
+export const getAllRestaurants = (area) => dispatch => {
+  return fetchAllRestaurants(area)
+    .then(res => {
+      dispatch({
+        type: GET_ALL,
+        payload: res
+      });
+    });
+};
 
 export const GET_AREA = 'GET_AREA';
-export const getAreaAction = (area) => dispatch => {
+export const getAreaRestaurants = (area) => dispatch => {
   return fetchAreaRestaurants(area)
     .then(res => {
       dispatch({
