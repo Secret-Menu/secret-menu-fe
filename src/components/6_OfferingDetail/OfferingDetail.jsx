@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './OfferingDetail.css';
  
 const customStyles = {
@@ -17,19 +18,38 @@ const customStyles = {
 Modal.setAppElement('body');
 
 const OfferingDetail = ({ offering }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const user = useCurrentUser();
   let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
+  
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
  
-  function afterOpenModal() {
+  const afterOpenModal = () => {
     subtitle.style.color = '#f00';
-  }
+  };
  
-  function closeModal(){
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
+
+  const isLogged = () => {
+    if(user) {
+      return ( 
+        <>
+          <button onClick={closeModal}>Add To Cart</button>
+          <button onClick={closeModal}>Close</button>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h1>Login to purchase!</h1>
+        </>
+      );
+    }
+  };
  
   return (
     <li className={styles.OfferingDetail}>
@@ -46,9 +66,8 @@ const OfferingDetail = ({ offering }) => {
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
           <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
           <p>{`$${offering.price}`}</p>
-          <button onClick={closeModal}>Add To Cart</button>
-          <button onClick={closeModal}>Close</button>
-        </div>
+          {isLogged()}
+        </div>      
       </Modal>
     </li>
   );
