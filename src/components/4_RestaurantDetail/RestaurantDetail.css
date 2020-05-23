@@ -36,6 +36,7 @@
       justify-content: space-evenly;
       list-style-type: none;
       margin: 50px;
+      padding-inline-start: 0em;
     }
   }
 

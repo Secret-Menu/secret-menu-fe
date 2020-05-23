@@ -1,8 +1,9 @@
 export const fetchVote = (id, offering, count) => {
   const Object = { [offering]: count };
-  return fetch(`${process.env.API_URL}/api/v1/polls/${id}`, {
+  return fetch(`${process.env.API_URL}/api/v1/polls/vote/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
     body: JSON.stringify(Object) 
   })
     .then(res => res.json());
