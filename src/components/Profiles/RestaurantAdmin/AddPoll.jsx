@@ -12,6 +12,8 @@ export default function AddPoll() {
 
         <input type="text" value={offering2Name} name="offering2Name" onChange={handleChange} placeholder="Second Offering" />
 
+        <input type="date" value={start} name="start" onChange={handleChange} placeholder="Start date" />
+
         <input type="date" value={end} name="end" onChange={handleChange} placeholder="End date" />
 
         <input type="text" value={offering1Description} name="offering1Description" onChange={handleChange} placeholder="First offering description" />
