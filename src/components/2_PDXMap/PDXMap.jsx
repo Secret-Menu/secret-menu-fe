@@ -5,6 +5,8 @@ import { pdxAnchor } from '../../services/map-utils';
 import logo from '../../assets/mainLogo.png';
 
 export default function PDXMap() {  
+
+  
   return (
     <div>
       <img style={{ height: '100px' }}src={logo}></img>

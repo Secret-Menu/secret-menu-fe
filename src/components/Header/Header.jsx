@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 
 const Header = () => {
-
   const dispatch = useDispatch();
   const user = useCurrentUser();
   
