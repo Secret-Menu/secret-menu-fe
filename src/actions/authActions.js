@@ -68,3 +68,16 @@ export const verify = (email, password) => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+export const logout = () => dispatch => {
+  getLogout()
+    .then(() => {
+      dispatch({
+        type: SET_USER,
+        payload: null
+      });
+    });
+    
+};
+//
+
