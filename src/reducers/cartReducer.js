@@ -8,7 +8,8 @@ export default function reducer(state = [], action) {
       return state.filter((lineItem, i) => i !== action.payload);
     case UPDATE_CART_ITEM:
       return state.map((lineItem, i) => {
-        if(i === action.payload.index) return action.payload.lineItem
+        if(i === action.payload.index) return action.payload.lineItem;
+        return lineItem;
       });
     default:
       return state;
