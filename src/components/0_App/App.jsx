@@ -25,10 +25,10 @@ export default function App() {
     <Elements stripe={stripePromise}>
       <div>
         <Router>
-        <Header />
+          <Header />
           <Switch>
             <Route path="/restaurant/:id" component={RestaurantDetail} />
-            {/* <Route exact path="/portland/:area/" component={Quadrant} /> */}
+            <Route exact path="/portland/:area" component={Quadrant} />
             <Route exact path="/portland" component={PDXMap} />
             <Route path="/checkout" component={Order} />
             <Route path="/signup" component={SignUp} />

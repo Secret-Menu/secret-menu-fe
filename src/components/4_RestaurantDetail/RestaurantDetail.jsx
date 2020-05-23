@@ -4,13 +4,37 @@ import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
+import { useCurrentUser } from '../../hooks/authHooks';
+import Map from '../Map/Map';
 
 export default function RestaurantDetail() {
-  const { restaurant, offerings, polls } = useRestaurant();
+  const { restaurant, offerings, polls, lat, lng } = useRestaurant();
+  const user = useCurrentUser();
+  console.log(user);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} key={offering._id}/>);
   });
+
+  const conditionalMap = () => {
+    if(lat) {
+      const center = {
+        lat: lat,
+        lng: lng
+      };
+      return (
+        <div style={{ height: '100%', width: '100%' }}>
+          <Map center={center} zoom={zoom} markers={[restaurant]}/>
+        </div>
+      );
+    } else {
+      return (
+        'loading'
+      );
+    }
+  };
+
+  const zoom = 14;
 
   return (
     <article className={styles.RestaurantDetail}>
@@ -32,19 +56,20 @@ export default function RestaurantDetail() {
           <h3>{restaurant.category}</h3>
         </div>
         <div className={styles.Map}>
-          MAP
+          {conditionalMap()}
         </div>
       </div>
-      <div className={styles.RestaurantMain}>        
-        <div className={styles.Polls}>
+      <div className={styles.RestaurantMain}>  
+        <h2>Live Votes</h2>      
+        <div className={styles.Items}>
           <PollCarousel polls={polls}/>
         </div> 
       </div>
       <div className={styles.RestaurantMain}>
         <h2>Current Offerings</h2>
-        <ul>
-          {offeringNodes}
-        </ul>
+        <div className={styles.Items}>
+          {offeringNodes.length > 0 ? <ul>{offeringNodes}</ul> : <h3>No current offerings...</h3>}
+        </div>
       </div>
     </article>
   );

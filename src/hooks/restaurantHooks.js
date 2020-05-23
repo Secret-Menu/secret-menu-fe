@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRestaurant } from '../actions/restaurantActions';
 import { useParams } from 'react-router-dom';
-import { getRestaurant } from '../selectors/restaurantSelectors';
+import { getRestaurant, getRestaurantLat, getRestaurantLng } from '../selectors/restaurantSelectors';
 
 export const useRestaurant = () => {
   const dispatch = useDispatch();
@@ -10,6 +10,8 @@ export const useRestaurant = () => {
   const restaurant = useSelector(getRestaurant);
   const [offerings, setOfferings] = useState([]);
   const [polls, setPolls] = useState([]);
+  const lat = useSelector(getRestaurantLat);
+  const lng = useSelector(getRestaurantLng);
 
   useEffect(() => {
     dispatch(setRestaurant(id));
@@ -32,6 +34,8 @@ export const useRestaurant = () => {
     id,
     restaurant,
     offerings,
-    polls
+    polls,
+    lat,
+    lng
   };
 };

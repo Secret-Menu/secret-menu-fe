@@ -3,6 +3,7 @@
 exports[`App component renders App 1`] = `
 <div>
   <BrowserRouter>
+    <Header />
     <Switch>
       <Route
         component={[Function]}
@@ -11,7 +12,7 @@ exports[`App component renders App 1`] = `
       <Route
         component={[Function]}
         exact={true}
-        path="/portland/:area/"
+        path="/portland/:area"
       />
       <Route
         component={[Function]}
