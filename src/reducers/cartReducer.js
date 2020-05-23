@@ -1,4 +1,4 @@
-import { SET_CART, UPDATE_CART, REMOVE_FROM_CART } from '../actions/cartActions';
+import { ADD_TO_CART, UPDATE_CART_ITEM, REMOVE_FROM_CART } from '../actions/cartActions';
 
 export default function reducer(state = [], action) {
   switch(action.type) {
