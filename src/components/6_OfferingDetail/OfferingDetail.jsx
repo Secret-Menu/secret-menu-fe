@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import styles from './OfferingDetail.css';
 import { useCurrentUser } from '../../hooks/authHooks';
+import styles from './OfferingDetail.css';
  
 const customStyles = {
   content : {
@@ -37,22 +37,16 @@ const OfferingDetail = ({ offering }) => {
   const isLogged = () => {
     if(user) {
       return ( 
-        <div className={styles.ModalDiv}>
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
-          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price}`}</p>
+        <>
           <button onClick={closeModal}>Add To Cart</button>
           <button onClick={closeModal}>Close</button>
-        </div>
+        </>
       );
     } else {
       return (
-        <div className={styles.ModalDiv}>
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
-          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price}`}</p>
+        <>
           <h1>Login to purchase!</h1>
-        </div>
+        </>
       );
     }
   };
@@ -68,7 +62,12 @@ const OfferingDetail = ({ offering }) => {
         style={customStyles}
         contentLabel="Offering Modal"
       >
-        {isLogged()}
+        <div className={styles.ModalDiv}>
+          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
+          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
+          <p>{`$${offering.price}`}</p>
+          {isLogged()}
+        </div>      
       </Modal>
     </li>
   );
