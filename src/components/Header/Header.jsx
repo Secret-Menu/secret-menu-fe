@@ -19,10 +19,11 @@ const Header = () => {
       <img src={logo} alt="Crowd Pleaser Logo" style={{height: '100px'}}></img>
       <Link to="/"> <button>Home</button> </Link>
       <Link to="/portland"> <button>Restaurants</button> </Link>
-      { user && <Link to="/"> <button onClick={handleLogOut}>Log Out</button> </Link>}
+      { user &&  <button onClick={handleLogOut}>Log Out</button> }
       { !user && <LogInSignUp />}
     </div>
   );
 };
+{/* <Link to="/"></Link> */}
 
 export default Header;

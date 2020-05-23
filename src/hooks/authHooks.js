@@ -180,7 +180,7 @@ export const useCurrentUser = () => {
     if(!user) {
       dispatch(verify());
     }
-  }, [user]);
+  }, []);
 
   return user;
 };
