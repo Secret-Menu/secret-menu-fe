@@ -28,6 +28,11 @@ const PollDetail = ({ poll }) => {
 
   useEffect(() => {
     dateConversion(poll);
+    if(user) {
+      poll.voters.map(voter => {
+        if(user._id === voter) setVoteCast(true);
+      });
+    }
   }, []);
   
   const openModal = () => {
