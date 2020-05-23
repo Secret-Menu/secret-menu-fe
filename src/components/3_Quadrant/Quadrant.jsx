@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import Map from '../Map/Map';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAreaAction } from '../../actions/restaurantActions';
-import { getAreaSelector } from '../../selectors/restaurantSelectors';
+import { getAreaRestaurants } from '../../actions/restaurantActions';
+import { selectAreaRestaurants } from '../../selectors/restaurantSelectors';
 import { useParams } from 'react-router-dom';
 
 export default function Quadrant(){
   const dispatch = useDispatch();
   const { area } = useParams();
-  const restaurants = useSelector(getAreaSelector);
-  // console.log(restaurants);
+  const restaurants = useSelector(selectAreaRestaurants);
 
   const center = {
     lat: 45.52, 
@@ -18,7 +17,7 @@ export default function Quadrant(){
   const zoom = 14;
   
   useEffect(() => {
-    dispatch(getAreaAction(area));
+    dispatch(getAreaRestaurants(area));
   }, []);
 
   return (

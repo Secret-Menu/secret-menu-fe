@@ -12,7 +12,7 @@ export const getAllRestaurants = (area) => dispatch => {
 };
 
 export const GET_AREA = 'GET_AREA';
-export const getAreaAction = (area) => dispatch => {
+export const getAreaRestaurants = (area) => dispatch => {
   return fetchAreaRestaurants(area)
     .then(res => {
       dispatch({
