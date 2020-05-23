@@ -6,17 +6,20 @@ import {
 } from 'react-router-dom';
 import SignUp from '../Profiles/Auth/SignUp';
 import LogIn from '../Profiles/Auth/LogIn';
+import LogOut from '../Profiles/LogOut';
 import RestaurantSignUp from '../Profiles/Auth/RestaurantSignUp';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 // import PrivateRoute from '../Profiles/Auth/PrivateRoute';
 import PDXMap from '../2_PDXMap/PDXMap';
-import Quadrant from '../3_Quadrant/Quadrant';
+// import Quadrant from '../3_Quadrant/Quadrant';
 import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
+import Header from '../Header/Header';
 
 export default function App() {
   return (
     <div>
       <Router>
+      <Header />
         <Switch>
           <Route path="/restaurant/:id" component={RestaurantDetail} />
           <Route exact path="/portland/:area" component={Quadrant} />
@@ -24,6 +27,7 @@ export default function App() {
           <Route path="/signup" component={SignUp} />
           <Route path="/restaurant-reg" component={RestaurantSignUp} />
           <Route path="/login" component={LogIn} />
+          {/* <Route path="/logout" component={LogOut} /> */}
           <Route exact path="/" component={CrowdPleaser} />
         </Switch>
       </Router>
