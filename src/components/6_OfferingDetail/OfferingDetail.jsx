@@ -65,7 +65,7 @@ const OfferingDetail = ({ offering }) => {
         <div className={styles.ModalDiv}>
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
           <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price}`}</p>
+          <p>{`$${offering.price / 100}`}</p>
           {isLogged()}
         </div>      
       </Modal>

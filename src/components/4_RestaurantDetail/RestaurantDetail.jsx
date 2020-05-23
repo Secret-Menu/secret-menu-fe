@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
 import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
@@ -8,7 +8,7 @@ import { useCurrentUser } from '../../hooks/authHooks';
 import Map from '../Map/Map';
 
 export default function RestaurantDetail() {
-  const { restaurant, offerings, polls, lat, lng, loading } = useRestaurant();
+  const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
   const user = useCurrentUser();
   console.log(user);
 
@@ -17,10 +17,10 @@ export default function RestaurantDetail() {
   });
 
   const conditionalMap = () => {
-    if(lat) {
+    if(pageLat) {
       const center = {
-        lat: lat,
-        lng: lng
+        lat: pageLat,
+        lng: pageLng
       };
       return (
         <div style={{ height: '100%', width: '100%' }}>

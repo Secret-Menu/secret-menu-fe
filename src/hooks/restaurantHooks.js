@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setRestaurant } from '../actions/restaurantActions';
+import { setRestaurant, resetRestaurant } from '../actions/restaurantActions';
 import { useParams } from 'react-router-dom';
 import { getRestaurant, getRestaurantLat, getRestaurantLng } from '../selectors/restaurantSelectors';
 
@@ -12,10 +12,13 @@ export const useRestaurant = () => {
   const [polls, setPolls] = useState([]);
   const lat = useSelector(getRestaurantLat);
   const lng = useSelector(getRestaurantLng);
+  const [pageLat, setPageLat] = useState(0);
+  const [pageLng, setPageLng] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(setRestaurant(id));
+    return () => dispatch(resetRestaurant());
   }, []);
 
   useEffect(() => {
@@ -29,7 +32,11 @@ export const useRestaurant = () => {
       });
       setPolls(pollFilter);
     }
-    if(restaurant.offerings && restaurant.polls)setLoading(false);
+    if(restaurant.offerings && restaurant.polls) setLoading(false);
+    if(restaurant.lat) {
+      setPageLat(lat);
+      setPageLng(lng);
+    }
   }, [restaurant]);
 
   return {
@@ -39,6 +46,8 @@ export const useRestaurant = () => {
     polls,
     lat,
     lng,
+    pageLat,
+    pageLng,
     loading
   };
 };
