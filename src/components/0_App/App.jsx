@@ -18,7 +18,7 @@ import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
 import Header from '../Header/Header';
 import Order from '../Order/Order';
 
-const stripePromise = loadStripe('pk_test_g2fn46r3rOOIkTjhO3DumXp8009j4hJrSB');
+const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
 
 export default function App() {
   return (
