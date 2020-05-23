@@ -16,7 +16,7 @@ export default function CheckoutForm() {
       card: elements.getElement(CardElement),
       billing_details: {
         // Include any additional collected billing details.
-        name: `${user.firstname} ${user.lastName}`,
+        name: `${user.firstName} ${user.lastName}`,
       },
     });
 
