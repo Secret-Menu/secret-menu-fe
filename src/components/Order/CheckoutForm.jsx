@@ -34,7 +34,6 @@ export default function CheckoutForm() {
         body: JSON.stringify({
           payment_method_id: result.paymentMethod.id,
         }),
-        credentials: 'include'
       });
 
       const serverResponse = await response.json();
