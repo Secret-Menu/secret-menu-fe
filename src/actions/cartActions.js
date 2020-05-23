@@ -1,23 +1,26 @@
-export const SET_CART = 'SET_CART';
+export const ADD_TO_CART = 'ADD_TO_CART';
 export const UPDATE_CART = 'UPDATE_CART';
 
-export const setCart = lineItem => {
+export const addToCart = lineItem => {
   dispatch({
-    type: SET_CART,
+    type: ADD_TO_CART,
     payload: lineItem
   });
 };
 
-export const updateCart = lineItem => {
+export const updateCart = (index, lineItem) => {
   dispatch({
     type: UPDATE_CART,
-    payload: lineItem
+    payload: {
+      index,
+      lineItem
+    }
   });
 };
 
-export const removeFromCart = lineItem => {
+export const removeFromCart = index => {
   dispatch({
     type: REMOVE_FROM_CART,
-    payload: lineItem
+    payload: index
   })
 }
