@@ -8,6 +8,9 @@ export default function AddOffering() {
   const [numRemaining, setNumRemaining] = useState(0);
   const [servingSize, setServingSize] = useState(0);
   const [dietaryRestriction, setDietaryRestriction] = useState([]);
+  
+  //handleChange
+  //handleSubmit
 
   return (
     <div>
