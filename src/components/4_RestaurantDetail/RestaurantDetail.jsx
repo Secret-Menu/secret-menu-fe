@@ -5,6 +5,7 @@ import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
 import { useCurrentUser } from '../../hooks/authHooks';
+import Map from '../Map/Map';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls } = useRestaurant();
@@ -14,6 +15,12 @@ export default function RestaurantDetail() {
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} key={offering._id}/>);
   });
+
+  const center = {
+    lat: 45.52, 
+    lng: -122.67,
+  };
+  const zoom = 12;
 
   return (
     <article className={styles.RestaurantDetail}>
@@ -35,7 +42,9 @@ export default function RestaurantDetail() {
           <h3>{restaurant.category}</h3>
         </div>
         <div className={styles.Map}>
-          MAP
+          <div style={{ height: '100%', width: '100%' }}>
+            <Map center={center} zoom={zoom} markers={[restaurant]}/>
+          </div>
         </div>
       </div>
       <div className={styles.RestaurantMain}>  

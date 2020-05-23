@@ -21,45 +21,41 @@ Modal.setAppElement('body');
 const PollDetail = ({ poll }) => {
   const [count, setCount] = useState('');
   const [choice, setChoice] = useState('');
+  const [voteCast, setVoteCast] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
+  let subtitle;
 
   useEffect(() => {
     dateConversion(poll);
   }, []);
-
-  let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
+  
+  const openModal = () => {
     setIsOpen(true);
     setInterval(dateConversion(poll), 1000);
-  }
+  };
  
-  function afterOpenModal() {
+  const afterOpenModal = () => {
     subtitle.style.color = '#f00';
-  }
+  };
  
-  function closeModal(){
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
-  function vote() {
-    console.log(choice);
-    console.log(poll[choice]);
-    console.log(poll._id);
-    fetchVote(poll._id, choice.toString(), 20)
-      .then(res => console.log(res));
-  }
+  const vote = () => {
+    fetchVote(poll._id, choice.toString(), poll[choice] + 1);
+    setVoteCast(true);
+  };
 
   const dateConversion = (poll) => {
     const convertedDate = new Date(poll.end);
     const today = new Date();
     const diff = convertedDate - today;
-
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
     const timeRemaining = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds remaining`;
     setCount(timeRemaining);
     setTimeout(() => dateConversion(poll), 1000);
@@ -82,7 +78,7 @@ const PollDetail = ({ poll }) => {
               <input type="radio" value={poll.offering2Name} name="vote" id={poll.offering2Name} onChange={() => setChoice('offering2Votes')}/>
             </div>
           </div>
-          <button onClick={vote}>Vote</button>
+          { voteCast ? 'Thanks for voting!' : <button onClick={vote}>Vote</button> }
           <button onClick={closeModal}>Close</button>
           <h1>{count}</h1>
         </div>

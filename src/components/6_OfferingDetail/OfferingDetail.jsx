@@ -18,21 +18,21 @@ const customStyles = {
 Modal.setAppElement('body');
 
 const OfferingDetail = ({ offering }) => {
-  const user = useCurrentUser();
-
-  let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
+  const user = useCurrentUser();
+  let subtitle;
+  
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
  
-  function afterOpenModal() {
+  const afterOpenModal = () => {
     subtitle.style.color = '#f00';
-  }
+  };
  
-  function closeModal(){
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
   const isLogged = () => {
     if(user) {

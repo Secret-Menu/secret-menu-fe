@@ -4,6 +4,7 @@ import { useCurrentUser } from '../../hooks/authHooks';
 import LogInSignUp from './LogInSignUp';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
+import { Link } from 'react-router-dom';
 
 
 
