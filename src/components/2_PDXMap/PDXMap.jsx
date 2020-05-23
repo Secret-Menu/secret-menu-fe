@@ -1,6 +1,7 @@
 import React from 'react';
-import GoogleMapReact from 'google-map-react';
+import Map from '../Map/Map';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/mainLogo.png';
 
 export default function PDXMap() {
   const center = {
@@ -8,22 +9,12 @@ export default function PDXMap() {
     lng: -122.67,
   };
   const zoom = 12;
+  
   return (
     <div>
-      <h1>Crowd Pleaser Map Component</h1>
+      <img style={{ height: '100px' }}src={logo}></img>
       <div style={{ height: '60vh', width: '50%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
-          defaultCenter={center}
-          defaultZoom={zoom}
-        >
-          <div lat={45.52} lng={-122.66}>🍔 My Burger Place</div>
-          {/* <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          /> */}
-        </GoogleMapReact>
+        <Map center={center} zoom={zoom} markers={[]}/>
         <Link to={'/portland/Northwest'}>NW</Link>
       </div>
     </div>

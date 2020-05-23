@@ -22,7 +22,7 @@ export default function App() {
       <Header />
         <Switch>
           <Route path="/restaurant/:id" component={RestaurantDetail} />
-          {/* <Route exact path="/portland/:area/" component={Quadrant} /> */}
+          <Route exact path="/portland/:area" component={Quadrant} />
           <Route exact path="/portland" component={PDXMap} />
           <Route path="/signup" component={SignUp} />
           <Route path="/restaurant-reg" component={RestaurantSignUp} />
