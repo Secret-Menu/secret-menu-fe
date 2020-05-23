@@ -1,4 +1,4 @@
-import { ADD_TO_CART, UPDATE_CART_ITEM, REMOVE_FROM_CART, addToCart } from './cartActions';
+import { ADD_TO_CART, UPDATE_CART_ITEM, REMOVE_FROM_CART, addToCart, removeFromCart } from './cartActions';
 
 describe('cart actions', () => {
   it('creates an ADD_TO_CART action', () => {
@@ -23,4 +23,13 @@ describe('cart actions', () => {
       }
     });
   });
+
+  it('creates a REMOVE_FROM_CART action', () => {
+    const action = removeFromCart(1);
+    
+    expect(action).toEqual({
+      type: REMOVE_FROM_CART,
+      payload: 1
+    })
+  })
 });
