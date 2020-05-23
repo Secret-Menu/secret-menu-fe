@@ -1,42 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App component renders App 1`] = `
-<div>
-  <BrowserRouter>
-    <Header />
-    <Switch>
-      <Route
-        component={[Function]}
-        path="/restaurant/:id"
-      />
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/portland/:area"
-      />
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/portland"
-      />
-      <Route
-        component={[Function]}
-        path="/signup"
-      />
-      <Route
-        component={[Function]}
-        path="/restaurant-reg"
-      />
-      <Route
-        component={[Function]}
-        path="/login"
-      />
-      <Route
-        component={[Function]}
-        exact={true}
-        path="/"
-      />
-    </Switch>
-  </BrowserRouter>
-</div>
+<Elements
+  stripe={Promise {}}
+>
+  <div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route
+          component={[Function]}
+          path="/restaurant/:id"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/portland/:area"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/portland"
+        />
+        <Route
+          component={[Function]}
+          path="/checkout"
+        />
+        <Route
+          component={[Function]}
+          path="/signup"
+        />
+        <Route
+          component={[Function]}
+          path="/restaurant-reg"
+        />
+        <Route
+          component={[Function]}
+          path="/login"
+        />
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/"
+        />
+      </Switch>
+    </BrowserRouter>
+  </div>
+</Elements>
 `;
