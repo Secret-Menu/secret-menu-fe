@@ -32,6 +32,11 @@ export const fetchAreaRestaurants = (quadrant) => {
     .then(res => res.json());
 };
 
+export const fetchAllRestaurants = () => {
+  return fetch('https://crowd-pleaser-staging.herokuapp.com/api/v1/restaurants')
+    .then(res => res.json());
+};
+
 export const fetchRestaurantById = (id) => {
   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
     .then(res => res.json());
