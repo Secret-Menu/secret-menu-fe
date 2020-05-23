@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import styles from './OfferingDetail.css';
+import { useCurrentUser } from '../../hooks/authHooks';
  
 const customStyles = {
   content : {
@@ -17,8 +18,10 @@ const customStyles = {
 Modal.setAppElement('body');
 
 const OfferingDetail = ({ offering }) => {
+  const user = useCurrentUser();
+
   let subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
   }
@@ -30,6 +33,29 @@ const OfferingDetail = ({ offering }) => {
   function closeModal(){
     setIsOpen(false);
   }
+
+  const isLogged = () => {
+    if(user) {
+      return ( 
+        <div className={styles.ModalDiv}>
+          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
+          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
+          <p>{`$${offering.price}`}</p>
+          <button onClick={closeModal}>Add To Cart</button>
+          <button onClick={closeModal}>Close</button>
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.ModalDiv}>
+          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
+          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
+          <p>{`$${offering.price}`}</p>
+          <h1>Login to purchase!</h1>
+        </div>
+      );
+    }
+  };
  
   return (
     <li className={styles.OfferingDetail}>
@@ -42,13 +68,7 @@ const OfferingDetail = ({ offering }) => {
         style={customStyles}
         contentLabel="Offering Modal"
       >
-        <div className={styles.ModalDiv}>
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
-          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price}`}</p>
-          <button onClick={closeModal}>Add To Cart</button>
-          <button onClick={closeModal}>Close</button>
-        </div>
+        {isLogged()}
       </Modal>
     </li>
   );

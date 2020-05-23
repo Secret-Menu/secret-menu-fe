@@ -4,9 +4,12 @@ import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
+import { useCurrentUser } from '../../hooks/authHooks';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls } = useRestaurant();
+  const user = useCurrentUser();
+  console.log(user);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} key={offering._id}/>);
@@ -35,7 +38,8 @@ export default function RestaurantDetail() {
           MAP
         </div>
       </div>
-      <div className={styles.RestaurantMain}>        
+      <div className={styles.RestaurantMain}>  
+        <h2>Live Votes</h2>      
         <div className={styles.Polls}>
           <PollCarousel polls={polls}/>
         </div> 
