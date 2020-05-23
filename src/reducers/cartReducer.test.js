@@ -51,5 +51,44 @@ describe('cartReducer tests', () => {
     const newState = reducer(state, action);
 
     expect(newState).toEqual([]);
-  })
-})
+  });
+
+  it('handles the UPDATE_CART_ITEM action', () => {
+    const state = [{
+      restaurant: 'Chris\' Bamboo Grove',
+      offering: 'Shoyu Chicken Mixed Plate',
+      quantity: 2,
+      price: 2000,
+      pickUpDate: 'May 5, 2021',
+      total: 4000
+    }];
+
+    const action = {
+      type: UPDATE_CART_ITEM,
+      payload: {
+        index: 0,
+        lineItem: {
+          restaurant: 'Chris\' Bamboo Grove',
+          offering: 'Shoyu Chicken Mixed Plate',
+          quantity: 3,
+          price: 2000,
+          pickUpDate: 'May 5, 2021',
+          total: 6000
+        }
+      }
+    };
+
+    const newState = reducer(state, action);
+
+    expect(newState).toEqual([
+      {
+        restaurant: 'Chris\' Bamboo Grove',
+        offering: 'Shoyu Chicken Mixed Plate',
+        quantity: 3,
+        price: 2000,
+        pickUpDate: 'May 5, 2021',
+        total: 6000
+      }
+    ]);
+  });
+});
