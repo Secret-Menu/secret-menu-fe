@@ -2,7 +2,6 @@ import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
 import Error from './Error';
 
-
 export default function SignUp() {
   const {
     error,

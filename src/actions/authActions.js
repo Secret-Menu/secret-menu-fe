@@ -1,5 +1,4 @@
-import { postSignUp, postLogIn, getVerify } from "../services/auth-api";
-import { createRef } from "react";
+import { postSignUp, postLogIn, getVerify, getLogOut } from "../services/auth-api";
 import { createRestaurant } from "../services/restaurants-api";
 
 export const SET_USER = 'SET_USER';
@@ -70,7 +69,7 @@ export const verify = (email, password) => dispatch => {
 };
 
 export const logout = () => dispatch => {
-  getLogout()
+  getLogOut()
     .then(() => {
       dispatch({
         type: SET_USER,
