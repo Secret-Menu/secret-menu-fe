@@ -13,9 +13,9 @@ export default function Quadrant(){
 
   const center = {
     lat: 45.52, 
-    lng: -122.67,
+    lng: -122.685,
   };
-  const zoom = 12;
+  const zoom = 14;
   
   useEffect(() => {
     dispatch(getAreaAction(area));

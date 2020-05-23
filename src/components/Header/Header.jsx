@@ -1,11 +1,9 @@
 import React from 'react';
 import { useCurrentUser } from '../../hooks/authHooks';
-
+import { Link } from 'react-router-dom';
 import LogInSignUp from './LogInSignUp';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
-
-
 
 const Header = () => {
 
