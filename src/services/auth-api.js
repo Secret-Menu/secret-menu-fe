@@ -52,6 +52,9 @@ export const getVerify = () => {
 };
 
 export const getLogOut = () => {
-  return fetch(`${process.env.API_URL}/api/v1/auth/logout`)
+  return fetch(`${process.env.API_URL}/api/v1/auth/logout`, {
+    method: 'GET',
+    credentials: 'include'
+  })
     .then(res => res.json());
 };
