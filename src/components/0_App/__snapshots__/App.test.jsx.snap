@@ -44,32 +44,6 @@ exports[`App component renders App 1`] = `
           path="/"
         />
       </Switch>
-      <OrderCalendar
-        orders={
-          Array [
-            Object {
-              "date": 2020-05-19T07:00:00.000Z,
-              "info": "Chris' Bamboo Grove",
-            },
-            Object {
-              "date": 2020-05-22T07:00:00.000Z,
-              "info": "Hannah's Hummus",
-            },
-            Object {
-              "date": 2020-05-26T07:00:00.000Z,
-              "info": "Josh's Vegan Palace",
-            },
-            Object {
-              "date": 2020-05-26T07:00:00.000Z,
-              "info": "Ciao Bella",
-            },
-            Object {
-              "date": 2020-05-27T07:00:00.000Z,
-              "info": "7-11",
-            },
-          ]
-        }
-      />
     </BrowserRouter>
   </div>
 </Elements>
