@@ -44,7 +44,7 @@ const OfferingDetail = ({ offering }) => {
     price: 500
   }
 
-  const handleAddToCart = action => {
+  const handleAddToCart = lineItem => {
     dispatch(addToCart(lineItem));
   }
 
