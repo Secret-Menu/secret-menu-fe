@@ -18,8 +18,8 @@ export default function Map({ center, zoom, marker, markers }) {
       defaultZoom={zoom}
       defaultOptions={{ styles: Overlay }}
     >
-      {markerNode ? markerNode : ''}
-      {markerNodes ? markerNodes : ''}
+      {markerNode ? markerNode : null}
+      {markerNodes ? markerNodes : null}
     </GoogleMapReact>
   );
 }
