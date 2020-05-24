@@ -52,6 +52,8 @@ const OfferingDetail = ({ offering }) => {
     if(user) {
       return ( 
         <>
+          <label>Quantity</label>
+          <input type="number" min="1" max={offering.numRemaining} step="1" defaultValue="1" />
           <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button>
           <button onClick={closeModal}>Close</button>
         </>
@@ -80,6 +82,7 @@ const OfferingDetail = ({ offering }) => {
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
           <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
           <p>{`$${offering.price / 100}`}</p>
+          <p>{offering.description}</p>
           {isLogged()}
         </div>      
       </Modal>
