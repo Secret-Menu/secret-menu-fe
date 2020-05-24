@@ -40,12 +40,15 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const [quantity, setQuantity] = useState(1);
 
   const isLogged = () => {
+
     const lineItem = {
       restaurant: restaurant.restaurantName,
+      restaurantId: restaurant._id,
       offeringId: offering._id,
       price: offering.price,
       offering: offering.dishName,
       quantity: Number(quantity),
+      total: offering.price * Number(quantity)
     }
   
     const handleAddToCart = lineItem => {
