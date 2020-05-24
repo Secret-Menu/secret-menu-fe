@@ -40,7 +40,7 @@ const OfferingDetail = ({ offering }) => {
   const lineItem = {
     price: offering.price,
     offering: offering.dishName,
-    quanitity: 4,
+    quantity: 4,
     price: 500
   }
 

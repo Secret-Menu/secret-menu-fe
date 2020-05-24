@@ -1,46 +1,19 @@
 import React from 'react';
 import CheckoutForm from './CheckoutForm';
+import { useSelector } from 'react-redux';
+import { selectCart } from '../../selectors/cartSelectors';
 
 export default function Order() {
+  const cart = useSelector(selectCart);
 
-  const orders = [
-    {
-      restaurant: 'Chris\' Bamboo Grove',
-      offering: 'Hawaiian Mixed Plate Family Dinner',
-      quantity: 2,
-      pickUpDate: 'Friday 5/31/2020',
-      price: 2000,
-      total: 4000,
-      id: 1,
-    },
-    {
-      restaurant: 'Chris\' Bamboo Grove',
-      offering: 'Hawaiian Mixed Plate Family Dinner',
-      quantity: 2,
-      pickUpDate: 'Friday 5/31/2020',
-      price: 2000,
-      total: 4000,
-      id: 2
-    },
-    {
-      restaurant: 'Chris\' Bamboo Grove',
-      offering: 'Hawaiian Mixed Plate Family Dinner',
-      quantity: 2,
-      pickUpDate: 'Friday 5/31/2020',
-      price: 2000,
-      total: 4000,
-      id: 3
-    },
-  ];
-
-  const lineItemNodes = orders.map(order => 
-    <tr key={order.id}>
-      <td>{order.restaurant}</td>
-      <td>{order.offering}</td>
-      <td>{order.quantity}</td>
-      <td>{order.pickUpDate}</td>
-      <td>{order.price}</td>
-      <td>{order.total}</td>
+  const lineItemNodes = cart.map(lineItem => 
+    <tr>
+      <td>RESTAURANT HERE</td>
+      <td>{lineItem.offering}</td>
+      <td>{lineItem.quantity}</td>
+      <td>PICKUP HERE</td>
+      <td>{lineItem.price}</td>
+      <td>TOTAL HERE</td>
     </tr>
 );
 
