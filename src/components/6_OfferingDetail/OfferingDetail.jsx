@@ -53,9 +53,14 @@ const OfferingDetail = ({ offering }) => {
     if(user) {
       return ( 
         <>
-          <label>Quantity</label>
-          <input type="number" min="1" max={offering.numRemaining} step="1" defaultValue="1" />
-          <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button>
+          { offering.numRemaining > 0 
+            ? <>
+                <label>Quantity</label>
+                <input type="number" min="1" max={offering.numRemaining} step="1" defaultValue="1" />
+                <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button> 
+              </>
+            : <button disabled="true">Sold Out!</button>
+          }
           <button onClick={closeModal}>Close</button>
         </>
       );

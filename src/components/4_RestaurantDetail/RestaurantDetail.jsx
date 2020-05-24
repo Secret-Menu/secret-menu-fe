@@ -10,7 +10,6 @@ import Map from '../Map/Map';
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
   const user = useCurrentUser();
-  console.log(user);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} key={offering._id}/>);
