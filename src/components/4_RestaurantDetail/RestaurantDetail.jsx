@@ -4,12 +4,10 @@ import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
-import { useCurrentUser } from '../../hooks/authHooks';
 import Map from '../Map/Map';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
-  const user = useCurrentUser();
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} key={offering._id}/>);

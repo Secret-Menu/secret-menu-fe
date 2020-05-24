@@ -37,26 +37,33 @@ const OfferingDetail = ({ offering }) => {
     setIsOpen(false);
   };
 
-  const lineItem = {
-    offeringId: offering._id,
-    price: offering.price,
-    offering: offering.dishName,
-    quantity: 4,
-    price: 500
-  }
-
-  const handleAddToCart = lineItem => {
-    dispatch(addToCart(lineItem));
-  }
+  const [quantity, setQuantity] = useState(1);
 
   const isLogged = () => {
+    const lineItem = {
+      offeringId: offering._id,
+      price: offering.price,
+      offering: offering.dishName,
+      quantity: Number(quantity),
+    }
+  
+    const handleAddToCart = lineItem => {
+      dispatch(addToCart(lineItem));
+    }
+  
+
+  
+    const handleChange = ({ target }) => {
+      setQuantity(target.value);
+    }
+
     if(user) {
       return ( 
         <>
           { offering.numRemaining > 0 
             ? <>
                 <label>Quantity</label>
-                <input type="number" min="1" max={offering.numRemaining} step="1" defaultValue="1" />
+                <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
                 <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button> 
               </>
             : <button disabled="true">Sold Out!</button>

@@ -13,7 +13,7 @@ export default function Order() {
       <td>{lineItem.quantity}</td>
       <td>PICKUP HERE</td>
       <td>{lineItem.price}</td>
-      <td>TOTAL HERE</td>
+      <td>{lineItem.quantity} * {lineItem.price}</td>
     </tr>
 );
 
