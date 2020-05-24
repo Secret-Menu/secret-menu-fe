@@ -1,32 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
-import { Link } from 'react-router-dom';
 import Overlay from './MapOverlay.js';
-import Style from './MapStyle.css';
-import Pin from '../../assets/food_pin.png';
+import { mapMarkers, mapMarker } from '../../services/markerMapping.js';
 
 export default function Map({ center, zoom, marker, markers }) {
   let markerNode;
-  if(marker) {
-    markerNode = (
-      <div key={1} lat={marker.lat} lng={marker.lng}>{marker.restaurantName}</div>
-    );
-  }
-  
+  if(marker) { markerNode = mapMarker(marker);}
+
   let markerNodes = [];
-  //fix
-  if(markers.restaurants){
-    markerNodes = markers.restaurants.map((item, i) => {
-      return (
-        <div className={Style.Pin} key={i} lat={item.lat} lng={item.lng}>
-          <Link key={i} to={`/restaurant/${item._id}`}>
-            <img src={Pin} styles={Style.Pin}/>
-          </Link>
-        </div>
-      );
-    });
-  }
+  if(markers.restaurants) markerNodes = mapMarkers(markers);
 
   return (
     <GoogleMapReact
