@@ -2,22 +2,22 @@ import React from 'react';
 import { useRestaurantSignUp } from '../../../hooks/authHooks';
 
 export default function RestaurantSignUp() {
-const {
-  restaurantName,
-  streetAddress,
-  city,
-  addressState,
-  zipcode,
-  phoneNumber,
-  websiteUrl,
-  email,
-  imageUrl,
-  description,
-  quadrant,
-  category,
-  handleChange,
-  handleRestaurantReg
-} = useRestaurantSignUp();
+  const {
+    restaurantName,
+    streetAddress,
+    city,
+    addressState,
+    zipcode,
+    phoneNumber,
+    websiteUrl,
+    email,
+    imageUrl,
+    description,
+    quadrant,
+    category,
+    handleChange,
+    handleRestaurantReg
+  } = useRestaurantSignUp();
 
   return (
     <div>
@@ -116,4 +116,4 @@ const {
       </form>
     </div>
   );
-};
+}
