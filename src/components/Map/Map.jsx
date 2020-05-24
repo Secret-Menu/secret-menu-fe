@@ -15,8 +15,9 @@ export default function Map({ center, zoom, marker, markers }) {
   }
   
   let markerNodes = [];
-  if(markers.length > 0){
-    markerNodes = markers.map((item, i) => {
+  //fix
+  if(markers.restaurants){
+    markerNodes = markers.restaurants.map((item, i) => {
       return (
         <div className={Style.Pin} key={i} lat={item.lat} lng={item.lng}>
           <Link key={i} to={`/restaurant/${item._id}`}>
@@ -35,7 +36,7 @@ export default function Map({ center, zoom, marker, markers }) {
       defaultOptions={{ styles: Overlay }}
     >
       {markerNode ? markerNode : ''}
-      {markerNodes.length > 0 ? markerNodes : ''}
+      {markerNodes ? markerNodes : ''}
     </GoogleMapReact>
   );
 }
@@ -43,6 +44,6 @@ export default function Map({ center, zoom, marker, markers }) {
 Map.propTypes = {
   center: PropTypes.object.isRequired,
   zoom: PropTypes.number.isRequired,
-  markers: PropTypes.array,
+  markers: PropTypes.object,
   marker: PropTypes.object
 };
