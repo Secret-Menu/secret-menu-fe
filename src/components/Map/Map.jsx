@@ -15,6 +15,7 @@ export default function Map({ center, zoom, marker, markers }) {
   }
   
   let markerNodes = [];
+  //fix
   if(markers.restaurants){
     markerNodes = markers.restaurants.map((item, i) => {
       return (
