@@ -6,6 +6,7 @@ import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
 import { useCurrentUser } from '../../hooks/authHooks';
 import Map from '../Map/Map';
+import PollDetail from '../5_PollDetail/PollDetail';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();

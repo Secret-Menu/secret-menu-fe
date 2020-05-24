@@ -17,6 +17,7 @@ import Quadrant from '../3_Quadrant/Quadrant';
 import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
 import Header from '../Header/Header';
 import Order from '../Order/Order';
+import UserProfile from '../Profiles/UserProfile/UserProfile';
 
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
 
@@ -27,6 +28,7 @@ export default function App() {
         <Router>
           <Header />
           <Switch>
+            <Route path="/user/:id" component={UserProfile} />
             <Route path="/restaurant/:id" component={RestaurantDetail} />
             <Route exact path="/portland/:area" component={Quadrant} />
             <Route exact path="/portland" component={PDXMap} />
