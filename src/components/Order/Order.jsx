@@ -1,13 +1,19 @@
 import React from 'react';
 import CheckoutForm from './CheckoutForm';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectCart } from '../../selectors/cartSelectors';
 import styles from './Order.css';
+import { removeFromCart } from '../../actions/cartActions';
 
 export default function Order() {
   const cart = useSelector(selectCart);
+  const dispatch = useDispatch();
 
-  const lineItemNodes = cart.map(lineItem => 
+  const handleRemoveFromCart = i => {
+    dispatch(removeFromCart(i));
+  }
+
+  const lineItemNodes = cart.map((lineItem, i) => 
     <tr>
       <td>{lineItem.restaurant}</td>
       <td>{lineItem.offering}</td>
@@ -15,6 +21,7 @@ export default function Order() {
       <td>PICKUP HERE</td>
       <td>{lineItem.price}</td>
       <td>{lineItem.total}</td>
+      <td><button onClick={() => handleRemoveFromCart(i)}>Remove</button></td>
     </tr>
 );
 
