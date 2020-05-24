@@ -4,7 +4,8 @@ import Calendar from 'react-calendar';
 import styles from './OrderCalendar.css';
 
 const OrderCalendar = ({ orders }) => {
-  
+  if(!orders) return;
+
   const orderReduce = orders.reduce((acc, curr) => {
     const match = acc.find((order) => curr.date.getDate() === order.date.getDate());
     if(match) {
