@@ -32,3 +32,9 @@ export const setRestaurant = (id) => dispatch => {
       });
     });
 };
+
+export const RESET_RESTAURANT = 'RESET_RESTAURANT';
+export const resetRestaurant = () => ({
+  type: RESET_RESTAURANT, 
+  payload: {} 
+});

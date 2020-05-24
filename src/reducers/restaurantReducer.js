@@ -1,4 +1,4 @@
-import { GET_ALL, GET_AREA, SET_RESTAURANT  } from '../actions/restaurantActions';
+import { GET_ALL, GET_AREA, SET_RESTAURANT, RESET_RESTAURANT  } from '../actions/restaurantActions';
 
 const initialState = {
   allRestaurants: [],
@@ -13,6 +13,8 @@ export default function reducer(state = initialState, action) {
     case GET_AREA:
       return { ...state, areaRestaurants: action.payload };
     case SET_RESTAURANT:
+      return { ...state, restaurant: action.payload };
+    case RESET_RESTAURANT:
       return { ...state, restaurant: action.payload };
     default:
       return state;

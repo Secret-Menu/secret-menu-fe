@@ -6,16 +6,16 @@
     display: flex;
     justify-content: space-around;
 
-    img {
-      height: 200px;
-      width: 300px;
-    }
-
     .Contents {
       display: flex;
       flex-direction: column;
       justify-content: center;
       width: 20%;
+
+      img {
+        height: 200px;
+        width: 300px;
+      }
     }
 
     .Map {
@@ -36,6 +36,7 @@
       justify-content: space-evenly;
       list-style-type: none;
       margin: 50px;
+      padding-inline-start: 0em;
     }
   }
 
