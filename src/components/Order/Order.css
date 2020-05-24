@@ -7,3 +7,8 @@
 .cartTable tr {
   border: 1px solid black;
 }
+
+#cartTotal {
+  text-align: right;
+  font-weight: 700
+}

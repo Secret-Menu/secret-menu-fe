@@ -3,7 +3,7 @@ import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './CheckoutForm.css';
 
-export default function CheckoutForm() {
+const CheckoutForm = ({ cartTotal }) => {
   const user = useCurrentUser();
   const stripe = useStripe();
   const elements = useElements();
@@ -33,6 +33,7 @@ export default function CheckoutForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           payment_method_id: result.paymentMethod.id,
+          cartTotal
         }),
       });
 
@@ -64,4 +65,6 @@ export default function CheckoutForm() {
         </form>
       </section>
   );
-}
+};
+
+export default CheckoutForm;

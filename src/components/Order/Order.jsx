@@ -18,13 +18,18 @@ export default function Order() {
     </tr>
 );
 
-const cartTotal = cart.reduce((acc, curr) => {
+const cartTotalRaw = cart.reduce((acc, curr) => {
   acc = acc + curr.total;
   return acc;
 }, 0)
 
+const cartTotalDollars = cartTotalRaw / 100;
+const cartTotal = `$${cartTotalDollars}`
+
   return (
-    <div>
+
+    cart.length > 0
+    ? <div>
       <h2>Cart</h2>
       <table className={styles.cartTable}>
         <thead>
@@ -43,10 +48,11 @@ const cartTotal = cart.reduce((acc, curr) => {
         <tfoot>
         </tfoot>
         <tr>
-          <td>{cartTotal}</td>
+          <td colspan="6" id={styles.cartTotal}>Order total: {cartTotal}</td>
         </tr>
       </table>
-      <CheckoutForm />
+      <CheckoutForm cartTotal={cartTotalRaw}/>
     </div>
+  : <p>You have no items in your cart!</p>
   );
-}
+};
