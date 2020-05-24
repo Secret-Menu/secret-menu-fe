@@ -8,7 +8,7 @@ export default function Order() {
 
   const lineItemNodes = cart.map(lineItem => 
     <tr>
-      <td>RESTAURANT HERE</td>
+      <td>{lineItem.restaurant}</td>
       <td>{lineItem.offering}</td>
       <td>{lineItem.quantity}</td>
       <td>PICKUP HERE</td>

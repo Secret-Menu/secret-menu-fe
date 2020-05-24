@@ -10,7 +10,7 @@ export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
 
   const offeringNodes = offerings.map(offering => {
-    return (<OfferingDetail offering={offering} key={offering._id}/>);
+    return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
   });
 
   const conditionalMap = () => {

@@ -19,7 +19,7 @@ const customStyles = {
  
 Modal.setAppElement('body');
 
-const OfferingDetail = ({ offering }) => {
+const OfferingDetail = ({ offering, restaurant }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
   const dispatch = useDispatch();
@@ -41,6 +41,7 @@ const OfferingDetail = ({ offering }) => {
 
   const isLogged = () => {
     const lineItem = {
+      restaurant: restaurant.restaurantName,
       offeringId: offering._id,
       price: offering.price,
       offering: offering.dishName,
@@ -50,8 +51,6 @@ const OfferingDetail = ({ offering }) => {
     const handleAddToCart = lineItem => {
       dispatch(addToCart(lineItem));
     }
-  
-
   
     const handleChange = ({ target }) => {
       setQuantity(target.value);
@@ -106,7 +105,8 @@ const OfferingDetail = ({ offering }) => {
 };
 
 OfferingDetail.propTypes = {
-  offering: PropTypes.object
+  offering: PropTypes.object,
+  restaurant: PropTypes.object
 };
 
 export default OfferingDetail;
