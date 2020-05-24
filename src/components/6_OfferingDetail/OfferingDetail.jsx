@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './OfferingDetail.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../actions/cartActions';
  
 const customStyles = {
   content : {
@@ -20,6 +22,7 @@ Modal.setAppElement('body');
 const OfferingDetail = ({ offering }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
+  const dispatch = useDispatch();
   let subtitle;
   
   const openModal = () => {
@@ -34,11 +37,22 @@ const OfferingDetail = ({ offering }) => {
     setIsOpen(false);
   };
 
+  const lineItem = {
+    price: offering.price,
+    offering: offering.dishName,
+    quanitity: 4,
+    price: 500
+  }
+
+  const handleAddToCart = action => {
+    dispatch(addToCart(lineItem));
+  }
+
   const isLogged = () => {
     if(user) {
       return ( 
         <>
-          <button onClick={closeModal}>Add To Cart</button>
+          <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button>
           <button onClick={closeModal}>Close</button>
         </>
       );
