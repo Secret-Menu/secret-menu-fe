@@ -2,7 +2,7 @@ import React from 'react';
 import CheckoutForm from './CheckoutForm';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCart } from '../../selectors/cartSelectors';
-import styles from './Order.css';
+import styles from './Cart.css';
 import { removeFromCart } from '../../actions/cartActions';
 
 export default function Cart() {

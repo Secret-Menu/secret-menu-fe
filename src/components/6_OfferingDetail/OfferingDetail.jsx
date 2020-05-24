@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './OfferingDetail.css';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../actions/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, updateCartItem } from '../../actions/cartActions';
+import { selectCart } from '../../selectors/cartSelectors';
  
 const customStyles = {
   content : {
@@ -23,6 +24,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
   const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
   let subtitle;
   
   const openModal = () => {
@@ -48,15 +50,24 @@ const OfferingDetail = ({ offering, restaurant }) => {
       offering: offering.dishName,
       quantity: Number(quantity),
       total: offering.price * Number(quantity)
-    }
-  
-    const handleAddToCart = lineItem => {
-      dispatch(addToCart(lineItem));
-    }
-  
+    };
+
     const handleChange = ({ target }) => {
       setQuantity(target.value);
     }
+
+    console.log(cart.includes(offering._id));
+  
+    const handleAddToCart = lineItem => {
+      let existingLineItem = cart.find(lineItem => lineItem.offeringId === offering._id);
+      if(existingLineItem) {
+        const i = cart.findIndex(lineItem => lineItem.offeringId = offering._id);
+        dispatch(updateCartItem(i, lineItem))
+      }
+      else dispatch(addToCart(lineItem));
+    }
+  
+
 
     if(user) {
       return ( 
