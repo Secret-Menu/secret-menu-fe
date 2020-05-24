@@ -18,7 +18,7 @@ export default function PDXMap() {
     <div>
       <div style={{ height: '60vh', width: '50%' }}>
         <Map center={pdxAnchor.center} zoom={pdxAnchor.zoom} markers={restaurants}/>
-        <Link to={'/portland/Northwest'}>NW</Link>
+        <Link to={'/portland/NW'}>NW</Link>
       </div>
     </div>
   );
