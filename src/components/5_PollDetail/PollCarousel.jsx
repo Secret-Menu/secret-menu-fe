@@ -5,17 +5,16 @@ import styles from './PollCarousel.css';
 
 const PollCarousel = ({ polls }) => {
   const [current, setCurrent] = useState(0);
-  const [currentStyle, setCurrentStyle] = useState(styles.BeforeFade);
+  const [currentStyle, setCurrentStyle] = useState(styles.visible);
   const carouselMax = polls.length - 1;
 
   const handleCarousel = (change) => {
-    if(change === -1) setCurrentStyle(styles.Right);
-    if(change === 1) setCurrentStyle(styles.Left);
+    if(change === -1) setCurrentStyle(styles.hidden);
+    if(change === 1) setCurrentStyle(styles.hidden);
     setTimeout(() => {
-      setCurrentStyle(styles.BeforeFade);
-    }, 1000);
-
-    setCurrent(current + change);
+      setCurrent(current + change);
+      setCurrentStyle(styles.visible);
+    }, 300);
   };
 
   if(polls.length > 0) { 
