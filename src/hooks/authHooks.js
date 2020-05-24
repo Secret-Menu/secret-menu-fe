@@ -134,7 +134,7 @@ export const useRestaurantSignUp = () => {
     handleChange,
     handleRestaurantReg,
     category
-  }
+  };
 };
 
 export const useLogIn = () => {
