@@ -40,7 +40,6 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const [quantity, setQuantity] = useState(1);
 
   const isLogged = () => {
-
     const lineItem = {
       restaurant: restaurant.restaurantName,
       restaurantId: restaurant._id,

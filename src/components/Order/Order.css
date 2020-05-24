@@ -1,0 +1,9 @@
+.cartTable {
+  width: 50rem;
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.cartTable tr {
+  border: 1px solid black;
+}
