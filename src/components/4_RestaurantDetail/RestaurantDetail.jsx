@@ -10,7 +10,6 @@ import Map from '../Map/Map';
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
   const user = useCurrentUser();
-  console.log(user);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} key={offering._id}/>);
@@ -67,6 +66,7 @@ export default function RestaurantDetail() {
     <article className={styles.RestaurantDetail}>
       <div className={styles.RestaurantTop}>
         <div className={styles.Contents}>
+          <Link to ='/checkout'>Checkout</Link>
           <Link to={`/portland/${restaurant.quadrant}`}>{restaurant.quadrant}</Link>
           <h3>{restaurant.restaurantName}</h3>
           <img src={restaurant.imageUrl} />
