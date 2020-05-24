@@ -38,6 +38,7 @@ const OfferingDetail = ({ offering }) => {
   };
 
   const lineItem = {
+    offeringId: offering._id,
     price: offering.price,
     offering: offering.dishName,
     quantity: 4,
@@ -71,6 +72,7 @@ const OfferingDetail = ({ offering }) => {
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
       <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
+      <p>{offering.dishName}</p>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
