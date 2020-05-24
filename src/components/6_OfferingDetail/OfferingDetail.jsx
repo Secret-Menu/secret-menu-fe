@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './OfferingDetail.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../actions/cartActions';
  
 const customStyles = {
