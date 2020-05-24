@@ -5,7 +5,7 @@ import { selectCart } from '../../selectors/cartSelectors';
 import styles from './Order.css';
 import { removeFromCart } from '../../actions/cartActions';
 
-export default function Order() {
+export default function Cart() {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
 
