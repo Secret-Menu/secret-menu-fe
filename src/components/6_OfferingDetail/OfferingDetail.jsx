@@ -73,6 +73,7 @@ const OfferingDetail = ({ offering }) => {
       <button id={offering._id} onClick={openModal}>Open Modal</button>
       <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
       <p>{offering.dishName}</p>
+      {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
