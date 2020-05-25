@@ -15,10 +15,6 @@ const CheckoutForm = ({ cartTotal, order }) => {
   const handleSubmit = async(event, order) => {
     event.preventDefault();
 
-    console.log('Before post: ', order);
-    postOrder(order);
-    console.log('After post: ', order);
-
     const result = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement),
@@ -42,9 +38,11 @@ const CheckoutForm = ({ cartTotal, order }) => {
         body: JSON.stringify({
           payment_method_id: result.paymentMethod.id,
           cartTotal
-        }),
-      });
-
+        })
+      })
+        .then(postOrder(order))
+          .then(res => res.json());
+  
       const serverResponse = await response.json();
 
       handleServerResponse(serverResponse);

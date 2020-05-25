@@ -4,7 +4,7 @@ export const fetchOrdersByUserId = (id) => {
 };
 
 export const postOrder = order => {
-  return fetch(`${process.env.API_URL}/api/v1/orders/`, {
+  return fetch(`${process.env.API_URL}/api/v1/orders`, {
     method: 'POST',
     credentials: 'include',
     body: JSON.stringify(order),
