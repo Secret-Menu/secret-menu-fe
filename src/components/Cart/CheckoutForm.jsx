@@ -39,9 +39,8 @@ const CheckoutForm = ({ cartTotal, order }) => {
           payment_method_id: result.paymentMethod.id,
           cartTotal
         })
-      })
-        .then(postOrder(order))
-          .then(res => res.json());
+      });
+
   
       const serverResponse = await response.json();
 
@@ -53,6 +52,8 @@ const CheckoutForm = ({ cartTotal, order }) => {
     if (serverResponse.error) {
       console.log(serverResponse.error);
     } else {
+      postOrder(order)
+        .then(res => res.json());
       console.log('Success!');
     }
   };
