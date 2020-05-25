@@ -1,12 +1,12 @@
 import React from 'react';
-import BOfferingDetail from './BOfferingDetail';
+import OfferingDetail from './OfferingDetail';
 
-const BLiveOfferingsList = () => {
+const AllOfferings = () => {
   //get offerings per restaurant --hook? selector??
 
   const offeringsToList = offerings.map(offering => (
     <li key={`${offering.dishName} + ${offering._id}`}>
-      <BOfferingDetail {...offering} />
+      <OfferingDetail {...offering} />
     </li>
   ));
 
@@ -21,4 +21,4 @@ const BLiveOfferingsList = () => {
 
 
 
-export default BLiveOfferingsList;
+export default AllOfferings;

@@ -1,21 +1,21 @@
 //upcoming orders table
 
 import React from 'react';
-import BOrderDetail from './BOrderDetail';
+import OrderDetail from './OrderDetail';
 
-const BUpcomingOrdersList = () => {
+const UpcomingOrders = () => {
   //get polls per restaurant --hook? selector??
 
   const ordersToList = orders.map(order => (
     <tr key={border.orderNumber}>
-      <BOrderDetail {...order} />
+      <OrderDetail {...order} />
     </tr>
   ));
 
   return (
     <>
       <tr>
-        {pollsToList}
+        {pollList}
       </tr>
     </>
   );
@@ -23,4 +23,4 @@ const BUpcomingOrdersList = () => {
 
 
 
-export default BUpcomingOrdersList;
+export default UpcomingOrders;

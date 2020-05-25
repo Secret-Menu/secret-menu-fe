@@ -1,12 +1,12 @@
 import React from 'react';
-import BPollDetail from './BPollDetail';
+import PollDetail from './PollDetail';
 
-const BLivePollsList = () => {
+const AllPolls = () => {
   //get polls per restaurant --hook? selector??
 
   const pollsToList = polls.map(poll => (
     <li key={`${offering.dishName} + ${offering._id}`}>
-      <BPollDetail {...poll} />
+      <PollDetail {...poll} />
     </li>
   ));
 
@@ -21,4 +21,4 @@ const BLivePollsList = () => {
 
 
 
-export default BLivePollsList;
+export default AllPolls;
