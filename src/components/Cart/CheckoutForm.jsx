@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './CheckoutForm.css';
+import { postOrder } from '../../services/orders-api';
 
-const CheckoutForm = ({ cartTotal }) => {
+const CheckoutForm = ({ cartTotal, order }) => {
   const user = useCurrentUser();
   const stripe = useStripe();
   const elements = useElements();
   const [nameOnCard, setNameOnCard] = useState('');
 
-  const handleSubmit = async(event) => {
+  
+
+  const handleSubmit = async(event, order) => {
     event.preventDefault();
 
     const result = await stripe.createPaymentMethod({
@@ -35,9 +38,10 @@ const CheckoutForm = ({ cartTotal }) => {
         body: JSON.stringify({
           payment_method_id: result.paymentMethod.id,
           cartTotal
-        }),
+        })
       });
 
+  
       const serverResponse = await response.json();
 
       handleServerResponse(serverResponse);
@@ -48,6 +52,8 @@ const CheckoutForm = ({ cartTotal }) => {
     if (serverResponse.error) {
       console.log(serverResponse.error);
     } else {
+      postOrder(order)
+        .then(res => res.json());
       console.log('Success!');
     }
   };
@@ -64,7 +70,7 @@ const CheckoutForm = ({ cartTotal }) => {
 
   return (
       <section className={styles.stripeForm}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => handleSubmit(event, order)}>
           <input type="text" value={nameOnCard} onChange={handleChange} placeholder="Name on card" />
           <CardElement onChange={handleCardChange} />
           <button type="submit" disabled={!stripe}>Submit Payment</button>
