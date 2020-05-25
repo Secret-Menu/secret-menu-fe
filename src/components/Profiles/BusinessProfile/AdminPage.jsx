@@ -10,7 +10,7 @@ const AdminPage = () => {
   const user = useCurrentUser();
 
   useEffect(() => {
-    dispatch()
+    dispatch() 
   })
   
   return (
