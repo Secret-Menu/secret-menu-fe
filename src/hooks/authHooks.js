@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
-
+import { fetchLatLng } from '../services/latlng-api';
 export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
@@ -90,28 +90,29 @@ export const useRestaurantSignUp = () => {
     if(target.name === 'imageUrl') setImageUrl(target.value);
   };
 
-  const restaurant = {
-    owner: user._id,
-    restaurantName,
-    address: {
-      streetAddress,
-      city,
-      state: addressState,
-      zipcode
-    },
-    phoneNumber,
-    email,
-    description,
-    category,
-    lat: 1, // need to set real lat
-    lng: 2, // need to set real lng
-    quadrant,
-    websiteUrl,
-    imageUrl
-  };
-  
-  const handleRestaurantReg = event => {
+  const handleRestaurantReg = async(event) => {
     event.preventDefault();
+    
+    const { lat, lng } = await fetchLatLng(`${streetAddress} ${city} ${addressState} ${zipcode}`);
+    const restaurant = {
+      owner: user._id,
+      restaurantName,
+      address: {
+        streetAddress,
+        city,
+        state: addressState,
+        zipcode
+      },
+      phoneNumber,
+      email,
+      description,
+      category,
+      lat, 
+      lng,
+      quadrant,
+      websiteUrl,
+      imageUrl
+    };
     dispatch(signUpRestaurant(restaurant));
   };
 
@@ -134,7 +135,7 @@ export const useRestaurantSignUp = () => {
     handleChange,
     handleRestaurantReg,
     category
-  }
+  };
 };
 
 export const useLogIn = () => {
