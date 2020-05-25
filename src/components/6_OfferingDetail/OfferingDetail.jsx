@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import { useCurrentUser } from '../../hooks/authHooks';
-import styles from './OfferingDetail.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, updateCartItem } from '../../actions/cartActions';
-import { selectCart } from '../../selectors/cartSelectors';
 import OfferingLogged from './OfferingLogged';
- 
+import styles from './OfferingDetail.css';
+
 const customStyles = {
   content : {
     top                   : '50%',

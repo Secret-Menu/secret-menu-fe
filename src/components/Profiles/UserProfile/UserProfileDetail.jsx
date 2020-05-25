@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import { useCurrentUser } from '../../../hooks/authHooks';
 import styles from './UserProfileDetail.css';
-import { useDispatch } from 'react-redux';
  
 const customStyles = {
   content : {
