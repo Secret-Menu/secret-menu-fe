@@ -5,6 +5,7 @@ import { useCurrentUser } from '../../../hooks/authHooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserOrders } from '../../../actions/orderActions';
 import { getUserOrders } from '../../../selectors/orderSelectors';
+import UserProfileDetail from './UserProfileDetail';
 
 export default function UserProfile() {
   const dispatch = useDispatch();
@@ -16,8 +17,9 @@ export default function UserProfile() {
   }, [user]);
 
   const orderMunge = userOrders.map(order => ({
-    info: order.restaurant,
-    date: new Date(order.pickUpDate)
+    info: order.restaurant.restaurantName,
+    date: new Date(order.pickUpDate),
+    orders: order.offering
   }))
     .sort(function(a, b) {
       return a.date - b.date;
@@ -27,18 +29,14 @@ export default function UserProfile() {
     const today = new Date();
     return order.date < today;
   })
-    .map(order => <li key={order._id}>{order.date.toString()}</li>);
+    .map(order => <UserProfileDetail key={order._id} order={order}/>);
 
   const upcomingOrders = orderMunge.filter(order => {
     const today = new Date();
     return order.date > today;
   })
-    .map(order => {
-      const plainDate = `${order.date.getMonth() + 1}/${order.date.getDate()}/${order.date.getFullYear()}`;
-      
-      return (<li key={order._id}>{`${plainDate} - ${order.info}`}</li>);});
+    .map(order => <UserProfileDetail key={order._id} order={order}/>);
 
-  console.log(user);
   return (
     <div className={styles.UserProfile}>
       <h1>{user ? `${user.firstName} ${user.lastName}` : 'Loading'}</h1>

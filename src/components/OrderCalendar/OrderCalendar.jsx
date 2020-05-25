@@ -8,7 +8,14 @@ const OrderCalendar = ({ orders }) => {
 
   const orderReduce = orders.reduce((acc, curr) => {
     const match = acc.find((order) => curr.date.getDate() === order.date.getDate());
-    if(match) {
+    let matcher;
+    acc.forEach(order => {
+      if(order.date.getDate() !== curr.date.getDate()) return matcher = false;
+      if(order.date.getMonth() !== curr.date.getMonth()) return matcher = false;
+      if(order.date.getYear() !== curr.date.getYear()) return matcher = false;
+      else return matcher = true;
+    });
+    if(matcher) {
       const newAcc = acc.filter(replace => replace !== match);
       const newOrder = {
         info: `${curr.info},\n ${match.info}`,
@@ -53,6 +60,8 @@ const OrderCalendar = ({ orders }) => {
   return (
     <div>
       <Calendar className={styles.reactCalendar}
+        onChange={(value, event) => alert('New date is: ', value)}
+        onClickDay={(value, event) => alert('Clicked day: ', value)}
         tileContent={tileContent}
         tileClassName={tileClassName}
       />

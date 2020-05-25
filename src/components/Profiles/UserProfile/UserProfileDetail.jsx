@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
-import { useCurrentUser } from '../../hooks/authHooks';
+import { useCurrentUser } from '../../../hooks/authHooks';
 import styles from './UserProfileDetail.css';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../actions/cartActions';
  
 const customStyles = {
   content : {
@@ -19,7 +18,7 @@ const customStyles = {
  
 Modal.setAppElement('body');
 
-const UserProfileDetail = ({ offering }) => {
+const UserProfileDetail = ({ order }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
   const dispatch = useDispatch();
@@ -37,61 +36,27 @@ const UserProfileDetail = ({ offering }) => {
     setIsOpen(false);
   };
 
-  const lineItem = {
-    offeringId: offering._id,
-    price: offering.price,
-    offering: offering.dishName,
-    quantity: 4,
-    price: 500
-  };
-
-  const handleAddToCart = lineItem => {
-    dispatch(addToCart(lineItem));
-  };
-
-  const isLogged = () => {
-    if(user) {
-      return ( 
-        <>
-          { offering.numRemaining > 0 
-            ? <>
-              <label>Quantity</label>
-              <input type="number" min="1" max={offering.numRemaining} step="1" defaultValue="1" />
-              <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button> 
-            </>
-            : <button disabled="true">Sold Out!</button>
-          }
-          <button onClick={closeModal}>Close</button>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <h1>Login to purchase!</h1>
-        </>
-      );
-    }
-  };
+  const itemNodes = order.orders.map(order => <li key={order._id}>
+    <p>{order.offering.dishName}</p>
+    <p>{order.quantity}</p>
+  </li>);
  
   return (
     <li className={styles.UserProfileDetail}>
-      <button id={offering._id} onClick={openModal}>Open Modal</button>
-      <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
-      <p>{offering.dishName}</p>
-      {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
+      <a onClick={openModal}>{`${order.date.getMonth() + 1}/${order.date.getDate()}/${order.date.getFullYear()} - ${order.info}`}</a>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Offering Modal"
+        contentLabel="Orders Modal"
       >
         <div className={styles.ModalDiv}>
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
-          <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price / 100}`}</p>
-          <p>{offering.description}</p>
-          {isLogged()}
+          <h2 ref={_subtitle => (subtitle = _subtitle)}>{order.info}</h2>
+          <p>{order.date.toString()}</p>
+          <ul>
+            {itemNodes}
+          </ul>
         </div>      
       </Modal>
     </li>
@@ -99,7 +64,7 @@ const UserProfileDetail = ({ offering }) => {
 };
 
 UserProfileDetail.propTypes = {
-  offering: PropTypes.object
+  order: PropTypes.object
 };
 
 export default UserProfileDetail;
