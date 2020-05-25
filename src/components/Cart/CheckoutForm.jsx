@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './CheckoutForm.css';
+import { postOrder } from '../../services/orders-api';
 
-const CheckoutForm = ({ cartTotal }) => {
+const CheckoutForm = ({ cartTotal, order }) => {
   const user = useCurrentUser();
   const stripe = useStripe();
   const elements = useElements();
   const [nameOnCard, setNameOnCard] = useState('');
 
-  const handleSubmit = async(event) => {
+  
+
+  const handleSubmit = async(event, order) => {
     event.preventDefault();
+
+    console.log('Before post: ', order);
+    postOrder(order);
+    console.log('After post: ', order);
 
     const result = await stripe.createPaymentMethod({
       type: 'card',
@@ -64,7 +71,7 @@ const CheckoutForm = ({ cartTotal }) => {
 
   return (
       <section className={styles.stripeForm}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={() => handleSubmit(event, order)}>
           <input type="text" value={nameOnCard} onChange={handleChange} placeholder="Name on card" />
           <CardElement onChange={handleCardChange} />
           <button type="submit" disabled={!stripe}>Submit Payment</button>
