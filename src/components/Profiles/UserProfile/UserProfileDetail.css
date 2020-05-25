@@ -1,0 +1,25 @@
+.UserProfileDetail {
+  button {
+    display: none;
+  }
+}
+
+.ModalDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    margin: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+
+  img {
+    width: 200px;
+  }
+}

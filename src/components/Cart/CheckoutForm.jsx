@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './CheckoutForm.css';
 
-export default function CheckoutForm() {
+const CheckoutForm = ({ cartTotal }) => {
   const user = useCurrentUser();
   const stripe = useStripe();
   const elements = useElements();
+  const [nameOnCard, setNameOnCard] = useState('');
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -16,7 +17,7 @@ export default function CheckoutForm() {
       card: elements.getElement(CardElement),
       billing_details: {
         // Include any additional collected billing details.
-        name: `${user.firstName} ${user.lastName}`,
+        name: nameOnCard,
       },
     });
 
@@ -33,6 +34,7 @@ export default function CheckoutForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           payment_method_id: result.paymentMethod.id,
+          cartTotal
         }),
       });
 
@@ -50,6 +52,10 @@ export default function CheckoutForm() {
     }
   };
 
+  const handleChange = ({ target }) => {
+    setNameOnCard(target.value);
+  }
+
   const handleCardChange = (event) => {
     if (event.error) {
      console.log(event.error.message);
@@ -59,9 +65,12 @@ export default function CheckoutForm() {
   return (
       <section className={styles.stripeForm}>
         <form onSubmit={handleSubmit}>
+          <input type="text" value={nameOnCard} onChange={handleChange} placeholder="Name on card" />
           <CardElement onChange={handleCardChange} />
           <button type="submit" disabled={!stripe}>Submit Payment</button>
         </form>
       </section>
   );
-}
+};
+
+export default CheckoutForm;

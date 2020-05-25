@@ -2,30 +2,48 @@ import React from 'react';
 import { useRestaurantSignUp } from '../../../hooks/authHooks';
 
 export default function RestaurantSignUp() {
-const {
-  restaurantName,
-  streetAddress,
-  city,
-  addressState,
-  zipcode,
-  phoneNumber,
-  websiteUrl,
-  email,
-  imageUrl,
-  description,
-  quadrant,
-  category,
-  handleChange,
-  handleRestaurantReg
-} = useRestaurantSignUp();
+  const {
+    restaurantName,
+    streetAddress,
+    city,
+    addressState,
+    zipcode,
+    phoneNumber,
+    websiteUrl,
+    email,
+    imageUrl,
+    description,
+    quadrant,
+    category,
+    handleChange,
+    handleRestaurantReg
+  } = useRestaurantSignUp();
 
   return (
     <div>
       <h2>Restaurant Registration</h2>
       <form onSubmit={handleRestaurantReg}>
-        <input type="text" value={restaurantName} name="restaurantName" onChange={handleChange} placeholder="Restaurant name" />
-        <input type="text" value={streetAddress} name="streetAddress" onChange={handleChange} placeholder="Street address" />
-        <input type="text" value={city} name="city" onChange={handleChange} placeholder="City" />
+        <input 
+          type="text" 
+          value={restaurantName} 
+          name="restaurantName" 
+          onChange={handleChange} 
+          placeholder="Restaurant name" 
+        />
+        <input 
+          type="text" 
+          value={streetAddress} 
+          name="streetAddress" 
+          onChange={handleChange} 
+          placeholder="Street address" 
+        />
+        <input 
+          type="text" 
+          value={city} 
+          name="city" 
+          onChange={handleChange} 
+          placeholder="City" 
+        />
         <select value={addressState} name="state" onChange={handleChange}>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -79,19 +97,55 @@ const {
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <input type="text" value={zipcode} name="zipcode" onChange={handleChange} placeholder="Zipcode" />
-        <input type="tel" value={phoneNumber} name="phoneNumber" onChange={handleChange} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone number" />
-        <input type="text" value={websiteUrl} name="websiteUrl" onChange={handleChange} placeholder="http://www.yourwebsite.com" />
-        <input type="email" value={email} name="email" onChange={handleChange} placeholder="Contact email address" />
-        <input type="text" value={imageUrl} name="imageUrl" onChange={handleChange} placeholder="Image URL" />
-        <textarea value={description} name="description" onChange={handleChange} placeholder="Restaurant description"></textarea>
+        <input 
+          type="text" 
+          value={zipcode} 
+          name="zipcode"
+          onChange={handleChange} 
+          placeholder="Zipcode" 
+        />
+        <input 
+          type="tel" 
+          value={phoneNumber} 
+          name="phoneNumber" 
+          onChange={handleChange} 
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+          placeholder="Phone number" 
+        />
+        <input 
+          type="text" 
+          value={websiteUrl} 
+          name="websiteUrl" 
+          onChange={handleChange} 
+          placeholder="http://www.yourwebsite.com" 
+        />
+        <input 
+          type="email" 
+          value={email} 
+          name="email" 
+          onChange={handleChange} 
+          placeholder="Contact email address" 
+        />
+        <input 
+          type="text" 
+          value={imageUrl} 
+          name="imageUrl" 
+          onChange={handleChange} 
+          placeholder="Image URL" 
+        />
+        <textarea 
+          value={description} 
+          name="description" 
+          onChange={handleChange} 
+          placeholder="Restaurant description">
+        </textarea>
         <select value={quadrant} name="quadrant" onChange={handleChange}>
-          <option value="North">North</option>
-          <option value="Northeast">Northeast</option>
-          <option value="Northwest">Northwest</option>
-          <option value="South">South</option>
-          <option value="Southeast">Southeast</option>
-          <option value="Southwest">Southwest</option>
+          <option value="N">North</option>
+          <option value="NE">Northeast</option>
+          <option value="NW">Northwest</option>
+          <option value="S">South</option>
+          <option value="SE">Southeast</option>
+          <option value="SW">Southwest</option>
         </select>
         <select value={category} name="category" onChange={handleChange}>
           <option value="American">American</option>
@@ -116,4 +170,4 @@ const {
       </form>
     </div>
   );
-};
+}

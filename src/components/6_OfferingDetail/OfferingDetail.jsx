@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './OfferingDetail.css';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../actions/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, updateCartItem } from '../../actions/cartActions';
+import { selectCart } from '../../selectors/cartSelectors';
  
 const customStyles = {
   content : {
@@ -19,10 +20,11 @@ const customStyles = {
  
 Modal.setAppElement('body');
 
-const OfferingDetail = ({ offering }) => {
+const OfferingDetail = ({ offering, restaurant }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
   const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
   let subtitle;
   
   const openModal = () => {
@@ -37,27 +39,44 @@ const OfferingDetail = ({ offering }) => {
     setIsOpen(false);
   };
 
-  const lineItem = {
-    offeringId: offering._id,
-    price: offering.price,
-    offering: offering.dishName,
-    quantity: 4,
-    price: 500
-  }
-
-  const handleAddToCart = lineItem => {
-    dispatch(addToCart(lineItem));
-  }
+  const [quantity, setQuantity] = useState(1);
 
   const isLogged = () => {
+    const lineItem = {
+      restaurant: restaurant.restaurantName,
+      restaurantId: restaurant._id,
+      offeringId: offering._id,
+      price: offering.price,
+      offering: offering.dishName,
+      quantity: Number(quantity),
+      total: offering.price * Number(quantity)
+    };
+
+    const handleChange = ({ target }) => {
+      setQuantity(target.value);
+    }
+
+    console.log(cart.includes(offering._id));
+  
+    const handleAddToCart = lineItem => {
+      let existingLineItem = cart.find(lineItem => lineItem.offeringId === offering._id);
+      if(existingLineItem) {
+        const i = cart.findIndex(lineItem => lineItem.offeringId = offering._id);
+        dispatch(updateCartItem(i, lineItem))
+      }
+      else dispatch(addToCart(lineItem));
+    }
+  
+
+
     if(user) {
       return ( 
         <>
           { offering.numRemaining > 0 
             ? <>
                 <label>Quantity</label>
-                <input type="number" min="1" max={offering.numRemaining} step="1" defaultValue="1" />
-                <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button> 
+                <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
+                <button onClick={() => handleAddToCart(lineItem)}>Add to Cart</button> 
               </>
             : <button disabled="true">Sold Out!</button>
           }
@@ -99,7 +118,8 @@ const OfferingDetail = ({ offering }) => {
 };
 
 OfferingDetail.propTypes = {
-  offering: PropTypes.object
+  offering: PropTypes.object,
+  restaurant: PropTypes.object
 };
 
 export default OfferingDetail;
