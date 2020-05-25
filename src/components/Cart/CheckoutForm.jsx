@@ -74,3 +74,4 @@ const CheckoutForm = ({ cartTotal }) => {
 };
 
 export default CheckoutForm;
+

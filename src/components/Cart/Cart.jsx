@@ -13,6 +13,10 @@ export default function Cart() {
     dispatch(removeFromCart(i));
   }
 
+  const handleUpdateCart = (i, lineItem) => {
+    dispatch(updateCartItem(i,))
+  }
+
   const lineItemNodes = cart.map((lineItem, i) => 
     <tr>
       <td>{lineItem.restaurant}</td>
@@ -21,7 +25,9 @@ export default function Cart() {
       <td>PICKUP HERE</td>
       <td>{lineItem.price}</td>
       <td>{lineItem.total}</td>
-      <td><button onClick={() => handleRemoveFromCart(i)}>Remove</button></td>
+      <td>
+        <button onClick={() => handleRemoveFromCart(i)}>Remove</button>
+      </td>
     </tr>
 );
 
