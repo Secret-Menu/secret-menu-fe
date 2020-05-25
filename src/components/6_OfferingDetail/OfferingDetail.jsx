@@ -76,7 +76,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
             ? <>
                 <label>Quantity</label>
                 <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
-                <button onClick={() => handleAddToCart(lineItem)}>Add To Cart</button> 
+                <button onClick={() => handleAddToCart(lineItem)}>Add to Cart</button> 
               </>
             : <button disabled="true">Sold Out!</button>
           }

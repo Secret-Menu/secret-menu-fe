@@ -2,7 +2,7 @@ import { GET_ALL, GET_AREA, SET_RESTAURANT, RESET_RESTAURANT  } from '../actions
 
 const initialState = {
   allRestaurants: [],
-  areaRestaurants: [],
+  areaRestaurants: {},
   restaurant: {}
 };
 
