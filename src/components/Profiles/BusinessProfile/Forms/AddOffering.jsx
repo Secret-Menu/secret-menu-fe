@@ -20,6 +20,7 @@ export default function AddOffering() {
         <input type="text" value={description} name="description" onChange={handleChange} placeholder="Description" />
         <input type="number" value={numRemaining} name="numRemaining" onChange={handleChange} placeholder="Number of dishes" />
         <input type="text" value={servingSize} name="servingSize" onChange={handleChange} placeholder="Serving Size" />
+        <input type="datetime-local" value={pickUpDate} name="pickUpDate" onChange={handleChange} placeholder="Pick Up Date" />
         <label>Dietary Restrictions</label>
         <select value={dietaryRestriction} name="dietaryRestriction" onChange={({ target }) => setDietaryRestriction(target.value)}>
           <option value = "None" selected>None</option>
@@ -28,7 +29,7 @@ export default function AddOffering() {
           <option value = "Gluten Free">Gluten Free</option>
           <option value = "Dairy Free">Dairy Free</option>
       </select>
-        <button>Submit</button>
+        <button>Add</button>
       </form>
     </div>
   );

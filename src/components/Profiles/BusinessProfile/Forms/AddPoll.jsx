@@ -24,7 +24,7 @@ export default function AddPoll() {
 
         <input type="text" value={offering2ImageUrl} name="offering2ImageUrl" onChange={handleChange} placeholder="Second offering image url" />
 
-        <button>Submit</button>
+        <button>Add Poll</button>
       </form>
     </div>
   );
