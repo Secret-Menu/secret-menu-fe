@@ -9,3 +9,13 @@ export const fetchBusinessPolls = (id) => {
     .then(res => res.json())
     .then(res.polls);
 };
+
+export const addOffering = (restaurantId) => {
+  return fetch(`${process.env.API_URL}/api/v1/offerings/`)
+    .then(res => res.json())
+};
+
+export const addPoll = (restaurantId) => {
+  return fetch(`${process.env.API_URL}/api/v1/polls/`)
+    .then(res => res.json())
+};
