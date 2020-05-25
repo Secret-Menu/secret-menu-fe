@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAreaRestaurants } from '../../actions/restaurantActions';
 import { selectAreaRestaurants } from '../../selectors/restaurantSelectors';
 import { useParams } from 'react-router-dom';
+import RestaurantList from './RestaurantList';
 
 export default function Quadrant(){
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function Quadrant(){
       <div style={{ height: '60vh', width: '33%' }}>
         <Map center={center} zoom={zoom} markers={restaurants} />
       </div>
+      <RestaurantList restaurants={restaurants.restaurants}/>
     </div>
   );
 }
