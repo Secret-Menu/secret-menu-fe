@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 import { fetchLatLng } from '../services/latlng-api';
-
 export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
@@ -91,39 +90,29 @@ export const useRestaurantSignUp = () => {
     if(target.name === 'imageUrl') setImageUrl(target.value);
   };
 
-  const restaurant = {
-    owner: user._id,
-    restaurantName,
-    address: {
-      streetAddress,
-      city,
-      state: addressState,
-      zipcode
-    },
-    phoneNumber,
-    email,
-    description,
-    category,
-    lat: latLng.lat, // need to set real lat
-    lng: latLng.lng, // need to set real lng
-    quadrant,
-    websiteUrl,
-    imageUrl
-  };
-
-  const address = `${streetAddress} ${city} ${addressState} ${zipcode}`; 
-
-  let latLng;
-  useEffect(async() => {
-    latLng = await fetchLatLng(address);
-    console.log('lat long fetched');
-  }, []);
-  console.log(latLng);
-  console.log(address);
-
-  
-  const handleRestaurantReg = event => {
+  const handleRestaurantReg = async(event) => {
     event.preventDefault();
+    
+    const { lat, lng } = await fetchLatLng(`${streetAddress} ${city} ${addressState} ${zipcode}`);
+    const restaurant = {
+      owner: user._id,
+      restaurantName,
+      address: {
+        streetAddress,
+        city,
+        state: addressState,
+        zipcode
+      },
+      phoneNumber,
+      email,
+      description,
+      category,
+      lat, 
+      lng,
+      quadrant,
+      websiteUrl,
+      imageUrl
+    };
     dispatch(signUpRestaurant(restaurant));
   };
 
