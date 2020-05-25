@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
+import { fetchLatLng } from '../services/latlng-api';
 
 export const useSignUp = () => {
   const dispatch = useDispatch();
@@ -103,12 +104,23 @@ export const useRestaurantSignUp = () => {
     email,
     description,
     category,
-    lat: 1, // need to set real lat
-    lng: 2, // need to set real lng
+    lat: latLng.lat, // need to set real lat
+    lng: latLng.lng, // need to set real lng
     quadrant,
     websiteUrl,
     imageUrl
   };
+
+  const address = `${streetAddress} ${city} ${addressState} ${zipcode}`; 
+
+  let latLng;
+  useEffect(async() => {
+    latLng = await fetchLatLng(address);
+    console.log('lat long fetched');
+  }, []);
+  console.log(latLng);
+  console.log(address);
+
   
   const handleRestaurantReg = event => {
     event.preventDefault();
