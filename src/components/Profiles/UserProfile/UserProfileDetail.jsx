@@ -20,8 +20,6 @@ Modal.setAppElement('body');
 
 const UserProfileDetail = ({ order }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const user = useCurrentUser();
-  const dispatch = useDispatch();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   let subtitle;
   

@@ -54,7 +54,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
 
     const handleChange = ({ target }) => {
       setQuantity(target.value);
-    }
+    };
 
     console.log(cart.includes(offering._id));
   
@@ -62,22 +62,20 @@ const OfferingDetail = ({ offering, restaurant }) => {
       let existingLineItem = cart.find(lineItem => lineItem.offeringId === offering._id);
       if(existingLineItem) {
         const i = cart.findIndex(lineItem => lineItem.offeringId = offering._id);
-        dispatch(updateCartItem(i, lineItem))
+        dispatch(updateCartItem(i, lineItem));
       }
       else dispatch(addToCart(lineItem));
-    }
+    };
   
-
-
     if(user) {
       return ( 
         <>
           { offering.numRemaining > 0 
             ? <>
-                <label>Quantity</label>
-                <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
-                <button onClick={() => handleAddToCart(lineItem)}>Add to Cart</button> 
-              </>
+              <label>Quantity</label>
+              <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
+              <button onClick={() => handleAddToCart(lineItem)}>Add to Cart</button> 
+            </>
             : <button disabled="true">Sold Out!</button>
           }
           <button onClick={closeModal}>Close</button>

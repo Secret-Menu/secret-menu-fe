@@ -16,9 +16,10 @@ const Header = () => {
   
   return (
     <div>
-      <img src={logo} alt="Crowd Pleaser Logo" style={{height: '100px'}}></img>
+      <img src={logo} alt="Crowd Pleaser Logo" style={{ height: '100px' }}></img>
       <Link to="/"> <button>Home</button> </Link>
       <Link to="/portland"> <button>Restaurants</button> </Link>
+      { user && <Link to={`/user/${user._id}`}> <button>Profile</button> </Link> }
       { user &&  <Link to="/"><button onClick={handleLogOut}>Log Out</button> </Link> }
       { !user && <LogInSignUp />}
     </div>
