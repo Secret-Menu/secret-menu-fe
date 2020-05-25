@@ -4,11 +4,16 @@ export const fetchBusinessOfferings = (id) => {
     .then(res.offerings);
 };
 
-export const fetchBusinessPolls = (id) => {
+export const fetchBusiness = (id) => {
   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
     .then(res => res.json())
-    .then(res.polls);
 };
+
+// export const fetchBusinessPolls = (id) => {
+//   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
+//     .then(res => res.json())
+//     .then(res.polls);
+// };
 
 export const addOffering = (restaurantId) => {
   return fetch(`${process.env.API_URL}/api/v1/offerings/`)
