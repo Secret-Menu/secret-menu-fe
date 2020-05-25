@@ -55,7 +55,9 @@ export default function UserProfile() {
           <OrderCalendar orders={orderMunge}/>
         </div>
       </div>
-      FAVORITE RESTAURANTS
+      <div className={styles.Favorites}>
+        <h2>Favorite Restaurants</h2>
+      </div>
     </div>
   );
 }

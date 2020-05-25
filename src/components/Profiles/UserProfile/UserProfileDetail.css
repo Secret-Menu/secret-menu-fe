@@ -13,4 +13,13 @@
   button {
     margin: 10px;
   }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+
+  img {
+    width: 200px;
+  }
 }

@@ -22,6 +22,7 @@ const UserProfileDetail = ({ order }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
   const dispatch = useDispatch();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   let subtitle;
   
   const openModal = () => {
@@ -37,13 +38,14 @@ const UserProfileDetail = ({ order }) => {
   };
 
   const itemNodes = order.orders.map(order => <li key={order._id}>
-    <p>{order.offering.dishName}</p>
-    <p>{order.quantity}</p>
+    <img src={order.offering.imageUrl} />
+    <p>Item: {order.offering.dishName}</p>
+    <p>Quantity: {order.quantity}</p>
   </li>);
  
   return (
     <li className={styles.UserProfileDetail}>
-      <a onClick={openModal}>{`${order.date.getMonth() + 1}/${order.date.getDate()}/${order.date.getFullYear()} - ${order.info}`}</a>
+      <a onClick={openModal}>{`${order.date.toLocaleDateString()} - ${order.info}`}</a>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -53,7 +55,7 @@ const UserProfileDetail = ({ order }) => {
       >
         <div className={styles.ModalDiv}>
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{order.info}</h2>
-          <p>{order.date.toString()}</p>
+          <h3>{`${order.date.toLocaleDateString(undefined, options)}`}</h3>
           <ul>
             {itemNodes}
           </ul>

@@ -60,8 +60,7 @@ const OrderCalendar = ({ orders }) => {
   return (
     <div>
       <Calendar className={styles.reactCalendar}
-        onChange={(value, event) => alert('New date is: ', value)}
-        onClickDay={(value, event) => alert('Clicked day: ', value)}
+        onClick={	(value) => alert('New date is: ', value)}
         tileContent={tileContent}
         tileClassName={tileClassName}
       />
