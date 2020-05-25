@@ -17,6 +17,7 @@ export default function Map({ center, zoom, marker, markers }) {
       defaultCenter={center}
       defaultZoom={zoom}
       defaultOptions={{ styles: Overlay }}
+      $hover="false"
     >
       {markerNode ? markerNode : null}
       {markerNodes ? markerNodes : null}

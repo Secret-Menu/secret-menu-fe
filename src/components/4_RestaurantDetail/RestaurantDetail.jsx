@@ -5,7 +5,7 @@ import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
 import Map from '../Map/Map';
-import PollDetail from '../5_PollDetail/PollDetail';
+// import PollDetail from '../5_PollDetail/PollDetail';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
@@ -22,7 +22,7 @@ export default function RestaurantDetail() {
       };
       return (
         <div style={{ height: '100%', width: '100%' }}>
-          <Map center={center} zoom={zoom} markers={[restaurant]}/>
+          <Map center={center} zoom={zoom} markers={{ restaurants: [restaurant] }}/>
         </div>
       );
     } else {

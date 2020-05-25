@@ -31,7 +31,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "google-map-react": "^1.1.7",
+    "google-map-react": "git+https://github.com/Crowd-Pleaser/google-map-react.git",
     "react": "^16.13.1",
     "react-calendar": "^3.1.0",
     "react-dom": "^16.13.1",

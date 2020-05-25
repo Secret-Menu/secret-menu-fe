@@ -7,8 +7,10 @@ import { useUserProfile } from '../../../hooks/userProfileHooks';
 export default function UserProfile() {
   const { user, allOrders, upcomingOrders, previousOrders } = useUserProfile();
 
-  const previousOrderNodes = previousOrders.map(order => <UserProfileDetail key={order._id} order={order}/>);
-  const upcomingOrderNodes = upcomingOrders.map(order => <UserProfileDetail key={order._id} order={order}/>);
+  const upcomingOrderNodes = upcomingOrders.map(order => <UserProfileDetail key={Math.random()} order={order}/>);
+  const previousOrderNodes = previousOrders.map(order => { 
+    console.log(order);
+    return <UserProfileDetail key={order._id} order={order}/>; });
 
   return (
     <div className={styles.UserProfile}>
