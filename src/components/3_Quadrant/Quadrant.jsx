@@ -11,12 +11,8 @@ export default function Quadrant(){
   const { area } = useParams();
   const restaurants = useSelector(selectAreaRestaurants);
 
-  const center = {
-    lat: 45.52, 
-    lng: -122.685,
-  };
-  
-  const zoom = 14;
+  console.log('anchorpoint', restaurants.anchorPoint);
+  console.log('zoom', restaurants.anchorPoint.zoom);
   
   useEffect(() => {
     dispatch(getAreaRestaurants(area));
@@ -26,7 +22,8 @@ export default function Quadrant(){
     <div>
       <h2>Quadrant Page</h2>
       <div style={{ height: '60vh', width: '33%' }}>
-        <Map center={center} zoom={zoom} markers={restaurants} />
+        {restaurants.anchorPoint.zoom && 
+        <Map center={restaurants.anchorPoint.center} zoom={restaurants.anchorPoint.zoom} markers={restaurants} />}
       </div>
       <RestaurantList restaurants={restaurants.restaurants}/>
     </div>

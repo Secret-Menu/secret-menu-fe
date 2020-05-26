@@ -10,7 +10,7 @@ export default function PDXMap() {
 
   const dispatch = useDispatch();
   const restaurants = useSelector(selectAllRestaurants);
-  console.log('PDXMAP restaurants selector: ', restaurants)
+  console.log('PDXMAP restaurants selector: ', restaurants);
 
   useEffect(() => {
     dispatch(getAllRestaurants());
