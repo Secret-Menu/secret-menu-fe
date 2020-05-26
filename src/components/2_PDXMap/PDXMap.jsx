@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllRestaurants } from '../../actions/restaurantActions';
 import { selectAllRestaurants } from '../../selectors/restaurantSelectors';
 
-export default function PDXMap() {  
+export default function PDXMap() { 
+
   const dispatch = useDispatch();
   const restaurants = useSelector(selectAllRestaurants);
   console.log('PDXMAP restaurants selector: ', restaurants)
