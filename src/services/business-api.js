@@ -27,7 +27,7 @@ export const postOffering = offering => {
       imageUrl: offering.imageUrl,
       description: offering.description,
       numRemaining: offering.numRemaining,
-      restaurant: offering.restaurantId,
+      restaurant: offering.restaurant,
       dietaryRestriction: offering.dietaryRestriction,
       pickUpDate: offering.pickUpDate,
       price: offering.price

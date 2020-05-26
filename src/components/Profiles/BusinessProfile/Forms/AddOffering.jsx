@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessOffering } from '../../../../actions/businessActions';
+import { useCurrentUser } from '../../../../hooks/authHooks';
 
 export default function AddOffering() {
   const dispatch = useDispatch();
+  const user = useCurrentUser();
 
   const [dishName, setDishName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [description, setDescription] = useState('');
   const [numRemaining, setNumRemaining] = useState(0);
-  const [servingSize, setServingSize] = useState(0);
   const [pickUpDate, setPickUpDate] = useState(0);
   const [dietaryRestriction, setDietaryRestriction] = useState([]);
   const [price, setPrice] = useState(0);
@@ -25,9 +26,19 @@ export default function AddOffering() {
     if(target.name === 'price') setPrice(target.value);
   };
 
-  const handleSubmit = (event, offering) => {
-    event.preventDefault();
+  const offering = {
+    dishName,
+    imageUrl,
+    description,
+    numRemaining,
+    pickUpDate,
+    dietaryRestriction,
+    price,
+    restaurant: user.restaurant[0]._id
+  };
 
+  const handleSubmit = event => {
+    event.preventDefault();
     dispatch(addBusinessOffering(offering));
   };
 
