@@ -58,3 +58,12 @@ export const getLogOut = () => {
   })
     .then(res => res.json());
 };
+
+export const patchFavorite = id => {
+  return fetch(`${process.env.API_URL}/api/v1/auth/favorites/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  })
+    .then(res => res.json());
+}

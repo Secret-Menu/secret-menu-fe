@@ -1,7 +1,15 @@
 import { SET_USER_ORDERS } from '../actions/orderActions';
 
 const initialState = {
-  userOrders: []
+  userOrders: [
+    {
+    
+      restaurant: {
+        restaurantName: 'something'
+      }
+     
+    }
+  ]
 };
 
 export default function reducer(state = initialState, action) {

@@ -5,6 +5,7 @@ import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
 import Map from '../Map/Map';
+import { patchFavorite } from '../../services/auth-api';
 // import PollDetail from '../5_PollDetail/PollDetail';
 
 export default function RestaurantDetail() {
@@ -61,6 +62,12 @@ export default function RestaurantDetail() {
 
   const zoom = 14;
 
+  const addFavorite = () => {
+    console.log('test');
+    patchFavorite(restaurant._id)
+      .then(res => console.log(res));
+  };
+
   return (
     <article className={styles.RestaurantDetail}>
       <div className={styles.RestaurantTop}>
@@ -80,6 +87,7 @@ export default function RestaurantDetail() {
         <div className={styles.Contents}>
           <h3><a href={`tel:+${restaurant.phoneNumber}`}>{restaurant.phoneNumber}</a></h3>
           <h3>{restaurant.category}</h3>
+          <button onClick={addFavorite}>Add to Favorites</button>
         </div>
         <div className={styles.Map}>
           {conditionalMap()}
