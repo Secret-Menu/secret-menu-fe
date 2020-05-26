@@ -173,7 +173,7 @@ export default function RestaurantSignUp() {
           </select>
           <br/>
           <br/>
-          <button>REGISTER</button>
+          <button>Register</button>
         </div>
       </form>
     </div>
