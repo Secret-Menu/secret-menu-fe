@@ -2,6 +2,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 // eslint-disable-next-line
 module.exports = {
@@ -43,6 +44,38 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [
+                require('postcss-import')(),
+                require('autoprefixer')(),
+                require('postcss-nested')(),
+                require('postcss-simple-vars')()
+              ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        include: [
+          path.resolve(__dirname, './node_modules/react-toastify/dist/ReactToastify')
+        ],
         use: [
           {
             loader: 'style-loader'
