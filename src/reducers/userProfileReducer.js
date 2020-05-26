@@ -1,4 +1,4 @@
-import { SET_USER_ORDERS, ADD_USER_FAVORITE, SET_USER_FAVORITES } from '../actions/userProfileActions';
+import { SET_USER_ORDERS, ADD_USER_FAVORITE, SET_USER_FAVORITES, DELETE_USER_FAVORITE } from '../actions/userProfileActions';
 
 const initialState = {
   userOrders: [
@@ -20,6 +20,9 @@ export default function reducer(state = initialState, action) {
       return { ...state, userFavorites: action.payload };
     case ADD_USER_FAVORITE:
       return { ...state, userFavorites: [...state.userFavorites, action.payload] };
+    case DELETE_USER_FAVORITE:
+      return { ...state, userFavorites: state.userFavorites.filter(favorite => favorite._id !== action.payload._id) };
+      // return state;
     default:
       return state;
   }

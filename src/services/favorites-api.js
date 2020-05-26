@@ -18,3 +18,11 @@ export const addFavorite = (user, restaurant) => {
   })
     .then(res => res.json());
 };
+
+export const deleteFavorite = (id) => {
+  return fetch(`${process.env.API_URL}/api/v1/favorites/${id}`, {
+    method: 'DELETE',
+    credentials: 'include'
+  })
+    .then(res => res.json());
+};

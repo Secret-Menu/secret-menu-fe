@@ -6,7 +6,7 @@ import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
 import Map from '../Map/Map';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUserFavorite, setUserFavorites } from '../../actions/userProfileActions';
+import { addUserFavorite, setUserFavorites, deleteUserFavorite } from '../../actions/userProfileActions';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { getUserFavorites } from '../../selectors/userProfileSelectors';
 
@@ -18,6 +18,7 @@ export default function RestaurantDetail() {
   const user = useCurrentUser();
   const favorites = useSelector(getUserFavorites);
 
+  // REFACTOR TO HOOK?
   useEffect(() => {
     if(user) {
       dispatch(setUserFavorites(user));
@@ -79,17 +80,20 @@ export default function RestaurantDetail() {
   const addFavorite = () => {
     if(!favorites) return;
     if(!user) return;
-    console.log(favorites);
-    // if(favorites.find(favorite => favorite === restaurant._id)) return;
     dispatch(addUserFavorite(user, restaurant));
   };
 
+  // REFACTOR TO HOOK?
+  const removeFavorite = (match) => {
+    if(!favorites) return;
+    if(!user) return;
+    dispatch(deleteUserFavorite(match._id));
+  };
+
   const favoritesButton = () => {
-    console.log(favorites);
-    const match = favorites.find(favorite => favorite._id === restaurant._id); 
-    // console.log(match);
+    const match = favorites.find(favorite => favorite.restaurant._id === restaurant._id); 
     if(!match) return <button onClick={addFavorite}>Add to Favorites</button>;
-    if(match) return null;
+    if(match) return <button onClick={() => removeFavorite(match)}>Remove from Favorites</button>;
   };
 
   return (
