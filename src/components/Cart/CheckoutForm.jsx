@@ -55,8 +55,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
     if (serverResponse.error) {
       console.log(serverResponse.error);
     } else {
-      postOrder(order)
-        .then(res => res.json());
+      postOrder(order);
       console.log('Payment and order successful!');
     }
   };
