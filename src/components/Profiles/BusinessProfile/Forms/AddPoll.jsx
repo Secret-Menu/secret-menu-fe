@@ -6,7 +6,6 @@ import { useCurrentUser } from '../../../../hooks/authHooks'
 export default function AddPoll() {
   const dispatch = useDispatch();
   const user = useCurrentUser();
-
   const [name, setName] = useState('');
   const [offering1Name, setOffering1Name] = useState('');
   const [offering2Name, setOffering2Name] = useState('');
@@ -14,19 +13,12 @@ export default function AddPoll() {
   const [offering2Description, setOffering2Description] = useState('');
   const [offering1ImageUrl, setOffering1ImageUrl] = useState('');
   const [offering2ImageUrl, setOffering2ImageUrl] = useState('');
-  const [offering1Votes, setOffering1Votes] = useState('');
-  const [offering2Votes, setOffering2Votes] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-  const [status, setStatus] = useState
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    dispatch(addBusinessPoll(poll));
-  }
+  const [status, setStatus] = useState('Open');
 
   const handleChange = ({ target }) => {
-    if(target.name === 'name') setName(target.value);
+    if(target.name === 'pollName') setName(target.value);
     if(target.name === 'offering1Name') setOffering1Name(target.value);
     if(target.name === 'offering2Name') setOffering2Name(target.value);
     if(target.name === 'offering1Description') setOffering1Description(target.value);
@@ -52,9 +44,14 @@ export default function AddPoll() {
     restaurant: user.restaurant[0]._id
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(addBusinessPoll(poll));
+  }
+
   return (
     <div>
-      <form onSubmit={handlSubmit}>
+      <form onSubmit={handleSubmit}>
         <input type="text" value={name} name="pollName" onChange={handleChange} placeholder="Poll Name" />
         <input type="text" value={offering1Name} name="offering1Name" onChange={handleChange} placeholder="First Offering" />
         <input type="text" value={offering2Name} name="offering2Name" onChange={handleChange} placeholder="Second Offering" />
@@ -64,9 +61,12 @@ export default function AddPoll() {
         <input type="text" value={offering2Description} name="offering2Description" onChange={handleChange} placeholder="First offering description" />
         <input type="text" value={offering1ImageUrl} name="offering1ImageUrl" onChange={handleChange} placeholder="First offering image url" />
         <input type="text" value={offering2ImageUrl} name="offering2ImageUrl" onChange={handleChange} placeholder="Second offering image url" />
-
+        <select value={status} name="status" onChange={handleChange}>
+          <option value="open">Open</option>
+          <option value="closed">Closed</option>
+        </select>
         <button>Add Poll</button>
       </form>
     </div>
   );
-}
+};

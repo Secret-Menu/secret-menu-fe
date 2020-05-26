@@ -44,9 +44,9 @@ export const postPoll = poll => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: poll.dishName,
+      name: poll.name,
       offering1Name: poll.offering1Name,
-      offering2Name: poll.poll2Name,
+      offering2Name: poll.offering2Name,
       start: poll.start,
       end: poll.end,
       offering1Votes: 0,
