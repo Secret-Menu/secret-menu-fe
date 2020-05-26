@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectOrders } from '../../../../selectors/businessSelectors/';
+import { selectOrders } from '../../../../selectors/businessSelectors';
 
 const OrderDetail = (order) => {
   const user = useCurrentUser();

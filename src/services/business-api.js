@@ -9,6 +9,10 @@ export const fetchBusiness = (id) => {
     .then(res => res.json())
 };
 
+export const fetchBusinessOrders = (id) => {
+  return fetch(`${process.env.API_URL}/api/v1/orders/restaurant/${id}`)
+    .then(res => res.json())
+};
 // export const fetchBusinessPolls = (id) => {
 //   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
 //     .then(res => res.json())

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import CurrentOfferings from './Offerings/CurrentOfferings';
 import { useCurrentUser } from '../../../hooks/authHooks';
+import UpcomingOrders from '../BusinessProfile/Orders/UpcomingOrders';
 
 const AdminPage = () => {
   const dispatch = useDispatch();
@@ -15,16 +16,15 @@ const AdminPage = () => {
   return (
     <div>
       <h3>Upcoming Orders</h3>
-      {/* <UpcomingOrders /> */}
-      <button>View All Orders</button>
+      <UpcomingOrders />
+      <Link to="/business/orders"> <button>View All Orders</button> </Link>
 
       <h3>Current Offerings</h3>
       <CurrentOfferings />
-      <button>View All Offerings</button>
+      <Link to="/"> <button>View All Offerings</button> </Link>
 
-      <button>View Polls</button>
-      {/* <AllPolls /> */}
-      <button>Add a Poll</button>
+      <h3>Live Polls</h3>
+      <Link to="/"> <button>View All Polls</button> </Link>
     </div>
   );
 };

@@ -1,38 +1,15 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, addOffering, fetchBusiness } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, addOffering, fetchBusiness, fetchBusinessOrders } from '../services/business-api';
 
-// export const GET_POLLS = 'GET_POLLS';
-// export const getBusinessPolls = (restaurantId) => dispatch => {
-//   return fetchBusinessPolls(restaurantId)
-//     .then(res => {
-//       dispatch({
-//         type: GET_POLLS,
-//         payload: res
-//       });
-//     });
-// };
-
-// export const GET_OFFERINGS = 'GET_OFFERINGS';
-// export const getBusinessOfferings = (id) => dispatch => {
-//   return fetchBusinessOfferings(id)
-//     .then(res => {
-//       dispatch({
-//         type: GET_OFFERINGS,
-//         payload: res
-//       });
-//     });
-// };
-
-export const GET_BUSINESS = 'GET_BUSINESS';
-export const getBusiness = (id) => dispatch => {
-  return fetchBusiness(id)
+export const GET_ORDERS = 'GET_ORDERS';
+export const getBusinessOrders = (id) => dispatch => {
+  return fetchBusinessOrders(id)
     .then(res => {
       dispatch({
-        type: GET_BUSINESS,
+        type: GET_ORDERS,
         payload: res
       });
     });
 };
-
 
 export const ADD_OFFERING = 'ADD_OFFERING';
 export const addBusinessOffering = (id) => dispatch => {

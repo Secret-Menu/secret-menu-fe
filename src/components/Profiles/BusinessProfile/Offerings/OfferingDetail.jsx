@@ -1,6 +1,4 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
-// import { selectOfferings } from '../../../../selectors/businessSelectors';
 import PropTypes from 'prop-types';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 //offerings in an order
