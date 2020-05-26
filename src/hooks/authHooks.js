@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 import { fetchLatLng } from '../services/latlng-api';
-import { validate } from '../services/formValidator';
+
 export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
@@ -18,8 +18,6 @@ export const useSignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('User');
-
-  
 
   useEffect(() => {
     if(user && user.role === 'User') history.push('/');
@@ -95,9 +93,6 @@ export const useRestaurantSignUp = () => {
 
   const handleRestaurantReg = async(event) => {
     event.preventDefault();
-    
-    const errors = validate(restaurantName, email);
-    console.log(errors);
     
     const { lat, lng } = await fetchLatLng(`${streetAddress} ${city} ${addressState} ${zipcode}`);
     const restaurant = {

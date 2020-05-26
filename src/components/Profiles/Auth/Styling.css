@@ -1,6 +1,6 @@
 .Form{
   align-items: center;
-  background-color: rgb(233, 251, 221);
+  background-color: rgb(233, 252, 255);
   box-sizing: border-box;
   width: 60vh;
   margin:0px auto;
@@ -38,9 +38,9 @@
   button{
     border: solid 1px rgb(146, 146, 146);
     border-radius: 5%;
-    background-color: rgb(246, 255, 165);
+    background-color: rgb(211, 255, 175);
     color: black;
-    margin-top: rem;
+    margin-top: 1rem;
     padding: .5rem;
     margin: 0 auto;
     display: block;

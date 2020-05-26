@@ -21,7 +21,6 @@ export default function RestaurantSignUp() {
     handleRestaurantReg
   } = useRestaurantSignUp();
 
-
   return (
     <div className={styles.Form}>
       <h2>Restaurant Registration</h2>
