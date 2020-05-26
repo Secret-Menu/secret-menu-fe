@@ -20,7 +20,7 @@ export default function PDXQuadrants({ restaurants }) {
     },
     {
       name: 'Northeast',
-      abbrev: 'N',
+      abbrev: 'NE',
       restaurants: northEastRestaurants
     },
     {
@@ -44,7 +44,7 @@ export default function PDXQuadrants({ restaurants }) {
       restaurants: southWestRestaurants
     }
   ];
-  
+
   const quadrantLists = quadrants.map(quadrant => 
     <div>
       <Link to={`/portland/${quadrant.abbrev}`}>{quadrant.name}</Link>
