@@ -27,10 +27,10 @@ export const postOffering = offering => {
       imageUrl: offering.imageUrl,
       description: offering.description,
       numRemaining: offering.numRemaining,
-      servingSize: offering.servingSize,
       restaurant: offering.restaurantId,
       dietaryRestriction: offering.dietaryRestriction,
-      pickUpDate: offering.pickUpDate
+      pickUpDate: offering.pickUpDate,
+      price: offering.price
     })
   })
     .then(res => res.json())
