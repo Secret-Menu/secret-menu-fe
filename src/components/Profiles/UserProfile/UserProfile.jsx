@@ -8,8 +8,7 @@ import { useSelector } from 'react-redux';
 import { getUserFavorites } from '../../../selectors/userProfileSelectors';
 
 export default function UserProfile() {
-  const { user, allOrders, upcomingOrders, previousOrders } = useUserProfile();
-  const favorites = useSelector(getUserFavorites);
+  const { user, allOrders, upcomingOrders, previousOrders, favorites } = useUserProfile();
 
   const upcomingOrderNodes = upcomingOrders.map(order => <UserProfileDetail key={order.date} order={order}/>);
   const previousOrderNodes = previousOrders.map(order => <UserProfileDetail key={order.date} order={order}/>);

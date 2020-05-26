@@ -19,7 +19,7 @@ export default function reducer(state = initialState, action) {
     case SET_USER_FAVORITES:
       return { ...state, userFavorites: action.payload };
     case ADD_USER_FAVORITE:
-      return { ...state, userFavorites: action.payload };
+      return { ...state, userFavorites: [...state.userFavorites, action.payload] };
     default:
       return state;
   }

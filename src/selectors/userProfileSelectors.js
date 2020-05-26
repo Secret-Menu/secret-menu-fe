@@ -25,4 +25,9 @@ export const getPreviousUserOrders = state => {
     });
 };
 
-export const getUserFavorites = state => state.userProfile.userFavorites;
+export const getUserFavorites = state => { 
+  console.log(state.userProfile.userFavorites);
+  return state.userProfile.userFavorites.map(favorite => {
+    return favorite.restaurant;
+  });
+};

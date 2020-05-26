@@ -58,25 +58,3 @@ export const getLogOut = () => {
   })
     .then(res => res.json());
 };
-
-export const getFavorites = () => {
-  return fetch(`${process.env.API_URL}/api/v1/auth/favorites`, {
-    method: 'GET',
-    credentials: 'include'
-  })
-    .then(res => res.json())
-    .then(res => res.favoriteRestaurants);
-};
-
-export const patchFavorite = restaurant => {
-  return fetch(`${process.env.API_URL}/api/v1/auth/favorites`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
-    body: JSON.stringify({
-      ...restaurant
-    })
-  })
-    .then(res => res.json())
-    .then(res => res.favoriteRestaurants);
-};
