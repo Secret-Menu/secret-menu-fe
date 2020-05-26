@@ -36,7 +36,28 @@ export const postOffering = offering => {
     .then(res => res.json())
 };
 
-export const addPoll = (restaurantId) => {
-  return fetch(`${process.env.API_URL}/api/v1/polls/`)
+export const postPoll = poll => {
+  return fetch(`${process.env.API_URL}/api/v1/polls`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: poll.dishName,
+      offering1Name: poll.offering1Name,
+      offering2Name: poll.poll2Name,
+      start: poll.start,
+      end: poll.end,
+      offering1Votes: poll.offering1Votes,
+      offering2Votes: poll.offering2Votes,
+      offering1Description: poll.offering1Description,
+      offering2Description: poll.offering2Description,
+      offering1ImageUrl: poll.offering1ImageUrl,
+      offering2ImageUrl: poll.offering2ImageUrl,
+      status: poll.status,
+      restaurant: poll.restaurant
+    })
+  })
     .then(res => res.json())
 };
