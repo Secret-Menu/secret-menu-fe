@@ -77,8 +77,9 @@ export default function RestaurantDetail() {
 
   // REFACTOR TO HOOK?
   const addFavorite = () => {
+    if(!favorites) return;
     if(favorites.find(favorite => favorite === restaurant._id)) return;
-    dispatch(addUserFavorite(restaurant._id));
+    dispatch(addUserFavorite(restaurant));
   };
 
   return (
@@ -100,7 +101,7 @@ export default function RestaurantDetail() {
         <div className={styles.Contents}>
           <h3><a href={`tel:+${restaurant.phoneNumber}`}>{restaurant.phoneNumber}</a></h3>
           <h3>{restaurant.category}</h3>
-          {favorites.find(favorite => favorite === restaurant._id) ? null : <button onClick={addFavorite}>Add to Favorites</button> }
+          {favorites.find(favorite => favorite._id === restaurant._id) ? null : <button onClick={addFavorite}>Add to Favorites</button> }
         </div>
         <div className={styles.Map}>
           {conditionalMap()}

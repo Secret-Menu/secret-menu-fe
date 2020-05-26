@@ -24,8 +24,8 @@ export const setUserFavorites = () => dispatch => {
 };
 
 export const ADD_USER_FAVORITE = 'ADD_USER_FAVORITE';
-export const addUserFavorite = (id) => dispatch => {
-  return patchFavorite(id)
+export const addUserFavorite = (restaurant) => dispatch => {
+  return patchFavorite(restaurant)
     .then(res => {
       dispatch({ 
         type: ADD_USER_FAVORITE, 
