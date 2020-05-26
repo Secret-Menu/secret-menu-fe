@@ -1,4 +1,4 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, addOffering, fetchBusiness } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness } from '../services/business-api';
 
 // export const GET_POLLS = 'GET_POLLS';
 // export const getBusinessPolls = (restaurantId) => dispatch => {
@@ -35,12 +35,12 @@ export const getBusiness = (id) => dispatch => {
 
 
 export const ADD_OFFERING = 'ADD_OFFERING';
-export const addBusinessOffering = (id) => dispatch => {
-  return addOffering(restaurantId)
+export const addBusinessOffering = offering => dispatch => {
+  return postOffering(offering)
     .then(res => {
       dispatch({
         type: ADD_OFFERING,
-        payload: res
+        payload: offering
       });
     });
 };
