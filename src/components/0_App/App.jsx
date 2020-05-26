@@ -13,11 +13,13 @@ import RestaurantSignUp from '../Profiles/Auth/RestaurantSignUp';
 import CrowdPleaser from '../1_CrowdPleaser/CrowdPleaser';
 // import PrivateRoute from '../Profiles/Auth/PrivateRoute';
 import PDXMap from '../2_PDXMap/PDXMap';
+import BusinessAdminPage from '../Profiles/BusinessProfile/AdminPage';
 import Quadrant from '../3_Quadrant/Quadrant';
 import RestaurantDetail from '../4_RestaurantDetail/RestaurantDetail';
-import Header from '../Header/Header';
+import HeaderDisplay from '../Header/HeaderDisplay';
 import Cart from '../Cart/Cart';
 import UserProfile from '../Profiles/UserProfile/UserProfile';
+import CurrentOfferings from '../Profiles/BusinessProfile/Offerings/CurrentOfferings';
 
 
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
@@ -27,15 +29,15 @@ export default function App() {
     <Elements stripe={stripePromise}>
       <div>
         <Router>
-          <Header />
+          <HeaderDisplay />
           <Switch>
-            <Route path="/user/:id" component={UserProfile} />
             <Route path="/restaurant/:id" component={RestaurantDetail} />
             <Route exact path="/portland/:area" component={Quadrant} />
             <Route exact path="/portland" component={PDXMap} />
             <Route path="/checkout" component={Cart} />
             <Route path="/signup" component={SignUp} />
             <Route path="/restaurant-reg" component={RestaurantSignUp} />
+            <Route path="/business" component={CurrentOfferings} />
             <Route path="/login" component={LogIn} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>

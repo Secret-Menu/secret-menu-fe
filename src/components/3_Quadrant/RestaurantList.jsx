@@ -4,7 +4,7 @@ import styles from './RestaurantList.css';
 
 const RestaurantList = ({ restaurants }) => {
   const restaurantNodes = restaurants.map(item =>
-  <li ket={item._id}>
+  <li key={item._id}>
     <Link to={`/restaurant/${item._id}`}>
       <div>
         <p>{item.restaurantName}</p>
