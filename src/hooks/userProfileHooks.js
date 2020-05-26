@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCurrentUser } from './authHooks';
-import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders, getUserFavorites } from '../selectors/userProfileSelectors';
-import { setUserOrders, setUserFavorites } from '../actions/userProfileActions';
+import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders, getUserFavorites, getUserPolls, getUpcomingUserPolls, getPreviousUserPolls } from '../selectors/userProfileSelectors';
+import { setUserOrders, setUserFavorites, setUserPolls } from '../actions/userProfileActions';
 import { useEffect } from 'react';
 
 export const useUserProfile = () => {
@@ -11,10 +11,13 @@ export const useUserProfile = () => {
   const upcomingOrders = useSelector(getUpcomingUserOrders);
   const previousOrders = useSelector(getPreviousUserOrders);
   const favorites = useSelector(getUserFavorites);
+  const upcomingPolls = useSelector(getUpcomingUserPolls);
+  const previousPolls = useSelector(getPreviousUserPolls);
 
   useEffect(() => {
     if(user) dispatch(setUserOrders(user._id));
     if(user) dispatch(setUserFavorites());
+    if(user) dispatch(setUserPolls(user._id));
   }, [user]);
 
   return {
@@ -22,6 +25,8 @@ export const useUserProfile = () => {
     allOrders,
     upcomingOrders,
     previousOrders,
-    favorites
+    favorites,
+    upcomingPolls,
+    previousPolls
   };
 };

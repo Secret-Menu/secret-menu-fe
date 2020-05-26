@@ -34,3 +34,16 @@ export const createPoll = poll => {
       return json;
     });
 };
+
+export const fetchUserPolls = (userId) => {
+  return fetch(`${process.env.API_URL}/api/v1/polls`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then(res => res.json())
+    .then(res => { 
+      const userPolls = res.filter(poll => poll.voters.find(voter => voter === userId));
+      if(userPolls.length > 0) return userPolls;
+      else return;
+    });
+};

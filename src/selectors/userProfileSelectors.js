@@ -25,6 +25,31 @@ export const getPreviousUserOrders = state => {
     });
 };
 
-export const getUserFavorites = state => { 
-  return state.userProfile.userFavorites;
+export const getUserFavorites = state =>  state.userProfile.userFavorites;
+
+export const getUserPolls = state => { 
+  if(!state.userProfile.userPolls) return [];
+  return state.userProfile.userPolls.map(poll => ({
+    ...poll,
+    end: new Date(poll.end)
+  }))
+    .sort(function(a, b) {
+      return a.end - b.end;
+    });
+};
+
+export const getUpcomingUserPolls = state => {
+  return getUserPolls(state)
+    .filter(poll => {
+      const today = new Date();
+      return poll.end > today;
+    });
+};
+
+export const getPreviousUserPolls = state => {
+  return getUserPolls(state)
+    .filter(poll => {
+      const today = new Date();
+      return poll.end < today;
+    });
 };
