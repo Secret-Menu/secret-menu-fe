@@ -1,4 +1,4 @@
-import { GET_BUSINESS, GET_POLLS, GET_OFFERINGS, ADD_OFFERING, ADD_POLL } from '../actions/businessActions';
+import { GET_BUSINESS, ADD_OFFERING, ADD_POLL, SET_ORDERS, SET_OFFERINGS, SET_POLLS } from '../actions/businessActions';
 
 const initialState = {
     offerings: [],
@@ -14,6 +14,12 @@ export default function reducer(state = initialState, action) {
       return { ...state, offerings: [...state.offerings, action.payload] }
     case ADD_POLL:
       return { ...state, polls: [...state.polls, action.payload] };
+    case SET_ORDERS:
+      return { ...state, orders: [action.payload] };
+    case SET_OFFERINGS:
+      return { ...state, offerings: [action.payload] };
+    case SET_POLLS:
+      return { ...state, polls: [action.payload] };
     default:
       return state;
   }
