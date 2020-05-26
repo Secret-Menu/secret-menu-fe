@@ -40,12 +40,8 @@ export default function App() {
             <Route path="/checkout" component={Cart} />
             <Route path="/signup" component={SignUp} />
             <Route path="/restaurant-reg" component={RestaurantSignUp} />
-<<<<<<< HEAD
-            <Route path="/business" component={AdminPage} />
-=======
             <Route path="/business/add-offering" component={AddOffering} />
             <Route path="/business" component={CurrentOfferings} />
->>>>>>> f482184778d2b0a7b79265800dd583951fd95ed8
             <Route path="/login" component={LogIn} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>
