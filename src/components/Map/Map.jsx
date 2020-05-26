@@ -5,7 +5,6 @@ import Overlay from './MapOverlay.js';
 import { mapMarkers, mapMarker } from '../../services/markerMapping.js';
 
 export default function Map({ center, zoom, marker, markers }) {
-
   let markerNode;
   if(marker) { markerNode = mapMarker(marker);}
 
@@ -18,7 +17,6 @@ export default function Map({ center, zoom, marker, markers }) {
       defaultCenter={center}
       defaultZoom={zoom}
       defaultOptions={{ styles: Overlay }}
-      $hover="false"
     >
       {markerNode ? markerNode : null}
       {markerNodes ? markerNodes : null}

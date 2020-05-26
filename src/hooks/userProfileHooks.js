@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCurrentUser } from './authHooks';
 import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders, getUserFavorites } from '../selectors/userProfileSelectors';
-import { setUserOrders, setUserFavorites } from '../actions/userProfileActions';
+import { setUserOrders, setUserFavorites, setUserPolls } from '../actions/userProfileActions';
 import { useEffect } from 'react';
 
 export const useUserProfile = () => {
@@ -15,6 +15,7 @@ export const useUserProfile = () => {
   useEffect(() => {
     if(user) dispatch(setUserOrders(user._id));
     if(user) dispatch(setUserFavorites());
+    if(user) dispatch(setUserPolls(user._id));
   }, [user]);
 
   return {

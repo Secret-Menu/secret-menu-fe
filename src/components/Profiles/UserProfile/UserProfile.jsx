@@ -6,7 +6,7 @@ import { useUserProfile } from '../../../hooks/userProfileHooks';
 import RestaurantList from '../../3_Quadrant/RestaurantList';
 
 export default function UserProfile() {
-  const { user, allOrders, upcomingOrders, previousOrders, favorites } = useUserProfile();
+  const { user, allOrders, upcomingOrders, previousOrders, favorites, polls } = useUserProfile();
 
   const upcomingOrderNodes = upcomingOrders.map(order => <UserProfileDetail key={order.date} order={order}/>);
   const previousOrderNodes = previousOrders.map(order => <UserProfileDetail key={order.date} order={order}/>);
