@@ -117,7 +117,7 @@ export const useRestaurantSignUp = () => {
   };
 
   useEffect(() => {
-    if(user.restaurant) history.push('/');
+    if(!user) history.push('/login');
   }, [user]);
 
   return {

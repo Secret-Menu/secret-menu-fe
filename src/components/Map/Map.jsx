@@ -5,6 +5,7 @@ import Overlay from './MapOverlay.js';
 import { mapMarkers, mapMarker } from '../../services/markerMapping.js';
 
 export default function Map({ center, zoom, marker, markers }) {
+
   let markerNode;
   if(marker) { markerNode = mapMarker(marker);}
 

@@ -3,12 +3,15 @@ import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './CheckoutForm.css';
 import { postOrder } from '../../services/orders-api';
+import { useHistory } from 'react-router-dom';
 
 const CheckoutForm = ({ cartTotal, order }) => {
   const user = useCurrentUser();
+  const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
   const [nameOnCard, setNameOnCard] = useState('');
+
 
   
 
@@ -44,17 +47,16 @@ const CheckoutForm = ({ cartTotal, order }) => {
   
       const serverResponse = await response.json();
 
-      handleServerResponse(serverResponse);
+      handleServerResponse(serverResponse, order);
     }
   };
 
-  const handleServerResponse = (serverResponse) => {
+  const handleServerResponse = (serverResponse, order) => {
     if (serverResponse.error) {
       console.log(serverResponse.error);
     } else {
-      postOrder(order)
-        .then(res => res.json());
-      console.log('Success!');
+      postOrder(order);
+      console.log('Payment and order successful!');
     }
   };
 

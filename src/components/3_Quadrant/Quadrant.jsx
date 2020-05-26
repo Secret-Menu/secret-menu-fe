@@ -15,6 +15,7 @@ export default function Quadrant(){
     lat: 45.52, 
     lng: -122.685,
   };
+  
   const zoom = 14;
   
   useEffect(() => {

@@ -6,12 +6,8 @@ exports[`App component renders App 1`] = `
 >
   <div>
     <BrowserRouter>
-      <Header />
+      <HeaderDisplay />
       <Switch>
-        <Route
-          component={[Function]}
-          path="/user/:id"
-        />
         <Route
           component={[Function]}
           path="/restaurant/:id"
@@ -37,6 +33,10 @@ exports[`App component renders App 1`] = `
         <Route
           component={[Function]}
           path="/restaurant-reg"
+        />
+        <Route
+          component={[Function]}
+          path="/business"
         />
         <Route
           component={[Function]}

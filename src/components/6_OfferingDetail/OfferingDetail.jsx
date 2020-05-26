@@ -32,11 +32,18 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  const pickUp = offering.pickUpDate;
+  const pickUpDate = new Date(pickUp);
+
+  const pickUpYear = pickUpDate.getYear();
+  console.log(pickUpYear)
  
   return (
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
       <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
+      <p>{offering.pickUpDate}</p>
       <p>{offering.dishName}</p>
       {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
       <Modal

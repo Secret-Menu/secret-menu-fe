@@ -1,10 +1,16 @@
 import { GET_ALL, GET_AREA, SET_RESTAURANT, RESET_RESTAURANT  } from '../actions/restaurantActions';
 
 const initialState = {
-  allRestaurants: [],
-  areaRestaurants: {
+  allRestaurants: {
     restaurants: [],
     anchorPoint: {}
+  },
+  areaRestaurants: {
+    restaurants: [],
+    anchorPoint: {
+      center: {},
+      zoom: null
+    }
   },
   restaurant: {}
 };
