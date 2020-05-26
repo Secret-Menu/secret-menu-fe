@@ -14,6 +14,38 @@ export default function PDXMap() {
     dispatch(getAllRestaurants());
   }, []);
 
+  const quadrants = [
+    {
+      name: 'North',
+      abbrev: 'N'
+    },
+    {
+      name: 'Northeast',
+      abbrev: 'N'
+    },
+    {
+      name: 'Northwest',
+      abbrev: 'NW'
+    },
+    {
+      name: 'South',
+      abbrev: 'S'
+    },
+    {
+      name: 'Southeast',
+      abbrev: 'SE'
+    },
+    {
+      name: 'Southwest',
+      abbrev: 'SW'
+    }
+  ];
+
+  const quadrantLists = quadrants.map(quadrant => 
+    <Link
+    
+  )
+
   return (
     <div>
       <div style={{ height: '60vh', width: '50%' }}>
