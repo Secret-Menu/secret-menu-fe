@@ -5,6 +5,7 @@ import LogInSignUp from './LogInSignUp';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 import logo from '../../assets/mainLogo.png';
+import { toast } from 'react-toastify';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Header = () => {
   
   const handleLogOut = () => {
     dispatch(logout());
+    return toast('👋 Thanks for stopping by!');
   };
   
   return (

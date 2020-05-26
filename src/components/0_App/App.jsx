@@ -22,6 +22,7 @@ import UserProfile from '../Profiles/UserProfile/UserProfile';
 import CurrentOfferings from '../Profiles/BusinessProfile/Offerings/CurrentOfferings';
 import AdminPage from '../Profiles/BusinessProfile/AdminPage';
 
+
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         <Router>
           <HeaderDisplay />
           <Switch>
+            <Route path="/user/:id" component={UserProfile} />
             <Route path="/restaurant/:id" component={RestaurantDetail} />
             <Route exact path="/portland/:area" component={Quadrant} />
             <Route exact path="/portland" component={PDXMap} />

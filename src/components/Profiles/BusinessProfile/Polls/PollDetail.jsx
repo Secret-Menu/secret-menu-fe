@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { useCurrentUser } from '../../../../hooks/authHooks';
 
 //a poll for a restaurant
 
 const PollDetail = (poll) => {
-  const user = userCurrentUser();
+  const user = useCurrentUser();
   return (
   <>
     <div>
