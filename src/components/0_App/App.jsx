@@ -31,6 +31,7 @@ export default function App() {
         <Router>
           <HeaderDisplay />
           <Switch>
+            <Route path="/user/:id" component={UserProfile} />
             <Route path="/restaurant/:id" component={RestaurantDetail} />
             <Route exact path="/portland/:area" component={Quadrant} />
             <Route exact path="/portland" component={PDXMap} />
