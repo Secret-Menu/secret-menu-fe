@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAreaRestaurants } from '../../actions/restaurantActions';
 import { selectAreaRestaurants } from '../../selectors/restaurantSelectors';
 import { useParams } from 'react-router-dom';
-import { useQuadrant } from '../../hooks/quadrantHooks';
+import { useQuadrantName } from '../../hooks/quadrantHooks';
 import RestaurantList from './RestaurantList';
 
 export default function Quadrant(){
@@ -14,7 +14,7 @@ export default function Quadrant(){
 
   const {
     quadrantName
-  } = useQuadrant(area);
+  } = useQuadrantName(area);
   
   useEffect(() => {
     dispatch(getAreaRestaurants(area));
