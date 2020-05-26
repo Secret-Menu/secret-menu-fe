@@ -5,8 +5,10 @@ import { pdxAnchor } from '../../services/map-utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllRestaurants } from '../../actions/restaurantActions';
 import { selectAllRestaurants } from '../../selectors/restaurantSelectors';
+import { toast } from 'react-toastify';
 
-export default function PDXMap() {  
+export default function PDXMap() { 
+
   const dispatch = useDispatch();
   const restaurants = useSelector(selectAllRestaurants);
 
@@ -17,9 +19,10 @@ export default function PDXMap() {
   return (
     <div>
       <div style={{ height: '60vh', width: '50%' }}>
+        <button onClick={() => toast('do you love me???')}>HELLO</button>
         <Map center={pdxAnchor.center} zoom={pdxAnchor.zoom} markers={restaurants}/>
         <Link to={'/portland/NW'}>NW</Link>
-      </div>
+      </div> 
     </div>
   );
 }

@@ -19,6 +19,7 @@ import Header from '../Header/Header';
 import Cart from '../Cart/Cart';
 import UserProfile from '../Profiles/UserProfile/UserProfile';
 
+
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
 
 export default function App() {
