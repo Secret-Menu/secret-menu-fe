@@ -21,6 +21,7 @@ import Cart from '../Cart/Cart';
 import UserProfile from '../Profiles/UserProfile/UserProfile';
 import CurrentOfferings from '../Profiles/BusinessProfile/Offerings/CurrentOfferings';
 import AdminPage from '../Profiles/BusinessProfile/AdminPage';
+import AddOffering from '../Profiles/BusinessProfile/Forms/AddOffering';
 
 
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
@@ -39,7 +40,12 @@ export default function App() {
             <Route path="/checkout" component={Cart} />
             <Route path="/signup" component={SignUp} />
             <Route path="/restaurant-reg" component={RestaurantSignUp} />
+<<<<<<< HEAD
             <Route path="/business" component={AdminPage} />
+=======
+            <Route path="/business/add-offering" component={AddOffering} />
+            <Route path="/business" component={CurrentOfferings} />
+>>>>>>> f482184778d2b0a7b79265800dd583951fd95ed8
             <Route path="/login" component={LogIn} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>

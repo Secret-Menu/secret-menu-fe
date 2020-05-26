@@ -19,8 +19,24 @@ export const fetchBusinessOrders = (id) => {
 //     .then(res.polls);
 // };
 
-export const addOffering = (restaurantId) => {
-  return fetch(`${process.env.API_URL}/api/v1/offerings/`)
+export const postOffering = offering => {
+  return fetch(`${process.env.API_URL}/api/v1/offerings`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      dishName: offering.dishName,
+      imageUrl: offering.imageUrl,
+      description: offering.description,
+      numRemaining: offering.numRemaining,
+      restaurant: offering.restaurant,
+      dietaryRestriction: offering.dietaryRestriction,
+      pickUpDate: offering.pickUpDate,
+      price: offering.price
+    })
+  })
     .then(res => res.json())
 };
 
