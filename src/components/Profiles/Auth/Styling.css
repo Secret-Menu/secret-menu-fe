@@ -1,0 +1,55 @@
+.RestaurantSignUp{
+  align-items: center;
+  box-sizing: border-box;
+  width: 60vh;
+  margin:0px auto;
+  border: solid 1px black;
+  padding: 1rem;
+
+  h2{
+    margin-top: 0;
+    font-size: x-large;
+    text-align: center;
+  }
+
+  select{
+    margin-top: .5rem;
+    margin-right: 1rem;
+  }
+  input{
+    height: 1rem;
+    margin-top: .5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  textarea{
+    margin-top: 1rem;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+  button{
+    border: solid 1px rgb(146, 146, 146);
+    border-radius: 5%;
+    background-color: rgb(136, 118, 240);
+    color: white;
+    margin-top: rem;
+    padding: .5rem;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  button:hover {
+    background-color: white;
+    color: rgb(118, 59, 255);
+    margin-top: rem;
+    padding: .5rem;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+}
+
+
