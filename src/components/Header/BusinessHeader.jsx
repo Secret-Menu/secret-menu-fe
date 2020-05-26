@@ -19,7 +19,8 @@ const BusinessHeader = () => {
       <img src={logo} alt="Crowd Pleaser Logo" style={{height: '100px'}}></img>
       <Link to="/"> <button>Home</button> </Link>
       <Link to="/"> <button>My Polls</button> </Link>
-      <Link to="/business/add-offering">Add Offering</Link>"
+      <Link to="/business/add-offering"><button>Add Offering</button></Link>
+      <Link to="/business/add-poll"><button>Add Poll</button></Link>
       <Link to="/"> <button>My Offerings</button> </Link>
       { user &&  <Link to="/"><button onClick={handleLogOut}>Log Out</button> </Link> }
       { !user && <LogInSignUp />}
