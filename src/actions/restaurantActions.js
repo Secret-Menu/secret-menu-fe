@@ -38,3 +38,4 @@ export const resetRestaurant = () => ({
   type: RESET_RESTAURANT, 
   payload: {} 
 });
+
