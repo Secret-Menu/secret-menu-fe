@@ -1,5 +1,5 @@
 export const getUserOrders = state => { 
-  return state.orders.userOrders.map(order => ({
+  return state.userProfile.userOrders.map(order => ({
     info: order.restaurant.restaurantName,
     date: new Date(order.pickUpDate),
     orders: order.offering
@@ -24,3 +24,5 @@ export const getPreviousUserOrders = state => {
       return order.date < today;
     });
 };
+
+export const getUserFavorites = state => state.userProfile.userFavorites;

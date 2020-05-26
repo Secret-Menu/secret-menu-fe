@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
 import styles from './RestaurantDetail.css';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
 import Map from '../Map/Map';
-import { patchFavorite } from '../../services/auth-api';
-// import PollDetail from '../5_PollDetail/PollDetail';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUserFavorite, setUserFavorites } from '../../actions/userProfileActions';
+import { useCurrentUser } from '../../hooks/authHooks';
+import { getUserFavorites } from '../../selectors/userProfileSelectors';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
+  const dispatch = useDispatch();
+  
+  // REFACTOR TO HOOK
+  const user = useCurrentUser();
+  const favorites = useSelector(getUserFavorites);
+
+  useEffect(() => {
+    if(user) {
+      dispatch(setUserFavorites(user));
+    } 
+  }, [user]);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
@@ -62,10 +75,10 @@ export default function RestaurantDetail() {
 
   const zoom = 14;
 
+  // REFACTOR TO HOOK?
   const addFavorite = () => {
-    console.log('test');
-    patchFavorite(restaurant._id)
-      .then(res => console.log(res));
+    if(favorites.find(favorite => favorite === restaurant._id)) return;
+    dispatch(addUserFavorite(restaurant._id));
   };
 
   return (
@@ -87,7 +100,7 @@ export default function RestaurantDetail() {
         <div className={styles.Contents}>
           <h3><a href={`tel:+${restaurant.phoneNumber}`}>{restaurant.phoneNumber}</a></h3>
           <h3>{restaurant.category}</h3>
-          <button onClick={addFavorite}>Add to Favorites</button>
+          {favorites.find(favorite => favorite === restaurant._id) ? null : <button onClick={addFavorite}>Add to Favorites</button> }
         </div>
         <div className={styles.Map}>
           {conditionalMap()}

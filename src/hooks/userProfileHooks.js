@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCurrentUser } from './authHooks';
-import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders } from '../selectors/orderSelectors';
-import { setUserOrders } from '../actions/orderActions';
+import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders } from '../selectors/userProfileSelectors';
+import { setUserOrders } from '../actions/userProfileActions';
 import { useEffect } from 'react';
 
 export const useUserProfile = () => {
