@@ -1,4 +1,4 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll } from '../services/business-api';
 
 export const GET_ORDERS = 'GET_ORDERS';
 export const getBusinessOrders = (id) => dispatch => {
@@ -22,13 +22,13 @@ export const addBusinessOffering = offering => dispatch => {
     });
 };
 
-// export const ADD_POLL = 'ADD_POLL';
-// export const addBusinessPoll = (id) => dispatch => {
-//   return addPoll(restaurantId)
-//     .then(res => {
-//       dispatch({
-//         type: ADD_POLL,
-//         payload: res
-//       });
-//     });
-// };
+export const ADD_POLL = 'ADD_POLL';
+export const addBusinessPoll = poll => dispatch => {
+  return postPoll(poll)
+    .then(res => {
+      dispatch({
+        type: ADD_POLL,
+        payload: poll
+      });
+    });
+};
