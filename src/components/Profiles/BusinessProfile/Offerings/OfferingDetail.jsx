@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
+import { useSelector } from 'react-redux';
+import { selectOfferings } from '../../../../selectors/businessSelectors';
 
 //offerings in an order
 
-const OfferingDetail = (offering) => (
+const OfferingDetail = () => {
+  const offering = useSelector(selectOfferings);
+
+  return (
   <>
     <div>
       <img src={offering.imageUrl} alt="Offering Image"></img>
@@ -13,10 +16,7 @@ const OfferingDetail = (offering) => (
       <p>{offering.price}</p>
     </div>
   </>
-);
-
-OfferingDetail.propTypes = {
-  offering: PropTypes.object
+  )
 };
 
 export default OfferingDetail;
