@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 //a poll for a restaurant
 
-const PollDetail = (poll) => (
+const PollDetail = (poll) => {
+  const user = userCurrentUser();
+  return (
   <>
     <div>
       <img src={poll.offering1ImageUrl} alt="Offering Image"></img>
@@ -19,8 +21,10 @@ const PollDetail = (poll) => (
       <p>{poll.offering2Description}</p>
       <p>{poll.offering2Votes}</p>
     </div>
+    <p>Start Date: {poll.start} </p>
+    <p>End Date: {poll.end} </p>
   </>
-);
+  )};
 
 PollDetail.propTypes = {
   poll: PropTypes.object
