@@ -4,8 +4,10 @@ import React from 'react';
 import OrderDetail from './OrderDetail';
 import { useSelector } from 'react-redux';
 import { selectOrders } from '../../../../selectors/businessSelectors';
+import { useCurrentUser } from '../../../../hooks/authHooks';
 
 const UpcomingOrders = () => {
+  const user = useCurrentUser();
   const orders = useSelector(selectOrders);
 
   const ordersToList = orders.map(order => (
