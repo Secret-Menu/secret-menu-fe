@@ -1,9 +1,10 @@
 //upcoming orders table
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 import OfferingDetail from './OfferingDetail';
 
-const UpcomingOrders = () => {
+const CurrentOfferings = () => {
   const offerings = useSelector(selectOfferings);
 
   const offeringsToList = offerings.map(offering => (
@@ -20,7 +21,5 @@ const UpcomingOrders = () => {
     </>
   );
 };
-
-
 
 export default CurrentOfferings;
