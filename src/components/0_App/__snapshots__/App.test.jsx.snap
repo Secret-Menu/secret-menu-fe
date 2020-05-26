@@ -10,10 +10,6 @@ exports[`App component renders App 1`] = `
       <Switch>
         <Route
           component={[Function]}
-          path="/user/:id"
-        />
-        <Route
-          component={[Function]}
           path="/restaurant/:id"
         />
         <Route
