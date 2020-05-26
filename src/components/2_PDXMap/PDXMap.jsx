@@ -19,7 +19,7 @@ export default function PDXMap() {
   return (
     <div>
       <div style={{ height: '60vh', width: '50%' }}>
-        <button onClick={() => toast('do you love me???')}>HELLO</button>
+        <button onClick={() => toast.error('⚠️ NOOOOO!!!!')}>HELLO</button>
         <Map center={pdxAnchor.center} zoom={pdxAnchor.zoom} markers={restaurants}/>
         <Link to={'/portland/NW'}>NW</Link>
       </div> 
