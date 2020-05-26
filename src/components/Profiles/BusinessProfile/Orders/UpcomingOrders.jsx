@@ -2,9 +2,11 @@
 
 import React from 'react';
 import OrderDetail from './OrderDetail';
+import { useSelector } from 'react-redux';
+import { selectOrders } from '../../../../selectors/businessSelectors';
 
 const UpcomingOrders = () => {
-  //get polls per restaurant --hook? selector??
+  const orders = useSelector(selectOrders);
 
   const ordersToList = orders.map(order => (
     <tr key={border.orderNumber}>
@@ -14,13 +16,11 @@ const UpcomingOrders = () => {
 
   return (
     <>
-      <tr>
-        {pollList}
-      </tr>
+      <td>
+        {ordersToList}
+      </td>
     </>
   );
 };
-
-
 
 export default UpcomingOrders;

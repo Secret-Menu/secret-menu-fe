@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import OfferingDetail from './OfferingDetail';
 
 const AllOfferings = () => {
-  
+  const offerings = useSelector(selectOfferings);
 
   const offeringsToList = offerings.map(offering => (
     <li key={`${offering.dishName} + ${offering._id}`}>
@@ -14,7 +14,7 @@ const AllOfferings = () => {
   return (
     <>
       <td>
-        {ordersToList}
+        {offeringsToList}
       </td>
     </>
   );
