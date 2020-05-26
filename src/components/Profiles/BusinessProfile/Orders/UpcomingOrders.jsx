@@ -11,6 +11,8 @@ import { getBusinessOrders } from '../../../../actions/businessActions';
 const UpcomingOrders = () => {
   const user = useCurrentUser();
   const dispatch = useDispatch();
+  const orders = useSelector(selectOrders);
+  console.log(orders)
   // const orders = useSelector(selectOrders);
   useEffect(() => {if(user) dispatch(getBusinessOrders(user.restaurant[0]._id));}, [user]);
 

@@ -4,4 +4,4 @@ export const selectPolls = state => selectRestaurant(state)?.polls ?? [];
 
 export const selectOfferings = state => selectRestaurant(state)?.offerings ?? [];
 
-export const selectOrders = state => selectRestaurant(state)?.orders ?? [];
+export const selectOrders = state => state.business.orders ?? [];

@@ -4,25 +4,22 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectOrders } from '../../../../selectors/businessSelectors';
 
-const OrderDetail = (order) => {
+//TABLE ORDER DETAIL
+
+const OrderDetail = ({ createdAt, customerName, orderStatus, orderNumber, pickUpDate }) => {
   const user = useCurrentUser();
   const orders = useSelector(selectOrders);
 
+  console.log(orders);
   return (
     <>
-        <div>
-          <h4>{orderNumber}</h4>
-          <p>Placed On: {placedOn}</p>
-          <p>Order Total: {orderTotal}</p>
-        </div>
+        <tr>
+          <td>{ordorderNumber}</td>
+          <td>Placed On: {orders.createdAt}</td>
+          <td>Order Total: {orderTotal}</td>
+        </tr>
     </>
   );
-};
-
-OrderDetail.propTypes = {
-  orderNumber: PropTypes.number,
-  placedOn: PropTypes.string,
-  orderTotal: PropTypes.number
 };
 
 export default OrderDetail;
