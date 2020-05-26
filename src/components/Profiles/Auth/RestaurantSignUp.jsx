@@ -2,6 +2,7 @@ import React from 'react';
 import { useRestaurantSignUp } from '../../../hooks/authHooks';
 import styles from './Styling.css';
 
+
 export default function RestaurantSignUp() {
   const {
     restaurantName,
@@ -20,8 +21,9 @@ export default function RestaurantSignUp() {
     handleRestaurantReg
   } = useRestaurantSignUp();
 
+
   return (
-    <div className={styles.RestaurantSignUp}>
+    <div className={styles.Form}>
       <h2>Restaurant Registration</h2>
       <form onSubmit={handleRestaurantReg}>
         <div>

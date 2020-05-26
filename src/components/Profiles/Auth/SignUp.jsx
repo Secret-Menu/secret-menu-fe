@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
+import styles from './Styling.css';
 import Error from './Error';
 
 export default function SignUp() {
@@ -16,7 +17,7 @@ export default function SignUp() {
   } = useSignUp();
 
   return (
-    <div>
+    <div className={styles.Form}>
       <h2>Sign Up</h2>
       <Error error={error} />
       <form onSubmit={handleSignUp}>

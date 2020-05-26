@@ -1,4 +1,4 @@
-.RestaurantSignUp{
+.Form{
   align-items: center;
   background-color: rgb(233, 251, 221);
   box-sizing: border-box;
@@ -17,6 +17,9 @@
   select{
     margin-top: .5rem;
     margin-right: 1rem;
+  }
+  input[type="radio"]{
+    border: solid 0px black;
   }
   input{
     border: solid 1px grey;
