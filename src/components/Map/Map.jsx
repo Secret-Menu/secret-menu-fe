@@ -14,7 +14,7 @@ export default function Map({ center, zoom, marker, markers }) {
   return (
     <GoogleMapReact
       bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
-      defaultCenter={center}
+      center={center}
       defaultZoom={zoom}
       defaultOptions={{ styles: Overlay }}
     >

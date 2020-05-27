@@ -26,6 +26,7 @@ export default function Quadrant(){
       <div style={{ height: '60vh', width: '33%' }}>
         {restaurants.anchorPoint.zoom && 
         <Map center={restaurants.anchorPoint.center} zoom={restaurants.anchorPoint.zoom} markers={restaurants} />}
+        {console.log(restaurants.anchorPoint.center)}
       </div>
       <RestaurantList restaurants={restaurants.restaurants}/>
     </div>
