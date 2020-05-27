@@ -50,6 +50,7 @@ export default function AddOffering() {
         <input type="text" value={description} name="description" onChange={handleChange} placeholder="Description" />
         <input type="number" value={numRemaining} name="numRemaining" onChange={handleChange} placeholder="Number of dishes" />
         <input type="datetime-local" value={pickUpDate} name="pickUpDate" onChange={handleChange} placeholder="Pick Up Date" />
+        <input type="number" value={price} name="price" onChange={handleChange} placeholder="Price" />
         <label>Dietary Restrictions</label>
         <select value={dietaryRestriction} name="dietaryRestriction" onChange={handleChange}>
           <option value = "None" selected>None</option>
