@@ -1,5 +1,6 @@
 import { postSignUp, postLogIn, getVerify, getLogOut } from '../services/auth-api';
 import { createRestaurant } from '../services/restaurants-api';
+import { toast } from 'react-toastify';
 
 export const SET_USER = 'SET_USER';
 export const SET_USER_ERROR = 'SET_USER_ERROR';
@@ -14,12 +15,14 @@ export const signup = (newUser) => dispatch => {
         type: SET_USER,
         payload: user
       });
+      toast.success(`Account Created! Welcome ${user.firstName}!`);
     })
     .catch(err => {
       dispatch({
         type: SET_USER_ERROR,
         payload: err.message
       });
+      toast.error(err.message);
     });
 };
 
@@ -53,6 +56,7 @@ export const login = (email, password) => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
+    
     });
 };
 
@@ -78,5 +82,3 @@ export const logout = () => dispatch => {
     });
     
 };
-//
-
