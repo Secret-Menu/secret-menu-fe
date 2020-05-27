@@ -26,9 +26,13 @@ export default function RestaurantDetail() {
     } 
   }, [user]);
 
-  const offeringNodes = offerings.map(offering => {
-    return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
-  });
+  const offeringNodes = offerings.map(offering => ({ ...offering, pickUpDate: new Date(offering.pickUpDate) }))
+    .sort((a, b) => a.pickUpDate - b.pickUpDate)
+    .filter(offering => offering.pickUpDate > new Date())
+    .map(offering => ({ ...offering, pickUpDate: offering.pickUpDate.toString() }))
+    .map(offering => {
+      return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
+    });
 
   const conditionalMap = () => {
     if(pageLat) {
