@@ -8,6 +8,7 @@ const UpcomingPolls = () => {
   const polls = useSelector(selectPolls);
   const pollSample = polls.map(poll => ({ ...poll, end: new Date(poll.end) }))
     .sort((a, b) => a.end - b.end)
+    .filter(poll => poll.status !== 'closed')
     .map(poll => ({ ...poll, end: poll.end.toString() }))
     .slice(0, 3);
 
