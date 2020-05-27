@@ -159,9 +159,7 @@ export const useLogIn = () => {
   const error = useSelector(getAuthError);
   const loading = useSelector(getAuthLoading);
   const user = useCurrentUser();
-
   const history = useHistory();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

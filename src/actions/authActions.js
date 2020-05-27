@@ -62,15 +62,15 @@ export const login = (email, password) => dispatch => {
 };
 
 export const verify = (email, password) => dispatch => {
-  // dispatch({type: SET_USER_LOADING});
+  // this is where the JWT errors appear all over
   getVerify(email, password)
     .then(user => {
       dispatch({
         type: SET_USER,
         payload: user
       });
-    })
-    .catch(err =>  toast.error(err.message));
+    });
+  // .catch(err =>  toast.error(err.message));
 };
 
 export const logout = () => dispatch => {
@@ -80,6 +80,6 @@ export const logout = () => dispatch => {
         type: SET_USER,
         payload: null
       });
-    })
-    .catch(err =>  toast.error(err.message));
+    });
+// .catch(err =>  toast.error(err.message));
 };
