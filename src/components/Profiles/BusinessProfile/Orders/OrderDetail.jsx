@@ -1,23 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectOrders } from '../../../../selectors/businessSelectors';
-
 
 //TABLE ORDER DETAIL
 
-const OrderDetail = ({ created_at, customerName, orderStatus, orderNumber, pickUpDate, orderTotal, user }) => {
+const OrderDetail = ({ created_at, orderStatus, orderNumber, orderTotal, user, offering }) => {
 
   return (
     <>
-          <td>{created_at}</td>
-          <td>{`${user.firstName} ${user.lastName}`}</td>
-          <td>{orderNumber}</td>
-          <td>{orderStatus}</td>
-          <td>{pickUpDate}</td>
-          <td>{orderTotal}</td>
+      <td>{created_at}</td>
+      <td>{`${user.firstName} ${user.lastName}`}</td>
+      <td>{orderNumber}</td>
+      <td>{orderStatus}</td>
+      <td>{offering.pickUpDate}</td>
+      <td>{orderTotal}</td>
     </>
   );
 };
+
+OrderDetail.propTypes = {
+  created_at: PropTypes.string,
+  orderStatus: PropTypes.string,
+  orderNumber: PropTypes.number,
+  orderTotal: PropTypes.number,
+  user: PropTypes.object,
+  offering: PropTypes.object
+};
+
 export default OrderDetail;
