@@ -1,38 +1,36 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusinessOrders, postPoll } from '../services/business-api';
 
-// export const GET_POLLS = 'GET_POLLS';
-// export const getBusinessPolls = (restaurantId) => dispatch => {
-//   return fetchBusinessPolls(restaurantId)
-//     .then(res => {
-//       dispatch({
-//         type: GET_POLLS,
-//         payload: res
-//       });
-//     });
-// };
-
-// export const GET_OFFERINGS = 'GET_OFFERINGS';
-// export const getBusinessOfferings = (id) => dispatch => {
-//   return fetchBusinessOfferings(id)
-//     .then(res => {
-//       dispatch({
-//         type: GET_OFFERINGS,
-//         payload: res
-//       });
-//     });
-// };
-
-export const GET_BUSINESS = 'GET_BUSINESS';
-export const getBusiness = (id) => dispatch => {
-  return fetchBusiness(id)
+export const SET_ORDERS = 'SET_ORDERS';
+export const setBusinessOrders = (id) => dispatch => {
+  return fetchBusinessOrders(id)
     .then(res => {
       dispatch({
-        type: GET_BUSINESS,
+        type: SET_ORDERS,
+        payload: res
+      });
+    });
+};
+export const SET_OFFERINGS = 'SET_OFFERINGS';
+export const setBusinessOfferings = (id) => dispatch => {
+  return fetchBusinessOfferings(id)
+    .then(res => {
+      dispatch({
+        type: SET_OFFERINGS,
         payload: res
       });
     });
 };
 
+export const SET_POLLS = 'SET_POLLS';
+export const setBusinessPolls = (id) => dispatch => {
+  return fetchBusinessPolls(id)
+    .then(res => {
+      dispatch({
+        type: SET_POLLS,
+        payload: res
+      });
+    });
+};
 
 export const ADD_OFFERING = 'ADD_OFFERING';
 export const addBusinessOffering = offering => dispatch => {

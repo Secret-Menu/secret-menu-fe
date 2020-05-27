@@ -1,34 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { selectOrders } from '../../../../selectors/businessSelectors/';
+import { useSelector } from 'react-redux';
+import { selectOrders } from '../../../../selectors/businessSelectors';
 
-const OrderDetail = (order) => {
-  
-  // get orders offerings from state as prop
-  
+//TABLE ORDER DETAIL
 
-  // const orders = useSelector(selectOrders);
+const OrderDetail = ({ createdAt, customerName, orderStatus, orderNumber, pickUpDate }) => {
+  const user = useCurrentUser();
+  const orders = useSelector(selectOrders);
 
+  console.log(orders);
   return (
     <>
-      <Link key={order_id} to={`orders/${order._id}`}>
-        <div>
-          <h4>{orderNumber}</h4>
-          <p>Placed On: {placedOn}</p>
-          <p>Order Total: {orderTotal}</p>
-      
-        </div>
-      </Link>
+        <tr>
+          <td>{ordorderNumber}</td>
+          <td>Placed On: {orders.createdAt}</td>
+          <td>Order Total: {orderTotal}</td>
+        </tr>
     </>
   );
-};
-
-OrderDetail.propTypes = {
-  orderNumber: PropTypes.number,
-  placedOn: PropTypes.string,
-  orderTotal: PropTypes.number
 };
 
 export default OrderDetail;
