@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 import { fetchLatLng } from '../services/latlng-api';
-import { validateSignUp } from '../services/formValidators';
+import { validateSignUp, validateBusiness } from '../services/formValidators';
 import { toast } from 'react-toastify';
 
 export const useSignUp = () => {
@@ -121,7 +121,15 @@ export const useRestaurantSignUp = () => {
       websiteUrl,
       imageUrl
     };
-    dispatch(signUpRestaurant(restaurant));
+
+    const errors = validateBusiness(restaurant);
+    if(!errors.length){
+      dispatch(signUpRestaurant(restaurant));
+      toast.success(`${restaurant.restaurantName} added to our database!`);
+    } else return errors.map(error =>{
+      toast.error(error);
+    });
+    
   };
 
   useEffect(() => {

@@ -23,7 +23,7 @@ export const signup = (newUser) => dispatch => {
         payload: err.message
       });
       console.log(err);
-      toast.error(err.message);
+      toast.error('Email already exsists');
     });
 };
 
