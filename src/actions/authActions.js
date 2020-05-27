@@ -22,7 +22,6 @@ export const signup = (newUser) => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
-      console.log(err);
       toast.error(err.message);
     });
 };
@@ -40,6 +39,7 @@ export const signUpRestaurant = restaurant => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
+      toast.error(err.message);
     });
 };
 
@@ -57,7 +57,7 @@ export const login = (email, password) => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
-    
+      toast.error(err.message);
     });
 };
 
@@ -70,7 +70,7 @@ export const verify = (email, password) => dispatch => {
         payload: user
       });
     })
-    .catch(err => console.log(err));
+    .catch(err =>  toast.error(err.message));
 };
 
 export const logout = () => dispatch => {
@@ -80,6 +80,6 @@ export const logout = () => dispatch => {
         type: SET_USER,
         payload: null
       });
-    });
-    
+    })
+    .catch(err =>  toast.error(err.message));
 };
