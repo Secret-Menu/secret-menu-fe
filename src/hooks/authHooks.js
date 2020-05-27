@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 import { fetchLatLng } from '../services/latlng-api';
+import { validateSignUp } from '../services/formValidators';
+import { toast } from 'react-toastify';
+
 export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
@@ -41,7 +44,12 @@ export const useSignUp = () => {
 
   const handleSignUp = event => {
     event.preventDefault();
-    dispatch(signup(newUser));
+    const errors = validateSignUp(newUser);
+    if(!errors.length){
+      dispatch(signup(newUser));
+    } else return errors.map(error =>{
+      toast.error(error);
+    });
   };
 
   return {
