@@ -13,12 +13,21 @@ const UpcomingOrders = () => {
 
   useEffect(() => {if(user) dispatch(setBusinessOrders(user.restaurant[0]._id));}, [user]);
 
-  const ordersToList = orders.filter(order => order.orderStatus !== 'Closed')
-    .map(order => (
-      <tr key={order.orderNumber}>
-        <OrderDetail {...order} />
-      </tr>
-    ));
+  const orderOfferings = orders.map(order => {
+    return order.offering.map(offering => ({
+      ...offering,
+      orderNumber: order.orderNumber,
+      orderTotal: order.orderTotal,
+      user: order.user,
+      created_at: order.created_at
+    }));
+  }).flat();
+
+  const ordersToList = orderOfferings.map(order => (
+    <tr key={`${order.orderNumber}${order.offering._id}`}>
+      <OrderDetail {...order} />
+    </tr>
+  ));
 
   return (
     <>
