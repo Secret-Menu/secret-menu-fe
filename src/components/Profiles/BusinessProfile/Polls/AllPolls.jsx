@@ -6,7 +6,6 @@ import { selectPolls } from '../../../../selectors/businessSelectors';
 import { setBusinessPolls } from '../../../../actions/businessActions';
 
 const AllPolls = () => {
-  console.log('!!!!!!!!')
   const user = useCurrentUser();
   const polls = useSelector(selectPolls);
   const dispatch = useDispatch();

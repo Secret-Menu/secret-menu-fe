@@ -29,7 +29,7 @@ const AdminPage = () => {
 
       <h3>Current Offerings</h3>
       <CurrentOfferings />
-      <Link to="/business/all-offerings"> <button>View All Offerings</button> </Link>
+      <Link to="/business/all-offerings"> View All Offerings</Link>
 
       <h3>Live Polls</h3>
       <UpcomingPolls />
