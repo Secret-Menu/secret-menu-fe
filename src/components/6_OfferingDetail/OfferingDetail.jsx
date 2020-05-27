@@ -37,7 +37,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const pickUpDate = new Date(pickUp);
 
   const pickUpYear = pickUpDate.getYear();
-  console.log(pickUpYear)
+  console.log(pickUpYear);
  
   return (
     <li className={styles.OfferingDetail}>

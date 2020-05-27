@@ -25,6 +25,12 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
     const handleChange = ({ target }) => {
       setQuantity(target.value);
     };
+
+    const addOrUpdateCart = () => {
+      const match = cart.find(lineItem => lineItem.offeringId === offering._id);
+      if(match) return 'Update Cart';
+      else return 'Add to Cart';
+    };
   
     const handleAddToCart = lineItem => {
       let existingLineItem = cart.find(lineItem => lineItem.offeringId === offering._id);
@@ -42,7 +48,7 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
             ? <>
               <label>Quantity</label>
               <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
-              <button onClick={() => handleAddToCart(lineItem)}>Add to Cart</button> 
+              <button onClick={() => handleAddToCart(lineItem)}>{addOrUpdateCart()}</button> 
             </>
             : <button disabled="true">Sold Out!</button>
           }
