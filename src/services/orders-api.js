@@ -13,4 +13,4 @@ export const postOrder = order => {
     }
   })
     .then(res => res.json());
-}
+};
