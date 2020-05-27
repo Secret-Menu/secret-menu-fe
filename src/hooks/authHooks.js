@@ -158,7 +158,7 @@ export const useLogIn = () => {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    if(user) history.push('/');
+    if(user) history.push('/business');
   }, [user]);
 
   const handleChange = ({ target }) => {
