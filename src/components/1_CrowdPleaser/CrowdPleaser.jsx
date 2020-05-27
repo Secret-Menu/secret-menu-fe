@@ -14,6 +14,7 @@ export default function CrowdPleaser() {
       {user && <h2>Hi, {user.firstName}!</h2>}
       {user && user.restaurant && <h2>Your Restaurant: {user.restaurant[0].restaurantName}</h2>}
       <Link to={'/portland'}>ENTER</Link>
+      <Link to={'/business'}>ENTER</Link>
       {user && user.role === 'Restaurant' && <Link to='/business'>BIZ DASHBOARD</Link>}
     </div>
   );
