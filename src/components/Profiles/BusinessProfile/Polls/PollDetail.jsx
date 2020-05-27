@@ -25,9 +25,7 @@ const PollDetail = (poll) => {
     <p>End Date: {poll.end} </p>
   </>
   )};
-
 PollDetail.propTypes = {
   poll: PropTypes.object
 };
-
 export default PollDetail;

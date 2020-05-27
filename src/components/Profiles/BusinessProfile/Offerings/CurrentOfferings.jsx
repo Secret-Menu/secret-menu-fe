@@ -26,7 +26,6 @@ const CurrentOfferings = () => {
     </>
   );
 };
-
 CurrentOfferings.propTypes = {
   offerings: PropTypes.arrayOf(PropTypes.shape({
     imageUrl: PropTypes.string,
@@ -35,5 +34,4 @@ CurrentOfferings.propTypes = {
     price: PropTypes.number
   }))
 };
-
 export default CurrentOfferings;
