@@ -33,17 +33,15 @@ const OfferingDetail = ({ offering, restaurant }) => {
     setIsOpen(false);
   };
 
-  const pickUp = offering.pickUpDate;
-  const pickUpDate = new Date(pickUp);
-
-  const pickUpYear = pickUpDate.getYear();
-  console.log(pickUpYear);
+  const pickUpDate = new Date(offering.pickUpDate);
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const pickUpYear = `${pickUpDate.toLocaleDateString(undefined, options)} ${pickUpDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
  
   return (
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
       <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
-      <p>{offering.pickUpDate}</p>
+      <p>{pickUpYear}</p>
       <p>{offering.dishName}</p>
       {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
       <Modal
