@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
-import styles from './RestaurantDetail.css';
+
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addUserFavorite, setUserFavorites, deleteUserFavorite } from '../../actions/userProfileActions';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { getUserFavorites } from '../../selectors/userProfileSelectors';
+import styles from './RestaurantDetail.css';
 
 export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
@@ -37,7 +38,7 @@ export default function RestaurantDetail() {
       };
       return (
         <div style={{ height: '100%', width: '100%' }}>
-          <Map center={center} zoom={zoom} markers={{ restaurants: [restaurant] }}/>
+          <Map center={center} zoom={zoom} markers={{ restaurants: [restaurant], anchorPoint: {} }}/>
         </div>
       );
     } else {
@@ -74,7 +75,7 @@ export default function RestaurantDetail() {
     }
   };
 
-  const zoom = 14;
+  const zoom = 15;
 
   // REFACTOR TO HOOK?
   const addFavorite = () => {
@@ -90,8 +91,10 @@ export default function RestaurantDetail() {
     dispatch(deleteUserFavorite(match._id));
   };
 
+  // Refactor
   const favoritesButton = () => {
     const match = favorites.find(favorite => favorite.restaurant._id === restaurant._id); 
+    if(!user) return null;
     if(!match) return <button onClick={addFavorite}>Add to Favorites</button>;
     if(match) return <button onClick={() => removeFavorite(match)}>Remove from Favorites</button>;
   };

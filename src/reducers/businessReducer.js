@@ -1,17 +1,23 @@
-import { GET_BUSINESS, GET_POLLS, GET_OFFERINGS } from '../actions/businessActions';
+import { ADD_OFFERING, ADD_POLL, SET_ORDERS, SET_OFFERINGS, SET_POLLS } from '../actions/businessActions';
 
 const initialState = {
-  restaurant: {
     offerings: [],
     polls: [],
-  },
-  orders: []
+    orders: []
 }
 
 export default function reducer(state = initialState, action) {
   switch(action.type){
-    case GET_BUSINESS:
-      return {restaurant: action.payload}
+    case ADD_OFFERING:
+      return { ...state, offerings: [...state.offerings, action.payload] }
+    case ADD_POLL:
+      return { ...state, polls: [...state.polls, action.payload] };
+    case SET_ORDERS:
+      return { ...state, orders: action.payload };
+    case SET_OFFERINGS:
+      return { ...state, offerings: action.payload };
+    case SET_POLLS:
+      return { ...state, polls: action.payload };
     default:
       return state;
   }

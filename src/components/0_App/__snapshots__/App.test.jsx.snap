@@ -40,6 +40,14 @@ exports[`App component renders App 1`] = `
         />
         <Route
           component={[Function]}
+          path="/business/add-poll"
+        />
+        <Route
+          component={[Function]}
+          path="/business/add-offering"
+        />
+        <Route
+          component={[Function]}
           path="/business"
         />
         <Route
