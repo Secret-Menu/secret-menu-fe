@@ -27,6 +27,7 @@ import AllPolls from '../Profiles/BusinessProfile/Polls/AllPolls';
 import AllOrders from '../Profiles/BusinessProfile/Orders/AllOrders';
 import OrderOfferings from '../Profiles/BusinessProfile/Orders/OrderOfferings';
 import AllOfferings from '../Profiles/BusinessProfile/Offerings/AllOfferings';
+import CheckOut from '../Cart/CheckOut';
 
 
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
@@ -42,7 +43,7 @@ export default function App() {
             <Route path="/restaurant/:id" component={RestaurantDetail} />
             <Route exact path="/portland/:area" component={Quadrant} />
             <Route exact path="/portland" component={PDXMap} />
-            <Route path="/checkout" component={Cart} />
+            <Route path="/checkout" component={CheckOut} />
             <Route path="/signup" component={SignUp} />
             <Route path="/restaurant-reg" component={RestaurantSignUp} />
             <Route path="/business/add-poll" component={AddPoll} />
