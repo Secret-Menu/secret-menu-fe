@@ -26,7 +26,6 @@ const UpcomingPolls = () => {
     </>
   );
 };
-
 UpcomingPolls.propTypes = {
   polls: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
@@ -41,5 +40,4 @@ UpcomingPolls.propTypes = {
     status: PropTypes.string
   }))
 };
-
 export default UpcomingPolls;

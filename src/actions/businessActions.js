@@ -1,4 +1,4 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusinessOrders, postPoll } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders } from '../services/business-api';
 
 export const SET_ORDERS = 'SET_ORDERS';
 export const setBusinessOrders = (id) => dispatch => {
@@ -10,6 +10,7 @@ export const setBusinessOrders = (id) => dispatch => {
       });
     });
 };
+
 export const SET_OFFERINGS = 'SET_OFFERINGS';
 export const setBusinessOfferings = (id) => dispatch => {
   return fetchBusinessOfferings(id)

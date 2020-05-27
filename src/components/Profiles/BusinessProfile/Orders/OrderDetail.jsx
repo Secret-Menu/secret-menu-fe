@@ -20,5 +20,4 @@ const OrderDetail = ({ created_at, customerName, orderStatus, orderNumber, pickU
     </>
   );
 };
-
 export default OrderDetail;
