@@ -23,7 +23,7 @@ const AdminPage = () => {
   return (
     <div>
       <h3>Upcoming Orders</h3>
-      {/* <UpcomingOrders /> */}
+      <UpcomingOrders />
       <Link to="/business/orders"> <button>View All Orders</button> </Link>
 
       <h3>Current Offerings</h3>
