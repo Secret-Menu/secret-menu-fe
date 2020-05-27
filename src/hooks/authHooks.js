@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { signup, login, verify, signUpRestaurant } from '../actions/authActions';
 import { getAuthError, getAuthLoading, getAuthUser } from '../selectors/authSelectors';
 import { fetchLatLng } from '../services/latlng-api';
+import { validateSignUp, validateBusiness } from '../services/formValidators';
+import { toast } from 'react-toastify';
+
 export const useSignUp = () => {
   const dispatch = useDispatch();
   const error = useSelector(getAuthError);
@@ -41,7 +44,12 @@ export const useSignUp = () => {
 
   const handleSignUp = event => {
     event.preventDefault();
-    dispatch(signup(newUser));
+    const errors = validateSignUp(newUser);
+    if(!errors.length){
+      dispatch(signup(newUser));
+    } else return errors.map(error =>{
+      toast.error(error);
+    });
   };
 
   return {
@@ -113,7 +121,15 @@ export const useRestaurantSignUp = () => {
       websiteUrl,
       imageUrl
     };
-    dispatch(signUpRestaurant(restaurant));
+
+    const errors = validateBusiness(restaurant);
+    if(!errors.length){
+      dispatch(signUpRestaurant(restaurant));
+      toast.success(`${restaurant.restaurantName} added to our database!`);
+    } else return errors.map(error =>{
+      toast.error(error);
+    });
+    
   };
 
   useEffect(() => {
@@ -143,14 +159,13 @@ export const useLogIn = () => {
   const error = useSelector(getAuthError);
   const loading = useSelector(getAuthLoading);
   const user = useCurrentUser();
-
   const history = useHistory();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    if(user) history.push('/');
+    if(user && user.role === 'User') history.push('/');
+    if(user && user.role === 'Restaurant') history.push('/business');
   }, [user]);
 
   const handleChange = ({ target }) => {

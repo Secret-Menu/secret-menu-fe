@@ -61,6 +61,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
   };
 
   const handleChange = ({ target }) => {
+    console.log(order);
     setNameOnCard(target.value);
   }
 

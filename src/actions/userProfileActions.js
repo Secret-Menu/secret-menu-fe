@@ -1,5 +1,6 @@
 import { fetchOrdersByUserId } from '../services/orders-api';
-import { getFavorites, addFavorite, deleteFavorite } from '../services/favorites-api';
+import { fetchFavorites, addFavorite, deleteFavorite } from '../services/favorites-api';
+import { fetchUserPolls } from '../services/polls-api';
 
 export const SET_USER_ORDERS = 'SET_USER_ORDERS';
 export const setUserOrders = (id) => dispatch => {
@@ -14,7 +15,7 @@ export const setUserOrders = (id) => dispatch => {
 
 export const SET_USER_FAVORITES = 'SET_USER_FAVORITES';
 export const setUserFavorites = () => dispatch => {
-  return getFavorites()
+  return fetchFavorites()
     .then(res => {
       dispatch({ 
         type: SET_USER_FAVORITES, 
@@ -44,6 +45,17 @@ export const deleteUserFavorite = (favoriteId) => dispatch => {
     .then(res => {
       dispatch({ 
         type: DELETE_USER_FAVORITE, 
+        payload: res
+      });
+    });
+};
+
+export const SET_USER_POLLS = 'SET_USER_POLLS';
+export const setUserPolls = (userId) => dispatch => {
+  return fetchUserPolls(userId)
+    .then(res => {
+      dispatch({ 
+        type: SET_USER_POLLS, 
         payload: res
       });
     });

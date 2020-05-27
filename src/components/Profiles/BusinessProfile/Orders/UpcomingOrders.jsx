@@ -6,7 +6,6 @@ import { useCurrentUser } from '../../../../hooks/authHooks';
 import {  useDispatch } from 'react-redux';
 import { setBusinessOrders } from '../../../../actions/businessActions';
 
-
 const UpcomingOrders = () => {
   const user = useCurrentUser();
   const dispatch = useDispatch();
@@ -20,7 +19,6 @@ const UpcomingOrders = () => {
         <OrderDetail {...order} />
       </tr>
     ));
-
 
   return (
     <>

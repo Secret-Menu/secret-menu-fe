@@ -10,15 +10,14 @@ import UpcomingOrders from '../BusinessProfile/Orders/UpcomingOrders';
 import { setBusinessOrders, setBusinessOfferings, setBusinessPolls } from '../../../actions/businessActions';
 import AllOrders from './Orders/AllOrders';
 
-
 const AdminPage = () => {
   const dispatch = useDispatch();
   const user = useCurrentUser();
   
   useEffect(() => {if(user) 
-  dispatch(setBusinessOrders(user.restaurant[0]._id));
-  dispatch(setBusinessOfferings(user.restaurant[0]._id));
-  dispatch(setBusinessPolls(user.restaurant[0]._id))
+    dispatch(setBusinessOrders(user.restaurant[0]._id));
+    dispatch(setBusinessOfferings(user.restaurant[0]._id));
+    dispatch(setBusinessPolls(user.restaurant[0]._id))
   ;}, [user]);
 
   return (

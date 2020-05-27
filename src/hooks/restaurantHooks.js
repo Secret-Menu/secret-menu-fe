@@ -51,3 +51,26 @@ export const useRestaurant = () => {
     loading
   };
 };
+
+
+export const useRestaurantShortList = restaurantsCopy => {
+  const shuffle = restaurantsCopy => {
+    let ctr = restaurantsCopy.length, temp, index;
+    while (ctr > 0) {// Pick a random index
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = restaurantsCopy[ctr];
+        restaurantsCopy[ctr] = restaurantsCopy[index];
+        restaurantsCopy[index] = temp;
+    };
+    return restaurantsCopy;
+  };
+  
+  const randomizedOrder = shuffle(restaurantsCopy);
+  const restaurantShortList = randomizedOrder.slice(0,5);
+
+  return {
+    restaurantShortList
+  };
+}
+

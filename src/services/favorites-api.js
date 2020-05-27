@@ -1,4 +1,4 @@
-export const getFavorites = () => {
+export const fetchFavorites = () => {
   return fetch(`${process.env.API_URL}/api/v1/favorites`, {
     method: 'GET',
     credentials: 'include'

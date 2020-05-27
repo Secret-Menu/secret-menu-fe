@@ -1,4 +1,3 @@
-  
 import { ADD_OFFERING, ADD_POLL, SET_ORDERS, SET_OFFERINGS, SET_POLLS } from '../actions/businessActions';
 
 const initialState = {

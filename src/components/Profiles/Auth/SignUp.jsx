@@ -1,10 +1,9 @@
 import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
-import Error from './Error';
+import styles from './Styling.css';
 
 export default function SignUp() {
   const {
-    error,
     loading,
     firstName,
     lastName,
@@ -16,9 +15,8 @@ export default function SignUp() {
   } = useSignUp();
 
   return (
-    <div>
+    <div className={styles.Form}>
       <h2>Sign Up</h2>
-      <Error error={error} />
       <form onSubmit={handleSignUp}>
         <input type="text" value={firstName} name="firstName" onChange={handleChange} placeholder="First name" />
         <input type="text" value={lastName} name="lastName" onChange={handleChange} placeholder="Last name" />
