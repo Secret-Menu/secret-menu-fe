@@ -16,7 +16,6 @@ export default function CheckOut() {
       { cart.length > 0
           ? <>
               <Cart />
-              <CheckOutForm />
             </>
           : <NoCart />
       }
