@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectPolls } from '../../../../selectors/businessSelectors';
-import { useCurrentUser } from '../../../../hooks/authHooks';
 import PollDetail from './PollDetail';
 
 const UpcomingPolls = () => {
-  const user = useCurrentUser();
   const polls = useSelector(selectPolls);
-console.log(polls)
-  const pollsToList = polls.map(poll => (
+  const pollSample = polls.map(poll => ({ ...poll, end: new Date(poll.end) }))
+    .sort((a, b) => a.end - b.end)
+    .filter(poll => poll.status !== 'closed')
+    .map(poll => ({ ...poll, end: poll.end.toString() }))
+    .slice(0, 3);
+
+  const pollsToList = pollSample.map(poll => (
     <li key={poll._id}>
       <PollDetail {...poll} />
     </li>
