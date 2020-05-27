@@ -16,16 +16,28 @@ const UpcomingOrders = () => {
   useEffect(() => {if(user) dispatch(setBusinessOrders(user.restaurant[0]._id));}, [user]);
 
   const ordersToList = orders.map(order => (
-    <tr key={border.orderNumber}>
+    <tr key={order.orderNumber}>
       <OrderDetail {...order} />
     </tr>
   ));
 
   return (
     <>
-      <td>
-        {ordersToList}  
-      </td>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Customer Name</th>
+            <th>Order #</th>
+            <th>Status</th>
+            <th>Pick Up Date</th>
+            <th>Order Total</th>
+          </tr>
+        </thead>
+          <tbody>
+            {ordersToList}
+          </tbody>
+      </table>
     </>
   );
 };
