@@ -5,7 +5,6 @@ import App from './components/0_App/App';
 import store from './store';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './index.css';
 
 toast.configure();
 render(
