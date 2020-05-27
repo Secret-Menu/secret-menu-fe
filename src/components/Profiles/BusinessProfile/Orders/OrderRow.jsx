@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useCurrentUser } from '../../../../hooks/authHooks';
-import AllOrdersOfferings from './AllOrdersOfferings';
+import AllOrdersOfferings from './OrderOfferings';
+import { useHistory } from 'react-router-dom';
 
 //all order DETAIL
 
@@ -10,31 +11,27 @@ import AllOrdersOfferings from './AllOrdersOfferings';
 
 //all offerings for each order
 
-const AllOrderDetail = ({ imageUrl, dishName, description, price }) => {
-const user = useCurrentUser();
+const OrderRow = ({  orderNumber, orderTotal, status, user, _id }) => {
+  const history = useHistory();
 
-// const orderNodes = orders.map(order => (
-//   <li key{i}>
-
-//   </li>
-// ))
+  const handleClick = () => {
+    history.push(`/business/order/${_id}`)
+  }
 
   return (
-  <>
-    <div>
-      <img src={imageUrl} alt="Offering Image"></img>
-      <h4>{dishName}</h4>
-      <p>{description}</p>
-      <p>{price}</p>
-      {/* <AllOrdersOfferings /> */}
-    </div>
-  </>
+    <tr onClick={handleClick}>
+      <td>{status}</td>
+      <td>{orderNumber}</td>
+      <td>{orderTotal}</td>
+      <td>{status}</td>
+      <td>{`${user.firstName} ${user.lastName}`}</td>
+    </tr>
   )
 };
-AllOrderDetail.propTypes = {
+OrderRow.propTypes = {
   imageUrl: PropTypes.string,
   dishName: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number
 };
-export default AllOrderDetail;
+export default OrderRow;

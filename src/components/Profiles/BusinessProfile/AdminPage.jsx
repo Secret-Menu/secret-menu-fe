@@ -25,7 +25,7 @@ const AdminPage = () => {
     <div>
       <h3>Upcoming Orders</h3>
       <UpcomingOrders />
-      <Link to="/"> <button>View All Orders</button> </Link>
+      <Link to="/business/all-orders"> View All Orders</Link>
 
       <h3>Current Offerings</h3>
       <CurrentOfferings />

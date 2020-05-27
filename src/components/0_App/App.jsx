@@ -24,6 +24,8 @@ import AdminPage from '../Profiles/BusinessProfile/AdminPage';
 import AddOffering from '../Profiles/BusinessProfile/Forms/AddOffering';
 import AddPoll from '../Profiles/BusinessProfile/Forms/AddPoll';
 import AllPolls from '../Profiles/BusinessProfile/Polls/AllPolls';
+import AllOrders from '../Profiles/BusinessProfile/Orders/AllOrders';
+import OrderOfferings from '../Profiles/BusinessProfile/Orders/OrderOfferings';
 
 
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
@@ -47,6 +49,8 @@ export default function App() {
             <Route exact path="/business" component={AdminPage} />
             <Route path="/login" component={LogIn} />
             <Route path="/business/all-polls" component={AllPolls} />
+            <Route path="/business/all-orders" component={AllOrders} />
+            <Route path="/business/order/:orderId" component={OrderOfferings} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>
         </Router>
