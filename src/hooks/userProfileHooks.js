@@ -8,6 +8,7 @@ export const useUserProfile = () => {
   const dispatch = useDispatch();
   const user = useCurrentUser();
   const allOrders = useSelector(getUserOrders);
+  console.log(allOrders);
   const upcomingOrders = useSelector(getUpcomingUserOrders);
   const previousOrders = useSelector(getPreviousUserOrders);
   const favorites = useSelector(getUserFavorites);
