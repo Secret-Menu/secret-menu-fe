@@ -20,6 +20,16 @@ const AllOrders = () => {
   ))
   return (
     <table>
+    <thead>
+      <tr>
+        <th>
+          <td>Order #</td>
+          <td>Order Total</td>
+          <td>Status</td>
+          <td>Customer Name</td>
+        </th>
+      </tr>
+    </thead>
       <tbody>
         {orderRows}
       </tbody>

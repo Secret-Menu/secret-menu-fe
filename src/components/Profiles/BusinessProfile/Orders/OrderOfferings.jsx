@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectOrders, selectOrderOfferings } from '../../../../selectors/businessSelectors';
+import { selectOrders, selectOrderOfferings, selectOrderFromOffering } from '../../../../selectors/businessSelectors';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import { useParams } from 'react-router-dom';
 import { setBusinessOrders } from '../../../../actions/businessActions';
@@ -12,6 +12,9 @@ const OrderOfferings = () => {
   const user = useCurrentUser();
   const {orderId} = useParams();
   const offerings = useSelector(state => selectOrderOfferings(state, orderId));
+  const order = useSelector(state => selectOrderFromOffering(state, orderId));
+  
+  console.log(order);
 
   useEffect(() => {
     if(user) dispatch(setBusinessOrders(user.restaurant[0]._id))
@@ -19,17 +22,20 @@ const OrderOfferings = () => {
 
   const offeringNodesToList = offerings.map((offering, i) => (
     <li key={i}>
-      <p>price- {offering.offering.price}</p>
-      <p>quantity- {offering.quantity}</p>
+      <p>Offering: {offering.offering.dishName}</p>
+      <p>Price: {offering.offering.price}</p>
+      <p>Quantity: {offering.quantity}</p>
     </li>
   )) 
   console.log(offeringNodesToList)
 
   return (
   <>
-    <ul>
-      {offeringNodesToList}
-    </ul>
+    <p>Order Number: {order.orderNumber}</p>
+    <p>Offerings: {offeringNodesToList}</p>
+    <p>Customer Name: {`${order.user.firstName} ${order.user.lastName}`}</p>
+    <p>Placed On: {}</p>
+    <p>Order Total: </p>
   </>
   )
 };

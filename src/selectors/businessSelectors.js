@@ -9,3 +9,6 @@ export const selectOrders = state => state.business.orders ?? [];
 export const selectOrderOfferings = (state, orderId) => selectOrders(state)
   .find(order => order._id === orderId)
   ?.offering;
+
+export const selectOrderFromOffering = (state, orderId) => selectOrders(state)
+.find(order => order._id === orderId);
