@@ -15,7 +15,6 @@ export default function AddOffering() {
   const [dietaryRestriction, setDietaryRestriction] = useState([]);
   const [price, setPrice] = useState(0);
 
-
   const handleChange = ({ target }) => {
     if(target.name === 'dishName') setDishName(target.value);
     if(target.name === 'imageUrl') setImageUrl(target.value);
@@ -58,7 +57,7 @@ export default function AddOffering() {
           <option value = "Vegan">Vegan</option>
           <option value = "Gluten Free">Gluten Free</option>
           <option value = "Dairy Free">Dairy Free</option>
-      </select>
+        </select>
         <button>Add</button>
       </form>
     </div>

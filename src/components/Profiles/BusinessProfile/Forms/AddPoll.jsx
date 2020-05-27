@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessPoll } from '../../../../actions/businessActions';
-import { useCurrentUser } from '../../../../hooks/authHooks'
+import { useCurrentUser } from '../../../../hooks/authHooks';
 
 export default function AddPoll() {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ export default function AddPoll() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addBusinessPoll(poll));
-  }
+  };
 
   return (
     <div>
@@ -69,4 +69,4 @@ export default function AddPoll() {
       </form>
     </div>
   );
-};
+}
