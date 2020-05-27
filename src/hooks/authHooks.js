@@ -45,7 +45,7 @@ export const useSignUp = () => {
   const handleSignUp = event => {
     event.preventDefault();
     const errors = validateSignUp(newUser);
-    if(!errors){
+    if(!errors.length){
       dispatch(signup(newUser));
     } else return errors.map(error =>{
       toast.error(error);
