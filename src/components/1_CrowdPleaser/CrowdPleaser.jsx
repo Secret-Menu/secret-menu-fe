@@ -9,7 +9,7 @@ export default function CrowdPleaser() {
     <div>
       <div className={styles.jumbotron}>
         <h2>Secret Menu</h2>
-        <p>In these strange times, there's no reason you have to sacrifice good, local grub.</p>
+        <p className={styles.subHeading}>In these strange times, there's no reason you have to sacrifice on delicious, local PDX cuisine.</p>
       </div>
       {user && <h2>Hi, {user.firstName}!</h2>}
       {user && user.restaurant && <h2>Your Restaurant: {user.restaurant[0].restaurantName}</h2>}

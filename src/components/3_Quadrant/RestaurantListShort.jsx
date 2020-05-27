@@ -16,17 +16,13 @@ const RestaurantList = ({ restaurants }) => {
         restaurantsCopy[index] = temp;
     };
     return restaurantsCopy;
-  };
+};
 
-  console.log(shuffle(restaurantsCopy));
+console.log(shuffle(restaurantsCopy));
 
+  // if(restaurants.length > 5) {
 
-
-
-
-
-
-
+  // }
   const restaurantNodes = restaurants.map(item =>
   <li key={item._id}>
     <Link to={`/restaurant/${item._id}`}>
