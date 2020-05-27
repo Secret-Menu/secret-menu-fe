@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import OfferingLogged from './OfferingLogged';
 import styles from './OfferingDetail.css';
+import { convertToDollars } from '../../services/money.js';
 
 const customStyles = {
   content : {
@@ -36,20 +37,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const pickUpDate = new Date(offering.pickUpDate);
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const pickUpYear = `${pickUpDate.toLocaleDateString(undefined, options)} ${pickUpDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
- 
-  const convertToDollars = () => {
-    const dollarPrice = (offering.price / 100);
-    // turn to string
-    const stringDollarPrice = dollarPrice.toString();
-    if(stringDollarPrice.includes('.')){
-      return (`$${stringDollarPrice}.00`);
-    } else
-      return (`$${stringDollarPrice}`);
-  };
-  
-  // check to see if includes .
-  // if no decimal, add one and add dollar sign in ternary
-  // if yes decimal, add just dollar sign
+
 
   return (
     <li className={styles.OfferingDetail}>
@@ -68,7 +56,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
         <div className={styles.ModalDiv}>
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
           <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{convertToDollars()}</p>
+          <p>{convertToDollars(offering.price)}</p>
           <p>{offering.description}</p>
           <OfferingLogged offering={offering} restaurant={restaurant} closeModal={closeModal} />
         </div>      

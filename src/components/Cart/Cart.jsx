@@ -5,6 +5,7 @@ import { selectCart } from '../../selectors/cartSelectors';
 import styles from './Cart.css';
 import { removeFromCart } from '../../actions/cartActions';
 import { useCurrentUser } from '../../hooks/authHooks';
+import { convertToDollars } from '../../services/money';
 
 export default function Cart() {
   const user = useCurrentUser();
@@ -15,14 +16,15 @@ export default function Cart() {
     dispatch(removeFromCart(i));
   };
 
+
   const lineItemNodes = cart.map((lineItem, i) => 
     <tr key={lineItem._id}>
       <td>{lineItem.restaurant}</td>
       <td>{lineItem.pickUpDate}</td>
       <td>{lineItem.offering}</td>
       <td>{lineItem.quantity}</td>
-      <td>{lineItem.price}</td>
-      <td>{lineItem.total}</td>
+      <td>{convertToDollars(lineItem.price)}</td>
+      <td>{convertToDollars(lineItem.total)}</td>
       <td>
         <button onClick={() => handleRemoveFromCart(i)}>Remove</button>
       </td>
@@ -33,8 +35,7 @@ export default function Cart() {
     acc = acc + curr.total;
     return acc;
   }, 0);
-  const cartTotalDollars = cartTotalRaw / 100;
-  const cartTotal = cartTotalDollars.toFixed(2);
+  const cartTotal = convertToDollars(cartTotalRaw);
 
   const lineItemsForOrder = cart.map(lineItem => ({
     offering: lineItem.offeringId,
@@ -48,7 +49,7 @@ export default function Cart() {
     user: user._id,
     restaurant: cart[0].restaurantId,
     offering: lineItemsForOrder,
-    orderTotal: cartTotalRaw
+    orderTotal: cartTotal
   };
 
   const restaurant = cart[0].restaurantId;
