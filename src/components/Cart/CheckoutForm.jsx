@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useCurrentUser } from '../../hooks/authHooks';
 import styles from './CheckoutForm.css';
 import { postOrder } from '../../services/orders-api';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CheckoutForm = ({ cartTotal, order }) => {
   const user = useCurrentUser();
@@ -14,7 +15,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
 
 
   
-
+  console.log(user);
   const handleSubmit = async(event, order) => {
     event.preventDefault();
 
@@ -31,8 +32,8 @@ const CheckoutForm = ({ cartTotal, order }) => {
   };
 
   const handlePaymentMethodResult = async(result) => {
-    if (result.error) {
-      console.log(reset.error.message);
+    if(result.error) {
+      toast.error(result.error.message);
     } else {
       // Otherwise send paymentMethod.id to your server (see Step 3)
       const response = await fetch(`${process.env.API_URL}/api/v1/checkout/pay`, {
@@ -43,42 +44,40 @@ const CheckoutForm = ({ cartTotal, order }) => {
           cartTotal
         })
       });
-
-  
       const serverResponse = await response.json();
-
       handleServerResponse(serverResponse, order);
     }
   };
 
   const handleServerResponse = (serverResponse, order) => {
-    if (serverResponse.error) {
+    if(serverResponse.error) {
       console.log(serverResponse.error);
     } else {
       postOrder(order);
-      console.log('Payment and order successful!');
+      toast.success('Thank You! Your order has been placed!');
+      history.push(`/user/${user._id}`);
     }
   };
 
   const handleChange = ({ target }) => {
     console.log(order);
     setNameOnCard(target.value);
-  }
+  };
 
   const handleCardChange = (event) => {
-    if (event.error) {
-     console.log(event.error.message);
+    if(event.error) {
+      console.log(event.error.message);
     }
   };
 
   return (
-      <section className={styles.stripeForm}>
-        <form onSubmit={() => handleSubmit(event, order)}>
-          <input type="text" value={nameOnCard} onChange={handleChange} placeholder="Name on card" />
-          <CardElement onChange={handleCardChange} />
-          <button type="submit" disabled={!stripe}>Submit Payment</button>
-        </form>
-      </section>
+    <section className={styles.stripeForm}>
+      <form onSubmit={() => handleSubmit(event, order)}>
+        <input type="text" value={nameOnCard} onChange={handleChange} placeholder="Name on card" />
+        <CardElement onChange={handleCardChange} />
+        <button type="submit" disabled={!stripe}>Submit Payment</button>
+      </form>
+    </section>
   );
 };
 
