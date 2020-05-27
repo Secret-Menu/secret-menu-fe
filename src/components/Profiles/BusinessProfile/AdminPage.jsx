@@ -16,7 +16,7 @@ const AdminPage = () => {
   const user = useCurrentUser();
   
   useEffect(() => {if(user) 
-    dispatch(setBusinessOrders(user.restaurant[0]._id));
+  dispatch(setBusinessOrders(user.restaurant[0]._id));
   dispatch(setBusinessOfferings(user.restaurant[0]._id));
   dispatch(setBusinessPolls(user.restaurant[0]._id))
   ;}, [user]);
@@ -25,15 +25,15 @@ const AdminPage = () => {
     <div>
       <h3>Upcoming Orders</h3>
       <UpcomingOrders />
-      <Link to={AllOrders}> <button>View All Orders</button> </Link>
+      <Link to="/"> <button>View All Orders</button> </Link>
 
       <h3>Current Offerings</h3>
       <CurrentOfferings />
-      <Link to="/"> <button>View All Offerings</button> </Link>
+      <Link to="/business/all-offerings"> <button>View All Offerings</button> </Link>
 
       <h3>Live Polls</h3>
       <UpcomingPolls />
-      <Link to="/"> <button>View All Polls</button> </Link>
+      <Link to="/business/all-polls"> View All Polls </Link>
     </div>
   );
 };
