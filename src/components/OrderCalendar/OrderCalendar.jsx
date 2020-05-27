@@ -7,14 +7,15 @@ const OrderCalendar = ({ orders }) => {
   if(!orders) return;
 
   const orderReduce = orders.reduce((acc, curr) => {
+    const currDateString = `${curr.date.getDate()}${curr.date.getMonth()}${curr.date.getYear()}`;
     const match = acc.find((order) => curr.date.getDate() === order.date.getDate());
     let matcher;
+
     acc.forEach(order => {
-      if(order.date.getDate() !== curr.date.getDate()) return matcher = false;
-      if(order.date.getMonth() !== curr.date.getMonth()) return matcher = false;
-      if(order.date.getYear() !== curr.date.getYear()) return matcher = false;
-      else return matcher = true;
+      const orderDateString = `${order.date.getDate()}${order.date.getMonth()}${order.date.getYear()}`;
+      if(orderDateString === currDateString) return matcher = true;
     });
+
     if(matcher) {
       const newAcc = acc.filter(replace => replace !== match);
       const newOrder = {

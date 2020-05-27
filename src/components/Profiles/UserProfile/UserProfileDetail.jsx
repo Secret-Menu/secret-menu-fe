@@ -32,14 +32,6 @@ const UserProfileDetail = ({ order }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  // console.log(order);
-
-  // const itemNodes = order.orders.map(order => <li key={order._id}>
-  //   <img src={order.offering.imageUrl} />
-  //   <p>Item: {order.offering.dishName}</p>
-  //   <p>Quantity: {order.quantity}</p>
-  // </li>);
  
   return (
     <li className={styles.UserProfileDetail}>
