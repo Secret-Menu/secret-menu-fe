@@ -22,6 +22,7 @@ export const signup = (newUser) => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
+      console.log(err);
       toast.error(err.message);
     });
 };
