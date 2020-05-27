@@ -34,7 +34,7 @@ export default function Cart() {
     return acc;
   }, 0);
   const cartTotalDollars = cartTotalRaw / 100;
-  const cartTotal = `$${cartTotalDollars}.00`;
+  const cartTotal = cartTotalDollars.toFixed();
 
   const lineItemsForOrder = cart.map(lineItem => ({
     offering: lineItem.offeringId,
