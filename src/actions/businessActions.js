@@ -11,6 +11,20 @@ export const setBusinessOrders = (id) => dispatch => {
     });
 };
 
+export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const markOrderClosed = (index, order) => {
+  return patchOrder(order)
+    .then(res => {
+      dispatch({
+        type: UPDATE_ORDER,
+        payload: {
+          index,
+          order
+        }
+      });
+    });
+};
+
 export const SET_OFFERINGS = 'SET_OFFERINGS';
 export const setBusinessOfferings = (id) => dispatch => {
   return fetchBusinessOfferings(id)
@@ -34,7 +48,7 @@ export const setBusinessPolls = (id) => dispatch => {
 };
 
 export const ADD_OFFERING = 'ADD_OFFERING';
-export const addBusinessOffering = offering => dispatch => {
+export const addBusinessOffering = (offering) => dispatch => {
   return postOffering(offering)
     .then(res => {
       dispatch({

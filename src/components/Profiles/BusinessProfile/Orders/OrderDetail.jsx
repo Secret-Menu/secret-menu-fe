@@ -13,6 +13,7 @@ const OrderDetail = ({ created_at, orderStatus, orderNumber, orderTotal, user, o
       <td>{orderStatus}</td>
       <td>{offering.pickUpDate}</td>
       <td>{orderTotal}</td>
+      <td><button>Picked Up!</button></td>
     </>
   );
 };
