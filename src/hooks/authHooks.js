@@ -102,6 +102,7 @@ export const useRestaurantSignUp = () => {
     event.preventDefault();
     
     const { lat, lng } = await fetchLatLng(`${streetAddress} ${city} ${addressState} ${zipcode}`);
+
     const restaurant = {
       owner: user._id,
       restaurantName,
@@ -123,10 +124,12 @@ export const useRestaurantSignUp = () => {
     };
 
     const errors = validateBusiness(restaurant);
-    if(!errors.length){
+    if(!errors.length && restaurant.lat && restaurant.lng){
       dispatch(signUpRestaurant(restaurant));
       toast.success(`${restaurant.restaurantName} added to our database!`);
-    } else return errors.map(error =>{
+    } 
+    if(restaurant.lat === 'error' && restaurant.lng === 'error') toast.error('Address Invalid');
+    else return errors.map(error =>{
       toast.error(error);
     });
     

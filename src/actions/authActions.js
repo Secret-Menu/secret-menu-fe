@@ -57,7 +57,8 @@ export const login = (email, password) => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
-      toast.error(err.message);
+      if(err.message === 'Failed to fetch') toast.error('Invalid Email');
+      else return toast.error(err.message);
     });
 };
 
