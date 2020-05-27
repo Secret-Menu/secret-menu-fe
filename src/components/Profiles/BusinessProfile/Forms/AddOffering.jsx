@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessOffering } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
+import styles from './Styling.css';
 
 export default function AddOffering() {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ export default function AddOffering() {
   };
 
   return (
-    <div>
+    <div className={styles.Form}>
       <form onSubmit={handleSubmit}>
         <input type="text" value={dishName} name="dishName" onChange={handleChange} placeholder="Dish Name" />
         <input type="text" value={imageUrl} name="imageUrl" onChange={handleChange} placeholder="Image url" />
