@@ -39,6 +39,20 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const pickUpYear = pickUpDate.getYear();
   console.log(pickUpYear);
  
+  const convertToDollars = () => {
+    const dollarPrice = (offering.price / 100);
+  // turn to string
+    const stringDollarPrice = dollarPrice.toString();
+    if (stringDollarPrice.includes('.')){
+      return (`$${stringDollarPrice}.00`)
+    } else
+      return (`$${stringDollarPrice}`)}
+  
+  // check to see if includes .
+  // if no decimal, add one and add dollar sign in ternary
+  // if yes decimal, add just dollar sign
+  
+
   return (
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
@@ -56,7 +70,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
         <div className={styles.ModalDiv}>
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
           <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price / 100}`}</p>
+          <p>{stringDollarPrice}</p>
           <p>{offering.description}</p>
           <OfferingLogged offering={offering} restaurant={restaurant} closeModal={closeModal} />
         </div>      
