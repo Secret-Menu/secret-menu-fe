@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 import logo from '../../assets/mainLogo.png';
 import { toast } from 'react-toastify';
+import styles from './Header.css';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,13 @@ const Header = () => {
   
   return (
     <div>
-      <img src={logo} alt="Crowd Pleaser Logo" style={{ height: '100px' }}></img>
+      <img src={logo} alt="Crowd Pleaser Logo" className={styles.logo} style={{ height: '100px' }}></img>
+      <div>
+        
+      </div>
       <Link to="/"> <button>Home</button> </Link>
       <Link to="/portland"> <button>Restaurants</button> </Link>
+      { user && <Link to="/checkout"><button>Cart</button></Link>}
       { user && <Link to={`/user/${user._id}`}> <button>Profile</button> </Link> }
       { user &&  <Link to="/"><button onClick={handleLogOut}>Log Out</button> </Link> }
       { !user && <LogInSignUp />}

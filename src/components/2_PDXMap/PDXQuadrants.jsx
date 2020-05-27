@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RestaurantList from '../3_Quadrant/RestaurantList';
+import RestaurantListShort from '../3_Quadrant/RestaurantListShort';
 
 export default function PDXQuadrants({ restaurants }) {
   const allRestaurants = restaurants.restaurants;
@@ -48,7 +49,7 @@ export default function PDXQuadrants({ restaurants }) {
   const quadrantLists = quadrants.map(quadrant => 
     <div>
       <Link to={`/portland/${quadrant.abbrev}`}>{quadrant.name}</Link>
-      <RestaurantList restaurants={quadrant.restaurants} />
+      <RestaurantListShort restaurants={quadrant.restaurants} />
     </div>
   );
 
