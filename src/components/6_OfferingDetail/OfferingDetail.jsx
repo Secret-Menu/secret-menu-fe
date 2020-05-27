@@ -51,7 +51,6 @@ const OfferingDetail = ({ offering, restaurant }) => {
   // check to see if includes .
   // if no decimal, add one and add dollar sign in ternary
   // if yes decimal, add just dollar sign
-  
 
   return (
     <li className={styles.OfferingDetail}>
