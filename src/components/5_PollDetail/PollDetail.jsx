@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { fetchVote } from '../../services/polls-api';
 import styles from './PollDetail.css';
+import { toast } from 'react-toastify';
  
 const customStyles = {
   content : {
@@ -51,6 +52,7 @@ const PollDetail = ({ poll }) => {
   const vote = () => {
     fetchVote(poll._id, choice.toString(), 1);
     setVoteCast(true);
+    toast.success('Voted! Thank You!');
   };
 
   const dateConversion = (poll) => {
