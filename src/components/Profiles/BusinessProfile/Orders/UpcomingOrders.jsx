@@ -6,8 +6,6 @@ import { useCurrentUser } from '../../../../hooks/authHooks';
 import {  useDispatch } from 'react-redux';
 import { setBusinessOrders } from '../../../../actions/businessActions';
 
-
-
 const UpcomingOrders = () => {
   const user = useCurrentUser();
   const dispatch = useDispatch();
@@ -15,11 +13,12 @@ const UpcomingOrders = () => {
 
   useEffect(() => {if(user) dispatch(setBusinessOrders(user.restaurant[0]._id));}, [user]);
 
-  const ordersToList = orders.map(order => (
-    <tr key={order.orderNumber}>
-      <OrderDetail {...order} />
-    </tr>
-  ));
+  const ordersToList = orders.filter(order => order.orderStatus !== 'Closed')
+    .map(order => (
+      <tr key={order.orderNumber}>
+        <OrderDetail {...order} />
+      </tr>
+    ));
 
   return (
     <>
@@ -34,9 +33,9 @@ const UpcomingOrders = () => {
             <th>Order Total</th>
           </tr>
         </thead>
-          <tbody>
-            {ordersToList}
-          </tbody>
+        <tbody>
+          {ordersToList}
+        </tbody>
       </table>
     </>
   );
