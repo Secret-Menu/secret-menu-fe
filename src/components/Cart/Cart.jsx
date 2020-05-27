@@ -18,9 +18,9 @@ export default function Cart() {
   const lineItemNodes = cart.map((lineItem, i) => 
     <tr key={lineItem._id}>
       <td>{lineItem.restaurant}</td>
+      <td>{lineItem.pickUpDate}</td>
       <td>{lineItem.offering}</td>
       <td>{lineItem.quantity}</td>
-      <td>PICKUP HERE</td>
       <td>{lineItem.price}</td>
       <td>{lineItem.total}</td>
       <td>
@@ -34,20 +34,20 @@ export default function Cart() {
     return acc;
   }, 0);
   const cartTotalDollars = cartTotalRaw / 100;
-  const cartTotal = cartTotalDollars.toFixed();
+  const cartTotal = cartTotalDollars.toFixed(2);
 
   const lineItemsForOrder = cart.map(lineItem => ({
     offering: lineItem.offeringId,
-    quantity: lineItem.quantity
+    quantity: lineItem.quantity,
+    orderStatus: 'Open',
   }));
+
   
   const orderToBeCreated = {
-    orderNumber: 123456789,
+    orderNumber: Date.now(),
     user: user._id,
     restaurant: cart[0].restaurantId,
     offering: lineItemsForOrder,
-    pickUpDate: new Date(),
-    orderStatus: 'Open',
     orderTotal: cartTotalRaw
   };
 
