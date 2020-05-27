@@ -103,8 +103,7 @@ export default function RestaurantDetail() {
     <article className={styles.RestaurantDetail}>
       <div className={styles.RestaurantTop}>
         <div className={styles.Contents}>
-          <Link to ='/checkout'>Checkout</Link>
-          <Link to={`/portland/${restaurant.quadrant}`}>{restaurant.quadrant}</Link>
+          <Link to={`/portland/${restaurant.quadrant}`}>Back to {restaurant.quadrant}</Link>
           <h3>{restaurant.restaurantName}</h3>
           <img src={restaurant.imageUrl} />
           <ul>
