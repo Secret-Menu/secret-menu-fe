@@ -18,12 +18,10 @@ const OfferingDetail = ({ imageUrl, dishName, description, price }) => {
   </>
   )
 };
-
 OfferingDetail.propTypes = {
   imageUrl: PropTypes.string,
   dishName: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number
 };
-
 export default OfferingDetail;

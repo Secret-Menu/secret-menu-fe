@@ -1,11 +1,33 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders } from '../services/business-api';
 
-export const GET_ORDERS = 'GET_ORDERS';
-export const getBusinessOrders = (id) => dispatch => {
+export const SET_ORDERS = 'SET_ORDERS';
+export const setBusinessOrders = (id) => dispatch => {
   return fetchBusinessOrders(id)
     .then(res => {
       dispatch({
-        type: GET_ORDERS,
+        type: SET_ORDERS,
+        payload: res
+      });
+    });
+};
+
+export const SET_OFFERINGS = 'SET_OFFERINGS';
+export const setBusinessOfferings = (id) => dispatch => {
+  return fetchBusinessOfferings(id)
+    .then(res => {
+      dispatch({
+        type: SET_OFFERINGS,
+        payload: res
+      });
+    });
+};
+
+export const SET_POLLS = 'SET_POLLS';
+export const setBusinessPolls = (id) => dispatch => {
+  return fetchBusinessPolls(id)
+    .then(res => {
+      dispatch({
+        type: SET_POLLS,
         payload: res
       });
     });
