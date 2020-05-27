@@ -16,13 +16,12 @@ export default function Cart() {
     dispatch(removeFromCart(i));
   };
 
-
   const lineItemNodes = cart.map((lineItem, i) => 
-    <tr key={lineItem._id}>
+  <tr key={lineItem._id}>
       <td>{lineItem.restaurant}</td>
-      <td>{lineItem.pickUpDate}</td>
       <td>{lineItem.offering}</td>
       <td>{lineItem.quantity}</td>
+      <td>{lineItem.pickUpDate}</td>
       <td>{convertToDollars(lineItem.price)}</td>
       <td>{convertToDollars(lineItem.total)}</td>
       <td>
@@ -40,8 +39,11 @@ export default function Cart() {
   const lineItemsForOrder = cart.map(lineItem => ({
     offering: lineItem.offeringId,
     quantity: lineItem.quantity,
+    pickUpDate: lineItem.pickUpDate,
     orderStatus: 'Open',
   }));
+
+  console.log(lineItemsForOrder);
 
   
   const orderToBeCreated = {
