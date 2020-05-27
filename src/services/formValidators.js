@@ -28,6 +28,5 @@ export const validateSignUp = (newUser) => {
   if(!newUser && newUser.password.length < 4) {
     errors.push('Password should be at least 4 characters long');
   }
-  
   return errors;
 };
