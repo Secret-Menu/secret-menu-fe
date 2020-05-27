@@ -1,9 +1,20 @@
 export const getUserOrders = state => { 
-  return state.userProfile.userOrders.map(order => ({
-    info: order.restaurant.restaurantName,
-    date: new Date(order.pickUpDate),
-    orders: order.offering
-  }))
+  return state.userProfile.userOrders.map(order => {
+    if(!order.offering) return;
+    return order.offering.map(offering => ({
+      ...offering,
+      restaurant: order.restaurant,
+      orderNumber: order.orderNumber,
+      orderTotal: order.orderTotal,
+      user: order.user,
+      created_at: order.created_at
+    }));
+  }).flat()
+    .map(order => ({
+      info: order.restaurant.restaurantName,
+      date: new Date(order.offering.pickUpDate),
+      orders: order.offering
+    }))
     .sort(function(a, b) {
       return a.date - b.date;
     });

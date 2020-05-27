@@ -32,12 +32,6 @@ const UserProfileDetail = ({ order }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  const itemNodes = order.orders.map(order => <li key={order._id}>
-    <img src={order.offering.imageUrl} />
-    <p>Item: {order.offering.dishName}</p>
-    <p>Quantity: {order.quantity}</p>
-  </li>);
  
   return (
     <li className={styles.UserProfileDetail}>
@@ -53,7 +47,11 @@ const UserProfileDetail = ({ order }) => {
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{order.info}</h2>
           <h3>{`${order.date.toLocaleDateString(undefined, options)}`}</h3>
           <ul>
-            {itemNodes}
+            <li key={order._id}>
+              <img src={order.orders.imageUrl} />
+              <p>Item: {order.orders.dishName}</p>
+              <p>Quantity: {order.quantity}</p>
+            </li>
           </ul>
         </div>      
       </Modal>

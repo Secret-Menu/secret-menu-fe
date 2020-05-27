@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useCurrentUser } from './authHooks';
-import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders, getUserFavorites, getUserPolls, getUpcomingUserPolls, getPreviousUserPolls } from '../selectors/userProfileSelectors';
+import { getUserOrders, getUpcomingUserOrders, getPreviousUserOrders, getUserFavorites, getUpcomingUserPolls, getPreviousUserPolls } from '../selectors/userProfileSelectors';
 import { setUserOrders, setUserFavorites, setUserPolls } from '../actions/userProfileActions';
 import { useEffect } from 'react';
 

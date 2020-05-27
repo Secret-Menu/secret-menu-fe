@@ -3,10 +3,7 @@ import { SET_USER_ORDERS, ADD_USER_FAVORITE, SET_USER_FAVORITES, DELETE_USER_FAV
 const initialState = {
   userOrders: [
     { 
-      restaurant: 
-      {
-        restaurantName: ''
-      } 
+      offering: [] 
     }
   ],
   userFavorites: [],
