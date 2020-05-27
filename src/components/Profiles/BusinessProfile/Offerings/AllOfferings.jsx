@@ -20,9 +20,7 @@ const AllOfferings = () => {
 
   return (
     <div>
-     
         {offeringsToList}
-      
     </div>
   );
 };
