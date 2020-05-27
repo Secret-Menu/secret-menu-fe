@@ -1,4 +1,5 @@
 import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders } from '../services/business-api';
+import { toast } from 'react-toastify';
 
 export const SET_ORDERS = 'SET_ORDERS';
 export const setBusinessOrders = (id) => dispatch => {
@@ -41,6 +42,7 @@ export const addBusinessOffering = offering => dispatch => {
         type: ADD_OFFERING,
         payload: offering
       });
+      toast.success('Offering Added!');
     });
 };
 
@@ -52,5 +54,6 @@ export const addBusinessPoll = poll => dispatch => {
         type: ADD_POLL,
         payload: poll
       });
+      toast.success('Poll Added!');
     });
 };
