@@ -14,12 +14,13 @@ const UpcomingOrders = () => {
   useEffect(() => {if(user) dispatch(setBusinessOrders(user.restaurant[0]._id));}, [user]);
 
   const orderOfferings = orders.map(order => {
-    return order.offering.map(offering => ({
+    return order.offering.map((offering, i) => ({
       ...offering,
       orderNumber: order.orderNumber,
       orderTotal: order.orderTotal,
       user: order.user,
-      created_at: order.created_at
+      created_at: order.created_at,
+      index: i
     }));
   }).flat();
 

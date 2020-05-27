@@ -1,4 +1,4 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders, patchOrder } from '../services/business-api';
 
 export const SET_ORDERS = 'SET_ORDERS';
 export const setBusinessOrders = (id) => dispatch => {
@@ -12,8 +12,8 @@ export const setBusinessOrders = (id) => dispatch => {
 };
 
 export const UPDATE_ORDER = 'UPDATE_ORDER';
-export const markOrderClosed = (index, order) => {
-  return patchOrder(order)
+export const markOrderClosed = (id, index, order) => {
+  return patchOrder(id, order)
     .then(res => {
       dispatch({
         type: UPDATE_ORDER,
