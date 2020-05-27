@@ -19,6 +19,7 @@ export default function RestaurantDetail() {
   const user = useCurrentUser();
   const favorites = useSelector(getUserFavorites);
   const [bizOfferings, setBizOfferings] = useState([]);
+  
   // REFACTOR TO HOOK?
   useEffect(() => {
     if(user) {
