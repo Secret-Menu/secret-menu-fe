@@ -27,16 +27,16 @@ export default function RestaurantDetail() {
   }, [user]);
 
   useEffect(() => {
-  if(restaurant.offerings) {   
-    const offeringFilter = restaurant.offerings.filter(offering => { 
-      const pickUpDate = new Date(offering.pickUpDate);
-      const today = new Date();
-      if(pickUpDate > today) return offering;
-      else return null;
-    });
-    setBizOfferings(offeringFilter);
-  };
-}, [restaurant]);
+    if(restaurant.offerings) {   
+      const offeringFilter = restaurant.offerings.filter(offering => { 
+        const pickUpDate = new Date(offering.pickUpDate);
+        const today = new Date();
+        if(pickUpDate > today) return offering;
+        else return null;
+      });
+      setBizOfferings(offeringFilter);
+    }
+  }, [restaurant]);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
@@ -139,6 +139,6 @@ export default function RestaurantDetail() {
       {isLoading()}
     </article>
   );
-};
+}
 
 
