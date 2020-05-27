@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+.jumbotron {
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../assets/jumbo.jpg');
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  width: 100%;
+  height: 84vh;
+  padding: 10rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.jumbotron h2{
+  font-size: 5rem;
+  color: #FFF;
+  text-shadow: 2px 2px rgb(243, 84, 84);
+  margin-bottom: 1rem;
+}
+
+.subHeading {
+  color: #FFF;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
