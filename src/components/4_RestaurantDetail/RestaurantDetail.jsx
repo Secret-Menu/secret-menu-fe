@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
 
 import PollCarousel from '../5_PollDetail/PollCarousel';
@@ -18,13 +18,25 @@ export default function RestaurantDetail() {
   // REFACTOR TO HOOK
   const user = useCurrentUser();
   const favorites = useSelector(getUserFavorites);
-
+  const [bizOfferings, setBizOfferings] = useState([]);
   // REFACTOR TO HOOK?
   useEffect(() => {
     if(user) {
       dispatch(setUserFavorites(user));
     } 
   }, [user]);
+
+  useEffect(() => {
+  if(restaurant.offerings) {   
+    const offeringFilter = restaurant.offerings.filter(offering => { 
+      const pickUpDate = new Date(offering.pickUpDate);
+      const today = new Date();
+      if(pickUpDate > today) return offering;
+      else return null;
+    });
+    setBizOfferings(offeringFilter);
+  };
+}, [restaurant]);
 
   const offeringNodes = offerings.map(offering => {
     return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
@@ -99,6 +111,7 @@ export default function RestaurantDetail() {
     if(match) return <button onClick={() => removeFavorite(match)}>Remove from Favorites</button>;
   };
 
+
   return (
     <article className={styles.RestaurantDetail}>
       <div className={styles.RestaurantTop}>
@@ -126,4 +139,6 @@ export default function RestaurantDetail() {
       {isLoading()}
     </article>
   );
-}
+};
+
+
