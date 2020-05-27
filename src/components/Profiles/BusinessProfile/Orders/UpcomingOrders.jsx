@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectOrders } from '../../../../selectors/businessSelectors';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import {  useDispatch } from 'react-redux';
-import { getBusinessOrders } from '../../../../actions/businessActions';
+import { setBusinessOrders } from '../../../../actions/businessActions';
 
 
 
@@ -12,7 +12,8 @@ const UpcomingOrders = () => {
   const user = useCurrentUser();
   const dispatch = useDispatch();
   const orders = useSelector(selectOrders);
-  useEffect(() => {if(user) dispatch(getBusinessOrders(user.restaurant[0]._id));}, [user]);
+
+  useEffect(() => {if(user) dispatch(setBusinessOrders(user.restaurant[0]._id));}, [user]);
 
   const ordersToList = orders.map(order => (
     <tr key={border.orderNumber}>

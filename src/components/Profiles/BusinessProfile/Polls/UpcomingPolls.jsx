@@ -8,7 +8,7 @@ import PollDetail from './PollDetail';
 const UpcomingPolls = () => {
   const user = useCurrentUser();
   const polls = useSelector(selectPolls);
-
+console.log(polls)
   const pollsToList = polls.map(poll => (
     <li key={poll._id}>
       <PollDetail {...poll} />

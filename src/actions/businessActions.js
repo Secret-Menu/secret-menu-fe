@@ -1,7 +1,7 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusinessOrders, postPoll } from '../services/business-api';
 
 export const SET_ORDERS = 'SET_ORDERS';
-export const getBusinessOrders = (id) => dispatch => {
+export const setBusinessOrders = (id) => dispatch => {
   return fetchBusinessOrders(id)
     .then(res => {
       dispatch({

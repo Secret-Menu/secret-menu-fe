@@ -43,7 +43,7 @@ export default function App() {
             <Route path="/restaurant-reg" component={RestaurantSignUp} />
             <Route path="/business/add-poll" component={AddPoll} />
             <Route path="/business/add-offering" component={AddOffering} />
-            <Route path="/business" component={CurrentOfferings} />
+            <Route path="/business" component={AdminPage} />
             <Route path="/login" component={LogIn} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>
