@@ -4,6 +4,8 @@ import { addBusinessPoll } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import styles from '../../../../assets/Styling.css';
 import { useHistory } from 'react-router-dom';
+import { validatePoll } from '../../../../services/formValidators';
+import { toast } from 'react-toastify';
 
 export default function AddPoll() {
   const dispatch = useDispatch();
@@ -49,7 +51,12 @@ export default function AddPoll() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addBusinessPoll(poll, history));
+    const errors = validatePoll(poll);
+    if(!errors.length){
+      dispatch(addBusinessPoll(poll, history));
+    } else return errors.map(error =>{
+      toast.error(error);
+    });
   };
 
   return (
