@@ -13,7 +13,6 @@ const CheckoutForm = ({ cartTotal, order }) => {
   const elements = useElements();
   const [nameOnCard, setNameOnCard] = useState('');
   
-  console.log('checkout form cartTotal: ', cartTotal);
   const handleSubmit = async(event, order) => {
     event.preventDefault();
 
