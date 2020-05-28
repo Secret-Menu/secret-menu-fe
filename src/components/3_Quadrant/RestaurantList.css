@@ -1,5 +1,6 @@
 .RestaurantList {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 90%;
   margin: 0 auto;
@@ -17,8 +18,8 @@
     font-family: 'Cabin', sans-serif;
 
     img {
-      width: 250px;
-      height: 150px;
+      width: 20rem;
+      height: 15rem;
     }
   }
 }

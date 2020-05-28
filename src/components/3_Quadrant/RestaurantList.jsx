@@ -4,19 +4,18 @@ import styles from './RestaurantList.css';
 
 const RestaurantList = ({ restaurants }) => {
   const restaurantNodes = restaurants.map(item =>
-  <li key={item._id}>
-    <Link to={`/restaurant/${item._id}`}>
-      <div>
+    <Link to={`/restaurant/${item._id}`} className={styles.RestaurantLink} key={item._id}>
+      <div className={styles.RestaurantCard}>
         <p>{item.restaurantName}</p>
         <img src={item.imageUrl} alt={item.restaurantName} className={styles.restaurantImg} />
       </div>
     </Link>
-  </li>);
+  )
 
   return (
-    <ul>
+    <div className={styles.RestaurantList}>
       {restaurantNodes}
-    </ul>
+    </div>
   );
 };
 
