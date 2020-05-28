@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RestaurantList from '../3_Quadrant/RestaurantList';
 import RestaurantListShort from '../3_Quadrant/RestaurantListShort';
 
 export default function PDXQuadrants({ restaurants }) {
   const allRestaurants = restaurants.restaurants;
 
-  const northRestaurants = allRestaurants.filter(restaurant => restaurant?.quadrant === "N");
-  const northEastRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === "NE");
-  const northWestRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === "NW");
-  const southRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === "S");
-  const southEastRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === "SE");
-  const southWestRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === "SW");
+  const northRestaurants = allRestaurants.filter(restaurant => restaurant?.quadrant === 'N');
+  const northEastRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === 'NE');
+  const northWestRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === 'NW');
+  const southRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === 'S');
+  const southEastRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === 'SE');
+  const southWestRestaurants = allRestaurants?.filter(restaurant => restaurant.quadrant === 'SW');
 
   const quadrants = [
     {
@@ -46,9 +45,11 @@ export default function PDXQuadrants({ restaurants }) {
     }
   ];
 
-  const quadrantLists = quadrants.map(quadrant => 
-    <div>
-      <Link to={`/portland/${quadrant.abbrev}`}>{quadrant.name}</Link>
+  const quadrantLists = quadrants.map((quadrant, i) => 
+    <div key={i}>
+      <Link to={`/portland/${quadrant.abbrev}`}>
+        {quadrant.name}
+      </Link>
       <RestaurantListShort restaurants={quadrant.restaurants} />
     </div>
   );
@@ -58,5 +59,4 @@ export default function PDXQuadrants({ restaurants }) {
       {quadrantLists}
     </section>
   );
-};
-
+}
