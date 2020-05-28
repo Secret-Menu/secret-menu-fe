@@ -15,9 +15,9 @@ const AdminPage = () => {
   const user = useCurrentUser();
   
   useEffect(() => {if(user) 
-    dispatch(setBusinessOrders(user.restaurant[0]._id));
-  dispatch(setBusinessOfferings(user.restaurant[0]._id));
-  dispatch(setBusinessPolls(user.restaurant[0]._id))
+    dispatch(setBusinessOrders(user?.restaurant[0]._id));
+  dispatch(setBusinessOfferings(user?.restaurant[0]._id));
+  dispatch(setBusinessPolls(user?.restaurant[0]._id))
   ;}, [user]);
 
   return (

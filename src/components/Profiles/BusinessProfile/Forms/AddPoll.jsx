@@ -49,7 +49,7 @@ export default function AddPoll() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addBusinessPoll(poll));
+    dispatch(addBusinessPoll(poll, history));
     history.push('/business/');
   };
 

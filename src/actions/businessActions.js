@@ -62,16 +62,16 @@ export const addBusinessOffering = (offering, history) => dispatch => {
 };
 
 export const ADD_POLL = 'ADD_POLL';
-export const addBusinessPoll = poll => dispatch => {
+export const addBusinessPoll = (poll, history) => dispatch => {
   return postPoll(poll)
     .then(res => {
       dispatch({
         type: ADD_POLL,
         payload: poll
-      })
-        .catch(err => {
-          toast.error(err.message);
-        });
+      });
+      history.push('/business/all-polls');
       toast.success('Poll Added!');
+    }).catch(err => {
+      toast.error(err.message);
     });
 };
