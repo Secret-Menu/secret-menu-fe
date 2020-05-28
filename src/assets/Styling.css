@@ -42,12 +42,12 @@
     width: 100%;
   }
   button{
-    border: solid 1px rgb(146, 146, 146);
+    border: solid 1px black;
     border-radius: 10%;
     width: 60px;
     height: 20px;
-    background-color: rgb(253, 250, 68);
-    color: black;
+    background-color: #FD7653;
+    color: white;
     margin-top: 2rem;
     margin: 0 auto;
     display: block;
