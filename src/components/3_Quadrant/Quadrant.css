@@ -13,6 +13,10 @@
 .QuadrantBottom {
   background: #FD7553;
 
+  .QuadrantPolls {
+    text-align: center;
+  }
+
   h2 {
     margin-top: 1rem;
     color: #FFF;
