@@ -40,7 +40,6 @@ const UpcomingOrders = () => {
             <th>Date</th>
             <th>Customer Name</th>
             <th>Order #</th>
-            <th>Status</th>
             <th>Pick Up Date</th>
             <th>Order Total</th>
           </tr>
