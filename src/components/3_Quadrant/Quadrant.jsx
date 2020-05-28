@@ -41,7 +41,7 @@ export default function Quadrant(){
           <h2>{quadrantName}</h2>
           <p>Restaurants: {restaurants.restaurants.length}</p>
           <p>Live Polls: {quadrantPolls.length}</p>
-          <p>Other Info: 
+          <p>
             <QuadrantDescription quadrant={quadrantName}/> 
           </p>
         </div>
@@ -59,6 +59,7 @@ export default function Quadrant(){
       <Search type={area}/>
       <div className={styles.QuadrantBottom}>
         <div className={styles.QuadrantPolls}>
+          <h2>Live Polls</h2>
           <PollCarousel polls={quadrantPolls}/>
         </div>
         <h2>Restaurants</h2>

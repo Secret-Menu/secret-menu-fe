@@ -1,12 +1,16 @@
 .PollCarousel {
   display: flex;
+  justify-content: center;
   align-items: center;
+  font-family: 'Open Sans', sans-serif;
 
   button {
     height: 50px;
     width: 50px;
     margin: 10px;
     border-radius: 50%;
+    color: #58bdf3;
+    cursor: pointer;
   }
 }
 

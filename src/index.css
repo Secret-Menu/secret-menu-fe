@@ -1,0 +1,8 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  margin: 1rem;
+  cursor: pointer;
+}
