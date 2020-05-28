@@ -123,7 +123,7 @@ export default function AddPoll() {
           name="status" 
           onChange={handleChange}
         >
-          <option value="open" selected>Open</option>
+          <option value="open" default selected>Open</option>
           <option value="closed">Closed</option>
         </select>
         <button>Add</button>
