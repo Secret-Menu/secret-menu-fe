@@ -56,7 +56,9 @@ export default function Quadrant(){
         </div>
       </div>
       <div className={styles.QuadrantBottom}>
-        <PollCarousel polls={quadrantPolls}/>
+        <div className={styles.QuadrantPolls}>
+          <PollCarousel polls={quadrantPolls}/>
+        </div>
         <h2>Restaurants</h2>
         <div className={styles.QuadrantRestaurants}>
           <RestaurantList restaurants={restaurants.restaurants}/>
