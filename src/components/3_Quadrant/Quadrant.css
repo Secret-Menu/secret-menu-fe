@@ -13,6 +13,21 @@
 .QuadrantBottom {
   background: #FD7553;
 
+  .QuadrantPolls {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    color: #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
+  }
+
   .QuadrantRestaurants {
     display: flex;
     justify-content: center;
