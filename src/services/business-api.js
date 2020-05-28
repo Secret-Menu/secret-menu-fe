@@ -11,15 +11,17 @@ export const fetchBusinessPolls = (id) => {
 
 export const fetchBusiness = (id) => {
   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
-    .then(res => res.json())
+    .then(res => res.json());
 };
 
 export const fetchBusinessOrders = (id) => {
   return fetch(`${process.env.API_URL}/api/v1/orders/restaurant/${id}`)
-    .then(res => res.json())
+    .then(res => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) =>{ 
+      if(!ok) throw json;
+      return json;
+    });
 };
-
-
 
 // export const fetchBusinessPolls = (id) => {
 //   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
@@ -71,7 +73,11 @@ export const postPoll = poll => {
       restaurant: poll.restaurant
     })
   })
-    .then(res => res.json())
+    .then(res => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) =>{ 
+      if(!ok) throw json;
+      return json;
+    });
 };
 
 export const patchOrder = (id, offeringId) => {
@@ -82,5 +88,9 @@ export const patchOrder = (id, offeringId) => {
       'Content-Type': 'application/json'
     }
   })
-  .then(res => res.json());
+    .then(res =>  Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) =>{ 
+      if(!ok) throw json;
+      return json;
+    });
 };

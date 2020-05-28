@@ -50,12 +50,12 @@ export default function AddPoll() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addBusinessPoll(poll));
-    history.push('/business/');
+    dispatch(addBusinessPoll(poll, history));
   };
 
   return (
     <div className={styles.Form}>
+      <h2>Add Poll</h2>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
@@ -124,7 +124,7 @@ export default function AddPoll() {
           name="status" 
           onChange={handleChange}
         >
-          <option value="open" default selected>Open</option>
+          <option value="open" selected>Open</option>
           <option value="closed">Closed</option>
         </select>
         <button>Add</button>
