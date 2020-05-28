@@ -4,6 +4,8 @@ import { addBusinessOffering } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import styles from '../../../../assets/Styling.css';
 import { useHistory } from 'react-router-dom';
+import { validateOffering } from '../../../../services/formValidators';
+import { toast } from 'react-toastify';
 
 export default function AddOffering() {
   const dispatch = useDispatch();
@@ -38,11 +40,16 @@ export default function AddOffering() {
     price,
     restaurant: user.restaurant[0]._id
   };
-
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addBusinessOffering(offering));
-    history.push('/business/');
+    const errors = validateOffering(offering);
+    if(!errors.length){
+      dispatch(addBusinessOffering(offering));
+      history.push('/business/all-offerings');
+    } else return errors.map(error =>{
+      toast.error(error);
+    });
+  
   };
 
   return (
