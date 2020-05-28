@@ -10,15 +10,15 @@ import { setBusinessOrders } from '../../../../actions/businessActions';
 const OrderOfferings = () => {
   const dispatch = useDispatch();
   const user = useCurrentUser();
-  const {orderId} = useParams();
+  const { orderId } = useParams();
   const offerings = useSelector(state => selectOrderOfferings(state, orderId));
   const order = useSelector(state => selectOrderFromOffering(state, orderId));
   
   console.log(order);
 
   useEffect(() => {
-    if(user) dispatch(setBusinessOrders(user.restaurant[0]._id))
-  }, [user])
+    if(user) dispatch(setBusinessOrders(user.restaurant[0]._id));
+  }, [user]);
 
   const offeringNodesToList = offerings.map((offering, i) => (
     <li key={i}>
@@ -26,18 +26,18 @@ const OrderOfferings = () => {
       <p>Price: {offering.offering.price}</p>
       <p>Quantity: {offering.quantity}</p>
     </li>
-  )) 
-  console.log(offeringNodesToList)
+  )); 
+  console.log(offeringNodesToList);
 
   return (
-  <>
-    <p>Order Number: {order.orderNumber}</p>
-    <p>Offerings: {offeringNodesToList}</p>
-    <p>Customer Name: {`${order.user.firstName} ${order.user.lastName}`}</p>
-    <p>Placed On: {}</p>
-    <p>Order Total: </p>
-  </>
-  )
+    <>
+      <p>Order Number: {order.orderNumber}</p>
+      <p>Offerings: {offeringNodesToList}</p>
+      <p>Customer Name: {`${order.user.firstName} ${order.user.lastName}`}</p>
+      <p>Placed On: {}</p>
+      <p>Order Total: </p>
+    </>
+  );
 };
 OrderOfferings.propTypes = {
   created_at: PropTypes.string,

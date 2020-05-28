@@ -1,15 +1,15 @@
 import { ADD_OFFERING, ADD_POLL, SET_ORDERS, SET_OFFERINGS, SET_POLLS, UPDATE_ORDER } from '../actions/businessActions';
 
 const initialState = {
-    offerings: [],
-    polls: [],
-    orders: []
-}
+  offerings: [],
+  polls: [],
+  orders: []
+};
 
 export default function reducer(state = initialState, action) {
   switch(action.type){
     case ADD_OFFERING:
-      return { ...state, offerings: [...state.offerings, action.payload] }
+      return { ...state, offerings: [...state.offerings, action.payload] };
     case ADD_POLL:
       return { ...state, polls: [...state.polls, action.payload] };
     case SET_ORDERS:
@@ -19,7 +19,11 @@ export default function reducer(state = initialState, action) {
     case SET_POLLS:
       return { ...state, polls: action.payload };
     case UPDATE_ORDER:
-      return state;
+      return { ...state, orders: state.orders.map(order => {
+        if(action.payload.orderNumber === order.orderNumber) return action.payload;
+        return order;
+      }) 
+      };
     default:
       return state;
   }
