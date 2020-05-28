@@ -26,13 +26,13 @@ const AdminPage = () => {
       <UpcomingOrders />
       <Link to="/business/all-orders"> View All Orders</Link>
 
-      <h2>Current Offerings</h2>
-      <CurrentOfferings />
-      <Link to="/business/all-offerings"> View All Offerings</Link>
-
       <h2>Live Polls</h2>
       <UpcomingPolls />
       <Link to="/business/all-polls"> View All Polls </Link>
+
+      <h2>Current Offerings</h2>
+      <CurrentOfferings />
+      <Link to="/business/all-offerings"> View All Offerings</Link>
     </div>
   );
 };
