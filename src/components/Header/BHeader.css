@@ -4,6 +4,9 @@
   background-color: white;
   display: inline;
   font-family: ‘Cabin’, sans-serif;
+  button:hover {
+    background-color: white;
+    }
 
   .logo {
     margin: 0 auto;
@@ -41,7 +44,7 @@
 }
 
 .FuncLinks {
-  margin-left: 3rem;
+  margin-left: 0.5rem;
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -52,11 +55,19 @@
   padding: 0.25rem;
 }
 
-.Login {
+.LoginContainer {
   display: flex;
   flex-direction: row;
-  border: 0.04rem solid black;
+  justify-content: flex-end;
+}
+
+.Login {
+  border-radius: 2rem;
+  border: 1rem #FD7553;
   font-family: ‘Cabin’, sans-serif;
+  padding: 0.5rem;
   cursor: pointer;
+  background-color: #FD7553;
   color: black;
+
 }

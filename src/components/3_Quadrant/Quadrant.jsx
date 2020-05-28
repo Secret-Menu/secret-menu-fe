@@ -59,7 +59,9 @@ export default function Quadrant(){
       <Search type={area}/>
       <div className={styles.QuadrantBottom}>
         <div className={styles.QuadrantPolls}>
+
           <h2>Live Polls</h2>
+
           <PollCarousel polls={quadrantPolls}/>
         </div>
         <h2>Restaurants</h2>
