@@ -41,7 +41,7 @@
 }
 
 .FuncLinks {
-  margin-left: 3rem;
+  margin-left: 0.5rem;
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -59,4 +59,5 @@
   font-family: ‘Cabin’, sans-serif;
   cursor: pointer;
   color: black;
+  margin-right: 3rem;
 }
