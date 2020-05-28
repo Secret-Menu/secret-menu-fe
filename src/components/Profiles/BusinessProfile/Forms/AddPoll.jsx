@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessPoll } from '../../../../actions/businessActions';
-import { useCurrentUser } from '../../../../hooks/authHooks'
+import { useCurrentUser } from '../../../../hooks/authHooks';
+import styles from './Styling.css';
 
 export default function AddPoll() {
   const dispatch = useDispatch();
@@ -47,10 +48,10 @@ export default function AddPoll() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addBusinessPoll(poll));
-  }
+  };
 
   return (
-    <div>
+    <div className={styles.Form}>
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} name="pollName" onChange={handleChange} placeholder="Poll Name" />
         <input type="text" value={offering1Name} name="offering1Name" onChange={handleChange} placeholder="First Offering" />
@@ -65,8 +66,8 @@ export default function AddPoll() {
           <option value="open">Open</option>
           <option value="closed">Closed</option>
         </select>
-        <button>Add Poll</button>
+        <button>Add</button>
       </form>
     </div>
   );
-};
+}

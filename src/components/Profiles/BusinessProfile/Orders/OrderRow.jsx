@@ -4,7 +4,7 @@ import { useCurrentUser } from '../../../../hooks/authHooks';
 import AllOrdersOfferings from './OrderOfferings';
 import { useHistory } from 'react-router-dom';
 
-const OrderRow = ({  orderNumber, orderTotal, status, user, _id }) => {
+const OrderRow = ({  orderNumber, orderTotal, orderStatus, user, _id }) => {
   const history = useHistory();
 
   const handleClick = () => {
@@ -15,7 +15,7 @@ const OrderRow = ({  orderNumber, orderTotal, status, user, _id }) => {
     <tr onClick={handleClick}>
       <td>{orderNumber}</td>
       <td>{orderTotal}</td>
-      <td>{status}</td>
+      <td>{orderStatus}</td>
       <td>{`${user.firstName} ${user.lastName}`}</td>
     </tr>
   )
