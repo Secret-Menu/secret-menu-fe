@@ -27,6 +27,7 @@ const Header = () => {
       <Link to="/portland"> <button>Restaurants</button> </Link>
       { user && <Link to="/checkout"><button>Cart</button></Link>}
       { user && <Link to={`/user/${user._id}`}> <button>Profile</button> </Link> }
+      <Link to="/about"> <button>meet the devs</button> </Link>
       { user &&  <Link to="/"><button onClick={handleLogOut}>Log Out</button> </Link> }
       { !user && <LogInSignUp />}
     </div>
