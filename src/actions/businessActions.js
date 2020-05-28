@@ -12,16 +12,10 @@ export const setBusinessOrders = (id) => dispatch => {
 };
 
 export const UPDATE_ORDER = 'UPDATE_ORDER';
-export const markOrderClosed = (id, index, order) => {
-  return patchOrder(id, order)
+export const markOrderClosed = (id, offeringId) => dispatch => {
+  return patchOrder(id, offeringId)
     .then(res => {
-      dispatch({
-        type: UPDATE_ORDER,
-        payload: {
-          index,
-          order
-        }
-      });
+      dispatch({type: UPDATE_ORDER});
     });
 };
 

@@ -20,8 +20,10 @@ const UpcomingOrders = () => {
       orderTotal: order.orderTotal,
       user: order.user,
       created_at: order.created_at,
-      index: i
-    }));
+      _id: order._id,
+      offeringId: offering._id,
+      restaurant: order.restaurant
+    }))
   }).flat();
 
   const ordersToList = orderOfferings.map(order => (

@@ -1,9 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { markOrderClosed, setBusinessOrders } from '../../../../actions/businessActions';
 
-//TABLE ORDER DETAIL
+const OrderDetail = ({ orderNumber, created_at, orderStatus, orderTotal, user, offering, _id, offeringId, restaurant }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
 
-const OrderDetail = ({ created_at, orderStatus, orderNumber, orderTotal, user, offering }) => {
+
+
+
+  const handleOrderClose = (_id, offeringId, restaurant) => {
+    dispatch(markOrderClosed(_id, offeringId));
+    dispatch(setBusinessOrders(restaurant));
+    history.push('/business/all-orders');
+  };
 
   return (
     <>
@@ -13,7 +25,7 @@ const OrderDetail = ({ created_at, orderStatus, orderNumber, orderTotal, user, o
       <td>{orderStatus}</td>
       <td>{offering.pickUpDate}</td>
       <td>{orderTotal}</td>
-      <td><button>Picked Up!</button></td>
+      <td><button onClick={() => handleOrderClose(_id, offeringId, restaurant)}>Picked Up!</button></td>
     </>
   );
 };

@@ -19,10 +19,7 @@ export default function reducer(state = initialState, action) {
     case SET_POLLS:
       return { ...state, polls: action.payload };
     case UPDATE_ORDER:
-      return { ...state, orders: state.orders.map((order, i) => {
-        if(i === action.payload.index) return action.payload.order;
-        return order;
-      })};
+      return state;
     default:
       return state;
   }
