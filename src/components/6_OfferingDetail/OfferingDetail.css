@@ -1,16 +1,40 @@
 .OfferingDetail {
+  background: #FFF;
+  padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 5px 5px #9BDAFD;
+
+  .dishName {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+  }
+
+  .pickUp {
+    font-size: 0.8rem;
+  }
+
   button {
     display: none;
   }
-}
-
-.ModalDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  button {
-    margin: 10px;
+  
+  p {
+    margin: 0;
+    padding: 0.5rem 0.2rem;
   }
 }
+
+
+  .ModalDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+  
+  
+    button {
+      margin: 10px;
+    }
+  }
+
+

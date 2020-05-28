@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RestaurantList from '../3_Quadrant/RestaurantList';
 import RestaurantListShort from '../3_Quadrant/RestaurantListShort';
 
 export default function PDXQuadrants({ restaurants }) {

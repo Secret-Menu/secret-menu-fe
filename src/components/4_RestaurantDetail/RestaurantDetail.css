@@ -1,21 +1,63 @@
 .RestaurantDetail {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 1rem auto 0 auto;
+  box-sizing: border-box;
+
+  a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: .75rem;
+    text-decoration: none;
+    color: #000;
+  }
 
   .RestaurantTop {
     display: flex;
     justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
 
     .Contents {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 50%;
+      width: 45%;
+      padding: 0 2rem 0 0;
 
       h2, h3 {
         font-family: 'Cabin', sans-serif;
+        margin: 0.5rem 0;
       }
+
+      h2 {
+        display: inline;
+      }
+
+      button {
+        background: #fff;
+        border: 1px solid #FD7553;
+        color: #FD7553;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 3px;
+        border: 1px solid #FD7553;
+        width: 10rem;
+        cursor: pointer;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .buttonAlt {
+        background: #FD7553;
+        color: #FFF;
+        border: 1px solid #FD7553;
+        width: 10rem;
+      }
+
+
 
       img {
         height: 200px;
@@ -30,9 +72,11 @@
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         padding-inline-start: 0px;
+        font-size: 0.75rem;
       }
 
-      li {
+
+      li, p {
         font-family: 'Open Sans', sans-serif;
       }
     }
@@ -41,25 +85,26 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width: 30%;
-      height: 40vh;
-      margin-top: 2rem;
+      width: 50%;
+      height: 35vh;
       border: 1px solid black;
     }
   }
 
-  .RestaurantInfo {
-    margin-top: 0.5rem;
-    background: #9BDAFD;
+  .RestaurantLists {
+    margin-top: 2rem 0;
+    padding-bottom: 2rem;
+    background: #FD7553;
+
   }
 
   .RestaurantMain {
     text-align: center;
+    font-family: 'Cabin';
 
     h2 {
       color: #FFF;
-      text-shadow: 2px 2px tomato;
-      font-family: 'Cabin', sans-serif;
+      text-shadow: 2px 2px #000;
     }
 
     ul {
