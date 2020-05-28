@@ -18,7 +18,7 @@ export default function AddPoll() {
   const [offering2ImageUrl, setOffering2ImageUrl] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-  const [status, setStatus] = useState('Open');
+  const [status, setStatus] = useState('open');
   console.log(user);
 
   const handleChange = ({ target }) => {
