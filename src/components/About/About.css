@@ -16,9 +16,10 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  width: 85%;
+  width: 100%;
   height: 45rem;
   margin: 0 auto;
+  padding: 1rem 0.5rem;
 }
 
 .Card {
@@ -26,12 +27,12 @@
   list-style: none;
   margin: 2rem;
   padding: 0.5rem 1rem 1rem 1rem;
-  width: 25%;
+  width: 45%;
   border: solid 0.2rem #9BDAFD;
   border-radius: 0.3rem;
   img {
     height: auto;
-    width: 100%;
+    width: 90%;
     border-radius: 0.3rem;
     border: 1.5px solid #9BDAFD;
   }
@@ -41,16 +42,20 @@
   font-family: ‘Cabin’, sans-serif;
   color: whitesmoke;
   text-shadow: rgb(33, 104, 142) 1px 1px 1px;
+  
+}
 
+.SummaryContainer {
+  background-color: rgba(247, 169, 149, 0.769);
+  height: 50%;
+  border: 1.5px solid rgba(155, 219, 253, 0.502);
 }
 
 .Summary {
-  background-color: rgba(247, 169, 149, 0.769);
   font-family: ‘Cabin’, sans-serif;
   padding: 0.5rem;
   height: 45%;
   border-radius: 0.3rem;
-  border: 1.5px solid rgba(155, 219, 253, 0.502);
   
 }
 .Icons {
@@ -60,15 +65,15 @@
   position: static;
   color: black;
   cursor: pointer;
+  a:link {
+    color: black;
+    }
+  a:visited {
+    color: #9BDAFD;
+    }
+  a:hover {
+    color: white;
+    }
 }
 
-a:link {
-  color: black;
-  }
-  a:visited {
-  color: #9BDAFD;
-  }
-  a:hover {
-  color: white;
-  }
 

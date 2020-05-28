@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 import logo from '../../assets/mainLogo.png';
 import { toast } from 'react-toastify';
+import styles from './BHeader.css';
 
 const BusinessHeader = () => {
   const dispatch = useDispatch();
@@ -17,17 +18,21 @@ const BusinessHeader = () => {
   };
   
   return (
-    <div>
+    <div className={styles.Container}>
       <img src={logo} alt="Crowd Pleaser Logo" style={{height: '100px'}}></img>
-      <Link to="/"> <button>Home</button> </Link>
-      <Link to="/business/all-polls"> <button>My Polls</button> </Link>
-      <Link to="/business/add-offering"><button>Add Offering</button></Link>
-      <Link to="/business/add-poll"><button>Add Poll</button></Link>
-      <Link to="/business/all-orders"><button>My Orders</button></Link>
-      <Link to="/business/all-offerings"> <button>My Offerings</button> </Link>
-      <Link to="/about"> <button>meet the devs</button> </Link>
-      { user &&  <Link to="/"><button onClick={handleLogOut}>Log Out</button> </Link> }
-      { !user && <LogInSignUp />}
+      <div className={styles.ALinks}>
+        <div className={styles.FuncLinks}>
+          <Link to="/"> <p className={styles.Links}>Home</p> </Link>
+          <Link to="/business/all-polls"> <p className={styles.Links}>My Polls</p> </Link>
+          <Link to="/business/add-offering"><p className={styles.Links}>Add Offering</p></Link>
+          <Link to="/business/add-poll"><p className={styles.Links}>Add Poll</p></Link>
+          <Link to="/business/all-orders"><p className={styles.Links}>My Orders</p></Link>
+          <Link to="/business/all-offerings"> <p className={styles.Links}>My Offerings</p> </Link>
+          <Link to="/about"> <p className={styles.Links}>Meet the Devs</p> </Link>
+      </div>
+        { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
+        { !user && <LogInSignUp />}
+      </div>
     </div>
   );
 };

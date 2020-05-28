@@ -1,0 +1,62 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  display: inline;
+  font-family: ‘Cabin’, sans-serif;
+
+  .logo {
+    margin: 0 auto;
+    width: 100px;
+    text-align: center;
+    display: block;
+  }
+}
+
+.ALinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #9BDAFD;
+  width: 100%;
+  font-family: ‘Cabin’, sans-serif;
+  
+  p {
+    color: black;
+    text-decoration: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  p:hover {
+    color: #FD7553;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #FD7553;
+  }
+  p:visited {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.FuncLinks {
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  color: black;
+}
+
+.Links {
+  padding: 0.25rem;
+}
+
+.Login {
+  display: flex;
+  flex-direction: row;
+  border: 0.04rem solid black;
+  font-family: ‘Cabin’, sans-serif;
+  cursor: pointer;
+  color: black;
+}
