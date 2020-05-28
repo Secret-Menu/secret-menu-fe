@@ -1,10 +1,14 @@
 // names of validations you can add to your schema and functions used to check that the field value
 // is in the correct format. can add others like max. or greaterThan/lessThan for numbers.
 const validationTable = {
-  type: (fieldValue, configValue) => fieldValue ? typeof fieldValue === configValue.name.toLowerCase() : true,
-  required: (fieldValue, configValue) => configValue ? !!fieldValue : false,
-  min: (fieldValue, configValue) => fieldValue ? fieldValue.length >= configValue : true,
-  custom: (fieldValue, configValue) => fieldValue ? configValue(fieldValue) : true
+  type: (fieldValue, configValue) => 
+    fieldValue ? typeof fieldValue === configValue.name.toLowerCase() : true,
+  required: (fieldValue, configValue) => 
+    configValue ? !!fieldValue : false,
+  min: (fieldValue, configValue) => 
+    fieldValue ? fieldValue.length >= configValue : true,
+  custom: (fieldValue, configValue) => 
+    fieldValue ? configValue(fieldValue) : true
 };
 // validator class is used to run a fieldValue through all validators in validationTable
 class Validator {
@@ -28,6 +32,8 @@ class Validator {
       .filter(message => message);
   }
 }
+
+
 class Schema {
   constructor(schema) {
     this.schema = schema;
@@ -39,6 +45,8 @@ class Schema {
     return this.validators.flatMap(validator => validator.validate(obj));
   }
 }
+
+
 const businessSchema = new Schema({
   name: {
     type: [String, 'business name must be a string'],
@@ -50,6 +58,8 @@ const businessSchema = new Schema({
     custom: [email => email.includes('@'), 'invalid email: must include an @']
   }
 });
+
+
 const validateBusiness = newBusiness => {
   return businessSchema.validate(newBusiness);
 };

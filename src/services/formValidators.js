@@ -100,3 +100,37 @@ export const validateOffering = (offering) => {
 
   return errors; 
 };
+
+export const validatePoll = (poll) => {
+  const errors = [];
+
+  if(!poll.dishName) {
+    errors.push('Please enter a Name ⚠️');
+  }
+  if(!poll.imageUrl) {
+    errors.push('Image url missing ⚠️');
+  }
+  if(!poll.description) {
+    errors.push('Please enter a description ⚠️');
+  }
+  if(!poll.numRemaining) {
+    errors.push('Please enter number of polls ⚠️');
+  }
+  if(!poll.numRemaining || isNaN(poll.numRemaining)) {
+    errors.push('Number of polls must be a number ⚠️');
+  }
+  if(poll.numRemaining < 1) {
+    errors.push('Number of polls must be greater than 0 ⚠️');
+  }
+  if(!poll.pickUpDate) {
+    errors.push('Please enter a pickup date ⚠️');
+  }
+  if(!poll.price) {
+    errors.push('Please enter a price ⚠️');
+  }
+  if(!poll.price && isNaN(poll.price)) {
+    errors.push('Offering price must be a number ⚠️');
+  }
+
+  return errors; 
+};
