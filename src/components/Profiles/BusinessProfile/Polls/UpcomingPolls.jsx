@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectPolls } from '../../../../selectors/businessSelectors';
 import PollDetail from './PollDetail';
+import styles from './UpcomingPolls.css';
 
 const UpcomingPolls = () => {
   const polls = useSelector(selectPolls);
@@ -13,14 +14,14 @@ const UpcomingPolls = () => {
     .slice(0, 3);
 
   const pollsToList = pollSample.map(poll => (
-    <li key={poll._id}>
+    <li key={poll._id} className={styles.PollsItem}>
       <PollDetail {...poll} />
     </li>
   ));
 
   return (
     <>
-      <ul>
+      <ul className={styles.PollsList}>
         {pollsToList}
       </ul>
     </>

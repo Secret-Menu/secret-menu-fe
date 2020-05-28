@@ -17,7 +17,7 @@ const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id,
       <td>{orderNumber}</td>
       <td>{offering.pickUpDate}</td>
       <td>{orderTotal}</td>
-      <td><button onClick={() => handleOrderClose(_id, offeringId)}>Picked Up!</button></td>
+      <td><button onClick={() => handleOrderClose(_id, offeringId)}>Mark Complete</button></td>
     </>
   );
 };

@@ -5,6 +5,7 @@ import { selectOrders } from '../../../../selectors/businessSelectors';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import {  useDispatch } from 'react-redux';
 import { setBusinessOrders } from '../../../../actions/businessActions';
+import styles from './UpcomingOrders.css';
 
 const UpcomingOrders = () => {
   const user = useCurrentUser();
@@ -34,7 +35,7 @@ const UpcomingOrders = () => {
 
   return (
     <>
-      <table>
+      <table className={styles.OrdersTable}>
         <thead>
           <tr>
             <th>Date</th>

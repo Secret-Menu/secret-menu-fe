@@ -1,3 +1,42 @@
+.PollName {
+  color: #F67553;
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.PollEnd {
+  font-size: 0.8rem;
+}
+
 .PollDetail {
-  background-color: rgb(250, 249, 249);
+  display: flex;
+  margin: 1rem;
+
+  .PollOption {
+    background-color: #9BDAFD;
+    border: 2px solid #FFF;
+
+    h4 {
+      font-family: 'Cabin', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .PollVotes {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 0.70rem;
+      padding: 0 0.5rem;
+      margin: 0.5rem;
+    }
+
+    
+    img {
+      width: 100%;
+      height: 150px;
+    }
+  }
 }

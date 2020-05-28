@@ -18,7 +18,7 @@
 
 .ALinks {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background-color: #9BDAFD;
   width: 100%;
