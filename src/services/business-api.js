@@ -73,3 +73,14 @@ export const postPoll = poll => {
   })
     .then(res => res.json())
 };
+
+export const patchOrder = (id, offeringId) => {
+  return fetch(`${process.env.API_URL}/api/v1/orders/${id}/close/${offeringId}`, {
+    method: 'PATCH',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json());
+};

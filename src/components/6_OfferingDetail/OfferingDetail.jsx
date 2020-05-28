@@ -15,7 +15,7 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }
 };
- 
+
 Modal.setAppElement('body');
 
 const OfferingDetail = ({ offering, restaurant }) => {
@@ -25,11 +25,11 @@ const OfferingDetail = ({ offering, restaurant }) => {
   const openModal = () => {
     setIsOpen(true);
   };
- 
+
   const afterOpenModal = () => {
     subtitle.style.color = '#f00';
   };
- 
+
   const closeModal = () => {
     setIsOpen(false);
   };

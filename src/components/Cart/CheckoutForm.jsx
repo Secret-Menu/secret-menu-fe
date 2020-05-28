@@ -15,10 +15,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
   const elements = useElements();
   const dispatch = useDispatch();
   const [nameOnCard, setNameOnCard] = useState('');
-
-
   
-  console.log(user);
   const handleSubmit = async(event, order) => {
     event.preventDefault();
 
@@ -66,7 +63,6 @@ const CheckoutForm = ({ cartTotal, order }) => {
   };
 
   const handleChange = ({ target }) => {
-    console.log(order);
     setNameOnCard(target.value);
   };
 
