@@ -18,7 +18,7 @@ export default function AddPoll() {
   const [offering2ImageUrl, setOffering2ImageUrl] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-  const [status, setStatus] = useState('Open');
+  const [status, setStatus] = useState('open');
 
   const handleChange = ({ target }) => {
     if(target.name === 'pollName') setName(target.value);
@@ -50,7 +50,6 @@ export default function AddPoll() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addBusinessPoll(poll, history));
-    history.push('/business/');
   };
 
   return (
@@ -124,7 +123,7 @@ export default function AddPoll() {
           name="status" 
           onChange={handleChange}
         >
-          <option value="open" default selected>Open</option>
+          <option value="open" selected>Open</option>
           <option value="closed">Closed</option>
         </select>
         <button>Add</button>
