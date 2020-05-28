@@ -5,12 +5,15 @@ import styles from './CheckoutForm.css';
 import { postOrder } from '../../services/orders-api';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { resetCart } from '../../actions/cartActions';
 
 const CheckoutForm = ({ cartTotal, order }) => {
   const user = useCurrentUser();
   const history = useHistory();
   const stripe = useStripe();
   const elements = useElements();
+  const dispatch = useDispatch();
   const [nameOnCard, setNameOnCard] = useState('');
 
 
@@ -46,6 +49,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
       });
       const serverResponse = await response.json();
       handleServerResponse(serverResponse, order);
+      
     }
   };
 
@@ -53,6 +57,8 @@ const CheckoutForm = ({ cartTotal, order }) => {
     if(serverResponse.error) {
       console.log(serverResponse.error);
     } else {
+      dispatch(resetCart());
+      sessionStorage.setItem('cart', JSON.stringify([]));
       postOrder(order);
       toast.success('Thank You! Your order has been placed!');
       history.push(`/user/${user._id}`);
