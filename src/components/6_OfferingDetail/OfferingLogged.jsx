@@ -13,6 +13,7 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
   
   useEffect(() => {
     const storedCart = JSON.parse(sessionStorage.getItem('cart'));
+    if(!storedCart) sessionStorage.setItem('cart', JSON.stringify(cart));
     dispatch(loadCart(storedCart));
   }, []);
 

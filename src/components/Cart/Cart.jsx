@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CheckoutForm from './CheckoutForm';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCart } from '../../selectors/cartSelectors';
 import styles from './Cart.css';
-import { removeFromCart, loadCart } from '../../actions/cartActions';
+import { removeFromCart } from '../../actions/cartActions';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { convertToDollars } from '../../services/money';
 
