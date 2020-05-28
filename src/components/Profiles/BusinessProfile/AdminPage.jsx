@@ -27,14 +27,11 @@ const AdminPage = () => {
       </h2>
       <UpcomingOrders />
 
-      
-
       <h2>Live Polls 
         <Link to="/business/all-polls" className={styles.ViewAll}> View All Polls </Link>
       </h2>
       <UpcomingPolls />
       
-
       <h2>Current Offerings
         <Link to="/business/all-offerings" className={styles.ViewAll}> View All Offerings</Link>
       </h2>
