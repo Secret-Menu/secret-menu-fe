@@ -11,13 +11,12 @@ render(
   <Provider store={store}>
     <App />
     <ToastContainer
-      position="top-center"
+      position="top-right"
       autoClose={5000}
       closeOnClick
       rtl={false}
       pauseOnFocusLoss
       draggable
-      pauseOnHover
     />
   </Provider>,
   document.getElementById('root')
