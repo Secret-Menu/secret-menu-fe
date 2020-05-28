@@ -9,12 +9,13 @@ import RestaurantList from './RestaurantList';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import QuadrantDescription from './QuadrantDescription';
 import styles from './Quadrant.css';
+import Search from '../Search/Search';
 
 export default function Quadrant(){
   const dispatch = useDispatch();
   const { area } = useParams();
   const restaurants = useSelector(selectAreaRestaurants);
-  console.log(restaurants.restaurants);
+
   const quadrantPolls = restaurants.restaurants.map(restaurant => (
     restaurant.polls
   )).flat()
@@ -55,6 +56,7 @@ export default function Quadrant(){
           </div>
         </div>
       </div>
+      <Search type={area}/>
       <div className={styles.QuadrantBottom}>
         <div className={styles.QuadrantPolls}>
           <h2>Live Polls</h2>
@@ -62,6 +64,7 @@ export default function Quadrant(){
         </div>
         <h2>Restaurants</h2>
         <div className={styles.QuadrantRestaurants}>
+          
           <RestaurantList restaurants={restaurants.restaurants}/>
         </div>
       </div>

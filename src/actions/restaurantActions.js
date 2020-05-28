@@ -1,4 +1,4 @@
-import { fetchAllRestaurants, fetchAreaRestaurants, fetchRestaurantById } from '../services/restaurants-api';
+import { fetchAllRestaurants, fetchAreaRestaurants, fetchRestaurantById, fetchAllRestaurantSearch, fetchAreaRestaurantSearch } from '../services/restaurants-api';
 
 export const GET_ALL = 'GET_ALL';
 export const getAllRestaurants = (area) => dispatch => {
@@ -38,4 +38,26 @@ export const resetRestaurant = () => ({
   type: RESET_RESTAURANT, 
   payload: {} 
 });
+
+export const SEARCH_ALL_RESTAURANT = 'SEARCH_ALL_RESTAURANT';
+export const searchAllRestaurant = (name, category) => dispatch => {
+  return fetchAllRestaurantSearch(name, category)
+    .then(res => {
+      dispatch({
+        type: SEARCH_ALL_RESTAURANT,
+        payload: res
+      });
+    });
+};
+
+export const SEARCH_AREA_RESTAURANT = 'SEARCH_AREA_RESTAURANT';
+export const searchAreaRestaurant = (name, category, quadrant) => dispatch => {
+  return fetchAreaRestaurantSearch(name, category, quadrant)
+    .then(res => {
+      dispatch({
+        type: SEARCH_AREA_RESTAURANT,
+        payload: res
+      });
+    });
+};
 
