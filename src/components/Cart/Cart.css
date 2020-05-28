@@ -28,7 +28,13 @@
     text-transform: uppercase;
   }
 
+  td {
+    font-size: 0.9rem;
+  }
 
+  tbody td:nth-last-child(1) {
+    background: white;
+  }
 
   #cartTotal {
     text-align: right;

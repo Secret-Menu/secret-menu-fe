@@ -25,7 +25,7 @@ const About = () => {
         <div className={styles.Card}>
           <img src={jenna} className={styles.Avatar}></img>
           <h3 className={styles.Name}>Jenna Goldman</h3>
-          <p className={styles.Summary}>Full-stack software developer and creative problem-solver who loves to code beautiful, well-organized applications. I thrive in collaborative environments, and draw on my previous experience as a customer-facing software project manager to deeply connect with both people and technology. </p>
+          <p className={styles.Summary}>Full-stack software engineer and creative problem-solver who loves to code beautiful, well-organized applications. I draw on my nearly decade of experience as a customer-focused software project manager to aid in my quest to build better, more-informed, human-centric technologies. </p>
           <a className={styles.Icons} href="https://www.linkedin.com/in/jennagoldman/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className="social-icon" /></a>
           <a className={styles.Icons} href="https://github.com/jennagoldman" target="_brel=" rel="noopener noreferrer"><FaGithub className="social-icon" /></a>
           </div>
