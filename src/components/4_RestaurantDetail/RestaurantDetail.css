@@ -1,14 +1,14 @@
 .RestaurantDetail {
   display: flex;
   flex-direction: column;
-  margin: 1rem auto 0 auto;
   box-sizing: border-box;
+  margin: 1rem auto 0 auto;
 
   a {
+    color: #000;
     font-family: 'Open Sans', sans-serif;
     font-size: .75rem;
     text-decoration: none;
-    color: #000;
   }
 
   .RestaurantTop {
@@ -25,8 +25,8 @@
       padding: 0 2rem 0 0;
 
       h2, h3 {
-        font-family: 'Cabin', sans-serif;
         margin: 0.5rem 0;
+        font-family: 'Cabin', sans-serif;
       }
 
       h2 {
@@ -34,15 +34,14 @@
       }
 
       button {
-        background: #fff;
-        border: 1px solid #FD7553;
-        color: #FD7553;
-        font-size: 0.8rem;
+        width: 10rem;
         margin-bottom: 0.5rem;
         padding: 0.3rem 0.5rem;
-        border-radius: 3px;
+        background: #fff;
         border: 1px solid #FD7553;
-        width: 10rem;
+        border-radius: 3px;
+        color: #FD7553;
+        font-size: 0.8rem;
         cursor: pointer;
       }
 
@@ -51,10 +50,10 @@
       }
 
       .buttonAlt {
+        width: 10rem;
         background: #FD7553;
         color: #FFF;
         border: 1px solid #FD7553;
-        width: 10rem;
       }
 
 

@@ -1,8 +1,8 @@
 .OfferingDetail {
-  background: #FFF;
   padding: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  background: #FFF;
   box-shadow: 5px 5px #9BDAFD;
+  font-family: 'Open Sans', sans-serif;
 
   .dishName {
     font-family: 'Cabin', sans-serif;

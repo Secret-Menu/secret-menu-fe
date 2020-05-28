@@ -1,18 +1,18 @@
 .Quadrant:nth-of-type(odd) {
+  padding: 1.5rem;
   background: #FD7553;
   text-align: center;
-  padding: 1.5rem;
 
   .QuadrantLink {
-    text-decoration: none;
-    text-transform: uppercase;
+    margin-top: 1rem;
     color: #FFF;
-    text-shadow: 2px 2px #58bdf3;
-    font-size: 2rem;
     font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-top: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
   }
 
   .ViewAll {
@@ -20,28 +20,28 @@
 
     a {
       color: #FFF;
-      text-decoration: none;
       font-family: 'Open Sans', sans-serif;
       font-size: 0.8rem;
+      text-decoration: none;
     }
   }
 }
+
 .Quadrant:nth-of-type(even) {
+  padding: 1.5rem;
   background: #ffeded;
   text-align: center;
-  padding: 1.5rem;
   
-
   .QuadrantLink {
-    text-decoration: none;
-    text-transform: uppercase;
+    margin-top: 1rem;
     color: #FD7553;
-    text-shadow: 2px 2px #58bdf3;
-    font-size: 2rem;
     font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-top: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
   }
 
   .ViewAll {
@@ -49,9 +49,9 @@
 
     a {
       color: #000;
-      text-decoration: none;
       font-family: 'Open Sans', sans-serif;
       font-size: 0.8rem;
+      text-decoration: none;
     }
   }
 }
