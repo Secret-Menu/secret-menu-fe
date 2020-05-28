@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessOffering } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
-import styles from './Styling.css';
+import styles from '../../../../assets/Styling.css';
+import { useHistory } from 'react-router-dom';
 
 export default function AddOffering() {
   const dispatch = useDispatch();
   const user = useCurrentUser();
+  const history = useHistory();
 
   const [dishName, setDishName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -40,7 +42,7 @@ export default function AddOffering() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addBusinessOffering(offering));
-    history
+    history.push('/business/');
   };
 
   return (
