@@ -48,15 +48,51 @@ export default function AddOffering() {
   return (
     <div className={styles.Form}>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={dishName} name="dishName" onChange={handleChange} placeholder="Dish Name" />
-        <input type="text" value={imageUrl} name="imageUrl" onChange={handleChange} placeholder="Image url" />
-        <input type="text" value={description} name="description" onChange={handleChange} placeholder="Description" />
-        <input type="number" value={numRemaining} name="numRemaining" onChange={handleChange} placeholder="Number of dishes" />
-        <input type="datetime-local" value={pickUpDate} name="pickUpDate" onChange={handleChange} placeholder="Pick Up Date" />
-        <input type="number" value={price} name="price" onChange={handleChange} placeholder="Price" />
-        <label>Dietary Restrictions</label>
+        <input 
+          type="text" 
+          value={dishName} 
+          name="dishName" 
+          onChange={handleChange} 
+          placeholder="Dish Name" 
+        />
+        <input 
+          type="text" 
+          value={imageUrl} 
+          name="imageUrl" 
+          onChange={handleChange} 
+          placeholder="Image url" 
+        />
+        <input 
+          type="text" 
+          value={description} 
+          name="description" 
+          onChange={handleChange} 
+          placeholder="Description" 
+        />
+        <input 
+          type="number" 
+          value={numRemaining} 
+          name="numRemaining" 
+          onChange={handleChange} 
+          placeholder="Number of dishes" 
+        />
+        <input 
+          type="datetime-local" 
+          value={pickUpDate} 
+          name="pickUpDate" 
+          onChange={handleChange} 
+          placeholder="Pick Up Date" 
+        />
+        <input 
+          type="number" 
+          value={price} 
+          name="price" 
+          onChange={handleChange} 
+          placeholder="Price" 
+        />
+        <label>Dietary Restrictions: </label>
         <select value={dietaryRestriction} name="dietaryRestriction" onChange={handleChange}>
-          <option value = "None" selected>None</option>
+          <option value = "None" default selected>None</option>
           <option value = "Vegetarian">Vegetarian</option>
           <option value = "Vegan">Vegan</option>
           <option value = "Gluten Free">Gluten Free</option>
