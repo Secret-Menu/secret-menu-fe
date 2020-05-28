@@ -8,7 +8,7 @@ import UpcomingPolls from './Polls/UpcomingPolls';
 import { useCurrentUser } from '../../../hooks/authHooks';
 import UpcomingOrders from '../BusinessProfile/Orders/UpcomingOrders';
 import { setBusinessOrders, setBusinessOfferings, setBusinessPolls } from '../../../actions/businessActions';
-import AllOrders from './Orders/AllOrders';
+import styles from './BusinessDashboard.css';
 
 const AdminPage = () => {
   const dispatch = useDispatch();
@@ -21,16 +21,16 @@ const AdminPage = () => {
   ;}, [user]);
 
   return (
-    <div>
-      <h3>Upcoming Orders</h3>
+    <div className={styles.BusinessDashboard}>
+      <h2>Upcoming Orders</h2>
       <UpcomingOrders />
       <Link to="/business/all-orders"> View All Orders</Link>
 
-      <h3>Current Offerings</h3>
+      <h2>Current Offerings</h2>
       <CurrentOfferings />
       <Link to="/business/all-offerings"> View All Offerings</Link>
 
-      <h3>Live Polls</h3>
+      <h2>Live Polls</h2>
       <UpcomingPolls />
       <Link to="/business/all-polls"> View All Polls </Link>
     </div>

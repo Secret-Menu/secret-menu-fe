@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectOfferings } from '../../../../selectors/businessSelectors';
 import OfferingDetail from './OfferingDetail';
+import styles from './CurrentOfferings.css';
 
 const CurrentOfferings = () => {
   const offerings = useSelector(selectOfferings);
@@ -13,14 +14,14 @@ const CurrentOfferings = () => {
     .slice(0, 3);
 
   const offeringsToList = offeringSample.map(offering => (
-    <li key={offering._id}>
+    <li key={offering._id} className={styles.OfferingItem}>
       <OfferingDetail {...offering} />
     </li>
   ));
 
   return (
     <>
-      <ul>
+      <ul className={styles.OfferingsList}>
         {offeringsToList}
       </ul>
     </>
