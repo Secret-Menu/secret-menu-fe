@@ -1,4 +1,4 @@
-import { ADD_TO_CART, UPDATE_CART_ITEM, REMOVE_FROM_CART } from '../actions/cartActions';
+import { ADD_TO_CART, UPDATE_CART_ITEM, REMOVE_FROM_CART, LOAD_CART } from '../actions/cartActions';
 
 export default function reducer(state = [], action) {
   switch(action.type) {
@@ -11,6 +11,8 @@ export default function reducer(state = [], action) {
         if(i === action.payload.index) return action.payload.lineItem;
         return lineItem;
       });
+    case LOAD_CART:
+      return state = action.payload;
     default:
       return state;
   }

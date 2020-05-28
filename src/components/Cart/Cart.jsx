@@ -17,7 +17,7 @@ export default function Cart() {
   };
 
   const lineItemNodes = cart.map((lineItem, i) => 
-  <tr key={lineItem._id}>
+    <tr key={lineItem._id}>
       <td>{lineItem.restaurant}</td>
       <td>{lineItem.offering}</td>
       <td>{lineItem.quantity}</td>
@@ -48,7 +48,7 @@ export default function Cart() {
   
   const orderToBeCreated = {
     orderNumber: Date.now(),
-    user: user._id,
+    user: user?._id,
     restaurant: cart[0].restaurantId,
     offering: lineItemsForOrder,
     orderTotal: cartTotal

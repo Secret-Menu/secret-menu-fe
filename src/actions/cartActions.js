@@ -18,3 +18,9 @@ export const removeFromCart = index => ({
   type: REMOVE_FROM_CART,
   payload: index
 });
+
+export const LOAD_CART = 'LOAD_CART';
+export const loadCart = (cart) => ({
+  type: LOAD_CART,
+  payload: cart
+});
