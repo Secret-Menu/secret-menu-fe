@@ -9,9 +9,12 @@ import { selectAllRestaurants } from '../../selectors/restaurantSelectors';
 export default function PDXMap() { 
   const [name, setName] = useState('');
   const [category, setCategoy] = useState('');
+  const [restTest, setRestTest] = useState([]);
 
   const dispatch = useDispatch();
   const restaurants = useSelector(selectAllRestaurants);
+  if(restTest.length < 0) setRestTest(restaurants);
+  console.log(restTest);
 
   useEffect(() => {
     dispatch(getAllRestaurants());
