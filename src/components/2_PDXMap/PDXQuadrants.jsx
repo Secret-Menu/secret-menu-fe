@@ -50,6 +50,9 @@ export default function PDXQuadrants({ restaurants }) {
     <div className={styles.Quadrant}>
       <Link to={`/portland/${quadrant.abbrev}`} className={styles.QuadrantLink}>{quadrant.name}</Link>
       <RestaurantListShort restaurants={quadrant.restaurants} />
+      <div className={styles.ViewAll}>
+        <Link to={`/portland/${quadrant.abbrev}`}>{`View all ${quadrant.name} Restaurants`}</Link>
+      </div>
     </div>
   );
 

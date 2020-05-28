@@ -5,27 +5,55 @@
 
   .QuadrantLink {
     text-decoration: none;
+    text-transform: uppercase;
     color: #FFF;
     text-shadow: 2px 2px #58bdf3;
     font-size: 2rem;
     font-family: 'Cabin', sans-serif;
+    font-weight: 700;
     text-align: center;
     margin-top: 1rem;
   }
+
+  .ViewAll {
+    text-align: right;
+
+    a {
+      color: #FFF;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+    }
+  }
 }
 .Quadrant:nth-of-type(even) {
-  background: #FFF;
+  background: #ffeded;
   text-align: center;
   padding: 1.5rem;
   
 
   .QuadrantLink {
     text-decoration: none;
+    text-transform: uppercase;
     color: #FD7553;
     text-shadow: 2px 2px #58bdf3;
     font-size: 2rem;
     font-family: 'Cabin', sans-serif;
+    font-weight: 700;
     text-align: center;
     margin-top: 1rem;
   }
+
+  .ViewAll {
+    text-align: right;
+
+    a {
+      color: #000;
+      text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+    }
+  }
 }
+
+
