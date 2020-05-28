@@ -44,7 +44,7 @@
 }
 
 .FuncLinks {
-  margin-left: 0.5rem;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -58,15 +58,21 @@
 .LoginContainer {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  font-size: 0.6em;
+  align-items: center;
+  right: 2rem;
 }
 
 .Login {
   border-radius: 2rem;
   border: 1rem #FD7553;
-  font-family: ‘Cabin’, sans-serif;
   padding: 0.5rem;
   cursor: pointer;
   background-color: #FD7553;
   color: black;
+}
 
+.Meet {
+  font-size: 1.3em;
 }
