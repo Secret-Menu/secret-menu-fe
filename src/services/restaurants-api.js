@@ -41,3 +41,13 @@ export const fetchRestaurantById = (id) => {
   return fetch(`${process.env.API_URL}/api/v1/restaurants/${id}`)
     .then(res => res.json());
 };
+
+export const fetchAreaRestaurantSearch = (name, category, quadrant) => {
+  return fetch(`${process.env.API_URL}/api/v1/restaurants/search-area?name=${name}&category=${category}&quadrant=${quadrant}`)
+    .then(res => res.json());
+};
+
+export const fetchAllRestaurantSearch = (name, category) => {
+  return fetch(`${process.env.API_URL}/api/v1/restaurants/search?name=${name}&category=${category}`)
+    .then(res => res.json());
+};

@@ -9,6 +9,7 @@ import RestaurantList from './RestaurantList';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import QuadrantDescription from './QuadrantDescription';
 import styles from './Quadrant.css';
+import Search from '../Search/Search';
 
 export default function Quadrant(){
   const dispatch = useDispatch();
@@ -55,12 +56,14 @@ export default function Quadrant(){
           </div>
         </div>
       </div>
+      <Search type={area}/>
       <div className={styles.QuadrantBottom}>
         <div className={styles.QuadrantPolls}>
           <PollCarousel polls={quadrantPolls}/>
         </div>
         <h2>Restaurants</h2>
         <div className={styles.QuadrantRestaurants}>
+          
           <RestaurantList restaurants={restaurants.restaurants}/>
         </div>
       </div>
