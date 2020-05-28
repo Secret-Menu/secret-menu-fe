@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { useRestaurant } from '../../../hooks/restaurantHooks';
-import AllPolls from './Polls/AllPolls';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import CurrentOfferings from './Offerings/CurrentOfferings';
@@ -8,7 +6,6 @@ import UpcomingPolls from './Polls/UpcomingPolls';
 import { useCurrentUser } from '../../../hooks/authHooks';
 import UpcomingOrders from '../BusinessProfile/Orders/UpcomingOrders';
 import { setBusinessOrders, setBusinessOfferings, setBusinessPolls } from '../../../actions/businessActions';
-import AllOrders from './Orders/AllOrders';
 
 const AdminPage = () => {
   const dispatch = useDispatch();
