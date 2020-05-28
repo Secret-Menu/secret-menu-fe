@@ -99,7 +99,7 @@ const PollDetail = ({ poll }) => {
         contentLabel="Voting Modal"
       >
         <div className={styles.PollModalDiv}>
-          <h2 ref={_subtitle => (subtitle = _subtitle)}>{poll.name}</h2>
+          <h2 ref={_subtitle => (subtitle = _subtitle)} className={styles.PollName}>{poll.name}</h2>
           <div className={styles.Orderings}>
             <div className={styles.Offering}>
               <img src={poll.offering1ImageUrl} alt={poll.offering1ImageUrl} height="200" width="300"/>
