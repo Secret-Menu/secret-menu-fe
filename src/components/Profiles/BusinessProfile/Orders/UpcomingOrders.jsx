@@ -23,8 +23,9 @@ const UpcomingOrders = () => {
       _id: order._id,
       offeringId: offering._id,
       restaurant: order.restaurant
-    }))
-  }).flat();
+    }));
+  }).flat()
+    .filter(offering => offering.orderStatus !== 'Closed');
 
   const ordersToList = orderOfferings.map(order => (
     <tr key={`${order.orderNumber}${order.offering._id}`}>
