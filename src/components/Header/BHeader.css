@@ -18,7 +18,7 @@
 
 .ALinks {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background-color: #9BDAFD;
   width: 100%;
@@ -44,7 +44,7 @@
 }
 
 .FuncLinks {
-  margin-left: 0.5rem;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -59,7 +59,9 @@
   display: flex;
   justify-content: flex-end;
   position: relative;
-  left: 10rem;
+  font-size: 0.6em;
+  align-items: center;
+  right: 2rem;
 }
 
 .Login {
@@ -69,4 +71,8 @@
   cursor: pointer;
   background-color: #FD7553;
   color: black;
+}
+
+.Meet {
+  font-size: 1.3em;
 }
