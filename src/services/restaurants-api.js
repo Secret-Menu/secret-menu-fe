@@ -28,8 +28,7 @@ export const createRestaurant = restaurant => {
 };
 
 export const fetchAreaRestaurants = (quadrant) => {
-  console.log(process.env.API_URL);
-  return fetch(`${process.env.API_URL}/api/v1/restaurants?quadrant=${quadrant}`)
+  return fetch(`${process.env.API_URL}/api/v1/restaurants/quadrant/${quadrant}`)
     .then(res => res.json());
 };
 

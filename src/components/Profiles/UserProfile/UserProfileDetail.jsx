@@ -32,6 +32,7 @@ const UserProfileDetail = ({ order }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  console.log(order);
  
   return (
     <li className={styles.UserProfileDetail}>

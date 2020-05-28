@@ -40,6 +40,7 @@ export default function AddOffering() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addBusinessOffering(offering));
+    history
   };
 
   return (

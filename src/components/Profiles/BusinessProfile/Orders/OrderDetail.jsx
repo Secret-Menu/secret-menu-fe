@@ -13,8 +13,9 @@ const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id,
 
   const handleOrderClose = (_id, offeringId, restaurant) => {
     dispatch(markOrderClosed(_id, offeringId));
-    dispatch(setBusinessOrders(restaurant));
-    history.push('/business/all-orders');
+    // setTimeout(() => {dispatch(setBusinessOrders(restaurant));}, 1000);
+    
+    // history.push('/business/all-orders');
   };
 
   return (

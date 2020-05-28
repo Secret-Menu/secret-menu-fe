@@ -9,11 +9,11 @@ const PrivateRoute = (props) => {
   const loading = useSelector(getAuthLoading);
 
   if(!user && !loading) {
-    return <Redirect to="/signup" />
+    return <Redirect to="/signup" />;
   }
 
   if(loading) {
-    return <h2>Loading...</h2>
+    return <h2>Loading...</h2>;
   }
 
   return <Route {...props} />;

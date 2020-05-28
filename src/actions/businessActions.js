@@ -17,7 +17,10 @@ export const UPDATE_ORDER = 'UPDATE_ORDER';
 export const markOrderClosed = (id, offeringId) => dispatch => {
   return patchOrder(id, offeringId)
     .then(res => {
-      dispatch({type: UPDATE_ORDER});
+      dispatch({ 
+        type: UPDATE_ORDER ,
+        payload: res
+      });
     });
 };
 
