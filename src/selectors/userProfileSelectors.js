@@ -13,7 +13,8 @@ export const getUserOrders = state => {
     .map(order => ({
       info: order.restaurant.restaurantName,
       date: new Date(order.offering.pickUpDate),
-      orders: order.offering
+      orders: order.offering,
+      quantity: order.quantity
     }))
     .sort(function(a, b) {
       return a.date - b.date;
