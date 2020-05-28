@@ -16,7 +16,11 @@ export const addFavorite = (user, restaurant) => {
       restaurant: restaurant._id
     })
   })
-    .then(res => res.json());
+    .then(res =>  Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) =>{ 
+      if(!ok) throw json;
+      return json;
+    });
 };
 
 export const deleteFavorite = (id) => {
@@ -24,5 +28,9 @@ export const deleteFavorite = (id) => {
     method: 'DELETE',
     credentials: 'include'
   })
-    .then(res => res.json());
+    .then(res =>  Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) =>{ 
+      if(!ok) throw json;
+      return json;
+    });
 };

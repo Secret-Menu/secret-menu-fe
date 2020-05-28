@@ -49,7 +49,6 @@ export default function AddOffering() {
     } else return errors.map(error =>{
       toast.error(error);
     });
-  
   };
 
   return (

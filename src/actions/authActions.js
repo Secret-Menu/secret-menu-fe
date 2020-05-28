@@ -57,7 +57,10 @@ export const login = (email, password) => dispatch => {
         type: SET_USER_ERROR,
         payload: err.message
       });
-      if(err.message === 'Failed to fetch') toast.error('Invalid Email');
+      if(err.message === 'Cannot read property \'role\' of null') 
+        toast.error('Invalid Email');
+      if(err.message === 'Failed to fetch') 
+        toast.error('Invalid Email');
       else return toast.error(err.message);
     });
 };
