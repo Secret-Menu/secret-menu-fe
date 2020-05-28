@@ -43,16 +43,16 @@ export default function Cart() {
     orderStatus: 'Open',
   }));
 
-  console.log(lineItemsForOrder);
-
   
   const orderToBeCreated = {
     orderNumber: Date.now(),
     user: user._id,
     restaurant: cart[0].restaurantId,
     offering: lineItemsForOrder,
-    orderTotal: cartTotal
+    orderTotal: cartTotalRaw
   };
+
+  console.log(cartTotalRaw);
 
   const restaurant = cart[0].restaurantId;
   const tooManyRestaurants = cart.find(item => restaurant !== item.restaurantId);

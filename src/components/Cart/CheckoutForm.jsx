@@ -12,10 +12,8 @@ const CheckoutForm = ({ cartTotal, order }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [nameOnCard, setNameOnCard] = useState('');
-
-
   
-  console.log(user);
+  console.log('checkout form cartTotal: ', cartTotal);
   const handleSubmit = async(event, order) => {
     event.preventDefault();
 
@@ -60,7 +58,6 @@ const CheckoutForm = ({ cartTotal, order }) => {
   };
 
   const handleChange = ({ target }) => {
-    console.log(order);
     setNameOnCard(target.value);
   };
 
