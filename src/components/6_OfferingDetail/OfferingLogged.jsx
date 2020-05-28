@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCart } from '../../selectors/cartSelectors';
-import { updateCartItem, addToCart } from '../../actions/cartActions';
+import { updateCartItem, addToCart, loadCart } from '../../actions/cartActions';
 
 const OfferingLogged = ({ offering, restaurant, closeModal }) => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const user = useCurrentUser();
   const cart = useSelector(selectCart);
+  
+  useEffect(() => {
+    const storedCart = JSON.parse(sessionStorage.getItem('cart'));
+    dispatch(loadCart(storedCart));
+  }, []);
+
+  useEffect(() => {
+    const newCart = sessionStorage.setItem('cart', JSON.stringify(cart));
+    if(!newCart) return;
+    dispatch(loadCart(newCart));
+  }, [cart]);
   
   const isLogged = () => {
     const lineItem = {
@@ -39,7 +50,7 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
         const i = cart.findIndex(lineItem => lineItem.offeringId = offering._id);
         dispatch(updateCartItem(i, lineItem));
       }
-      else dispatch(addToCart(lineItem));
+      else dispatch(addToCart(lineItem)); 
     };
   
     if(user) {

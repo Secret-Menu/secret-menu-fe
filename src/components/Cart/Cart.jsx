@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CheckoutForm from './CheckoutForm';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCart } from '../../selectors/cartSelectors';
 import styles from './Cart.css';
-import { removeFromCart } from '../../actions/cartActions';
+import { removeFromCart, loadCart } from '../../actions/cartActions';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { convertToDollars } from '../../services/money';
 
@@ -17,7 +17,7 @@ export default function Cart() {
   };
 
   const lineItemNodes = cart.map((lineItem, i) => 
-  <tr key={lineItem._id}>
+    <tr key={lineItem._id}>
       <td>{lineItem.restaurant}</td>
       <td>{lineItem.offering}</td>
       <td>{lineItem.quantity}</td>
