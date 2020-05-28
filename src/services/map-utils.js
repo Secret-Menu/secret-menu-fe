@@ -1,7 +1,7 @@
 export const pdxAnchor = {
   center: {
-    lat: 45.52, 
-    lng: -122.67,
+    lat: 45.53, 
+    lng: -122.641,
   },
-  zoom: 12
+  zoom: 11.33
 };
