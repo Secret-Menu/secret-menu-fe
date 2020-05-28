@@ -49,8 +49,10 @@ const About = () => {
           <a className={styles.Icons} href="https://www.linkedin.com/in/thisisjoshford/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className={styles.Icons} /></a>
           <a className={styles.Icons} href="https://github.com/thisisjoshford" target="_brel=" rel="noopener noreferrer"><FaGithub className={styles.Icons} /></a>
           </div>
+      </div>
       </section>
-    </div>
+      </div>
+  
   )
 }
 export default About;
