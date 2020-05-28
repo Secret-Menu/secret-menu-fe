@@ -25,6 +25,7 @@ const BusinessHeader = () => {
       <Link to="/business/add-poll"><button>Add Poll</button></Link>
       <Link to="/business/all-orders"><button>My Orders</button></Link>
       <Link to="/business/all-offerings"> <button>My Offerings</button> </Link>
+      <Link to="/about"> <button>meet the devs</button> </Link>
       { user &&  <Link to="/"><button onClick={handleLogOut}>Log Out</button> </Link> }
       { !user && <LogInSignUp />}
     </div>
