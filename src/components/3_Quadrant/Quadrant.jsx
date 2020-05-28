@@ -37,11 +37,16 @@ export default function Quadrant(){
       <h2>{quadrantName}</h2>
       <p>Restaurants: {restaurants.restaurants.length}</p>
       <p>Live Polls: {quadrantPolls.length}</p>
-      <p>Other Info: <QuadrantDescription quadrant={quadrantName}/> </p>
+      <p>Other Info: 
+        <QuadrantDescription quadrant={quadrantName}/> 
+      </p>
       <div style={{ height: '60vh', width: '33%' }}>
         {restaurants.anchorPoint.zoom && 
-        <Map center={restaurants.anchorPoint.center} zoom={restaurants.anchorPoint.zoom} markers={restaurants} />}
-        {console.log(restaurants.anchorPoint.center)}
+        <Map 
+          center={restaurants.anchorPoint.center} 
+          zoom={restaurants.anchorPoint.zoom} 
+          markers={restaurants} 
+        />}
       </div>
       <div>
         <PollCarousel polls={quadrantPolls}/>
