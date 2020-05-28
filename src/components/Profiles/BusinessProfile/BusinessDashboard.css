@@ -1,0 +1,12 @@
+.BusinessDashboard {
+  h2 {
+    margin-top: 4rem;
+    color: #FD7553;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+  }
+}
