@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useCurrentUser } from '../../../../hooks/authHooks';
+import styles from './PollDetail.css';
 
 const PollDetail = (poll) => {
   const user = useCurrentUser();
   return (
-    <>
+    <div className={styles.PollDetail}>
       <div>
         <img src={poll.offering1ImageUrl} alt="Offering Image" height="200" width="300"></img>
         <h4>{poll.offering1Name}</h4>
@@ -21,7 +22,7 @@ const PollDetail = (poll) => {
       </div>
       <p>Start Date: {poll.start} </p>
       <p>End Date: {poll.end} </p>
-    </>
+    </div>
   );};
 PollDetail.propTypes = {
   poll: PropTypes.object

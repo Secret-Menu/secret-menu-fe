@@ -1,0 +1,74 @@
+.About {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.Title {
+  display: flex;
+  font-family: ‘Cabin’, sans-serif;
+  justify-content: center;
+  background-color: #9BDAFD;
+}
+
+.Cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 85%;
+  height: 45rem;
+  margin: 0 auto;
+}
+
+.Card {
+  background-color: #FD7553;
+  list-style: none;
+  margin: 2rem;
+  padding: 0.5rem 1rem 1rem 1rem;
+  width: 25%;
+  border: solid 0.2rem #9BDAFD;
+  border-radius: 0.3rem;
+  img {
+    height: auto;
+    width: 100%;
+    border-radius: 0.3rem;
+    border: 1.5px solid #9BDAFD;
+  }
+}
+
+.Name {
+  font-family: ‘Cabin’, sans-serif;
+  color: whitesmoke;
+  text-shadow: rgb(33, 104, 142) 1px 1px 1px;
+
+}
+
+.Summary {
+  background-color: rgba(247, 169, 149, 0.769);
+  font-family: ‘Cabin’, sans-serif;
+  padding: 0.5rem;
+  height: 45%;
+  border-radius: 0.3rem;
+  border: 1.5px solid rgba(155, 219, 253, 0.502);
+  
+}
+.Icons {
+  display: inline-block;
+  padding: 0.4rem;
+  bottom: -40px;
+  position: static;
+  color: black;
+  cursor: pointer;
+}
+
+a:link {
+  color: black;
+  }
+  a:visited {
+  color: #9BDAFD;
+  }
+  a:hover {
+  color: white;
+  }
+
