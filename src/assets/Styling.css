@@ -20,6 +20,7 @@
   select{
     margin-top: .5rem;
     margin-right: 1rem;
+    margin-bottom: 1rem;
   }
   input[type="radio"]{
     border: solid 0px black;
