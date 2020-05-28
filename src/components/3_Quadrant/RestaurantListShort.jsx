@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './RestaurantList.css';
 import { useRestaurantShortList } from '../../hooks/restaurantHooks';
+import styles from './RestaurantList.css';
 
 const RestaurantListShort = ({ restaurants }) => {
   const restaurantsCopy = restaurants.slice();
@@ -11,20 +11,18 @@ const RestaurantListShort = ({ restaurants }) => {
   } = useRestaurantShortList(restaurantsCopy);
 
   const restaurantNodes = restaurantShortList.map(item =>
-    <li key={item._id}>
-      <Link to={`/restaurant/${item._id}`}>
-        <div>
+      <Link to={`/restaurant/${item._id}`} className={styles.RestaurantLink}>
+        <div className={styles.RestaurantCard}>
           <p>{item.restaurantName}</p>
           <img src={item.imageUrl} alt={item.restaurantName} className={styles.restaurantImg} />
         </div>
       </Link>
-    </li>
   );
 
   return (
-    <ul>
+    <div className={styles.RestaurantList}>
       {restaurantNodes}
-    </ul>
+    </div>
   );
 };
 

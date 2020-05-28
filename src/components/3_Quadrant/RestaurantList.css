@@ -1,3 +1,25 @@
-.restaurantImg {
-  width: 15rem;
+.RestaurantList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+
+  .RestaurantLink {
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .RestaurantCard {
+    margin: 1rem;
+    font-family: 'Cabin', sans-serif;
+
+    img {
+      width: 20rem;
+      height: 15rem;
+    }
+  }
 }

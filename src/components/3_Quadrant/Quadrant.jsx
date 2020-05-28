@@ -8,6 +8,7 @@ import { useQuadrantName } from '../../hooks/quadrantHooks';
 import RestaurantList from './RestaurantList';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import QuadrantDescription from './QuadrantDescription';
+import styles from './Quadrant.css';
 
 export default function Quadrant(){
   const dispatch = useDispatch();
@@ -34,24 +35,33 @@ export default function Quadrant(){
 
   return (
     <div>
-      <h2>{quadrantName}</h2>
-      <p>Restaurants: {restaurants.restaurants.length}</p>
-      <p>Live Polls: {quadrantPolls.length}</p>
-      <p>Other Info: 
-        <QuadrantDescription quadrant={quadrantName}/> 
-      </p>
-      <div style={{ height: '60vh', width: '33%' }}>
-        {restaurants.anchorPoint.zoom && 
-        <Map 
-          center={restaurants.anchorPoint.center} 
-          zoom={restaurants.anchorPoint.zoom} 
-          markers={restaurants} 
-        />}
+      <div className={styles.QuadrantTop}>
+        <div className={styles.QuadrantInfo}>
+          <h2>{quadrantName}</h2>
+          <p>Restaurants: {restaurants.restaurants.length}</p>
+          <p>Live Polls: {quadrantPolls.length}</p>
+          <p>Other Info: 
+            <QuadrantDescription quadrant={quadrantName}/> 
+          </p>
+        </div>
+        <div className={styles.QuadrantInfo}>
+          <div style={{ height: '40vh', width: '80%' }}>
+            {restaurants.anchorPoint.zoom && 
+            <Map 
+              center={restaurants.anchorPoint.center} 
+              zoom={restaurants.anchorPoint.zoom} 
+              markers={restaurants} 
+            />}
+          </div>
+        </div>
       </div>
-      <div>
+      <div className={styles.QuadrantBottom}>
         <PollCarousel polls={quadrantPolls}/>
+        <h2>Restaurants</h2>
+        <div className={styles.QuadrantRestaurants}>
+          <RestaurantList restaurants={restaurants.restaurants}/>
+        </div>
       </div>
-      <RestaurantList restaurants={restaurants.restaurants}/>
     </div>
   );
 }

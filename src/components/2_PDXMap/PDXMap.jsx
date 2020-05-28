@@ -17,10 +17,10 @@ export default function PDXMap() {
 
   return (
     <div>
-      <div style={{ height: '60vh', width: '50%' }}>
+      <div style={{ height: '60vh', width: '100%', margin: '0 auto'}}>
         <Map center={pdxAnchor.center} zoom={pdxAnchor.zoom} markers={restaurants}/>
-        <PDXQuadrants restaurants={restaurants} />
       </div>
+        <PDXQuadrants restaurants={restaurants} />
     </div>
   );
 }

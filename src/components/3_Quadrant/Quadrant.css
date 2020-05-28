@@ -1,0 +1,22 @@
+.QuadrantTop {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  margin: 2rem auto;
+
+  .QuadrantInfo {
+    font-family: 'Open Sans', sans-serif;
+    width: 50%;
+  } 
+}
+
+.QuadrantBottom {
+  background: #FD7553;
+
+  .QuadrantRestaurants {
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin: 0 auto;
+  }
+}
