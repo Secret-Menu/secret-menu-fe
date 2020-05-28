@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignUp } from '../../../hooks/authHooks';
-import styles from './Styling.css';
+import styles from '../../../assets/Styling.css';
 
 export default function SignUp() {
   const {

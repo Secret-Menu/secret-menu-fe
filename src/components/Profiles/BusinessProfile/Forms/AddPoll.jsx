@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessPoll } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
-import styles from './Styling.css';
+import styles from '../../../../assets/Styling.css';
 import { useHistory } from 'react-router-dom';
 
 export default function AddPoll() {

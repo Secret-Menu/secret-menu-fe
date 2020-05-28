@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRestaurantSignUp } from '../../../hooks/authHooks';
-import styles from './Styling.css';
-
+import styles from '../../../assets/Styling.css';
 
 export default function RestaurantSignUp() {
   const {
