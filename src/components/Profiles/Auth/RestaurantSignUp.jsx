@@ -145,7 +145,7 @@ export default function RestaurantSignUp() {
           <br/>
           <span>area: </span>
           <select value={quadrant} name="quadrant" onChange={handleChange}>
-            <option value="N">North</option>
+            <option value="N" selected>North</option>
             <option value="NE">Northeast</option>
             <option value="NW">Northwest</option>
             <option value="S">South</option>
@@ -154,7 +154,7 @@ export default function RestaurantSignUp() {
           </select>
           <span>category: </span>
           <select value={category} name="category" onChange={handleChange}>
-            <option value="American">American</option>
+            <option value="American" selected>American</option>
             <option value="Bakery">Bakery</option>
             <option value="Breakfast">Breakfast</option>
             <option value="Burger">Burger</option>
