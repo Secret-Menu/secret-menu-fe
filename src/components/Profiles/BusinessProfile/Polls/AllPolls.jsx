@@ -16,7 +16,7 @@ const AllPolls = () => {
 
   const pollsToList = polls.map(poll => (
     <li key={poll._id}>
-      <PollDetail {...poll} />
+      <PollDetail key={poll._id} {...poll} />
     </li>
   ));
 
