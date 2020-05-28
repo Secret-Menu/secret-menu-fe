@@ -42,10 +42,12 @@ const OfferingDetail = ({ offering, restaurant }) => {
   return (
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
-      <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
-      <p>{pickUpYear}</p>
-      <p>{offering.dishName}</p>
-      {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
+      <label htmlFor={offering._id}>
+        <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
+        <p className={styles.dishName}>{offering.dishName}</p>
+        <p className={styles.pickUp}>{pickUpYear}</p>
+        {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
+      </label>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

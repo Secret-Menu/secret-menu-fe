@@ -70,7 +70,7 @@ export default function RestaurantDetail() {
       );
     } else {
       return (
-        <>
+        <div className={styles.RestaurantLists}>
           <div className={styles.RestaurantMain}>  
             <h2>Live Votes</h2>      
             <div className={styles.Items}>
@@ -83,7 +83,7 @@ export default function RestaurantDetail() {
               {offeringNodes.length > 0 ? <ul>{offeringNodes}</ul> : <h3>No current offerings...</h3>}
             </div>
           </div>
-        </>
+        </div>
       );
     }
   };
@@ -108,8 +108,8 @@ export default function RestaurantDetail() {
   const favoritesButton = () => {
     const match = favorites.find(favorite => favorite.restaurant._id === restaurant._id); 
     if(!user) return null;
-    if(!match) return <button onClick={addFavorite}>Add to Favorites</button>;
-    if(match) return <button onClick={() => removeFavorite(match)}>Remove from Favorites</button>;
+    if(!match) return <button onClick={addFavorite} className={styles}>Add to Favorites</button>;
+    if(match) return <button onClick={() => removeFavorite(match)} className={styles.buttonAlt}>Remove from Favorites</button>;
   };
 
 
@@ -118,20 +118,24 @@ export default function RestaurantDetail() {
       <div className={styles.RestaurantTop}>
         <div className={styles.Contents}>
           <Link to={`/portland/${restaurant.quadrant}`}>Back to {restaurant.quadrant}</Link>
-          <h3>{restaurant.restaurantName}</h3>
-          <img src={restaurant.imageUrl} />
+          <h2>{restaurant.restaurantName}</h2>
+          {favoritesButton()}
+          
+          <h3>{restaurant.category}</h3>
+          
+
+          <h3>
+            <a href={`tel:+${restaurant.phoneNumber}`}>{restaurant.phoneNumber}</a>
+          </h3>
           <ul>
             <li>{restaurant.address ? restaurant.address.streetAddress : ''}</li>
-            <li>{restaurant.address ? restaurant.address.city : ''}</li>
-            <li>{restaurant.address ? restaurant.address.state : ''}</li>
-            <li>{restaurant.address ? restaurant.address.zipcode : ''}</li>
+            <li>
+              <span>{restaurant.address ? `${restaurant.address.city}, ` : ''}</span>
+              <span>{restaurant.address ? `${restaurant.address.state} ` : ''}</span>
+              <span>{restaurant.address ? restaurant.address.zipcode : ''}</span>
+            </li>
           </ul>
-          <p>{restaurant.description}</p>
-        </div>
-        <div className={styles.Contents}>
-          <h3><a href={`tel:+${restaurant.phoneNumber}`}>{restaurant.phoneNumber}</a></h3>
-          <h3>{restaurant.category}</h3>
-          {favoritesButton()}
+          <p>{`${restaurant.description} and there could be a much longer description here to fill out more space and make the top half of the page feel like it has more content. Words words words, words are great, you can never have enough of them! `}</p>
         </div>
         <div className={styles.Map}>
           {conditionalMap()}

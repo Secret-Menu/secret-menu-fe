@@ -4,6 +4,7 @@ import { useCurrentUser } from '../../hooks/authHooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCart } from '../../selectors/cartSelectors';
 import { updateCartItem, addToCart, loadCart } from '../../actions/cartActions';
+import styles from './OfferingLogged.css';
 
 const OfferingLogged = ({ offering, restaurant, closeModal }) => {
   const [quantity, setQuantity] = useState(1);
