@@ -1,7 +1,5 @@
-
 .Cart {
-
-  h2 {
+  .CartHeader {
     margin-top: 4rem;
     color: #FD7553;
     font-family: 'Cabin', sans-serif;
@@ -15,7 +13,7 @@
 
 .CartTable {
   width: 70rem;
-  margin: 5rem auto;
+  margin: 3rem auto;
   text-align: center;
 
   th {
@@ -30,6 +28,13 @@
 
   td {
     font-size: 0.9rem;
+  }
+
+  button {
+    color: #FD7553;
+    font-size: 1rem;
+    background: #FFF;
+    border: none;
   }
 
   tbody td:nth-last-child(1) {

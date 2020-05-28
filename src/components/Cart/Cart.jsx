@@ -6,6 +6,7 @@ import styles from './Cart.css';
 import { removeFromCart } from '../../actions/cartActions';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { convertToDollars } from '../../services/money';
+import { FaTrashAlt } from 'react-icons/fa';
 
 export default function Cart() {
   const user = useCurrentUser();
@@ -30,7 +31,7 @@ export default function Cart() {
         <td>{convertToDollars(lineItem.price)}</td>
         <td>{convertToDollars(lineItem.total)}</td>
         <td>
-          <button onClick={() => handleRemoveFromCart(i)}>Remove</button>
+          <button onClick={() => handleRemoveFromCart(i)}><FaTrashAlt /></button>
         </td>
       </tr>
     )
@@ -60,15 +61,13 @@ export default function Cart() {
     orderTotal: cartTotalRaw
   };
 
-  console.log(cartTotalRaw);
-
   const restaurant = cart[0].restaurantId;
   const tooManyRestaurants = cart.find(item => restaurant !== item.restaurantId);
 
   return (
     cart.length > 0
       ? <div className={styles.Cart}>
-        <h2>Checkout</h2>
+        <h2 className={styles.CartHeader}>Checkout</h2>
         <table className={styles.CartTable}>
           <thead>
             <tr>
