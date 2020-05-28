@@ -18,6 +18,7 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
       offeringId: offering._id,
       price: offering.price,
       offering: offering.dishName,
+      pickUpDate: offering.pickUpDate,
       quantity: Number(quantity),
       total: offering.price * Number(quantity)
     };

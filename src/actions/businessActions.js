@@ -1,5 +1,6 @@
-import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders } from '../services/business-api';
+import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders, patchOrder } from '../services/business-api';
 import { toast } from 'react-toastify';
+
 
 export const SET_ORDERS = 'SET_ORDERS';
 export const setBusinessOrders = (id) => dispatch => {
@@ -9,6 +10,14 @@ export const setBusinessOrders = (id) => dispatch => {
         type: SET_ORDERS,
         payload: res
       });
+    });
+};
+
+export const UPDATE_ORDER = 'UPDATE_ORDER';
+export const markOrderClosed = (id, offeringId) => dispatch => {
+  return patchOrder(id, offeringId)
+    .then(res => {
+      dispatch({type: UPDATE_ORDER});
     });
 };
 
@@ -35,7 +44,7 @@ export const setBusinessPolls = (id) => dispatch => {
 };
 
 export const ADD_OFFERING = 'ADD_OFFERING';
-export const addBusinessOffering = offering => dispatch => {
+export const addBusinessOffering = (offering) => dispatch => {
   return postOffering(offering)
     .then(res => {
       dispatch({

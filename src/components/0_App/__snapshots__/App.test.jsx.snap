@@ -48,11 +48,28 @@ exports[`App component renders App 1`] = `
         />
         <Route
           component={[Function]}
+          exact={true}
           path="/business"
         />
         <Route
           component={[Function]}
           path="/login"
+        />
+        <Route
+          component={[Function]}
+          path="/business/all-polls"
+        />
+        <Route
+          component={[Function]}
+          path="/business/all-offerings"
+        />
+        <Route
+          component={[Function]}
+          path="/business/all-orders"
+        />
+        <Route
+          component={[Function]}
+          path="/business/order/:orderId"
         />
         <Route
           component={[Function]}

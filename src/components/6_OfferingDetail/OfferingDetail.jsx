@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import OfferingLogged from './OfferingLogged';
 import styles from './OfferingDetail.css';
+import { convertToDollars } from '../../services/money.js';
 
 const customStyles = {
   content : {
@@ -33,17 +34,16 @@ const OfferingDetail = ({ offering, restaurant }) => {
     setIsOpen(false);
   };
 
-  const pickUp = offering.pickUpDate;
-  const pickUpDate = new Date(pickUp);
+  const pickUpDate = new Date(offering.pickUpDate);
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const pickUpYear = `${pickUpDate.toLocaleDateString(undefined, options)} ${pickUpDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
 
-  const pickUpYear = pickUpDate.getYear();
-  console.log(pickUpYear);
- 
+
   return (
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
       <label htmlFor={offering._id}><img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/></label>
-      <p>{offering.pickUpDate}</p>
+      <p>{pickUpYear}</p>
       <p>{offering.dishName}</p>
       {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
       <Modal
@@ -56,7 +56,7 @@ const OfferingDetail = ({ offering, restaurant }) => {
         <div className={styles.ModalDiv}>
           <h2 ref={_subtitle => (subtitle = _subtitle)}>{offering.dishName}</h2>
           <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
-          <p>{`$${offering.price / 100}`}</p>
+          <p>{convertToDollars(offering.price)}</p>
           <p>{offering.description}</p>
           <OfferingLogged offering={offering} restaurant={restaurant} closeModal={closeModal} />
         </div>      
