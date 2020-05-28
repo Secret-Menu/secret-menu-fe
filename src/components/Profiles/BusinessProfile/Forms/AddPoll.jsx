@@ -44,7 +44,7 @@ export default function AddPoll() {
     start,
     end,
     status,
-    restaurant: user.restaurant[0]._id
+    restaurant: user?.restaurant[0]._id
   };
 
   const handleSubmit = event => {

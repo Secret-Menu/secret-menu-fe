@@ -38,7 +38,7 @@ export default function AddOffering() {
     pickUpDate,
     dietaryRestriction,
     price,
-    restaurant: user.restaurant[0]._id
+    restaurant: user?.restaurant[0]._id
   };
 
   const handleSubmit = event => {
