@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { markOrderClosed, setBusinessOrders } from '../../../../actions/businessActions';
 
-const OrderDetail = ({ orderNumber, created_at, orderStatus, orderTotal, user, offering, _id, offeringId, restaurant }) => {
+const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id, offeringId, restaurant }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -22,7 +22,6 @@ const OrderDetail = ({ orderNumber, created_at, orderStatus, orderTotal, user, o
       <td>{created_at}</td>
       <td>{`${user.firstName} ${user.lastName}`}</td>
       <td>{orderNumber}</td>
-      <td>{orderStatus}</td>
       <td>{offering.pickUpDate}</td>
       <td>{orderTotal}</td>
       <td><button onClick={() => handleOrderClose(_id, offeringId, restaurant)}>Picked Up!</button></td>
@@ -32,7 +31,6 @@ const OrderDetail = ({ orderNumber, created_at, orderStatus, orderTotal, user, o
 
 OrderDetail.propTypes = {
   created_at: PropTypes.string,
-  orderStatus: PropTypes.string,
   orderNumber: PropTypes.number,
   orderTotal: PropTypes.number,
   user: PropTypes.object,
