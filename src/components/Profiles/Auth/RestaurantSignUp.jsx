@@ -143,17 +143,17 @@ export default function RestaurantSignUp() {
             placeholder="Restaurant description">
           </textarea>
           <br/>
-          <span>area: </span>
           <select value={quadrant} name="quadrant" onChange={handleChange}>
-            <option value="N" selected>North</option>
+            <option value="" selected disabled hidden>Select Quadrant</option>
+            <option value="N">North</option>
             <option value="NE">Northeast</option>
             <option value="NW">Northwest</option>
             <option value="S">South</option>
             <option value="SE">Southeast</option>
             <option value="SW">Southwest</option>
           </select>
-          <span>category: </span>
           <select value={category} name="category" onChange={handleChange}>
+            <option value="" selected disabled hidden>Select Category</option>
             <option value="American" selected>American</option>
             <option value="Bakery">Bakery</option>
             <option value="Breakfast">Breakfast</option>
