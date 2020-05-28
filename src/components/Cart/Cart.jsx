@@ -48,7 +48,7 @@ export default function Cart() {
   
   const orderToBeCreated = {
     orderNumber: Date.now(),
-    user: user._id,
+    user: user?._id,
     restaurant: cart[0].restaurantId,
     offering: lineItemsForOrder,
     orderTotal: cartTotal
