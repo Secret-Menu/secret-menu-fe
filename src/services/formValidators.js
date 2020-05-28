@@ -64,5 +64,5 @@ export const validateBusiness = (newBusiness) => {
   if(!newBusiness.imageUrl) {
     errors.push('Please enter an image url ⚠️');
   }
-  return errors;
+  return errors; 
 };
