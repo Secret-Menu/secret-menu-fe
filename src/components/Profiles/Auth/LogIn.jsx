@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLogIn } from '../../../hooks/authHooks';
+import styles from '../../../assets/Styling.css';
 
 export default function LogIn() {
   const {
@@ -11,7 +12,7 @@ export default function LogIn() {
   } = useLogIn();
 
   return (
-    <div>
+    <div className={styles.Form}>
       <h2>Log In</h2>
       <form onSubmit={handleLogIn}>
         <input 
