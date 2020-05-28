@@ -1,20 +1,82 @@
 .RestaurantDetail {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  margin: 1rem auto 0 auto;
+
+  a {
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: .75rem;
+    text-decoration: none;
+  }
 
   .RestaurantTop {
     display: flex;
     justify-content: space-around;
+    width: 80%;
+    margin: 2rem auto;
 
     .Contents {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 20%;
+      width: 45%;
+      padding: 0 2rem 0 0;
+
+      h2, h3 {
+        margin: 0.5rem 0;
+        font-family: 'Cabin', sans-serif;
+      }
+
+      h2 {
+        display: inline;
+      }
+
+      button {
+        width: 10rem;
+        margin-bottom: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        background: #fff;
+        border: 1px solid #FD7553;
+        border-radius: 3px;
+        color: #FD7553;
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .buttonAlt {
+        width: 10rem;
+        background: #FD7553;
+        color: #FFF;
+        border: 1px solid #FD7553;
+      }
+
+
 
       img {
         height: 200px;
         width: 300px;
+      }
+
+      ul {
+        list-style: none;
+        margin-top: 1rem;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+        font-size: 0.75rem;
+      }
+
+
+      li, p {
+        font-family: 'Open Sans', sans-serif;
       }
     }
 
@@ -22,20 +84,34 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      width: 40%;
+      width: 50%;
+      height: 35vh;
       border: 1px solid black;
     }
   }
 
+  .RestaurantLists {
+    margin-top: 2rem 0;
+    padding-bottom: 2rem;
+    background: #FD7553;
+
+  }
+
   .RestaurantMain {
     text-align: center;
+    font-family: 'Cabin';
+
+    h2 {
+      color: #FFF;
+      text-shadow: 2px 2px #000;
+    }
 
     ul {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-evenly;
       list-style-type: none;
-      margin: 50px;
+      margin: 0 1rem;
       padding-inline-start: 0em;
     }
   }
@@ -43,6 +119,6 @@
   .Items {
     display: flex;
     justify-content: center;
-    margin: 50px;
+    margin: 1rem;
   }
 }

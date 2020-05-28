@@ -18,7 +18,7 @@ const Header = () => {
   };
   
   return (
-    <div>
+    <div className={styles.Header}>
       <img src={logo} alt="Crowd Pleaser Logo" className={styles.logo} style={{ height: '100px' }}></img>
       <div>
         

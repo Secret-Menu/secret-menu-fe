@@ -1,0 +1,59 @@
+.Quadrant:nth-of-type(odd) {
+  padding: 1.5rem;
+  background: #FD7553;
+  text-align: center;
+
+  .QuadrantLink {
+    margin-top: 1rem;
+    color: #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
+  }
+
+  .ViewAll {
+    text-align: right;
+
+    a {
+      color: #FFF;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+  }
+}
+
+.Quadrant:nth-of-type(even) {
+  padding: 1.5rem;
+  background: #ffeded;
+  text-align: center;
+  
+  .QuadrantLink {
+    margin-top: 1rem;
+    color: #FD7553;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
+  }
+
+  .ViewAll {
+    text-align: right;
+
+    a {
+      color: #000;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+  }
+}
+
+
