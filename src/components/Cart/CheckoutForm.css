@@ -1,14 +1,40 @@
-.stripeForm {
+.StripeForm {
   width: 30rem;
   margin: 0 auto;
-  border: 3px solid blue;
-  padding: 3rem;
+  background: tomato;
+  padding: 2rem;
+
+  h2 {
+    margin-top: 0;
+    color: #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
+  }
+
+  input {
+    width: 200px;
+    padding: 0.5rem;
+    border: none;
+    font-size: rem;
+  }
+
+  button {
+    display: block;
+    width: 10rem;
+    margin: 2rem auto;
+    padding: 0.5rem;
+    background: #58bdf3;
+    color: #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    
+  }
 }
 
-.stripeForm span {
-  border: 1px solid blue;
-}
-
-.stripeForm button {
-  margin: 2rem;
-}

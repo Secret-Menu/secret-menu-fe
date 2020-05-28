@@ -1,6 +1,6 @@
+import { useEffect } from 'react';
 import { fetchBusinessPolls, fetchBusinessOfferings, postOffering, fetchBusiness, postPoll, fetchBusinessOrders, patchOrder } from '../services/business-api';
 import { toast } from 'react-toastify';
-
 
 export const SET_ORDERS = 'SET_ORDERS';
 export const setBusinessOrders = (id) => dispatch => {
@@ -18,7 +18,7 @@ export const markOrderClosed = (id, offeringId) => dispatch => {
   return patchOrder(id, offeringId)
     .then(res => {
       dispatch({ 
-        type: UPDATE_ORDER ,
+        type: UPDATE_ORDER,
         payload: res
       });
     });
@@ -47,25 +47,31 @@ export const setBusinessPolls = (id) => dispatch => {
 };
 
 export const ADD_OFFERING = 'ADD_OFFERING';
-export const addBusinessOffering = (offering) => dispatch => {
+export const addBusinessOffering = (offering, history) => dispatch => {
   return postOffering(offering)
     .then(res => {
       dispatch({
         type: ADD_OFFERING,
         payload: offering
       });
+      history.push('/business/all-offerings');
       toast.success('Offering Added!');
+    }).catch(err => {
+      toast.error(err.message);
     });
 };
 
 export const ADD_POLL = 'ADD_POLL';
-export const addBusinessPoll = poll => dispatch => {
+export const addBusinessPoll = (poll, history) => dispatch => {
   return postPoll(poll)
     .then(res => {
       dispatch({
         type: ADD_POLL,
         payload: poll
       });
+      history.push('/business/all-polls');
       toast.success('Poll Added!');
+    }).catch(err => {
+      toast.error(err.message);
     });
 };

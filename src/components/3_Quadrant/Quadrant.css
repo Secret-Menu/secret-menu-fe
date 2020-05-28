@@ -8,10 +8,41 @@
     font-family: 'Open Sans', sans-serif;
     width: 50%;
   } 
+
+  .QuadrantInfo:nth-of-type(odd) {
+    margin-right: 2rem;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: #58bdf3;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+  }
 }
 
 .QuadrantBottom {
   background: #FD7553;
+  padding: 2rem 0;
+
+  .QuadrantPolls {
+    padding-bottom: 2rem;
+    
+  }
+
+  h2 {
+    margin: 2rem auto 2rem auto;
+    color: #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
+  }
 
   .QuadrantPolls {
     text-align: center;
@@ -33,5 +64,6 @@
     justify-content: center;
     width: 85%;
     margin: 0 auto;
+    padding: 2rem
   }
 }

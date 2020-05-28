@@ -9,7 +9,7 @@ const OrderRow = ({  orderNumber, orderTotal, orderStatus, user, _id }) => {
 
   const handleClick = () => {
     history.push(`/business/order/${_id}`)
-  }
+  };
 
   return (
     <tr onClick={handleClick}>

@@ -19,6 +19,7 @@ export default function AddPoll() {
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [status, setStatus] = useState('Open');
+  console.log(user);
 
   const handleChange = ({ target }) => {
     if(target.name === 'pollName') setName(target.value);
@@ -44,17 +45,17 @@ export default function AddPoll() {
     start,
     end,
     status,
-    restaurant: user.restaurant[0]._id
+    restaurant: user?.restaurant[0]._id
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addBusinessPoll(poll));
-    history.push('/business/');
+    dispatch(addBusinessPoll(poll, history));
   };
 
   return (
     <div className={styles.Form}>
+      <h2>Add Poll</h2>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
@@ -123,7 +124,7 @@ export default function AddPoll() {
           name="status" 
           onChange={handleChange}
         >
-          <option value="open" default selected>Open</option>
+          <option value="open" selected>Open</option>
           <option value="closed">Closed</option>
         </select>
         <button>Add</button>

@@ -29,7 +29,7 @@
 
 .Quadrant:nth-of-type(even) {
   padding: 1.5rem;
-  background: #ffeded;
+  background: #f1e4e4;
   text-align: center;
   
   .QuadrantLink {
