@@ -10,8 +10,10 @@ const AllOfferings = () => {
   const user = useCurrentUser();
   const offerings = useSelector(selectOfferings);
 
-  useEffect(() => {if(user) dispatch(setBusinessOfferings(user.restaurant[0]._id));}, [user]);
-
+  useEffect(() => {if(user) 
+    dispatch(setBusinessOfferings(user.restaurant[0]._id));}, [user]
+  );
+  
   const offeringsToList = offerings.map(offering => (
     <li key={offering._id}>
       <OfferingDetail {...offering} />
@@ -20,7 +22,7 @@ const AllOfferings = () => {
 
   return (
     <div>
-        {offeringsToList}
+      {offeringsToList}
     </div>
   );
 };

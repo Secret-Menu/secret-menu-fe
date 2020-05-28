@@ -10,7 +10,9 @@ const AllPolls = () => {
   const polls = useSelector(selectPolls);
   const dispatch = useDispatch();
 
-  useEffect(() => {if(user) dispatch(setBusinessPolls(user.restaurant[0]._id));}, [user]);
+  useEffect(() => {
+    if(user) dispatch(setBusinessPolls(user.restaurant[0]._id));
+  }, [user]);
 
   const pollsToList = polls.map(poll => (
     <li key={poll._id}>
@@ -26,7 +28,5 @@ const AllPolls = () => {
     </div>
   );
 };
-
-
 
 export default AllPolls;
