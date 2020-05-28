@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 import { addBusinessPoll } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import styles from './Styling.css';
+import { useHistory } from 'react-router-dom';
 
 export default function AddPoll() {
   const dispatch = useDispatch();
   const user = useCurrentUser();
+  const history = useHistory();
   const [name, setName] = useState('');
   const [offering1Name, setOffering1Name] = useState('');
   const [offering2Name, setOffering2Name] = useState('');
@@ -48,6 +50,7 @@ export default function AddPoll() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(addBusinessPoll(poll));
+    history.push('/business/');
   };
 
   return (
