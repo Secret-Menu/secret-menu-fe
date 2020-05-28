@@ -19,6 +19,7 @@ export default function AddPoll() {
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
   const [status, setStatus] = useState('Open');
+  console.log(user);
 
   const handleChange = ({ target }) => {
     if(target.name === 'pollName') setName(target.value);
@@ -44,7 +45,7 @@ export default function AddPoll() {
     start,
     end,
     status,
-    restaurant: user.restaurant[0]._id
+    restaurant: user?.restaurant[0]._id
   };
 
   const handleSubmit = event => {
