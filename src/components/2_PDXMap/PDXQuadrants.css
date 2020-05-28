@@ -1,1 +1,31 @@
+.Quadrant:nth-of-type(odd) {
+  background: #FD7553;
+  text-align: center;
+  padding: 1.5rem;
 
+  .QuadrantLink {
+    text-decoration: none;
+    color: #FFF;
+    text-shadow: 2px 2px #58bdf3;
+    font-size: 2rem;
+    font-family: 'Cabin', sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+.Quadrant:nth-of-type(even) {
+  background: #FFF;
+  text-align: center;
+  padding: 1.5rem;
+  
+
+  .QuadrantLink {
+    text-decoration: none;
+    color: #FD7553;
+    text-shadow: 2px 2px #58bdf3;
+    font-size: 2rem;
+    font-family: 'Cabin', sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

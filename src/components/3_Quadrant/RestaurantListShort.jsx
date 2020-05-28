@@ -11,7 +11,7 @@ const RestaurantListShort = ({ restaurants }) => {
   } = useRestaurantShortList(restaurantsCopy);
 
   const restaurantNodes = restaurantShortList.map(item =>
-      <Link to={`/restaurant/${item._id}`}>
+      <Link to={`/restaurant/${item._id}`} className={styles.RestaurantLink}>
         <div className={styles.RestaurantCard}>
           <p>{item.restaurantName}</p>
           <img src={item.imageUrl} alt={item.restaurantName} className={styles.restaurantImg} />

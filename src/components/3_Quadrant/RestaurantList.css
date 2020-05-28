@@ -4,9 +4,9 @@
   width: 90%;
   margin: 0 auto;
 
-  a {
+  .RestaurantLink {
     text-decoration: none;
-    color: rgb(88, 189, 243);
+    color: #000;
     letter-spacing: 1px;
     font-size: 1rem;
     font-weight: 600;
