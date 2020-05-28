@@ -66,3 +66,37 @@ export const validateBusiness = (newBusiness) => {
   }
   return errors; 
 };
+
+export const validateOffering = (offering) => {
+  const errors = [];
+
+  if(!offering.dishName) {
+    errors.push('Please enter a Name ⚠️');
+  }
+  if(!offering.imageUrl) {
+    errors.push('Image url missing ⚠️');
+  }
+  if(!offering.description) {
+    errors.push('Please enter a description ⚠️');
+  }
+  if(!offering.numRemaining) {
+    errors.push('Please enter number of offerings ⚠️');
+  }
+  if(!offering.numRemaining || isNaN(offering.numRemaining)) {
+    errors.push('Number of offerings must be a number ⚠️');
+  }
+  if(offering.numRemaining < 1) {
+    errors.push('Number of offerings must be greater than 0 ⚠️');
+  }
+  if(!offering.pickUpDate) {
+    errors.push('Please enter a pickup date ⚠️');
+  }
+  if(!offering.price) {
+    errors.push('Please enter a price ⚠️');
+  }
+  if(!offering.price && isNaN(offering.price)) {
+    errors.push('Offering price must be a number ⚠️');
+  }
+
+  return errors; 
+};
