@@ -16,18 +16,26 @@ export default function Cart() {
     dispatch(removeFromCart(i));
   };
 
-  const lineItemNodes = cart.map((lineItem, i) => 
-    <tr key={lineItem._id}>
-      <td>{lineItem.restaurant}</td>
-      <td>{lineItem.offering}</td>
-      <td>{lineItem.quantity}</td>
-      <td>{lineItem.pickUpDate}</td>
-      <td>{convertToDollars(lineItem.price)}</td>
-      <td>{convertToDollars(lineItem.total)}</td>
-      <td>
-        <button onClick={() => handleRemoveFromCart(i)}>Remove</button>
-      </td>
-    </tr>
+  const lineItemNodes = cart.map((lineItem, i) => {
+    const pickUpDate = new Date(lineItem.pickUpDate);
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const pickUpYear = `${pickUpDate.toLocaleDateString(undefined, options)} ${pickUpDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+
+    return (
+      <tr key={lineItem._id}>
+        <td>{lineItem.restaurant}</td>
+        <td>{lineItem.offering}</td>
+        <td>{lineItem.quantity}</td>
+        <td>{pickUpYear}</td>
+        <td>{convertToDollars(lineItem.price)}</td>
+        <td>{convertToDollars(lineItem.total)}</td>
+        <td>
+          <button onClick={() => handleRemoveFromCart(i)}>Remove</button>
+        </td>
+      </tr>
+    )
+  }
+
   );
 
   const cartTotalRaw = cart.reduce((acc, curr) => {
@@ -59,9 +67,9 @@ export default function Cart() {
 
   return (
     cart.length > 0
-      ? <div>
-        <h2>Cart</h2>
-        <table className={styles.cartTable}>
+      ? <div className={styles.Cart}>
+        <h2>Checkout</h2>
+        <table className={styles.CartTable}>
           <thead>
             <tr>
               <th>Restaurant</th>

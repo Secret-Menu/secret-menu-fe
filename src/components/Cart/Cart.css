@@ -1,14 +1,37 @@
-.cartTable {
-  width: 50rem;
+
+.Cart {
+
+  h2 {
+    margin-top: 4rem;
+    color: #FD7553;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+  }
+}
+
+.CartTable {
+  width: 70rem;
   margin: 5rem auto;
   text-align: center;
-}
 
-.cartTable tr {
-  border: 1px solid black;
-}
+  th {
+    margin-top: 4rem;
+    color: #58bdf3;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
-#cartTotal {
-  text-align: right;
-  font-weight: 700
+
+
+  #cartTotal {
+    text-align: right;
+    font-weight: 700
+  }
 }
