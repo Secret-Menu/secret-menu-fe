@@ -52,6 +52,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
 
   const handleServerResponse = (serverResponse, order) => {
     if(serverResponse.error) {
+      toast.error(serverResponse.error);
       console.log(serverResponse.error);
     } else {
       dispatch(resetCart());
@@ -68,6 +69,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
 
   const handleCardChange = (event) => {
     if(event.error) {
+      toast.error(event.error.message);
       console.log(event.error.message);
     }
   };

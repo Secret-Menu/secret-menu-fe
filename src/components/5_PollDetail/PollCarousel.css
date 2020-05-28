@@ -9,6 +9,8 @@
     width: 50px;
     margin: 10px;
     border-radius: 50%;
+    color: #58bdf3;
+    cursor: pointer;
   }
 }
 

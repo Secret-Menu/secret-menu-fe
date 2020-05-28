@@ -2,6 +2,9 @@
   button {
     display: none;
   }
+  h3 {
+    font-family: 'Cabin', sans-serif;
+  }
 }
 
 .PollModalDiv {
@@ -9,10 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 
-  h3 {
-    font-family: 'Cabin', sans-serif;
+  .PollName {
+    color: green;
   }
 
   p {
@@ -32,8 +34,9 @@
   align-items: center;
   height: 200px; 
   width: 300px;
-  border: 1px solid black;
+  border: 5px solid #58bdf3;
   text-align: center;
+  padding: 1rem;
 }
 
 .Orderings {
