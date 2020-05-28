@@ -30,12 +30,13 @@ const BusinessHeader = () => {
           <Link to="/business/all-offerings"> <p className={styles.Links}>My Offerings</p> </Link>
           <Link to="/about"> <p className={styles.Links}>Meet the Devs</p> </Link>
       </div>
+      <div className={styles.LoginContainer}>
         { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
         { !user && <LogInSignUp />}
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default BusinessHeader;
