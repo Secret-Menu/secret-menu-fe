@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBusinessOffering } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
@@ -40,12 +40,12 @@ export default function AddOffering() {
     price,
     restaurant: user.restaurant[0]._id
   };
+
   const handleSubmit = event => {
     event.preventDefault();
     const errors = validateOffering(offering);
     if(!errors.length){
-      dispatch(addBusinessOffering(offering));
-      history.push('/business/all-offerings');
+      dispatch(addBusinessOffering(offering, history));
     } else return errors.map(error =>{
       toast.error(error);
     });
@@ -54,6 +54,7 @@ export default function AddOffering() {
 
   return (
     <div className={styles.Form}>
+      <h2>Add Offering</h2>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 

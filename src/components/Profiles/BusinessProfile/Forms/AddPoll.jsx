@@ -55,6 +55,7 @@ export default function AddPoll() {
 
   return (
     <div className={styles.Form}>
+      <h2>Add Poll</h2>
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 

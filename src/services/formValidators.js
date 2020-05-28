@@ -82,13 +82,10 @@ export const validateOffering = (offering) => {
   if(!offering.numRemaining) {
     errors.push('Please enter number of offerings ⚠️');
   }
-  if(!offering.numRemaining && isNaN(offering.numRemaining)) {
+  if(!offering.numRemaining || isNaN(offering.numRemaining)) {
     errors.push('Number of offerings must be a number ⚠️');
   }
-  if(!offering.numRemaining 
-    && isNaN(offering.numRemaining
-    && offering.numRemaining < 1
-    )) {
+  if(offering.numRemaining < 1) {
     errors.push('Number of offerings must be greater than 0 ⚠️');
   }
   if(!offering.pickUpDate) {
