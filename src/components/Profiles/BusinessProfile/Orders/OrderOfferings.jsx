@@ -27,12 +27,18 @@ const OrderOfferings = () => {
     </li>
   )); 
 
+  const dateConversion = (oldDate) => {
+    const dateToConvert = new Date(oldDate);
+    return dateToConvert.toLocaleDateString(undefined);
+  };
+
   return (
     <>
       <p>Order Number: {order?.orderNumber}</p>
-      <p>Offerings: {offeringNodesToList}</p>
+      <p>Offerings: </p>
+      <ul>{offeringNodesToList}</ul>
       <p>Customer Name: {`${order?.user.firstName} ${order?.user.lastName}`}</p>
-      <p>Placed On: {order?.created_at}</p>
+      <p>Placed On: {dateConversion(order?.created_at)}</p>
       <p>Order Total: {`$${order?.orderTotal / 100}`}</p>
     </>
   );
