@@ -14,7 +14,7 @@ export default function Quadrant(){
   const dispatch = useDispatch();
   const { area } = useParams();
   const restaurants = useSelector(selectAreaRestaurants);
-  console.log(restaurants.restaurants);
+
   const quadrantPolls = restaurants.restaurants.map(restaurant => (
     restaurant.polls
   )).flat()
