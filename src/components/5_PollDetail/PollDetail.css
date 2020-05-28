@@ -9,6 +9,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+
+  h3 {
+    font-family: 'Cabin', sans-serif;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+  }
 
   button {
     margin: 10px;
@@ -16,6 +25,7 @@
 }
 
 .PollBox {
+  background: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: center;

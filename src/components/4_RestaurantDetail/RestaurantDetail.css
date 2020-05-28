@@ -30,17 +30,23 @@
       }
 
       h2 {
-        display: inline;
+        margin-top: 0;
+        color: #58bdf3;
+        font-family: 'Cabin', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-shadow: 2px 2px #000;
       }
 
       button {
         width: 10rem;
         margin-bottom: 0.5rem;
         padding: 0.3rem 0.5rem;
-        background: #fff;
+        background: #FD7553;
         border: 1px solid #FD7553;
         border-radius: 3px;
-        color: #FD7553;
+        color: #FFF;
         font-size: 0.8rem;
         cursor: pointer;
       }
@@ -51,8 +57,8 @@
 
       .buttonAlt {
         width: 10rem;
-        background: #FD7553;
-        color: #FFF;
+        background: #fff;
+        color: #FD7553;
         border: 1px solid #FD7553;
       }
 
