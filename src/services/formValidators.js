@@ -104,33 +104,41 @@ export const validateOffering = (offering) => {
 export const validatePoll = (poll) => {
   const errors = [];
 
-  if(!poll.dishName) {
+  if(!poll.name) {
+    errors.push('Please enter a Poll Name ⚠️');
+  }
+  if(!poll.offering1Name) {
+    errors
+      .push('Please enter a name for: Offering 1 ⚠️');
+  }
+  if(!poll.offering2Name) {
+    errors
+      .push('Please enter a name for: Offering 2 ⚠️');
+  }
+  if(!poll.name) {
     errors.push('Please enter a Name ⚠️');
   }
-  if(!poll.imageUrl) {
-    errors.push('Image url missing ⚠️');
+  if(!poll.offering1ImageUrl) {
+    errors.push('Image url missing (Offering 1) ⚠️');
   }
-  if(!poll.description) {
-    errors.push('Please enter a description ⚠️');
+  if(!poll.offering2ImageUrl) {
+    errors.push('Image url missing (Offering 2)⚠️');
   }
-  if(!poll.numRemaining) {
-    errors.push('Please enter number of polls ⚠️');
+  if(!poll.offering1Description) {
+    errors.push('Please enter a description (Offering 1) ⚠️');
   }
-  if(!poll.numRemaining || isNaN(poll.numRemaining)) {
-    errors.push('Number of polls must be a number ⚠️');
+  if(!poll.offering2Description) {
+    errors.push('Please enter a description (Offering 1) ⚠️');
   }
-  if(poll.numRemaining < 1) {
-    errors.push('Number of polls must be greater than 0 ⚠️');
+  if(!poll.start) {
+    errors.push('Please enter start date for poll ⚠️');
   }
-  if(!poll.pickUpDate) {
-    errors.push('Please enter a pickup date ⚠️');
+  if(!poll.end) {
+    errors.push('Please enter an end date for poll ⚠️');
   }
-  if(!poll.price) {
-    errors.push('Please enter a price ⚠️');
+  if(poll.status) {
+    errors.push('Enter a status of Open or Closed ⚠️');
   }
-  if(!poll.price && isNaN(poll.price)) {
-    errors.push('Offering price must be a number ⚠️');
-  }
-
+  
   return errors; 
 };
