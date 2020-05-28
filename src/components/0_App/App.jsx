@@ -28,6 +28,7 @@ import AllOrders from '../Profiles/BusinessProfile/Orders/AllOrders';
 import OrderOfferings from '../Profiles/BusinessProfile/Orders/OrderOfferings';
 import AllOfferings from '../Profiles/BusinessProfile/Offerings/AllOfferings';
 import CheckOut from '../Cart/CheckOut';
+import About from '../../components/About/About';
 
 
 const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
@@ -54,6 +55,7 @@ export default function App() {
             <Route path="/business/all-offerings" component={AllOfferings} />
             <Route path="/business/all-orders" component={AllOrders} />
             <Route path="/business/order/:orderId" component={OrderOfferings} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/" component={CrowdPleaser} />
           </Switch>
         </Router>
