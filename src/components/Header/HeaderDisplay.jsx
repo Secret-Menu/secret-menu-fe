@@ -8,10 +8,11 @@ const HeaderDisplay = () => {
   
   return (
     <>
-      { user && user.role === 'Restaurant' ? <BusinessHeader /> : <UserHeader /> }
+      { user && user.role === 'Restaurant' 
+        ? <BusinessHeader /> 
+        : <UserHeader /> }
     </>
+
   );
 };
-
-
 export default HeaderDisplay;
