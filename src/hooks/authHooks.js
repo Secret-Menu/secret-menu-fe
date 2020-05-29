@@ -22,7 +22,7 @@ export const useSignUp = () => {
   const [role, setRole] = useState('User');
 
   useEffect(() => {
-    if(user && user.role === 'User') history.push('/');
+    if(user && user.role === 'User') history.push('/portland');
     if(user && user.role === 'Restaurant') history.push('/restaurant-reg');
   }, [user]);
 
@@ -167,7 +167,7 @@ export const useLogIn = () => {
   const [password, setPassword] = useState('');
 
   useEffect(() => {
-    if(user && user.role === 'User') history.push('/');
+    if(user && user.role === 'User') history.push('/portland');
     if(user && user.role === 'Restaurant') history.push('/business');
   }, [user]);
 

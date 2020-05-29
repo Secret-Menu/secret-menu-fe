@@ -10,6 +10,7 @@ export const useQuadrantName = (area) => {
   if(area === 'SW') quadrantName = 'Southwest';
 
   return {
-    quadrantName
+    quadrantName,
+    area
   };
 };
