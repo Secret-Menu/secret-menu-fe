@@ -15,13 +15,13 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
   useEffect(() => {
     const storedCart = JSON.parse(sessionStorage.getItem('cart'));
     if(!storedCart) sessionStorage.setItem('cart', JSON.stringify(cart));
-    dispatch(loadCart(storedCart));
+    else dispatch(loadCart(storedCart));
   }, []);
 
   useEffect(() => {
     const newCart = sessionStorage.setItem('cart', JSON.stringify(cart));
     if(!newCart) return;
-    dispatch(loadCart(newCart));
+    else dispatch(loadCart(newCart));
   }, [cart]);
   
   const isLogged = () => {

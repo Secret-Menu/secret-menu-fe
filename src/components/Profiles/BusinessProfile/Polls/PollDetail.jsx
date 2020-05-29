@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import styles from './PollDetail.css';
+import { dateConversionWithTime } from '../../../../services/money';
 
 const PollDetail = (poll) => {
   const user = useCurrentUser();
@@ -9,7 +10,7 @@ const PollDetail = (poll) => {
     <>
       
       <p className={styles.PollName}>{poll.name}</p>
-      <p className={styles.PollEnd}>Ends on {poll.end} </p>
+      <p className={styles.PollEnd}>Ends on {dateConversionWithTime(poll.end)} </p>
       <div className={styles.PollDetail}>
 
         <div className={styles.PollOption}>
