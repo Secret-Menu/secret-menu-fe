@@ -13,6 +13,8 @@ const BusinessHeader = () => {
   const user = useCurrentUser();
   
   const handleLogOut = () => {
+    sessionStorage.clear();
+    dispatch({ type: 'LOGOUT' });
     dispatch(logout());
     toast('👋 thanks for stopping by!');
   };

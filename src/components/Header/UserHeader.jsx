@@ -13,6 +13,8 @@ const Header = () => {
   const user = useCurrentUser();
   
   const handleLogOut = () => {
+    sessionStorage.clear();
+    dispatch({ type: 'LOGOUT' });
     dispatch(logout());
     return toast('👋 Thanks for stopping by!');
   };
@@ -23,17 +25,17 @@ const Header = () => {
         <img src={logo} alt="Crowd Pleaser Logo" className={styles.logo} style={{ height: '100px' }}></img>
       </div>
       <div className={styles.NavLinks}>
-      <div className={styles.LeftLinks}>
-        <Link to="/"> <p>Home</p> </Link>
-        <Link to="/portland"> <p>Restaurants</p> </Link>
-        { user && <Link to="/checkout"><p>Cart</p></Link>}
-        { user && <Link to={`/user/${user._id}`}><p> Profile </p></Link> }
-      </div>
-      <div className={styles.RightLinks}>  
-        { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
-        { !user && <LogInSignUp />}
-        <Link to="/about"> <p className={styles.Meet}>Meet the Devs</p> </Link>
-      </div>
+        <div className={styles.LeftLinks}>
+          <Link to="/"> <p>Home</p> </Link>
+          <Link to="/portland"> <p>Restaurants</p> </Link>
+          { user && <Link to="/checkout"><p>Cart</p></Link>}
+          { user && <Link to={`/user/${user._id}`}><p> Profile </p></Link> }
+        </div>
+        <div className={styles.RightLinks}>  
+          { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
+          { !user && <LogInSignUp />}
+          <Link to="/about"> <p className={styles.Meet}>Meet the Devs</p> </Link>
+        </div>
       </div>
     </div>
   );
