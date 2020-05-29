@@ -13,9 +13,9 @@ const Header = () => {
   const user = useCurrentUser();
   
   const handleLogOut = () => {
+    dispatch(logout());
     sessionStorage.clear();
     dispatch({ type: 'LOGOUT' });
-    dispatch(logout());
     return toast('👋 Thanks for stopping by!');
   };
   
