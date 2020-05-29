@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
-
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
@@ -12,7 +11,7 @@ import { getUserFavorites } from '../../selectors/userProfileSelectors';
 import styles from './RestaurantDetail.css';
 
 export default function RestaurantDetail() {
-  const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
+  const { restaurant, polls, pageLat, pageLng, loading } = useRestaurant();
   const dispatch = useDispatch();
   
   const user = useCurrentUser();
@@ -27,12 +26,18 @@ export default function RestaurantDetail() {
 
   useEffect(() => {
     if(restaurant.offerings) {   
-      const offeringFilter = restaurant.offerings.filter(offering => { 
-        const pickUpDate = new Date(offering.pickUpDate);
-        const today = new Date();
-        if(pickUpDate > today) return offering;
-        else return null;
-      });
+      const offeringFilter = restaurant.offerings.map(offering => { 
+        return ({
+          ...offering,
+          dateObject: new Date(offering.pickUpDate)
+        }); })
+        .filter(offering => { 
+          const today = new Date();
+          if(offering.dateObject > today) return offering;
+          else return null;
+        }).sort((a, b) => {{
+          return a.dateObject - b.dateObject;
+        }});
       setBizOfferings(offeringFilter);
     }
   }, [restaurant]);
@@ -139,5 +144,3 @@ export default function RestaurantDetail() {
     </article>
   );
 }
-
-
