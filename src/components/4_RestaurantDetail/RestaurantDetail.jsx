@@ -15,12 +15,10 @@ export default function RestaurantDetail() {
   const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
   const dispatch = useDispatch();
   
-  // REFACTOR TO HOOK
   const user = useCurrentUser();
   const favorites = useSelector(getUserFavorites);
   const [bizOfferings, setBizOfferings] = useState([]);
   
-  // REFACTOR TO HOOK?
   useEffect(() => {
     if(user) {
       dispatch(setUserFavorites(user));
@@ -39,7 +37,7 @@ export default function RestaurantDetail() {
     }
   }, [restaurant]);
 
-  const offeringNodes = offerings.map(offering => {
+  const offeringNodes = bizOfferings.map(offering => {
     return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
   });
 
@@ -90,28 +88,24 @@ export default function RestaurantDetail() {
 
   const zoom = 15;
 
-  // REFACTOR TO HOOK?
   const addFavorite = () => {
     if(!favorites) return;
     if(!user) return;
     dispatch(addUserFavorite(user, restaurant));
   };
 
-  // REFACTOR TO HOOK?
   const removeFavorite = (match) => {
     if(!favorites) return;
     if(!user) return;
     dispatch(deleteUserFavorite(match._id));
   };
 
-  // Refactor
   const favoritesButton = () => {
     const match = favorites.find(favorite => favorite.restaurant._id === restaurant._id); 
     if(!user) return null;
     if(!match) return <button onClick={addFavorite} className={styles}>Add to Favorites</button>;
     if(match) return <button onClick={() => removeFavorite(match)} className={styles.buttonAlt}>Remove from Favorites</button>;
   };
-
 
   return (
     <article className={styles.RestaurantDetail}>
