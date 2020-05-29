@@ -1,13 +1,10 @@
-a{
+a {
   cursor: pointer;
-  :hover{
-    color: orange;
-  }
 }
-a:hover{
+a:hover {
   color: #F97553;
+  text-decoration: none;
 }
-
 
 .UserProfile {
   display: flex;
