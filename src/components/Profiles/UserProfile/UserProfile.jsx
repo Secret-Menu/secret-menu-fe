@@ -31,7 +31,7 @@ export default function UserProfile() {
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     if(leader) {
       return (
-        <li key={poll._id}>
+        <li key={poll._id} className={styles.PollsItem}>
           <h3>{poll.name}</h3>
           <p>{`${days} days ${hours} hours left!`}</p>
           <p>{`${leader.name} is in the lead with ${leader.votes} votes`}</p>
@@ -66,7 +66,7 @@ export default function UserProfile() {
     } else winner = null;
     if(winner) {
       return (
-        <li key={poll._id}>
+        <li key={poll._id} className={styles.PollsItem}>
           <h3>{poll.name}</h3>
           <p>{`Ended on ${poll.end}`}</p>
           <p>{`The winner was ${winner.name} has ${winner.votes} votes`}</p>
@@ -87,7 +87,7 @@ export default function UserProfile() {
 
   return (
     <div className={styles.UserProfile}>
-      <h1>{user ? `${user.firstName} ${user.lastName}` : 'Loading'}</h1>
+      <h2>{user ? `${user.firstName} ${user.lastName}'s Profile` : 'Loading'}</h2>
       <div className={styles.Orders}>
         <div>
           <h2>Upcoming Orders</h2>
@@ -100,6 +100,7 @@ export default function UserProfile() {
           </ul>
         </div>
         <div>
+          <h2>Order Calendar</h2>
           <OrderCalendar orders={allOrders}/>
         </div>
       </div>
@@ -109,11 +110,11 @@ export default function UserProfile() {
       </div>
       <div className={styles.Polls}>
         <h2>Upcoming Polls</h2>
-        <ul>
+        <ul className={styles.PollsList}>
           {upcomingPollNodes}
         </ul>  
         <h2>Previous Polls</h2>
-        <ul>
+        <ul className={styles.PollsList}>
           {previousPollNodes}
         </ul> 
       </div>
