@@ -11,6 +11,35 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  h2 {
+    margin-top: 3rem;
+    color: #FD7553;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #58bdf3;
+  }
+
+  h2:nth-of-type(odd) {
+    margin-top: 0;
+  }
+
+  .OrdersList {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+
+    li {
+      width: 25rem;
+      padding: 0.2rem;
+      cursor: pointer;
+    }
+  }
 }
 
 .Favorites {

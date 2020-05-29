@@ -91,11 +91,11 @@ export default function UserProfile() {
       <div className={styles.Orders}>
         <div>
           <h2>Upcoming Orders</h2>
-          <ul>
+          <ul className={styles.OrdersList}>
             {upcomingOrderNodes.length > 0 ? upcomingOrderNodes : 'No upcoming orders'}
           </ul>          
           <h2>Previous Orders</h2>
-          <ul>
+          <ul className={styles.OrdersList}>
             {previousOrderNodes.length > 0 ? previousOrderNodes : 'No previous orders'}
           </ul>
         </div>
