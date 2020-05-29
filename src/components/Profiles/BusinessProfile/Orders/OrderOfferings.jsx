@@ -5,7 +5,9 @@ import { selectOrderOfferings, selectOrderFromOffering } from '../../../../selec
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import { useParams } from 'react-router-dom';
 import { setBusinessOrders } from '../../../../actions/businessActions';
+import { dateConversion } from '../../../../services/money';
 import styles from './OrderOfferings.css';
+
 
 
 const OrderOfferings = () => {
@@ -14,7 +16,6 @@ const OrderOfferings = () => {
   const { orderId } = useParams();
   const offerings = useSelector(state => selectOrderOfferings(state, orderId));
   const order = useSelector(state => selectOrderFromOffering(state, orderId));
-  console.log(order);
 
   useEffect(() => {
     if(user) dispatch(setBusinessOrders(user?.restaurant[0]._id));
@@ -27,11 +28,6 @@ const OrderOfferings = () => {
       <p>Quantity: {offering.quantity}</p>
     </li>
   )); 
-
-  const dateConversion = (oldDate) => {
-    const dateToConvert = new Date(oldDate);
-    return dateToConvert.toLocaleDateString(undefined);
-  };
 
   return (
     <div className={styles.Order}>

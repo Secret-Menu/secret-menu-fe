@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { fetchVote } from '../../services/polls-api';
-import styles from './PollDetail.css';
 import { toast } from 'react-toastify';
+import styles from './PollDetail.css';
  
 const customStyles = {
   content : {
@@ -72,7 +72,7 @@ const PollDetail = ({ poll }) => {
     if(user) {
       return (
         <>
-          { voteCast ? 'Thanks for voting!' : <button onClick={vote}>Vote</button> }
+          { voteCast ? 'Thanks for voting!' : <button onClick={vote} className={styles.VoteButton}>Vote</button> }
           <button onClick={closeModal}>Close</button>
         </>
       );
@@ -104,16 +104,16 @@ const PollDetail = ({ poll }) => {
             <div className={styles.Offering}>
               <img src={poll.offering1ImageUrl} alt={poll.offering1ImageUrl} height="200" width="300"/>
               <label htmlFor={poll.offering1Name}>{poll.offering1Name}</label>
-              <input type="radio" value={poll.offering1Name} name="vote" id={poll.offering1Name} onChange={() => setChoice('offering1Votes')} hidden={!user || voteCast}/>
+              <input type="radio" value={poll.offering1Name} name="vote" id={poll.offering1Name} onChange={() => setChoice('offering1Votes')} hidden={!user || voteCast} />
             </div>
             <div className={styles.Offering}>
               <img src={poll.offering2ImageUrl} alt={poll.offering2ImageUrl} height="200" width="300"/>
               <label htmlFor={poll.offering2Name}>{poll.offering2Name}</label>
-              <input type="radio" value={poll.offering2Name} name="vote" id={poll.offering2Name} onChange={() => setChoice('offering2Votes')} hidden={!user || voteCast}/>
+              <input type="radio" value={poll.offering2Name} name="vote" id={poll.offering2Name} onChange={() => setChoice('offering2Votes')} hidden={!user || voteCast} />
             </div>
           </div>
           {isLogged()}
-          <h1>{count}</h1>
+          <h3 className={styles.TimeRemaining}>{count}</h3>
         </div>
       </Modal>
     </div>

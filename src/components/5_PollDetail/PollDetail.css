@@ -13,8 +13,13 @@
   justify-content: center;
   align-items: center;
 
-  .PollName {
-    color: green;
+  h2 {
+    color: #F67553!important;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
   }
 
   p {
@@ -24,6 +29,21 @@
   button {
     margin: 10px;
   }
+}
+
+.VoteButton {
+  padding: 0.5rem 0.75rem;
+  background: #F67553;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.TimeRemaining {
+  color: #58bdf3;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .PollBox {
