@@ -16,7 +16,6 @@ const BusinessHeader = () => {
   const handleLogOut = () => {
     dispatch(logout());
     sessionStorage.clear();
-    dispatch({ type: 'LOGOUT' });
     return toast('👋 thanks for stopping by!');
   };
   
