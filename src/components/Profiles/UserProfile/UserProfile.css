@@ -1,6 +1,10 @@
 a {
   cursor: pointer;
+  :hover{
+    color: #F97553;
+  }
 }
+
 a:hover {
   color: #F97553;
   text-decoration: none;
