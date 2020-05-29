@@ -12,6 +12,3 @@ const LogInSignUp = () => {
 };
 
 export default LogInSignUp;
-
-
-
