@@ -46,24 +46,31 @@ export default function SignUp() {
           onChange={handleChange} 
           placeholder="Create password" 
         />
-        <label htmlFor="user">User</label>
-        <input 
-          type="radio" 
-          value="User" 
-          name="role" 
-          id="user" 
-          onChange={handleChange} 
-          checked={role === 'User'}
-        />
-        <label htmlFor="restaurant">Restaurant Owner</label>
-        <input 
-          type="radio" 
-          value="Restaurant" 
-          name="role" 
-          id="restaurant" 
-          onChange={handleChange}
-          checked={role === 'Restaurant'} 
-        />
+        <p>Are you a...</p>
+        <section>
+          <div className={styles.UserChoice}>
+            <input 
+              type="radio" 
+              value="User" 
+              name="role" 
+              id="user" 
+              onChange={handleChange} 
+              checked={role === 'User'}
+            />
+            <label htmlFor="user">User</label>
+          </div>
+          <div className={styles.UserChoice}>
+            <input 
+              type="radio" 
+              value="Restaurant" 
+              name="role" 
+              id="restaurant" 
+              onChange={handleChange}
+              checked={role === 'Restaurant'} 
+            />
+            <label htmlFor="restaurant">Restaurant Owner</label>
+          </div>
+        </section>
         <button disabled={loading}>Sign Up</button>
       </form>
     </div>
