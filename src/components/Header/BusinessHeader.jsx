@@ -17,7 +17,7 @@ const BusinessHeader = () => {
     dispatch(logout());
     sessionStorage.clear();
     dispatch({ type: 'LOGOUT' });
-    toast('👋 thanks for stopping by!');
+    return toast('👋 thanks for stopping by!');
   };
   
   return (
