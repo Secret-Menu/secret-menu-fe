@@ -25,11 +25,11 @@ const BusinessHeader = () => {
       <div className={styles.ALinks}>
         <div className={styles.FuncLinks}>
           <Link to="/business"> <p className={styles.Links}>Home</p> </Link>
-          <Link to="/business/all-polls"> <p className={styles.Links}>My Polls</p> </Link>
-          <Link to="/business/add-offering"><p className={styles.Links}>Add Offering</p></Link>
-          <Link to="/business/add-poll"><p className={styles.Links}>Add Poll</p></Link>
           <Link to="/business/all-orders"><p className={styles.Links}>My Orders</p></Link>
+          <Link to="/business/all-polls"> <p className={styles.Links}>My Polls</p> </Link>
+          <Link to="/business/add-poll"><p className={styles.Links}>Add Poll</p></Link>
           <Link to="/business/all-offerings"> <p className={styles.Links}>My Offerings</p> </Link>
+          <Link to="/business/add-offering"><p className={styles.Links}>Add Offering</p></Link>
         </div>
         <div className={styles.LoginContainer}>
           { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
