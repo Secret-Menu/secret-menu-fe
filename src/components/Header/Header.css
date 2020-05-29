@@ -6,6 +6,8 @@
 
   .logo {
     margin: 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
     width: 100px;
     text-align: center;
     display: block;
