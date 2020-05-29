@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import OfferingLogged from './OfferingLogged';
 import styles from './OfferingDetail.css';
-import { convertToDollars } from '../../services/money.js';
+import { convertToDollars, dateConversionWithTime } from '../../services/money.js';
 
 const customStyles = {
   content : {
@@ -34,18 +34,13 @@ const OfferingDetail = ({ offering, restaurant }) => {
     setIsOpen(false);
   };
 
-  const pickUpDate = new Date(offering.pickUpDate);
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const pickUpYear = `${pickUpDate.toLocaleDateString(undefined, options)} ${pickUpDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
-
-
   return (
     <li className={styles.OfferingDetail}>
       <button id={offering._id} onClick={openModal}>Open Modal</button>
       <label htmlFor={offering._id}>
         <img src={offering.imageUrl} alt={offering.imageUrl} height="200" width="300"/>
         <p className={styles.dishName}>{offering.dishName}</p>
-        <p className={styles.pickUp}>{pickUpYear}</p>
+        <p className={styles.pickUp}>{dateConversionWithTime(offering.pickUpDate)}</p>
         {offering.numRemaining < 30 ? <p>{offering.numRemaining} left!</p> : null}
       </label>
       <Modal

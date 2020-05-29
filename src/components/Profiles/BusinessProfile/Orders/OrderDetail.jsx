@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { markOrderClosed } from '../../../../actions/businessActions';
+import { dateConversion } from '../../../../services/money';
 
 const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id, offeringId }) => {
   const dispatch = useDispatch();
@@ -12,10 +13,10 @@ const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id,
 
   return (
     <>
-      <td>{created_at}</td>
+      <td>{dateConversion(created_at)}</td>
       <td>{`${user.firstName} ${user.lastName}`}</td>
       <td>{orderNumber}</td>
-      <td>{offering.pickUpDate}</td>
+      <td>{dateConversion(offering.pickUpDate)}</td>
       <td>{orderTotal}</td>
       <td><button onClick={() => handleOrderClose(_id, offeringId)}>Mark Complete</button></td>
     </>

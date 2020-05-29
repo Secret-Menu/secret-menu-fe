@@ -5,7 +5,6 @@ import styles from './OfferingDetail.css';
 
 const OfferingDetail = ({ imageUrl, dishName, description, price }) => {
   const user = useCurrentUser();
-  // const offering = useSelector(selectOfferings);
 
   return (
     <>
