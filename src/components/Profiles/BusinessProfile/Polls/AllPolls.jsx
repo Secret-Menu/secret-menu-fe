@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import { selectPolls } from '../../../../selectors/businessSelectors';
 import { setBusinessPolls } from '../../../../actions/businessActions';
-import styles from './UpcomingPolls.css';
+import styles from './AllPolls.css';
 
 const AllPolls = () => {
   const user = useCurrentUser();
@@ -16,13 +16,14 @@ const AllPolls = () => {
   }, [user]);
 
   const pollsToList = polls.map(poll => (
-    <li key={poll._id} className={StyleSheet.PollsItem}>
+    <li key={poll._id} className={styles.PollsItem}>
       <PollDetail key={poll._id} {...poll} />
     </li>
   ));
 
   return (
-    <div>
+    <div className={styles.AllPolls}>
+      <h2>All Polls</h2>
       <ul className={styles.PollsList}>
         {pollsToList}
       </ul>
