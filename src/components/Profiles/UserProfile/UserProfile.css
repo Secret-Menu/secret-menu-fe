@@ -21,6 +21,13 @@ a:hover {
     text-transform: uppercase;
     text-shadow: 2px 2px #58bdf3;
   }
+
+  h3 {
+    text-transform: uppercase;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
 }
 
 .Orders {
@@ -38,6 +45,13 @@ a:hover {
     text-decoration: none;
     text-transform: uppercase;
     text-shadow: 2px 2px #58bdf3;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
   }
 
   .OrdersList {
