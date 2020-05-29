@@ -32,12 +32,12 @@ const Search = ({ type }) => {
           value={name} 
           name="name" 
           onChange={handleChange} 
-          placeholder="Search by name" />
+          placeholder="search by name" />
         <input type="text" 
           value={category} 
           name="category" 
           onChange={handleChange} 
-          placeholder="Search by category" />
+          placeholder="search by category" />
         <button><RiSearchLine/></button>
       </form>
     </>
