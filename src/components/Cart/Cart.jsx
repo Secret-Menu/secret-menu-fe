@@ -34,7 +34,7 @@ export default function Cart() {
           <button onClick={() => handleRemoveFromCart(i)}><FaTrashAlt /></button>
         </td>
       </tr>
-    )
+    );
   }
 
   );

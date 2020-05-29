@@ -1,4 +1,4 @@
-import { fetchOrdersByUserId } from '../services/orders-api';
+import { fetchOrdersByUserId, postOrder } from '../services/orders-api';
 import { fetchFavorites, addFavorite, deleteFavorite } from '../services/favorites-api';
 import { fetchUserPolls } from '../services/polls-api';
 
@@ -9,6 +9,17 @@ export const setUserOrders = (id) => dispatch => {
       dispatch({ 
         type: SET_USER_ORDERS, 
         payload: res 
+      });
+    });
+};
+
+export const ADD_USER_ORDER = 'ADD_USER_ORDER';
+export const addUserOrder = (order) => dispatch => {
+  return postOrder(order)
+    .then(res => {
+      dispatch({ 
+        type: ADD_USER_ORDER, 
+        payload: res
       });
     });
 };
