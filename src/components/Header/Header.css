@@ -154,6 +154,7 @@
     height: 20px;
     font-size: 12px;
     transition: all 0.3s ease 0s;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 3px 20px 0 rgba(0,0,0,0.19);
   }
   button:hover{
     transition: all 0.3s ease 0s;
