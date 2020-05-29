@@ -3,6 +3,7 @@
   flex-direction: row;
   display: inline;
   align-items: center;
+
   .logo {
     margin: 0 auto;
     width: 100px;
@@ -13,7 +14,12 @@
 
 .Icons{
   color: rgb(0, 27, 149);
-  font-size: x-large;
+  font-size: 175%;
+
+
+  img{
+    margin-left: 2rem;
+  }
 
   :hover {
     color:#FD7553;
@@ -22,6 +28,27 @@
   :visited {
     color: rgb(0, 27, 149);
     text-decoration: none;
+  }
+}
+
+.Info{
+  font-size: 75%;
+  vertical-align: middle;
+  margin-bottom: .75rem;
+}
+
+.Search{
+  input{
+    border: 2px solid color navy;
+    font-size: large;
+    height: 20px;
+    margin-left: 1rem;
+  }
+
+  button{
+    width: 30px;
+    height: 20px;
+
   }
 }
 

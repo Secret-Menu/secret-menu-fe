@@ -22,7 +22,6 @@ const Header = () => {
   const user = useCurrentUser();
   const match = useRouteMatch('/portland/:area');
   const area = match?.params.area ?? 'all';
-  console.log(match);
   
   const handleLogOut = () => {
     dispatch(logout());
@@ -43,29 +42,20 @@ const Header = () => {
       </div>
 
       <div className={styles.NavLinks}>
-        <div>
+        <div className={styles.Search}>
           <Search type={area}/>
         </div>
+
         <div className={styles.Icons}>
-          <Link to="/">
-            <RiHomeLine className={styles.Icons}/>
-          </Link>
-          <Link to="/portland">
-            <RiMapPinLine/>
-          </Link>
-          { user && <Link to={`/user/${user._id}`}><RiUserLine className={styles.Icons}/></Link> }
-          { user && 
-          <Link to="/checkout">
-            <RiShoppingCartLine className={styles.Icons}/>
-          </Link>}
-          { user &&  
-          <Link to="/"><RiLogoutBoxRLine className={styles.Icons} onClick={handleLogOut}/>
-          </Link> }
-          <Link to="/about"> <RiQuestionLine className={styles.Icons}/></Link>
-          { !user && <LogInSignUp className={styles.Icons}/>}
-          
+          <Link to="/"><RiHomeLine />  </Link>
+          <Link to="/portland"><RiMapPinLine/>  </Link>
+          { user && <Link to={`/user/${user._id}`}><RiUserLine />  </Link>}
+          { user && <Link to="/checkout"><RiShoppingCartLine />  </Link>}
+          { user &&  <Link to="/"><RiLogoutBoxRLine onClick={handleLogOut}/>  </Link>}
+          &nbsp;&nbsp;
+          <Link to="/about"><RiQuestionLine className={styles.Info}/>  </Link>
+          { !user && <LogInSignUp />}
         </div>
-    
       </div>
 
     </div>
