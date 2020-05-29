@@ -42,12 +42,10 @@ const Header = () => {
         >
         </img>
       </div>
-
       <div className={styles.NavLinks}>
         <div className={styles.Search}>
           <Search type={area}/>
         </div>
-        
         <div className={styles.Icons}>
           <Link to="/"><RiHomeLine />  </Link>
           <Link to="/portland"><RiMapPinLine/>  </Link>
