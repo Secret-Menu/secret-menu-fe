@@ -84,6 +84,9 @@ export const logout = () => dispatch => {
         type: SET_USER,
         payload: null
       });
+    })
+    .then(() => {
+      dispatch({ type: 'LOGOUT' });
     });
 // .catch(err =>  toast.error(err.message));
 };
