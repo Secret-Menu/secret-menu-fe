@@ -56,7 +56,6 @@ export default function Quadrant(){
           </div>
         </div>
       </div>
-      <Search type={area}/>
       <div className={styles.QuadrantBottom}>
         <div className={styles.QuadrantPolls}>
 
