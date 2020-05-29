@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import OfferingDetail from '../6_OfferingDetail/OfferingDetail';
-
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import { useRestaurant } from '../../hooks/restaurantHooks';
 import { Link } from 'react-router-dom';
@@ -12,15 +11,13 @@ import { getUserFavorites } from '../../selectors/userProfileSelectors';
 import styles from './RestaurantDetail.css';
 
 export default function RestaurantDetail() {
-  const { restaurant, offerings, polls, pageLat, pageLng, loading } = useRestaurant();
+  const { restaurant, polls, pageLat, pageLng, loading } = useRestaurant();
   const dispatch = useDispatch();
   
-  // REFACTOR TO HOOK
   const user = useCurrentUser();
   const favorites = useSelector(getUserFavorites);
   const [bizOfferings, setBizOfferings] = useState([]);
   
-  // REFACTOR TO HOOK?
   useEffect(() => {
     if(user) {
       dispatch(setUserFavorites(user));
@@ -29,17 +26,23 @@ export default function RestaurantDetail() {
 
   useEffect(() => {
     if(restaurant.offerings) {   
-      const offeringFilter = restaurant.offerings.filter(offering => { 
-        const pickUpDate = new Date(offering.pickUpDate);
-        const today = new Date();
-        if(pickUpDate > today) return offering;
-        else return null;
-      });
+      const offeringFilter = restaurant.offerings.map(offering => { 
+        return ({
+          ...offering,
+          dateObject: new Date(offering.pickUpDate)
+        }); })
+        .filter(offering => { 
+          const today = new Date();
+          if(offering.dateObject > today) return offering;
+          else return null;
+        }).sort((a, b) => {{
+          return a.dateObject - b.dateObject;
+        }});
       setBizOfferings(offeringFilter);
     }
   }, [restaurant]);
 
-  const offeringNodes = offerings.map(offering => {
+  const offeringNodes = bizOfferings.map(offering => {
     return (<OfferingDetail offering={offering} restaurant={restaurant} key={offering._id}/>);
   });
 
@@ -90,28 +93,24 @@ export default function RestaurantDetail() {
 
   const zoom = 15;
 
-  // REFACTOR TO HOOK?
   const addFavorite = () => {
     if(!favorites) return;
     if(!user) return;
     dispatch(addUserFavorite(user, restaurant));
   };
 
-  // REFACTOR TO HOOK?
   const removeFavorite = (match) => {
     if(!favorites) return;
     if(!user) return;
     dispatch(deleteUserFavorite(match._id));
   };
 
-  // Refactor
   const favoritesButton = () => {
     const match = favorites.find(favorite => favorite.restaurant._id === restaurant._id); 
     if(!user) return null;
     if(!match) return <button onClick={addFavorite} className={styles}>Add to Favorites</button>;
     if(match) return <button onClick={() => removeFavorite(match)} className={styles.buttonAlt}>Remove from Favorites</button>;
   };
-
 
   return (
     <article className={styles.RestaurantDetail}>
@@ -135,7 +134,7 @@ export default function RestaurantDetail() {
               <span>{restaurant.address ? restaurant.address.zipcode : ''}</span>
             </li>
           </ul>
-          <p>{`${restaurant.description} and there could be a much longer description here to fill out more space and make the top half of the page feel like it has more content. Words words words, words are great, you can never have enough of them! `}</p>
+          <p>{restaurant.description}</p>
         </div>
         <div className={styles.Map}>
           {conditionalMap()}
@@ -145,5 +144,3 @@ export default function RestaurantDetail() {
     </article>
   );
 }
-
-

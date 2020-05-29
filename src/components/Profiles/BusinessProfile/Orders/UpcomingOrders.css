@@ -5,7 +5,6 @@
 
   th {
     margin-top: 4rem;
-    color: #58bdf3;
     font-family: 'Cabin', sans-serif;
     font-size: 1rem;
     font-weight: 700;
@@ -22,8 +21,13 @@
     font-size: 1rem;
     background: #FFF;
     border: 1px solid #FD7553;
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 5px;
+  }
+
+  button:hover {
+    color: #FFF;
+    background: #FD7553;
   }
 
   tbody td:nth-last-child(1) {

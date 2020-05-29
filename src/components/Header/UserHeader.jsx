@@ -25,6 +25,8 @@ const Header = () => {
   
   const handleLogOut = () => {
     dispatch(logout());
+    sessionStorage.clear();
+    dispatch({ type: 'LOGOUT' });
     return toast('👋 Thanks for stopping by!');
   };
   
@@ -45,7 +47,7 @@ const Header = () => {
         <div className={styles.Search}>
           <Search type={area}/>
         </div>
-
+        
         <div className={styles.Icons}>
           <Link to="/"><RiHomeLine />  </Link>
           <Link to="/portland"><RiMapPinLine/>  </Link>

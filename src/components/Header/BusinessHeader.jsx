@@ -7,6 +7,7 @@ import { logout } from '../../actions/authActions';
 import logo from '../../assets/mainLogo.png';
 import { toast } from 'react-toastify';
 import styles from './BHeader.css';
+import { FaInfoCircle } from 'react-icons/fa';
 
 const BusinessHeader = () => {
   const dispatch = useDispatch();
@@ -14,12 +15,14 @@ const BusinessHeader = () => {
   
   const handleLogOut = () => {
     dispatch(logout());
-    toast('👋 thanks for stopping by!');
+    sessionStorage.clear();
+    dispatch({ type: 'LOGOUT' });
+    return toast('👋 thanks for stopping by!');
   };
   
   return (
     <div className={styles.Container}>
-      <img src={logo} alt="Crowd Pleaser Logo" style={{height: '100px'}}></img>
+      <img src={logo} alt="Crowd Pleaser Logo" style={{ height: '100px' }}></img>
       <div className={styles.ALinks}>
         <div className={styles.FuncLinks}>
           <Link to="/business"> <p className={styles.Links}>Home</p> </Link>
@@ -28,11 +31,11 @@ const BusinessHeader = () => {
           <Link to="/business/add-poll"><p className={styles.Links}>Add Poll</p></Link>
           <Link to="/business/all-orders"><p className={styles.Links}>My Orders</p></Link>
           <Link to="/business/all-offerings"> <p className={styles.Links}>My Offerings</p> </Link>
-      </div>
-      <div className={styles.LoginContainer}>
-        { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
-        { !user && <LogInSignUp />}
-          <Link to="/about"> <p className={styles.Meet}>Meet the Devs</p> </Link>
+        </div>
+        <div className={styles.LoginContainer}>
+          { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
+          { !user && <LogInSignUp />}
+          <Link to="/about"><FaInfoCircle className={styles.InfoIcon} /></Link>
         </div>
       </div>
     </div>

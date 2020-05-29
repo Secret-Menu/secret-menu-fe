@@ -41,6 +41,7 @@
 
       button {
         width: 10rem;
+        margin-left: 0;
         margin-bottom: 0.5rem;
         padding: 0.3rem 0.5rem;
         background: #FD7553;
