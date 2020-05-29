@@ -50,6 +50,7 @@
         color: #FFF;
         font-size: 0.8rem;
         cursor: pointer;
+        transition: all 1s ease 0s;
       }
 
       button:focus {
@@ -61,6 +62,7 @@
         background: #fff;
         color: #FD7553;
         border: 1px solid #FD7553;
+        transition: all 1s ease 0s;
       }
 
 
