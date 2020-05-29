@@ -8,7 +8,6 @@ import logo from '../../assets/mainLogo.png';
 import { toast } from 'react-toastify';
 import styles from './Header.css';
 
-
 const Header = () => {
   const dispatch = useDispatch();
   const user = useCurrentUser();
