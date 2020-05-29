@@ -11,6 +11,10 @@
   font-family: 'Quicksand', sans-serif;
   position: relative; top: 1rem;
 
+  p{
+    text-align: center;
+    font-size: 13px;
+  }
   h2{
     margin-top: 0;
     font-size: x-large;
@@ -23,8 +27,15 @@
     margin-right: 1rem;
     margin-bottom: 1rem;
   }
+
+  section{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
   input[type="radio"]{
     border: solid 0px black;
+    cursor: pointer;
   }
 
   input{
@@ -48,7 +59,7 @@
     width: 100px;
     background-color: #FD7653;
     color: white;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 5px;
     display: block;
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -60,7 +71,6 @@
     background-color: rgba(104, 214, 0, 0.794);
     color: white;
     margin-top: rem;
-    margin: 0 auto;
     display: block;
     transform: translateY(1px);
     cursor: pointer;
@@ -71,4 +81,23 @@
     transform: translateY(3px);
     outline: none;
   }
+}
+
+.UserChoice{
+  display: flex;
+  flex-direction: row;
+  font-weight: bolder;
+
+  label{
+      cursor: pointer;
+  }
+  input{
+    display: none;
+  }
+  input:checked+label{
+    color: #9BDAFD;
+    text-shadow: 2px 2px 5px black;
+    cursor: pointer;
+    
+}
 }
