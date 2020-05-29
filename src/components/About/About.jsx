@@ -52,7 +52,7 @@ const About = () => {
           <img src={josh} className={styles.Avatar}></img>
           <h3 className={styles.Name}>Josh Ford</h3>
           <div className={styles.SummaryContainer}>
-            <p className={styles.Summary}>17 year IT veteran who made a big leap into the underground glass art world. Solitary studio environment work drained some of my creative juices and left me wanting more in terms of collaboration. I made another leap of faith back into the tech world, though this time in a more stimulating and challenging role.  </p></div>
+            <p className={styles.Summary}>As an IT consultant, glass artist, and fullstack software developer... Josh has dedicated his life to the creation of projects that intersect science, technology, and art.  </p></div>
           <div className={styles.IconsContainer}>
             <a className={styles.Icons} href="https://www.linkedin.com/in/thisisjoshford/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className={styles.Icons} /></a>
             <a className={styles.Icons} href="https://github.com/thisisjoshford" target="_brel=" rel="noopener noreferrer"><FaGithub className={styles.Icons} /></a>
