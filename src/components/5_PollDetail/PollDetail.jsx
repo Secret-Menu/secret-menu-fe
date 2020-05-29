@@ -50,7 +50,7 @@ const PollDetail = ({ poll }) => {
   };
 
   const vote = () => {
-    if(!choice) return toast('Please choose one!');
+    if(!choice) return toast.error('Please choose one!');
     fetchVote(poll._id, choice.toString(), 1);
     setVoteCast(true);
     toast.success('Voted! Thank You!');
