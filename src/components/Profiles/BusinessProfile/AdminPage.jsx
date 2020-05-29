@@ -20,7 +20,7 @@ const AdminPage = () => {
 
   return (
     <div className={styles.BusinessDashboard}>
-      <h2>Upcoming Orders 
+      <h2>Upcoming Orders for {user?.restaurant[0]?.restaurantName}
         <Link to="/business/all-orders" className={styles.ViewAll}> View All Orders</Link>
       </h2>
       <UpcomingOrders />
