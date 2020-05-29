@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { resetCart } from '../../actions/cartActions';
+import { addUserOrder } from '../../actions/userProfileActions';
 
 const CheckoutForm = ({ cartTotal, order }) => {
   const user = useCurrentUser();
@@ -57,7 +58,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
     } else {
       dispatch(resetCart());
       sessionStorage.setItem('cart', JSON.stringify([]));
-      postOrder(order);
+      dispatch(addUserOrder(order));
       toast.success('Thank You! Your order has been placed!');
       history.push(`/user/${user._id}`);
     }
