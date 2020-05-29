@@ -5,14 +5,13 @@ import { pdxAnchor } from '../../services/map-utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllRestaurants } from '../../actions/restaurantActions';
 import { selectAllRestaurants } from '../../selectors/restaurantSelectors';
-import Search from '../Search/Search';
 
 export default function PDXMap() { 
   const dispatch = useDispatch();
   const restaurants = useSelector(selectAllRestaurants);
 
   useEffect(() => {
-    dispatch(getAllRestaurants());
+    if(!restaurants.restaurants.length) dispatch(getAllRestaurants());
   }, []);
 
   return (

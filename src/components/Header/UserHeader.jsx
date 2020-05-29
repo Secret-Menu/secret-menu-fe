@@ -5,13 +5,24 @@ import LogInSignUp from './LogInSignUp';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 import logo from '../../assets/mainLogo.png';
+import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import styles from './Header.css';
 import Search from '../Search/Search';
+import { 
+  RiShoppingCartLine, 
+  RiHomeLine, 
+  RiUserLine, 
+  RiLogoutBoxRLine, 
+  RiMapPinLine,
+  RiQuestionLine } from 'react-icons/ri';
 
 const Header = () => {
   const dispatch = useDispatch();
   const user = useCurrentUser();
+  const match = useRouteMatch('/portland/:area');
+  const area = match?.params.area ?? 'all';
+  console.log(match);
   
   const handleLogOut = () => {
     dispatch(logout());
@@ -20,25 +31,43 @@ const Header = () => {
   
   return (
     <div className={styles.Header}>
+      
       <div>
-        <img src={logo} alt="Crowd Pleaser Logo" className={styles.logo} style={{ height: '100px' }}></img>
+        <img 
+          src={logo} 
+          alt="Crowd Pleaser Logo" 
+          className={styles.logo} 
+          style={{ height: '100px' }}
+        >
+        </img>
       </div>
+
       <div className={styles.NavLinks}>
         <div>
-          <Search type="all"/>
+          <Search type={area}/>
         </div>
-        <div className={styles.LeftLinks}>
-          <Link to="/"> <p>Home</p> </Link>
-          <Link to="/portland"> <p>Restaurants</p> </Link>
-          { user && <Link to="/checkout"><p>Cart</p></Link>}
-          { user && <Link to={`/user/${user._id}`}><p> Profile </p></Link> }
+        <div className={styles.Icons}>
+          <Link to="/">
+            <RiHomeLine className={styles.Icons}/>
+          </Link>
+          <Link to="/portland">
+            <RiMapPinLine/>
+          </Link>
+          { user && <Link to={`/user/${user._id}`}><RiUserLine className={styles.Icons}/></Link> }
+          { user && 
+          <Link to="/checkout">
+            <RiShoppingCartLine className={styles.Icons}/>
+          </Link>}
+          { user &&  
+          <Link to="/"><RiLogoutBoxRLine className={styles.Icons} onClick={handleLogOut}/>
+          </Link> }
+          <Link to="/about"> <RiQuestionLine className={styles.Icons}/></Link>
+          { !user && <LogInSignUp className={styles.Icons}/>}
+          
         </div>
-        <div className={styles.RightLinks}>  
-          { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
-          { !user && <LogInSignUp />}
-          <Link to="/about"> <p className={styles.Meet}>Meet the Devs</p> </Link>
-        </div>
+    
       </div>
+
     </div>
   );
 };
