@@ -49,8 +49,8 @@ const Header = () => {
         <div className={styles.Icons}>
           <Link to="/"><RiHomeLine />  </Link>
           <Link to="/portland"><RiMapPinLine/>  </Link>
-          { user && <Link to={`/user/${user._id}`}><RiUserLine />  </Link>}
           { user && <Link to="/checkout"><RiShoppingCartLine />  </Link>}
+          { user && <Link to={`/user/${user._id}`}><RiUserLine />  </Link>}
           { user &&  <Link to="/"><RiLogoutBoxRLine onClick={handleLogOut}/>  </Link>}
           &nbsp;&nbsp;
           <Link to="/about"><RiQuestionLine className={styles.Info}/>  </Link>
