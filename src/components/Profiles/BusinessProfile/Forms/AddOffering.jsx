@@ -90,6 +90,7 @@ export default function AddOffering() {
           onChange={handleChange} 
           placeholder="Pick Up Date" 
         />
+        <label>Price (in cents):</label>
         <input 
           type="number" 
           value={price} 

@@ -15,7 +15,6 @@ const About = () => {
         <h1>About the Developers</h1>
       </section>
       <section className={styles.Cards}>
-
         <div className={styles.Card}> 
           <img src={chris} className={styles.Avatar}/>
           <h3 className={styles.Name}>Chris Ficht</h3>
@@ -27,12 +26,11 @@ const About = () => {
             <a className={styles.Icons} href="https://github.com/cficht" target="_brel=" rel="noopener noreferrer"><FaGithub className={styles.Icons} /></a>
           </div>
         </div>
-
         <div className={styles.Card}>
           <img src={jenna} className={styles.Avatar}></img>
           <h3 className={styles.Name}>Jenna Goldman</h3>
           <div className={styles.SummaryContainer}>
-            <p className={styles.Summary}>Full-stack software engineer and creative problem-solver who loves to code beautiful, well-organized applications. I draw on my nearly decade of experience as a customer-focused software project manager to aid in my quest to build better, more-informed, human-centric technologies.</p>
+            <p className={styles.Summary}>Full-stack software developer and creative problem-solver who loves to code beautiful, well-organized applications. I draw on my nearly decade of experience as a customer-focused software project manager to aid in my quest to build better, more-informed, human-centric technologies.</p>
           </div>
           <div className={styles.IconsContainer}>
             <a className={styles.Icons} href="https://www.linkedin.com/in/jennagoldman/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className={styles.Icons} /></a>

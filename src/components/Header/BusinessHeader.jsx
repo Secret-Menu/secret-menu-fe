@@ -21,7 +21,9 @@ const BusinessHeader = () => {
   
   return (
     <div className={styles.Container}>
-      <img src={logo} alt="Crowd Pleaser Logo" style={{ height: '100px' }}></img>
+      <div className={styles.LogoDiv}>
+        <img src={logo} alt="Crowd Pleaser Logo" style={{ height: '100px' }}></img>
+      </div>
       <div className={styles.ALinks}>
         <div className={styles.FuncLinks}>
           <Link to="/business"> <p className={styles.Links}>Home</p> </Link>

@@ -31,7 +31,6 @@ const Header = () => {
   
   return (
     <div className={styles.Header}>
-      
       <div>
         <img 
           src={logo} 

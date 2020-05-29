@@ -85,20 +85,6 @@ export default function AddPoll() {
           placeholder="Second Offering" 
         />
         <input 
-          type="date" 
-          value={start} 
-          name="start" 
-          onChange={handleChange} 
-          placeholder="Start date"
-        />
-        <input 
-          type="date" 
-          value={end} 
-          name="end" 
-          onChange={handleChange} 
-          placeholder="End date" 
-        />
-        <input 
           type="text" 
           value={offering1Description} 
           name="offering1Description" 
@@ -110,7 +96,7 @@ export default function AddPoll() {
           value={offering2Description} 
           name="offering2Description" 
           onChange={handleChange} 
-          placeholder="First offering description" 
+          placeholder="Second offering description" 
         />
         <input 
           type="text" 
@@ -125,6 +111,23 @@ export default function AddPoll() {
           onChange={handleChange} 
           placeholder="Second offering image url" 
         />
+        <label>Start Date</label>
+        <input 
+          type="date" 
+          value={start} 
+          name="start" 
+          onChange={handleChange} 
+          placeholder="Start date"
+        />
+        <label>End Date</label>
+        <input 
+          type="date" 
+          value={end} 
+          name="end" 
+          onChange={handleChange} 
+          placeholder="End date" 
+        />
+        <label>Status </label>
         <select 
           value={status} 
           name="status" 
