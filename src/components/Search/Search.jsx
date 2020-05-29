@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { searchAllRestaurant, searchAreaRestaurant } from '../../actions/restaurantActions';
 import PropTypes from 'prop-types';
 import { useLocation, useHistory } from 'react-router-dom';
+import { RiSearchLine } from 'react-icons/ri';
 
 const Search = ({ type }) => {
   const [name, setName] = useState('');
@@ -37,7 +38,7 @@ const Search = ({ type }) => {
           name="category" 
           onChange={handleChange} 
           placeholder="Search by category" />
-        <button>Search</button>
+        <button><RiSearchLine/></button>
       </form>
     </>
   );};

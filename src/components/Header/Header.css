@@ -13,16 +13,19 @@
 }
 
 .Icons{
+  margin-top: .3rem;
   color: rgb(0, 27, 149);
   font-size: 175%;
-
+  transition: all 0.6s ease 0s;
 
   img{
     margin-left: 2rem;
+    transition: all 0.6s ease 0s;
   }
 
   :hover {
     color:#FD7553;
+    transition: all 0.6s ease 0s;
   }
 
   :visited {
@@ -39,16 +42,38 @@
 
 .Search{
   input{
+    margin-top: .5rem;
     border: 2px solid color navy;
     font-size: large;
     height: 20px;
-    margin-left: 1rem;
+    margin-left: .5rem;
   }
 
   button{
+    border: solid 1px navy;
+    background-color: rgb(212, 226, 255);
+    border-radius: 30%;
+    color: navy;
+    font-size: 15px;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+    margin-left: .3rem;
     width: 30px;
-    height: 20px;
+    height: 23px;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    outline: none;
+    padding-top: 2px;
+  }
+  button:hover{
+    background-color: #FD7553;
+    color: white;
+    outline: none;
+  }
 
+  button:active{
+    transform: translateY(3px);
+    outline: none;
   }
 }
 
@@ -59,6 +84,7 @@
   align-items: center;
   font-weight: bold;
   background-color: #9BDAFD;
+  
   img{
     width: 100px;
     height: 100px;
