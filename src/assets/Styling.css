@@ -1,7 +1,7 @@
 .Form{
   align-items: center;
-  background-color: rgb(95, 95, 95);
-  color: white;
+  background-color: grey;
+  color:navy;
   box-sizing: border-box;
   width: 300px;
   margin:0px auto;
