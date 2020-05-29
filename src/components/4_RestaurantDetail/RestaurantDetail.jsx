@@ -135,7 +135,7 @@ export default function RestaurantDetail() {
               <span>{restaurant.address ? restaurant.address.zipcode : ''}</span>
             </li>
           </ul>
-          <p>{`${restaurant.description} and there could be a much longer description here to fill out more space and make the top half of the page feel like it has more content. Words words words, words are great, you can never have enough of them! `}</p>
+          <p>{restaurant.description}}</p>
         </div>
         <div className={styles.Map}>
           {conditionalMap()}
