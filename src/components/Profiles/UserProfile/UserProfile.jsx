@@ -90,30 +90,30 @@ export default function UserProfile() {
       <h2>{user ? `${user.firstName} ${user.lastName}'s Profile` : 'Loading'}</h2>
       <div className={styles.Orders}>
         <div>
-          <h2>Upcoming Orders</h2>
+          <h3>Upcoming Orders</h3>
           <ul className={styles.OrdersList}>
             {upcomingOrderNodes.length > 0 ? upcomingOrderNodes : 'No upcoming orders'}
           </ul>          
-          <h2>Previous Orders</h2>
+          <h3>Previous Orders</h3>
           <ul className={styles.OrdersList}>
             {previousOrderNodes.length > 0 ? previousOrderNodes : 'No previous orders'}
           </ul>
         </div>
         <div>
-          <h2>Order Calendar</h2>
+          <h3>Order Calendar</h3>
           <OrderCalendar orders={allOrders}/>
         </div>
       </div>
       <div className={styles.Favorites}>
-        <h2>Favorite Restaurants</h2>
+        <h3>Favorite Restaurants</h3>
         <RestaurantList restaurants={favoriteMunge}/>
       </div>
       <div className={styles.Polls}>
-        <h2>Upcoming Polls</h2>
+        <h3>Upcoming Polls</h3>
         <ul className={styles.PollsList}>
           {upcomingPollNodes}
         </ul>  
-        <h2>Previous Polls</h2>
+        <h3>Previous Polls</h3>
         <ul className={styles.PollsList}>
           {previousPollNodes}
         </ul> 
