@@ -1,3 +1,6 @@
+a{
+  cursor: pointer;
+}
 .UserProfile {
   display: flex;
   flex-direction: column;
