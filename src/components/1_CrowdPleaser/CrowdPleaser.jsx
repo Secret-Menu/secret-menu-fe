@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCurrentUser } from '../../hooks/authHooks';
 import { Link } from 'react-router-dom';
 import styles from './CrowdPleaser.css';
+import { useDispatch } from 'react-redux';
+import { getAllRestaurants } from '../../actions/restaurantActions';
 
 export default function CrowdPleaser() {
   const user = useCurrentUser();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllRestaurants());
+  }, []);
+
   return (
     <div>
       <div className={styles.jumbotron}>
