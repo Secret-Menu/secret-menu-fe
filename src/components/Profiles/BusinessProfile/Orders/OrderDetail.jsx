@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { markOrderClosed } from '../../../../actions/businessActions';
+import { convertToDollars } from '../../../../services/money';
 
 const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id, offeringId }) => {
   const dispatch = useDispatch();
-
-  const dollars = orderTotal / 100;
-  const formattedTotal = dollars.toFixed(2);
 
   const handleOrderClose = (_id, offeringId) => {
     dispatch(markOrderClosed(_id, offeringId));
@@ -19,7 +17,7 @@ const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id,
       <td>{`${user.firstName} ${user.lastName}`}</td>
       <td>{orderNumber}</td>
       <td>{offering.pickUpDate}</td>
-      <td>{`$${formattedTotal}`}</td>
+      <td>{convertToDollars(orderTotal)}</td>
       <td><button onClick={() => handleOrderClose(_id, offeringId)}>Mark Complete</button></td>
     </>
   );
