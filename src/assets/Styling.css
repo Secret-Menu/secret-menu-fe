@@ -9,6 +9,7 @@
   padding: 1rem;
   box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   font-family: 'Quicksand', sans-serif;
+  position: relative; top: 1rem;
 
   h2{
     margin-top: 0;
