@@ -25,11 +25,14 @@
 
     .PollVotes {
       font-size: 3rem;
+      font-weight: 700;
+      color: #FFF;
+      text-shadow: 2px 2px #FD7553;
     }
 
     p {
       font-size: 0.70rem;
-      padding: 0 0.5rem;
+      padding: 0 0.2rem;
       margin: 0.5rem;
     }
 

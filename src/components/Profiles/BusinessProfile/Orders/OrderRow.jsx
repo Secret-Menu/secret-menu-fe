@@ -9,11 +9,13 @@ const OrderRow = ({  orderNumber, orderTotal, orderStatus, user, _id }) => {
     history.push(`/business/order/${_id}`);
   };
 
+  const dollars = orderTotal / 100;
+  const formattedTotal = dollars.toFixed(2);
+
   return (
     <tr onClick={handleClick}>
       <td>{orderNumber}</td>
-      <td>{orderTotal}</td>
-      <td>{orderStatus}</td>
+      <td>{`$${formattedTotal}`}</td>
       <td>{`${user.firstName} ${user.lastName}`}</td>
     </tr>
   );

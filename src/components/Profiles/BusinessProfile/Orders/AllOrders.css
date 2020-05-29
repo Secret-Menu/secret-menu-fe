@@ -1,0 +1,36 @@
+.OrdersHeading {
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    color: #FD7553;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+}
+
+.OrdersTable {
+  width: 50rem;
+  margin: 3rem auto;
+  text-align: center;
+
+  th {
+    margin-top: 4rem;
+    color: #000;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  tbody {
+    border: 1px solid black!important;
+    cursor: pointer;
+  }
+
+  td {
+    font-size: 0.9rem;
+  }
+}

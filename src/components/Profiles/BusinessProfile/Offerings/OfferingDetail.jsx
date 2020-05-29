@@ -5,14 +5,16 @@ import styles from './OfferingDetail.css';
 
 const OfferingDetail = ({ imageUrl, dishName, description, price }) => {
   const user = useCurrentUser();
+  const dollars = (price / 100).toFixed(2);
+  const formattedPrice = `$${dollars}`;
 
   return (
     <>
       <div className={styles.OfferingDetail}>
         <img src={imageUrl} alt="Offering Image" />
-        <p>{dishName}</p>
+        <p className={styles.OfferingName}>{dishName}</p>
         <p>{description}</p>
-        <p>{price}</p>
+        <p>{formattedPrice}</p>
       </div>
     </>
   );

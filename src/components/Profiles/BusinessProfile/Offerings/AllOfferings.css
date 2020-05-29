@@ -1,6 +1,4 @@
-.BusinessDashboard {
-  text-align: center;
-
+.AllOfferings {
   h2 {
     margin-top: 4rem;
     margin-bottom: 0.5rem;
@@ -13,12 +11,17 @@
     text-shadow: 2px 2px #000;
   }
 
-  .ViewAll {
-    text-decoration: none;
-    text-align: center;
-    font-size: 0.7rem;
-    color: #000;
-    text-shadow: none;
-    padding-left: 1rem;
+  .OfferingsList {
+    list-style: none;
+    display: flex;
+
+    .OfferingItem {
+      width: 25rem;
+      text-align: center;
+
+      img {
+        width: 100%;
+      }
+    }
   }
 }
