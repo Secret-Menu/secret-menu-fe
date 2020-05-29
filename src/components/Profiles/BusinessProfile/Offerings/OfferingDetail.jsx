@@ -5,6 +5,8 @@ import styles from './OfferingDetail.css';
 
 const OfferingDetail = ({ imageUrl, dishName, description, price }) => {
   const user = useCurrentUser();
+  const dollars = (price / 100).toFixed(2);
+  const formattedPrice = `$${dollars}`;
 
   return (
     <>
