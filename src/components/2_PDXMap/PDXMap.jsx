@@ -20,7 +20,6 @@ export default function PDXMap() {
       <div style={{ height: '60vh', width: '100%', margin: '0 auto' }}>
         <Map center={pdxAnchor.center} zoom={pdxAnchor.zoom} markers={restaurants}/>
       </div>
-      <Search type="all"/>
       <PDXQuadrants restaurants={restaurants} />
     </div>
   );
