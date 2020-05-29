@@ -62,7 +62,7 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
             ? <>
               <label>Quantity</label>
               <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
-              <button onClick={() => handleAddToCart(lineItem)}>{addOrUpdateCart()}</button> 
+              <button onClick={() => handleAddToCart(lineItem)} className={styles.CartButton}>{addOrUpdateCart()}</button> 
             </>
             : <button disabled="true">Sold Out!</button>
           }
