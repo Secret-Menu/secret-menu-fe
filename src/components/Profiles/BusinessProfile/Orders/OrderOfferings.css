@@ -1,0 +1,9 @@
+.Order {
+  width: 400px;
+  margin: 5rem auto;
+
+  .bold {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
+  }
+}

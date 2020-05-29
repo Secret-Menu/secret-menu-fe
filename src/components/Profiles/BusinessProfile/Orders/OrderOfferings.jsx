@@ -5,6 +5,9 @@ import { selectOrderOfferings, selectOrderFromOffering } from '../../../../selec
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import { useParams } from 'react-router-dom';
 import { setBusinessOrders } from '../../../../actions/businessActions';
+import { dateConversion } from '../../../../services/money';
+import styles from './OrderOfferings.css';
+
 
 
 const OrderOfferings = () => {
@@ -13,7 +16,6 @@ const OrderOfferings = () => {
   const { orderId } = useParams();
   const offerings = useSelector(state => selectOrderOfferings(state, orderId));
   const order = useSelector(state => selectOrderFromOffering(state, orderId));
-  console.log(order);
 
   useEffect(() => {
     if(user) dispatch(setBusinessOrders(user?.restaurant[0]._id));
@@ -27,20 +29,15 @@ const OrderOfferings = () => {
     </li>
   )); 
 
-  const dateConversion = (oldDate) => {
-    const dateToConvert = new Date(oldDate);
-    return dateToConvert.toLocaleDateString(undefined);
-  };
-
   return (
-    <>
-      <p>Order Number: {order?.orderNumber}</p>
-      <p>Offerings: </p>
+    <div className={styles.Order}>
+      <p><span className={styles.bold}>Order Number: </span> {order?.orderNumber}</p>
+      <p><span className={styles.bold}>Offerings: </span></p>
       <ul>{offeringNodesToList}</ul>
-      <p>Customer Name: {`${order?.user.firstName} ${order?.user.lastName}`}</p>
-      <p>Placed On: {dateConversion(order?.created_at)}</p>
-      <p>Order Total: {`$${order?.orderTotal / 100}`}</p>
-    </>
+      <p><span className={styles.bold}>Customer Name: </span>{`${order?.user.firstName} ${order?.user.lastName}`}</p>
+      <p><span className={styles.bold}>Placed On: </span>{dateConversion(order?.created_at)}</p>
+      <p><span className={styles.bold}>Order Total: </span>{`$${order?.orderTotal / 100}`}</p>
+    </div>
   );
 };
 OrderOfferings.propTypes = {

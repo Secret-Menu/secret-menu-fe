@@ -8,8 +8,8 @@ import RestaurantList from '../../3_Quadrant/RestaurantList';
 export default function UserProfile() {
   const { user, allOrders, upcomingOrders, previousOrders, favorites, upcomingPolls, previousPolls } = useUserProfile();
 
-  const upcomingOrderNodes = upcomingOrders.map(order => <UserProfileDetail key={order.date} order={order}/>);
-  const previousOrderNodes = previousOrders.map(order => <UserProfileDetail key={order.date} order={order}/>);
+  const upcomingOrderNodes = upcomingOrders.map(order => <UserProfileDetail key={order._id} order={order}/>);
+  const previousOrderNodes = previousOrders.map(order => <UserProfileDetail key={order._id} order={order}/>);
 
   // NEW COMPONENT?
   const upcomingPollNodes = upcomingPolls.map(poll => {

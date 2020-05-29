@@ -1,5 +1,6 @@
 .OfferingsList {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   list-style: none;
   margin-block-start: 0;

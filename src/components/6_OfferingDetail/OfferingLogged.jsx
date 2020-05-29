@@ -15,13 +15,13 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
   useEffect(() => {
     const storedCart = JSON.parse(sessionStorage.getItem('cart'));
     if(!storedCart) sessionStorage.setItem('cart', JSON.stringify(cart));
-    dispatch(loadCart(storedCart));
+    else dispatch(loadCart(storedCart));
   }, []);
 
   useEffect(() => {
     const newCart = sessionStorage.setItem('cart', JSON.stringify(cart));
     if(!newCart) return;
-    dispatch(loadCart(newCart));
+    else dispatch(loadCart(newCart));
   }, [cart]);
   
   const isLogged = () => {
@@ -62,7 +62,7 @@ const OfferingLogged = ({ offering, restaurant, closeModal }) => {
             ? <>
               <label>Quantity</label>
               <input type="number" min="1" max={offering.numRemaining} step="1" value={quantity} onChange={handleChange} />
-              <button onClick={() => handleAddToCart(lineItem)}>{addOrUpdateCart()}</button> 
+              <button onClick={() => handleAddToCart(lineItem)} className={styles.CartButton}>{addOrUpdateCart()}</button> 
             </>
             : <button disabled="true">Sold Out!</button>
           }
