@@ -7,6 +7,7 @@ import { logout } from '../../actions/authActions';
 import logo from '../../assets/mainLogo.png';
 import { toast } from 'react-toastify';
 import styles from './BHeader.css';
+import { FaInfoCircle } from 'react-icons/fa';
 
 const BusinessHeader = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const BusinessHeader = () => {
         <div className={styles.LoginContainer}>
           { user &&  <Link to="/"><button className={styles.Login} onClick={handleLogOut}>Log Out</button> </Link> }
           { !user && <LogInSignUp />}
-          <Link to="/about"> <p className={styles.Meet}>Meet the Devs</p> </Link>
+          <Link to="/about"><FaInfoCircle className={styles.InfoIcon} /></Link>
         </div>
       </div>
     </div>
