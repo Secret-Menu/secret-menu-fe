@@ -10,9 +10,9 @@ const OfferingDetail = ({ imageUrl, dishName, description, price }) => {
     <>
       <div className={styles.OfferingDetail}>
         <img src={imageUrl} alt="Offering Image" />
-        <p>{dishName}</p>
+        <p className={styles.OfferingName}>{dishName}</p>
         <p>{description}</p>
-        <p>{price}</p>
+        <p>{formattedPrice}</p>
       </div>
     </>
   );
