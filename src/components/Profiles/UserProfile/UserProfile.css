@@ -1,6 +1,14 @@
 a{
   cursor: pointer;
+  :hover{
+    color: orange;
+  }
 }
+a:hover{
+  color: #F97553;
+}
+
+
 .UserProfile {
   display: flex;
   flex-direction: column;
