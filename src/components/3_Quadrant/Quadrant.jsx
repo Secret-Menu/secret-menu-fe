@@ -9,7 +9,6 @@ import RestaurantList from './RestaurantList';
 import PollCarousel from '../5_PollDetail/PollCarousel';
 import QuadrantDescription from './QuadrantDescription';
 import styles from './Quadrant.css';
-import Search from '../Search/Search';
 
 export default function Quadrant(){
   const dispatch = useDispatch();
