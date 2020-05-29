@@ -7,13 +7,11 @@ import { getFormattedDate } from '../../../../services/date';
 
 const OrderDetail = ({ orderNumber, created_at, orderTotal, user, offering, _id, offeringId }) => {
   const dispatch = useDispatch();
-
+  const dollars = orderTotal / 100;
+  
   const handleOrderClose = (_id, offeringId) => {
     dispatch(markOrderClosed(_id, offeringId));
   };
-
-
-
 
   return (
     <>
