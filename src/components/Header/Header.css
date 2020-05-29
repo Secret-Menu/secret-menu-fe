@@ -91,8 +91,8 @@
 .NavLinks {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   font-weight: bold;
   background-color: #9BDAFD;
   
@@ -105,6 +105,7 @@
     color: black;
     text-decoration: none;
   }
+
   a {
     text-decoration: none;
   }
@@ -117,6 +118,12 @@
     color: black;
     text-decoration: none;
   }
+}
+
+.Links{
+  display: flex;
+  float: right;
+  margin: 5px;
 }
 
 .LeftLinks {
@@ -137,17 +144,23 @@
   right: 2rem;
 }
 
-.Login {
-  border-radius: 2rem;
-  border: 1rem #FD7553;
-  padding: 0.5rem;
-  cursor: pointer;
-  background-color: #FD7553;
-  color: black;
-  &:hover {
+.SignUp{
+  display: flex;
+  flex-direction: column;
+  button{
+    margin: 0;
+    margin-left: 20px;
+    width: 55px;
+    height: 20px;
+    font-size: 12px;
+    transition: all 0.3s ease 0s;
+  }
+  button:hover{
+    transition: all 0.3s ease 0s;
     background-color: white;
-    }
-}
-.Meet {
-  font-size: 1.3em;
+  }
+  button:active{
+    transform: translateY(1.5px);
+    outline: none;
+  }
 }

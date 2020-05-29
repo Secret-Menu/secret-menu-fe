@@ -44,15 +44,19 @@ const Header = () => {
         <div className={styles.Search}>
           <Search type={area}/>
         </div>
-        <div className={styles.Icons}>
-          <Link to="/"><RiHomeLine />  </Link>
-          <Link to="/portland"><RiMapPinLine/>  </Link>
-          { user && <Link to="/checkout"><RiShoppingCartLine />  </Link>}
-          { user && <Link to={`/user/${user._id}`}><RiUserLine />  </Link>}
-          { user &&  <Link to="/"><RiLogoutBoxRLine onClick={handleLogOut}/>  </Link>}
+        <div className={styles.Links}>
+          <div className={styles.Icons}>
+            <Link to="/"><RiHomeLine />  </Link>
+            <Link to="/portland"><RiMapPinLine/>  </Link>
+            { user && <Link to="/checkout"><RiShoppingCartLine />  </Link>}
+            { user && <Link to={`/user/${user._id}`}><RiUserLine />  </Link>}
+            { user &&  <Link to="/"><RiLogoutBoxRLine onClick={handleLogOut}/>  </Link>}
           &nbsp;&nbsp;
-          <Link to="/about"><RiQuestionLine className={styles.Info}/>  </Link>
-          { !user && <LogInSignUp />}
+            <Link to="/about"><RiQuestionLine className={styles.Info}/>  </Link>
+          </div>
+          <div className={styles.SignUp}>
+            { !user && <LogInSignUp />}
+          </div>
         </div>
       </div>
 

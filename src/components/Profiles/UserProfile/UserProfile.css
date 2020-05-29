@@ -1,13 +1,13 @@
 a{
   cursor: pointer;
   :hover{
-    color: orange;
+    color: #F97553;
   }
 }
+
 a:hover{
   color: #F97553;
 }
-
 
 .UserProfile {
   display: flex;
