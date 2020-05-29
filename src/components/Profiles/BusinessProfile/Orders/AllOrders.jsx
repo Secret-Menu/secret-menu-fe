@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setBusinessOrders } from '../../../../actions/businessActions';
 import { useCurrentUser } from '../../../../hooks/authHooks';
 import { selectOrders } from '../../../../selectors/businessSelectors';
+import styles from './AllOrders.css';
 
 const AllOrders = () => {
   const user = useCurrentUser();
@@ -18,19 +19,21 @@ const AllOrders = () => {
     <OrderRow {...order} key={order._id}/>
   ));
   return (
-    <table>
-      <thead>
-        <tr>   
-          <th>Order #</th>
-          <th>Order Total</th>
-          <th>Status</th>
-          <th>Customer Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        {orderRows}
-      </tbody>
-    </table>
+    <>
+      <h2 className={styles.OrdersHeading}>Order History</h2>
+      <table className={styles.OrdersTable}>
+        <thead>
+          <tr>   
+            <th>Order #</th>
+            <th>Order Total</th>
+            <th>Customer Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orderRows}
+        </tbody>
+      </table>
+    </>
   );
 };
 

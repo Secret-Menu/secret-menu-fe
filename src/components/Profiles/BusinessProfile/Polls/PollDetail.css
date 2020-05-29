@@ -25,6 +25,9 @@
 
     .PollVotes {
       font-size: 3rem;
+      font-weight: 700;
+      color: #FFF;
+      text-shadow: 2px 2px tomato;
     }
 
     p {
