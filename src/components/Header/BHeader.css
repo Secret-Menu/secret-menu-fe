@@ -1,19 +1,14 @@
 .Container {
-  display: flex;
-  flex-direction: row;
   background-color: white;
-  display: inline;
-  font-family: ‘Cabin’, sans-serif;
+
+  .LogoDiv {
+    width: 100px;
+    margin: 0 auto;
+  }
+
   button:hover {
     background-color: white;
     }
-
-  .logo {
-    margin: 0 auto;
-    width: 100px;
-    text-align: center;
-    display: block;
-  }
 }
 
 .ALinks {

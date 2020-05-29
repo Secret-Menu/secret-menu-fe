@@ -6,12 +6,10 @@
 }
 
 .Title {
-  display: flex;
   font-family: 'Cabin', sans-serif;
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  text-shadow: 2px 2px #000;
   justify-content: center;
 }
 
@@ -27,8 +25,6 @@
 }
 
 .Card {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: #FD7553;
   margin: 1rem;
@@ -68,7 +64,6 @@
   padding: 0.5rem;
   border-radius: 0.3rem;
   color: white;
-  overflow: scroll;
 }
 
 .IconsContainer {
