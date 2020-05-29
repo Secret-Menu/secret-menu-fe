@@ -1,11 +1,12 @@
 .NoCart {
-  width: 40%;
+  width: 45%;
   margin: 10rem auto;
   padding: 2rem;
-  background: #FD7553;
   text-align: center;
 
   a {
+    color: #FD7553;
     text-decoration: none;
+    
   }
 }

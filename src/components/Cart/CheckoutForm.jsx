@@ -77,7 +77,7 @@ const CheckoutForm = ({ cartTotal, order }) => {
   return (
     <section className={styles.StripeForm}>
       <form onSubmit={() => handleSubmit(event, order)}>
-        <h2>Payment</h2>
+        <h2>Payment Details</h2>
         <input type="text" value={nameOnCard} onChange={handleChange} placeholder="Name on card" />
         <CardElement onChange={handleCardChange} />
         <button type="submit" disabled={!stripe}>Submit Payment</button>
