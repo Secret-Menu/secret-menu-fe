@@ -105,12 +105,20 @@
   }
 
   .RestaurantMain {
+    margin: 2rem 0 4rem 0;
     text-align: center;
     font-family: 'Cabin';
 
     h2 {
+      margin-top: 1rem;
       color: #FFF;
-      text-shadow: 2px 2px #000;
+      font-family: 'Cabin', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-shadow: 2px 2px #58bdf3;
     }
 
     ul {
