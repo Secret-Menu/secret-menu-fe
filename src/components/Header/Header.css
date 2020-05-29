@@ -60,10 +60,10 @@
   }
 
   button{
-    border: solid 1px navy;
-    background-color: rgb(212, 226, 255);
+    border: none;
+    background-color: #FD7553;
     border-radius: 30%;
-    color: navy;
+    color: #FFF;
     font-size: 15px;
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;

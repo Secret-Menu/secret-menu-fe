@@ -32,13 +32,13 @@ const Search = ({ type }) => {
           value={name} 
           name="name" 
           onChange={handleChange} 
-          placeholder="search by name" />
+          placeholder="Search by name" />
         <input type="text" 
           value={category} 
           name="category" 
           onChange={handleChange} 
-          placeholder="search by category" />
-        <button><RiSearchLine/></button>
+          placeholder="Search by category" />
+        <button><RiSearchLine /></button>
       </form>
     </>
   );};
