@@ -7,9 +7,12 @@
 
 .Title {
   display: flex;
-  font-family: ‘Cabin’, sans-serif;
+  font-family: 'Cabin', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #000;
   justify-content: center;
-  background-color: #9BDAFD;
 }
 
 .Cards {
@@ -20,49 +23,63 @@
   height: 45rem;
   margin: 0 auto;
   padding: 1rem 0.5rem;
+  height: auto;
 }
 
 .Card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #FD7553;
-  list-style: none;
-  margin: 2rem;
+  margin: 1rem;
   padding: 0.5rem 1rem 1rem 1rem;
-  width: 45%;
+  width: 100%;
+  height: auto;
   border: solid 0.2rem #9BDAFD;
   border-radius: 0.3rem;
-  img {
-    height: auto;
-    width: 90%;
-    border-radius: 0.3rem;
-    border: 1.5px solid #9BDAFD;
-  }
+}
+
+.Avatar {
+  height: 20vh;
+  width: 20vh;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  border: 1.5px solid #9BDAFD;
 }
 
 .Name {
   font-family: ‘Cabin’, sans-serif;
   color: whitesmoke;
   text-shadow: rgb(33, 104, 142) 1px 1px 1px;
-  
+  text-transform: uppercase;
 }
 
 .SummaryContainer {
+  display: flex;
+  flex-direction: row;
   background-color: rgba(247, 169, 149, 0.769);
-  height: 50%;
+  height: 30vh;
   border: 1.5px solid rgba(155, 219, 253, 0.502);
 }
 
 .Summary {
+  display: flex;
   font-family: ‘Cabin’, sans-serif;
   padding: 0.5rem;
-  height: 45%;
   border-radius: 0.3rem;
-  
+  color: white;
+  overflow: scroll;
 }
+
+.IconsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 .Icons {
-  display: inline-block;
   padding: 0.4rem;
-  bottom: -40px;
-  position: static;
   color: black;
   cursor: pointer;
   a:link {

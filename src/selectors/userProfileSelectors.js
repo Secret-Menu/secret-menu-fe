@@ -14,7 +14,8 @@ export const getUserOrders = state => {
       info: order.restaurant.restaurantName,
       date: new Date(order.offering.pickUpDate),
       orders: order.offering,
-      quantity: order.quantity
+      quantity: order.quantity,
+      _id: order._id
     }))
     .sort(function(a, b) {
       return a.date - b.date;

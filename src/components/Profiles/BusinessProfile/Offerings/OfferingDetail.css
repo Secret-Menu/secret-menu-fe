@@ -1,6 +1,13 @@
 .OfferingDetail {
   margin: 2rem;
 
+  .OfferingName {
+    color: tomato;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
   img {
     width: 100%;
     height: 200px;

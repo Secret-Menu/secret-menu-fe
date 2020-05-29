@@ -1,0 +1,27 @@
+.AllOfferings {
+  h2 {
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    color: #FD7553;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000;
+  }
+
+  .OfferingsList {
+    list-style: none;
+    display: flex;
+
+    .OfferingItem {
+      width: 25rem;
+      text-align: center;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
