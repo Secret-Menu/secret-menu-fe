@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #FD7553;
-  margin: 2rem;
+  margin: 1rem;
   padding: 0.5rem 1rem 1rem 1rem;
   width: 100%;
   height: auto;
@@ -40,8 +40,9 @@
 }
 
 .Avatar {
-  height: auto;
-  width: 90%;
+  height: 20vh;
+  width: 20vh;
+  object-fit: cover;
   border-radius: 0.3rem;
   border: 1.5px solid #9BDAFD;
 }
@@ -55,8 +56,9 @@
 
 .SummaryContainer {
   display: flex;
+  flex-direction: row;
   background-color: rgba(247, 169, 149, 0.769);
-  height: 70%;
+  height: 30vh;
   border: 1.5px solid rgba(155, 219, 253, 0.502);
 }
 
@@ -64,9 +66,9 @@
   display: flex;
   font-family: ‘Cabin’, sans-serif;
   padding: 0.5rem;
-  height: 45%;
   border-radius: 0.3rem;
   color: white;
+  overflow: scroll;
 }
 
 .IconsContainer {

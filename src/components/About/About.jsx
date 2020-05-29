@@ -32,19 +32,20 @@ const About = () => {
           <img src={jenna} className={styles.Avatar}></img>
           <h3 className={styles.Name}>Jenna Goldman</h3>
         <div className={styles.SummaryContainer}>
-          <p className={styles.Summary}>Full-stack software engineer and creative problem-solver who loves to code beautiful, well-organized applications. I draw on my nearly decade of experience as a customer-focused software project manager to aid in my quest to build better, more-informed, human-centric technologies. </p></div>
+          <p className={styles.Summary}>Full-stack software engineer and creative problem-solver who loves to code beautiful, well-organized applications. I draw on my nearly decade of experience as a customer-focused software project manager to aid in my quest to build better, more-informed, human-centric technologies.</p>
+        </div>
         <div className={styles.IconsContainer}>
-          <a className={styles.Icons} href="https://www.linkedin.com/in/jennagoldman/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className="social-icon" /></a>
-          <a className={styles.Icons} href="https://github.com/jennagoldman" target="_brel=" rel="noopener noreferrer"><FaGithub className="social-icon" /></a>
+          <a className={styles.Icons} href="https://www.linkedin.com/in/jennagoldman/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className={styles.Icons} /></a>
+          <a className={styles.Icons} href="https://github.com/jennagoldman" target="_brel=" rel="noopener noreferrer"><FaGithub className={styles.Icons} /></a>
         </div>
         </div>
         
         <div className={styles.Card} >
           <img src={hannah} className={styles.Avatar}></img>
           <h3 className={styles.Name}>Hannah Riley</h3>
-          <div className={styles.SummaryContainer}>
+        <div className={styles.SummaryContainer}>
           <p className={styles.Summary}>Full-stack developer with a particular passion for solving human-facing problems. I thrive in environments where collaboration is key to building elegant and clean projects. I strongly value companies that support career growth and professional development.</p></div>
-          <div className={styles.IconsContainer}>
+        <div className={styles.IconsContainer}>
           <a className={styles.Icons} href="https://www.linkedin.com/in/hannah-m-riley/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className={styles.Icons} /></a>
           <a className={styles.Icons} href="https://github.com/hannahriley33" target="_brel=" rel="noopener noreferrer"><FaGithub className={styles.Icons} /></a>
         </div>
@@ -53,7 +54,7 @@ const About = () => {
           <img src={josh} className={styles.Avatar}></img>
           <h3 className={styles.Name}>Josh Ford</h3>
           <div className={styles.SummaryContainer}>
-          <p className={styles.Summary}>17 year IT veteran who made a big leap into the underground glass art world. Solitary studio environment work drained some of my creative juices and left me wanting more in terms of collaboration. I made another leap of faith back into the tech world, though this time in a more stimulating and challenging role.   </p></div>
+          <p className={styles.Summary}>17 year IT veteran who made a big leap into the underground glass art world. Solitary studio environment work drained some of my creative juices and left me wanting more in terms of collaboration. I made another leap of faith back into the tech world, though this time in a more stimulating and challenging role.  </p></div>
         <div className={styles.IconsContainer}>
           <a className={styles.Icons} href="https://www.linkedin.com/in/thisisjoshford/" target="_brel=" rel="noopener noreferrer"><FaLinkedinIn className={styles.Icons} /></a>
           <a className={styles.Icons} href="https://github.com/thisisjoshford" target="_brel=" rel="noopener noreferrer"><FaGithub className={styles.Icons} /></a>
