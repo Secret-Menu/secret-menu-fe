@@ -134,7 +134,7 @@ export default function RestaurantDetail() {
               <span>{restaurant.address ? restaurant.address.zipcode : ''}</span>
             </li>
           </ul>
-          <p>{restaurant.description}}</p>
+          <p>{restaurant.description}</p>
         </div>
         <div className={styles.Map}>
           {conditionalMap()}
