@@ -33,7 +33,6 @@
   p:hover {
     color: #FD7553;
     font-weight: bold;
-    text-decoration: underline;
     text-decoration-color: #FD7553;
   }
   p:visited {
