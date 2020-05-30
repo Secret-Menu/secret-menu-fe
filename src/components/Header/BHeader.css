@@ -80,8 +80,8 @@
   width: 5rem;
   background-color: #FD7553;
   color: #FFF;
-  border-radius: 2rem;
-  border: 1rem #FD7553;
+  border: 0;
+  border-radius: .33rem;
   font-size: 0.85rem;
   cursor: pointer;
 
