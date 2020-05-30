@@ -74,13 +74,12 @@
     color: white;
     margin-top: rem;
     display: block;
-    transform: translateY(1px);
     cursor: pointer;
     outline: none;
   }
 
   button:active {
-    transform: translateY(3px);
+    transform: translateY(1px);
     outline: none;
   }
 }
