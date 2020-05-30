@@ -135,15 +135,6 @@
   color: black;
 }
 
-.RightLinks {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  font-size: 0.6em;
-  font-weight: bold;
-  align-items: center;
-  right: 2rem;
-}
 
 .SignUp{
   display: flex;

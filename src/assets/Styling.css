@@ -86,7 +86,7 @@
 
 .UserChoice{
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   font-weight: bolder;
 
   label{
