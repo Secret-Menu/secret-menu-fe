@@ -151,12 +151,14 @@
     transition: all 0.3s ease 0s;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
   }
+
   button:hover{
     transition: all 0.3s ease 0s;
     color: white;
     background-color: rgb(0, 27, 149);
 
   }
+
   button:active{
     transform: translateY(1.5px);
     outline: none;
