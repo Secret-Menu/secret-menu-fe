@@ -51,12 +51,13 @@
   input{
     -webkit-appearance: none;
     margin-top: .5rem;
-    border: 0px;
     font-size: 17px;
     height: 20px;
     margin-left: .5rem;
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    border-style:solid;
+    border: 0px;
+
+
   }
 
   button{

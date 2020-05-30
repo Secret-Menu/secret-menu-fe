@@ -19,7 +19,7 @@
     margin-top: 0;
     font-size: x-large;
     text-align: center;
-    text-shadow: grey;
+    text-shadow: 2px 2px 5px black;
   }
 
   select{
@@ -39,13 +39,15 @@
   }
 
   input{
-    border: solid 1px grey;
-    height: 1rem;
+    border: 0px;
+    height: 1.2rem;
     margin-top: .5rem;
     margin-bottom: .5rem;
     width: 100%;
     display: flex;
     align-items: center;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
   }
 
   textarea{
@@ -68,7 +70,7 @@
   }
 
   button:hover {
-    background-color: rgba(104, 214, 0, 0.794);
+    background-color: navy;
     color: white;
     margin-top: rem;
     display: block;
