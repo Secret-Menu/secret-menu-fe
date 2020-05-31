@@ -26,6 +26,8 @@ const PollDetail = ({ poll }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const user = useCurrentUser();
   let subtitle;
+  let countOut;
+  let countInterval;
 
   useEffect(() => {
     dateConversion(poll);
@@ -35,10 +37,16 @@ const PollDetail = ({ poll }) => {
       });
     }
   }, []);
+
+  useEffect(() => {
+    return () =>  { 
+      clearTimeout(countOut); 
+      clearInterval(countInterval);
+    };
+  }, []);
   
   const openModal = () => {
     setIsOpen(true);
-    setInterval(dateConversion(poll), 1000);
   };
  
   const afterOpenModal = () => {
@@ -66,7 +74,7 @@ const PollDetail = ({ poll }) => {
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
     const timeRemaining = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds remaining`;
     setCount(timeRemaining);
-    setTimeout(() => dateConversion(poll), 1000);
+    countOut = setTimeout(() => dateConversion(poll), 1000);
   };
 
   const isLogged = () => {
