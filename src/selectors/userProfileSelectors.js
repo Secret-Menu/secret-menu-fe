@@ -1,6 +1,6 @@
 export const getUserOrders = state => { 
   return state.userProfile.userOrders.map(order => {
-    if(!order.offering) return;
+    if(!order.offering) return [];
     return order.offering.map(offering => ({
       ...offering,
       restaurant: order.restaurant,
@@ -11,8 +11,8 @@ export const getUserOrders = state => {
     }));
   }).flat()
     .map(order => ({
-      info: order.restaurant.restaurantName,
-      date: new Date(order.offering.pickUpDate),
+      info: order?.restaurant.restaurantName,
+      date: new Date(order?.offering.pickUpDate),
       orders: order.offering,
       quantity: order.quantity,
       _id: order._id
